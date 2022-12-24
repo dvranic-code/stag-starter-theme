@@ -1,0 +1,10 @@
+// import first default _s theme style
+@import './s';
+// general style and settings
+@import './variables';
+@import './general';
+// componets
+@import './components/header';
+@import './components/footer';
+
+// blocks

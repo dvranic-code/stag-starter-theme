@@ -1,0 +1,14 @@
+{
+    "name": "acf/block-template",
+    "title": "Block Template",
+    "description": "Block Template",
+    "style": ["stag-theme-styles"],
+    "script": ["stag-theme-scripts"],
+    "category": "formatting",
+    "icon": "art",
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "block-template.php"
+    },
+    "align": "full"
+}

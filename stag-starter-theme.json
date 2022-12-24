@@ -1,0 +1,10 @@
+{
+  "name" : "studio-agnis-starter-theme",
+  "slug" : "studio-agnis-starter-theme",
+  "details_url": "",
+  "version" : "1.0",
+  "author" : "Dejan Rudic Vranic",
+  "sections" : {
+    "description" : "The first version of Studio Agnis Starter Theme"
+  }
+}
