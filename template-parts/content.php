@@ -7,7 +7,7 @@
  * @package _s
  */
 
-use stagTheme\ThemeSettings\TemplateTags;
+use pacvueTheme\ThemeSettings\TemplateTags;
  
 ?>
 
@@ -24,14 +24,14 @@ use stagTheme\ThemeSettings\TemplateTags;
 			?>
 			<div class="entry-meta">
 				<?php
-				TemplateTags::stag_posted_on();
-				TemplateTags::stag_posted_by();
+				TemplateTags::pacvue_posted_on();
+				TemplateTags::pacvue_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php TemplateTags::stag_post_thumbnail(); ?>
+	<?php TemplateTags::pacvue_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -60,6 +60,6 @@ use stagTheme\ThemeSettings\TemplateTags;
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php TemplateTags::stag_entry_footer(); ?>
+		<?php TemplateTags::pacvue_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

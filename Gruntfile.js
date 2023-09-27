@@ -81,8 +81,7 @@ module.exports = function (grunt) {
     browserify: {
       dev: {
         src: [
-          "assets/public/src/js/default.js",
-          "assets/public/src/js/ajax.js",
+          "assets/public/src/js/**/*.js"
         ],
         dest: "assets/public/dist/js/theme.min.js",
         options: {
@@ -110,8 +109,7 @@ module.exports = function (grunt) {
       },
       prod: {
         src: [
-          "assets/public/src/js/default.js",
-          "assets/public/src/js/ajax.js",
+          "assets/public/src/js/**/*.js"
         ],
         dest: "assets/public/dist/js/theme.min.js",
         options: {
