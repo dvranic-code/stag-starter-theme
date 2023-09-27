@@ -1,6 +1,6 @@
 <?php 
 
-namespace stagTheme\Traits;
+namespace pacvueTheme\Traits;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

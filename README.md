@@ -1,6 +1,6 @@
-# studio-agnis Starter Theme
+# Pacvue Theme
 
-The first version of studio-agnis's starter Wordpress theme based on [underscores] theme.
+The first version of Pacvue Wordpress theme based on [underscores] theme.
 
 ## Compiling
 

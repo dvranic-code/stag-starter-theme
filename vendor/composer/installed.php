@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a71aafc48f8714b70dde7054039dd10ef734b298',
-        'name' => 'studio-agnis/studio-agnis-starter-theme',
+        'reference' => 'f23cb94e7a1c67c8bab9e03e20e188605cf9ce79',
+        'name' => 'pacvue/pacvue-theme',
         'dev' => true,
     ),
     'versions' => array(
-        'studio-agnis/studio-agnis-starter-theme' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+        'pacvue/pacvue-theme' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a71aafc48f8714b70dde7054039dd10ef734b298',
+            'reference' => 'f23cb94e7a1c67c8bab9e03e20e188605cf9ce79',
             'dev_requirement' => false,
         ),
     ),

@@ -1,6 +1,6 @@
 <?php 
 
-namespace stagTheme\ThemeSettings;
+namespace pacvueTheme\ThemeSettings;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -9,7 +9,7 @@ class TemplateTags
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	public static function stag_posted_on() 
+	public static function pacvue_posted_on() 
     {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -37,7 +37,7 @@ class TemplateTags
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
-	public static function stag_posted_by() 
+	public static function pacvue_posted_by() 
     {
 		$byline = sprintf(
 			/* translators: %s: post author. */
@@ -52,7 +52,7 @@ class TemplateTags
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	public static function stag_entry_footer() 
+	public static function pacvue_entry_footer() 
     {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
@@ -114,7 +114,7 @@ class TemplateTags
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	public static function stag_post_thumbnail() 
+	public static function pacvue_post_thumbnail() 
     {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
