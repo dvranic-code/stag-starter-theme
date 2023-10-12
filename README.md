@@ -1,6 +1,6 @@
-# Pacvue Theme
+# Stag Starter Theme
 
-The first version of Pacvue Wordpress theme based on [underscores] theme.
+The first version of stag Wordpress theme based on [underscores] theme.
 
 ## Compiling
 

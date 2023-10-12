@@ -7,8 +7,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 /**
  * Init theme main class
  */
-require get_template_directory(  ) . '/vendor/autoload.php';
-use pacvueTheme\ThemeInit;
+// require get_template_directory(  ) . '/vendor/autoload.php';
+use stag_theme\ThemeInit;
 new ThemeInit();
 
 

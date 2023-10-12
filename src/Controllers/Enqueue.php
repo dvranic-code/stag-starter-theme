@@ -1,8 +1,8 @@
 <?php 
 
-namespace pacvueTheme\Controllers;
+namespace stag_theme\Controllers;
 
-use pacvueTheme\Traits\Singleton;
+use stag_theme\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 

@@ -1,17 +1,18 @@
 <?php 
-namespace pacvueTheme;
+namespace stag_theme;
 
-use pacvueTheme\Controllers\Enqueue;
-use pacvueTheme\ACF\ACFRegisterBlocks;
-use pacvueTheme\ACF\ACFSettings;
-use pacvueTheme\ThemeSettings\Customizer;
-use pacvueTheme\ThemeSettings\ThemeSetup;
+use stag_theme\Controllers\Enqueue;
+use stag_theme\ACF\ACFRegisterBlocks;
+use stag_theme\ACF\ACFSettings;
+use stag_theme\ThemeSettings\Customizer;
+use stag_theme\ThemeSettings\ThemeSetup;
 
 class ThemeInit 
 {
     function __construct()
     {
         // add_filter( 'show_admin_bar', '__return_false' ); // to hide admin bar on FE please remove this comment
+    
         
         ThemeSetup::getInstance();
         Enqueue::getInstance();

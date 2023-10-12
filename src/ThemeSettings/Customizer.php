@@ -1,8 +1,8 @@
 <?php 
 
-namespace pacvueTheme\ThemeSettings;
+namespace stag_theme\ThemeSettings;
 
-use pacvueTheme\Traits\Singleton;
+use stag_theme\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -12,11 +12,11 @@ class Customizer
 
     public function __construct()
     {
-        add_action( 'customize_register', [$this, 'pacvue_customize_register'] );
-        add_action( 'customize_preview_init', [$this, 'pacvue_customize_preview_js'] );
+        add_action( 'customize_register', [$this, 'stag_customize_register'] );
+        add_action( 'customize_preview_init', [$this, 'stag_customize_preview_js'] );
     }
 
-    public function pacvue_customize_register( $wp_customize ) {
+    public function stag_customize_register( $wp_customize ) {
         $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
         $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
         $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -39,7 +39,7 @@ class Customizer
         }
     }
 
-    public function pacvue_customize_preview_js() {
+    public function stag_customize_preview_js() {
         wp_enqueue_script( 'stag-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
     }
 }

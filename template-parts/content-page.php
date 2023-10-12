@@ -7,7 +7,7 @@
  * @package _s
  */
 
-use pacvueTheme\ThemeSettings\TemplateTags;
+use stag_theme\ThemeSettings\TemplateTags;
 
 ?>
 
@@ -16,7 +16,7 @@ use pacvueTheme\ThemeSettings\TemplateTags;
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php TemplateTags::pacvue_post_thumbnail(); ?>
+	<?php TemplateTags::stag_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
