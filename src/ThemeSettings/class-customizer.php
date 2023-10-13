@@ -5,10 +5,6 @@
  * @package Stag_Starter_Theme
  */
 
-namespace stag_theme\ThemeSettings;
-
-use stag_theme\Traits\Singleton;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -20,7 +16,6 @@ if ( ! class_exists( 'Customizer' ) ) {
 	 * @since 1.0.0
 	 */
 	class Customizer {
-		use Singleton;
 
 		/**
 		 * Class constructor.
@@ -71,4 +66,6 @@ if ( ! class_exists( 'Customizer' ) ) {
 			wp_enqueue_script( 'stag-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 		}
 	}
+
+	new Customizer();
 }

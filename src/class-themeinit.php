@@ -53,4 +53,6 @@ if ( ! class_exists( 'ThemeInit' ) ) {
 			include THEME_DIR . '/src/ThemeSettings/class-templatetags.php';
 		}
 	}
+
+	new ThemeInit();
 }

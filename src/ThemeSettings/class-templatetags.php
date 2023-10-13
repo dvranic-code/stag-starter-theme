@@ -5,8 +5,6 @@
  * @package Stag_Starter_Theme
  */
 
-namespace stag_theme\ThemeSettings;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -163,4 +161,6 @@ if ( ! class_exists( 'TemplateTags' ) ) {
 			do_action( 'wp_body_open' );
 		}
 	}
+
+	new TemplateTags();
 }

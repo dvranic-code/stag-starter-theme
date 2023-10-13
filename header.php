@@ -28,23 +28,22 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
-			if(has_custom_logo()) {
+			if ( has_custom_logo() ) {
 				the_custom_logo();
-			} else {
-				if ( is_front_page() && is_home() ) :
-					?>
+			} elseif ( is_front_page() && is_home() ) {
+				?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php
-				else :
-					?>
+			} else {
+				?>
 					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 					<?php
-				endif;
+
 			}
 			?>
 		</div><!-- .site-branding -->
 
-		<!-- <nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
 			<?php
 			wp_nav_menu(
@@ -54,6 +53,6 @@
 				)
 			);
 			?>
-		</nav> -->
+		</nav>
 		<!-- #site-navigation -->
 	</header><!-- #masthead -->
