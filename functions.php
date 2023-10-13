@@ -17,14 +17,14 @@ define( 'THEME_URL', get_template_directory_uri() );
 /**
  * Include Stag Theme Classes
  */
+// Include Theme Settings Classes.
+require_once THEME_DIR . '/src/ThemeSettings/class-stag-theme-setup.php';
+require_once THEME_DIR . '/src/ThemeSettings/class-stag-template-tags.php';
+require_once THEME_DIR . '/src/ThemeSettings/class-stag-customizer.php';
+
 // Include ACF Classes.
 require_once THEME_DIR . '/src/ACF/class-stag-acf-register-blocks.php';
 require_once THEME_DIR . '/src/ACF/class-stag-acf-settings.php';
 
 // Include Controler Classes.
 require_once THEME_DIR . '/src/Controllers/class-stag-enqueue.php';
-
-// Include Theme Settings Classes.
-require_once THEME_DIR . '/src/ThemeSettings/class-stag-customizer.php';
-require_once THEME_DIR . '/src/ThemeSettings/class-stag-template-tags.php';
-require_once THEME_DIR . '/src/ThemeSettings/class-stag-theme-setup.php';
