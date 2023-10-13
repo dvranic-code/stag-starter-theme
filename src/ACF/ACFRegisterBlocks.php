@@ -1,28 +1,27 @@
-<?php 
+<?php
 
 namespace stag_theme\ACF;
 
 use stag_theme\Traits\Singleton;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-class ACFRegisterBlocks 
-{  
-    use Singleton;
+class ACFRegisterBlocks {
+	use Singleton;
 
-    public function __construct()
-    {
-        add_action('init', [$this, 'registerBlocks']);
-    }
+	public function __construct() {
+		add_action( 'init', array( $this, 'registerBlocks' ) );
+	}
 
-    public function registerBlocks()
-    {
-        // Check function exists.
-        if( function_exists('register_block_type') ) {
-            /**
-             * Block Name
-             */
-            // register_block_type( get_template_directory(  ) . '/blocks/block_name' );
-        }
-    }
+	public function registerBlocks() {
+		// Check function exists.
+		if ( function_exists( 'register_block_type' ) ) {
+			/**
+			 * Block Name
+			 */
+			// register_block_type( get_template_directory(  ) . '/blocks/block_name' );
+		}
+	}
 }
