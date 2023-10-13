@@ -24,6 +24,13 @@ if ( ! class_exists( 'ThemeInit' ) ) {
 	 */
 	class ThemeInit {
 		/**
+		 * The single instance of the ThemeInit class.
+		 *
+		 * @var ThemeInit|null
+		 */
+		private static $instance;
+
+		/**
 		 * ThemeInit constructor.
 		 *
 		 * @access public
@@ -52,7 +59,20 @@ if ( ! class_exists( 'ThemeInit' ) ) {
 			include THEME_DIR . '/src/ThemeSettings/class-themesetup.php';
 			include THEME_DIR . '/src/ThemeSettings/class-templatetags.php';
 		}
+
+		/**
+		 * Class instantiation
+		 *
+		 * @return ThemeInit
+		 */
+		public static function stag_instance(): ThemeInit {
+			if ( null === self::$instance ) {
+				self::$instance = new self();
+			}
+
+			return self::$instance;
+		}
 	}
 
-	new ThemeInit();
+	ThemeInit::stag_instance();
 }
