@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the TemplateTags class, which provides helper functions for use in templates.
+ * This file contains the STAG_Template_Tags class, which provides helper functions for use in templates.
  *
  * @package Stag_Starter_Theme
  */
@@ -11,13 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'TemplateTags' ) ) {
+if ( ! class_exists( 'STAG_Template_Tags' ) ) {
 	/**
-	 * The TemplateTags class provides helper functions for use in templates.
+	 * The STAG_Template_Tags class provides helper functions for use in templates.
 	 *
 	 * @since 1.0.0
 	 */
-	class TemplateTags {
+	class STAG_Template_Tags {
 		/**
 		 * Prints HTML with meta information for the current post-date/time.
 		 */
@@ -164,5 +164,5 @@ if ( ! class_exists( 'TemplateTags' ) ) {
 		}
 	}
 
-	new TemplateTags();
+	new STAG_Template_Tags();
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer class for the Stag Starter Theme.
+ * STAG_Customizer class for the Stag Starter Theme.
  *
  * @package Stag_Starter_Theme
  */
@@ -9,13 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Customizer' ) ) {
+if ( ! class_exists( 'STAG_Customizer' ) ) {
 	/**
-	 * The Customizer class handles all customizer settings for the theme.
+	 * The STAG_Customizer class handles all customizer settings for the theme.
 	 *
 	 * @since 1.0.0
 	 */
-	class Customizer {
+	class STAG_Customizer {
 
 		/**
 		 * Class constructor.
@@ -67,5 +67,5 @@ if ( ! class_exists( 'Customizer' ) ) {
 		}
 	}
 
-	new Customizer();
+	new STAG_Customizer();
 }

@@ -7,7 +7,7 @@
  * @package _s
  */
 
-use stag_theme\ThemeSettings\TemplateTags;
+use stag_theme\ThemeSettings\STAG_Template_Tags;
 
 ?>
 
@@ -16,7 +16,7 @@ use stag_theme\ThemeSettings\TemplateTags;
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php TemplateTags::stag_post_thumbnail(); ?>
+	<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

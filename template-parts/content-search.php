@@ -7,7 +7,7 @@
  * @package _s
  */
 
-use stag_theme\ThemeSettings\TemplateTags;
+use stag_theme\ThemeSettings\STAG_Template_Tags;
 
 ?>
 
@@ -18,20 +18,20 @@ use stag_theme\ThemeSettings\TemplateTags;
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			TemplateTags::stag_posted_on();
-			TemplateTags::stag_posted_by();
+			STAG_Template_Tags::stag_posted_on();
+			STAG_Template_Tags::stag_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php TemplateTags::stag_post_thumbnail(); ?>
+	<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php TemplateTags::stag_entry_footer(); ?>
+		<?php STAG_Template_Tags::stag_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

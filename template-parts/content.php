@@ -7,8 +7,8 @@
  * @package _s
  */
 
-use stag_theme\ThemeSettings\TemplateTags;
- 
+use stag_theme\ThemeSettings\STAG_Template_Tags;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -24,14 +24,14 @@ use stag_theme\ThemeSettings\TemplateTags;
 			?>
 			<div class="entry-meta">
 				<?php
-				TemplateTags::stag_posted_on();
-				TemplateTags::stag_posted_by();
+				STAG_Template_Tags::stag_posted_on();
+				STAG_Template_Tags::stag_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php TemplateTags::stag_post_thumbnail(); ?>
+	<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -60,6 +60,6 @@ use stag_theme\ThemeSettings\TemplateTags;
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php TemplateTags::stag_entry_footer(); ?>
+		<?php STAG_Template_Tags::stag_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

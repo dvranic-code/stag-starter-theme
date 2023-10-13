@@ -1,6 +1,6 @@
 <?php
 /**
- * The ThemeSetup class sets up the theme by registering menus, sidebars, scripts, and styles.
+ * The Stag_Theme_Setup class sets up the theme by registering menus, sidebars, scripts, and styles.
  *
  * @package Stag_Starter_Theme
  */
@@ -9,18 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'ThemeSetup' ) ) {
+if ( ! class_exists( 'Stag_Theme_Setup' ) ) {
 	/**
-	 * The ThemeSetup class contains methods for setting up the theme.
+	 * The Stag_Theme_Setup class contains methods for setting up the theme.
 	 *
 	 * @since 1.0.0
 	 */
-	class ThemeSetup {
+	class Stag_Theme_Setup {
 
 		/**
 		 * Class constructor.
 		 *
-		 * Initializes the ThemeSetup class.
+		 * Initializes the Stag_Theme_Setup class.
 		 *
 		 * @since 1.0.0
 		 */
@@ -129,5 +129,5 @@ if ( ! class_exists( 'ThemeSetup' ) ) {
 		}
 	}
 
-	new ThemeSetup();
+	new Stag_Theme_Setup();
 }

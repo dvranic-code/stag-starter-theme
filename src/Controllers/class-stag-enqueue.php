@@ -1,6 +1,6 @@
 <?php
 /**
- * Enqueue scripts and styles for the Stag Starter Theme.
+ * Class STAG_Enqueue scripts and styles for the Stag Starter Theme.
  *
  * @package Stag_Starter_Theme
  * @subpackage Controllers
@@ -13,13 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Enqueue' ) ) {
+if ( ! class_exists( 'STAG_Enqueue' ) ) {
 	/**
-	 * The Enqueue class enqueues scripts and styles for the theme.
+	 * The STAG_Enqueue class enqueues scripts and styles for the theme.
 	 *
 	 * @since 1.0.0
 	 */
-	class Enqueue {
+	class STAG_Enqueue {
 
 		/**
 		 * Class constructor.
@@ -69,5 +69,5 @@ if ( ! class_exists( 'Enqueue' ) ) {
 		}
 	}
 
-	new Enqueue();
+	new STAG_Enqueue();
 }
