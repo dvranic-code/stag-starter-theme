@@ -7,14 +7,11 @@
  * @package Stag_Starter_Theme
  */
 
-// TODO: commented out for now, just for reference
-// namespace stag_theme;
+namespace stag_theme;
 
-// use stag_theme\ThemeSettings\ThemeSetup;
 // use stag_theme\Controllers\Enqueue;
 // use stag_theme\ACF\ACFRegisterBlocks;
 // use stag_theme\ACF\ACFSettings;
-// use stag_theme\ThemeSettings\Customizer;
 
 if ( ! class_exists( 'ThemeInit' ) ) {
 	/**
@@ -37,14 +34,12 @@ if ( ! class_exists( 'ThemeInit' ) ) {
 		 */
 		public function __construct() {
 
-			// TODO: commented out for now, just for reference
-			// ThemeSetup::getInstance();
 			// Enqueue::getInstance();
 			// ACFRegisterBlocks::getInstance();
 			// ACFSettings::getInstance();
-			// Customizer::getInstance();
 
 			$this->theme_settings();
+			$this->enqueue();
 		}
 
 		/**
@@ -58,6 +53,17 @@ if ( ! class_exists( 'ThemeInit' ) ) {
 			include THEME_DIR . '/src/ThemeSettings/class-customizer.php';
 			include THEME_DIR . '/src/ThemeSettings/class-themesetup.php';
 			include THEME_DIR . '/src/ThemeSettings/class-templatetags.php';
+		}
+
+		/**
+		 * Enqueue function.
+		 *
+		 * This function handles the enqueueing of scripts and styles.
+		 *
+		 * @since 1.0.0
+		 */
+		public function enqueue() {
+			include THEME_DIR . '/src/Controllers/class-enqueue.php';
 		}
 
 		/**

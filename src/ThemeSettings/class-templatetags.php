@@ -5,7 +5,7 @@
  * @package Stag_Starter_Theme
  */
 
-namespace stag_theme\ThemeSettings\TemplateTags;
+namespace stag_theme\ThemeSettings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
