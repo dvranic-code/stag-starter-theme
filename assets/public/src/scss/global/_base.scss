@@ -1,0 +1,22 @@
+@use "abstract" as *;
+
+:root {
+  --headerHeight: 0px;
+  --contactBarHeight: 0px;
+}
+
+html {
+  scroll-padding-top: var(--headerHeight);
+  font-family: $defaultFontFamily;
+}
+
+.html--prevent-scroll {
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+

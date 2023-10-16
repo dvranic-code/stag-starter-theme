@@ -1,0 +1,44 @@
+$regular: 400;
+$bold: 700;
+$display: swap;
+
+// PT Sans
+@font-face {
+    font-family: 'PTSans';
+    font-style: normal;
+    font-weight: $regular;
+    font-display: $display;
+    src:
+      url(../../../../assets/fonts/PTSans-Regular.ttf) format('truetype'),
+    ;
+}
+
+@font-face {
+    font-family: 'PTSans';
+    font-style: normal;
+    font-weight: $bold;
+    font-display: $display;
+    src:
+      url(../../../../assets/fonts/PTSans-Bold.ttf) format('truetype'),
+    ;
+}
+
+@font-face {
+    font-family: 'PTSans';
+    font-style: normal;
+    font-weight: $bold;
+    font-display: $display;
+    src:
+      url(../../../../assets/fonts/PTSans-BoldItalic.ttf) format('truetype'),
+    ;
+}
+
+@font-face {
+    font-family: 'PTSans';
+    font-style: normal;
+    font-weight: $regular;
+    font-display: $display;
+    src:
+      url(../../../../assets/fonts/PTSans-Italic.ttf) format('truetype'),
+    ;
+}
