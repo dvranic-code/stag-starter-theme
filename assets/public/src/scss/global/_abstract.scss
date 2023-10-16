@@ -1,0 +1,75 @@
+@use 'sass:math';
+
+$defaultFontSize: 16;
+$defaultFontFamily: 'PTSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$torlak-ease: cubic-bezier(.72,0,.48,1);
+
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+$display: swap;
+
+@function stripUnit ($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function toRem($value) {
+    $value: stripUnit($value);
+    $remValue: math.div($value, $defaultFontSize) + rem;
+    @return $remValue;
+}
+
+$grid-breakpoints: (
+    sm: 360px,
+    md: 768px,
+    lg: 1366px
+);
+
+@mixin breakpoint ($breakpoint, $direction) {
+    @if map-has-key( $grid-breakpoints, $breakpoint ) {
+        $breakpoint-value: map-get($grid-breakpoints, $breakpoint );
+        @if $direction == max {
+            @media (max-width: ($breakpoint-value - 1)) {
+                @content;
+            }
+        } @else if $direction == min {
+            @media (min-width: $breakpoint-value) {
+                @content;
+            }
+        }
+    } @else {
+        @if $direction == max {
+            @media (max-width: $breakpoint) {
+                @content;
+            }
+        } @else if $direction == min {
+            @media (min-width: $breakpoint) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin placeholder {
+    &.placeholder {
+      @content;
+    }
+  
+    &:-moz-placeholder {
+      @content;
+    }
+  
+    &::-moz-placeholder {
+      @content;
+    }
+  
+    &:-ms-input-placeholder {
+      @content;
+    }
+  
+    &::-webkit-input-placeholder {
+      @content;
+    }
+}

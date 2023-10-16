@@ -1,0 +1,334 @@
+@use "abstract" as *;
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+  color: wpColor(tl-blue-4);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  margin: 0;
+}
+
+.h1,
+h1 {
+  font-weight: $regular;
+  font-size: toRem(32);
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(52);
+    line-height: normal;
+  }
+
+  @include breakpoint(lg, min) {
+    font-size: toRem(72);
+    line-height: normal;
+  }
+}
+
+.h2,
+h2 {
+  font-weight: $regular;
+  font-size: toRem(30);
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(32);
+    line-height: normal;
+  }
+
+  @include breakpoint(ld, min) {
+    font-size: toRem(52);
+    line-height: normal;
+  }
+}
+
+.h3,
+h3 {
+  font-weight: $regular;
+  font-size: toRem(13);
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(23);
+    line-height: normal;
+  }
+
+  @include breakpoint(lg, min) {
+    font-size: toRem(32);
+    line-height: normal;
+  }
+}
+
+.h4,
+h4 {
+  font-weight: $regular;
+  font-size: toRem(16);
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(20);
+    line-height: normal;
+  }
+
+  @include breakpoint(lg, min) {
+    font-size: toRem(22);
+    line-height: normal;
+  }
+}
+
+.h5,
+h5 {
+  font-weight: $regular;
+  font-size: toRem(11);
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(16);
+    line-height: normal;
+  }
+
+  @include breakpoint(lg, min) {
+    font-size: toRem(20);
+    line-height: normal;
+  }
+}
+
+.h6,
+h6 {
+  font-weight: $regular;
+  font-size: toRem(18);
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(18);
+    line-height: normal;
+  }
+
+  @include breakpoint(lg, min) {
+    font-size: toRem(26);
+    line-height: normal;
+  }
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+
+blockquote {
+  margin: 0 1.5em;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+code,
+kbd,
+tt,
+var {
+  font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+mark,
+ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li>ul,
+li>ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: wpColor(tl-blue-4);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover,
+a:active {
+  outline-color: transparent;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+
+}
+
+label {
+  font-size: toRem(16);
+  font-weight: $regular;
+  line-height: normal;
+
+  @include breakpoint(md, min) {
+    font-size: toRem(15);
+    line-height: normal;
+  }
+
+  @include breakpoint(lg, min) {
+    font-size: toRem(16);
+    line-height: normal;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  display: flex;
+  padding: toRem(14px) toRem(10px) toRem(14px) toRem(12px);
+  align-items: center;
+  background: wpColor(tl-white);
+  border-radius: toRem(10px);
+  border: 1px solid wpColor(tl-blue-4);
+  color: wpColor(tl-dark-grey);
+  font-size: toRem(13px);
+  font-weight: $regular;
+  line-height: normal;
+
+  @include placeholder {
+    color: wpColor(tl-dark-grey);
+    font-size: toRem(13px);
+    font-weight: $regular;
+    line-height: normal;
+  }
+
+  @include breakpoint(md, max) {
+    min-width: toRem(20px);
+  }
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+  border-color: wpColor(tl-dark-grey);
+}
+
+select {
+  
+}
+
+.input-hidden {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

@@ -1,10 +1,30 @@
-// import first default _s theme style
-@import './s';
-// general style and settings
-@import './variables';
-@import './general';
-// componets
-@import './components/header';
-@import './components/footer';
+/*------------------------------------------------------------*\
+ * Import first default _s theme style
+\*------------------------------------------------------------*/
+@use 'global/_s';
 
-// blocks
+/*------------------------------------------------------------*\
+ * Global
+\*------------------------------------------------------------*/
+
+// Any special variables, mixins..
+@use 'global/abstract';
+@use 'global/base';
+@use 'global/fonts';
+@use 'global/alignments';
+@use 'global/tags';
+@use 'global/grid-rules';
+
+// Normalizing, setting up alignments, HTML tags..
+
+/*------------------------------------------------------------*\
+ * Misc. components
+\*------------------------------------------------------------*/
+
+@use './components/header';
+@use './components/footer';
+
+/*------------------------------------------------------------*\
+ * Theme blocks
+\*------------------------------------------------------------*/
+@use "../../../../blocks/index";

@@ -1,0 +1,325 @@
+@use 'sass:math';
+@use './abstract' as *;
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutterSize, toRem(20));
+  padding-right: var(--gutterSize, toRem(20));
+  
+  @include breakpoint (md, min) {
+    padding-left: var(--gutterSize, toRem(56));
+    padding-right: var(--gutterSize, toRem(56));
+  }
+  
+  @include breakpoint (lg, min) {
+    padding-left: var(--gutterSize, toRem(44));
+    padding-right: var(--gutterSize, toRem(44));
+  }
+  
+  &--right-free {
+      margin-right: 0;
+      
+      @include breakpoint (md, min) {
+          margin-right: 0;
+      }
+      
+      @include breakpoint (lg, min) {
+          margin-right: auto;
+      }
+  }
+  
+  &--no-mobile-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  &--fluid {
+    max-width: 100%;
+  }
+  
+  &--half-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.row {
+  --gutterSize: #{toRem(20)};
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-0.5 * var(--gutterSize));
+  margin-right: calc(-0.5 * var(--gutterSize));
+  
+  @include breakpoint (md, min) {
+    margin-left: toRem(-30);
+    margin-right: toRem(-30);
+    margin-left: calc(-1 * var(--gutterSize));
+    margin-right: calc(-1 * var(--gutterSize));
+  }
+  
+  @include breakpoint (lg, min) {
+    margin-left: toRem(-35);
+    margin-right: toRem(-35);
+    margin-left: calc(-0.5 * var(--gutterSize));
+    margin-right: calc(-0.5 * var(--gutterSize));
+  }
+  
+  &>* {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-left: calc(var(--gutterSize) * 0.5);
+    padding-right: calc(var(--gutterSize) * 0.5);
+  }
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+.pr-0 {
+  padding-right: 0;
+}
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  &--flex {
+    display: flex !important;
+  }
+  &--block {
+    display: block !important;
+  }
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+$displayTypes: (
+'ib': 'inline-block',
+'i': 'inline',
+'b': 'block',
+'if': 'inline-flex',
+'f': 'flex',
+'g': 'grid'
+);
+
+@each $name, $value in $displayTypes {
+  .d-#{$name} {
+    display: #{$value};
+  }
+}
+
+$maxColumns: 12;
+
+$container-max-widths: (
+  // 'sm': breakpointContainerWidth(stripUnit(map-get($grid-breakpoints, 'sm')), 0, 20) + 0px,
+  // 'md': breakpointContainerWidth(stripUnit(map-get($grid-breakpoints, 'md')), 30, 20) + 0px,
+  'sm': 100%,
+  'md': 100%,
+  'lg': breakpointContainerWidth(stripUnit(map-get($grid-breakpoints, 'lg')), 30, 20) + 0px,
+);
+
+@for $i from 1 through $maxColumns {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: math.div($i * 100, $maxColumns) + 0%;
+  }
+}
+
+@each $name, $value in $grid-breakpoints {
+  @for $i from 1 through $maxColumns {
+    @media screen and (min-width: $value) {
+      .col-#{$name}-#{$i} {
+        flex: 0 0 auto;
+        width: math.div($i * 100, $maxColumns) + 0%;
+      }
+    }
+  }
+  
+  @media screen and (min-width: $value) {
+    .hide--#{$name} {
+      display: none !important;
+    }
+    
+    .show--#{$name} {
+      display: block !important;
+    }
+    
+    .show--flex-#{$name} {
+      display: flex !important;
+    }
+
+
+    @each $dtype, $dvalue in $displayTypes {
+      .d-#{$dtype}--#{$name} {
+        display: #{$dvalue};
+      }
+    }
+    
+    .col-#{$name} {
+      flex: 1 0 0%;
+    }
+    
+    .container {
+      max-width: map-get($container-max-widths, $name);
+    }
+    
+    .pl-#{$name}-0 {
+      padding-left: 0;
+    }
+    .pr-#{$name}-0 {
+      padding-right: 0;
+    }
+    .px-#{$name}-0 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  
+  
+  @media screen and (max-width: $value - 1) {
+    .container-#{$name} {
+      width: 100%;
+    }
+  }
+}
+
+$flexTypes: (
+'content',
+'items',
+'self'
+);
+
+$flexValues: (
+'auto',
+'baseline',
+'center',
+'end',
+'flex-end',
+'flex-start',
+'inherit',
+'initial',
+'normal',
+'revert',
+'self-end',
+'self-start',
+'start',
+'stretch',
+'unset',
+'left',
+'right',
+'space-between',
+'space-evenly',
+'space-around',
+);
+
+@each $type in $flexTypes {
+  @each $value in $flexValues {
+    .justify-#{$type} {
+      &--#{$value} {
+        justify-#{$type}: #{$value} !important;
+      }
+    }
+    .align-#{$type} {
+      &--#{$value} {
+        align-#{$type}: #{$value} !important;
+      }
+    }
+  }
+}
+
+$textAlignValues: (
+'center',
+'end',
+'inherit',
+'initial',
+'justify',
+'left',
+'revert',
+'right',
+'start',
+'unset',
+'-webkit-auto',
+'-webkit-center',
+'-webkit-left',
+'-webkit-match-parent',
+'-webkit-right',
+);
+
+@each $value in $textAlignValues {
+  .text-align--#{$value} {
+    text-align: #{$value};
+  }
+}
+
+.height--100 {
+  height: 100%;
+}
+
+// Purely for debugging.
+.grid-debug {
+  $zindex: 666;
+  position: fixed;
+  display: none;
+  pointer-events: none;
+  top: 0;
+  opacity: 0.4;
+  width: 100vw;
+  height: 100vh;
+  z-index: $zindex;
+  
+  & * {
+    height: 100%;
+    top: 0;
+  }
+  
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: toRem(20);
+    height: 100%;
+    position: fixed;
+    background: green;
+    top: 0;
+    z-index: $zindex;
+    
+    @include breakpoint (md, min) {
+      width: toRem(30);
+    }
+    
+    @include breakpoint (lg, min) {
+      width: toRem(180);
+    }
+  }
+  
+  &::before {
+    left: 0;
+  }
+  
+  &::after {
+    right: 0;
+  }
+  
+  .row div[class*="col-"]>* {
+    background: red;
+    z-index: $zindex - 1;
+    mix-blend-mode: multiply;
+  }
+}

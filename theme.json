@@ -3,35 +3,70 @@
     "version": 2,
     "settings": {
         "appearanceTools": true,
+        "border": {
+            "radius": true,
+            "color": true,
+            "style": true,
+            "width": true
+        },
         "color": {
+            "link": true,
+            "custom": true,
+            "customDuotone": true,
+            "customGradient": true,
+            "duotone": [],
+            "gradients": [],
+            "text": true,
+            "background": true,
+            "defaultGradients": true,
+            "defaultPalette": true,
             "palette": [
                 {
-                    "name": "Blue",
-                    "slug": "blue",
-                    "color": "#00308E"
+                    "name": "Blue 1",
+                    "slug": "tl-blue-1",
+                    "color": "#0A3782"
                 },
                 {
-                    "name": "Violet",
-                    "slug": "violet",
-                    "color": "#8C01CB"
+                    "name": "Blue 2",
+                    "slug": "tl-blue-2",
+                    "color": "#000484"
                 },
                 {
-                    "name": "Text",
-                    "slug": "text",
-                    "color": "#575757"
+                    "name": "Blue 3",
+                    "slug": "tl-blue-3",
+                    "color": "#0000C9"
+                },
+                {
+                    "slug": "tl-blue-4",
+                    "name": "Blue 4",
+                    "color": "#003FE2"
                 },
                 {
                     "name": "Black",
-                    "slug": "black",
-                    "color": "#000000"
+                    "slug": "tl-black",
+                    "color": "#0A0A0A"
+                },
+                {
+                    "name": "Grey 1",
+                    "slug": "tl-grey-1",
+                    "color": "#EBEBF2"
                 },
                 {
                     "name": "White",
-                    "slug": "white",
-                    "color": "#ffffff"
+                    "slug": "tl-white",
+                    "color": "#FAFAFC"
+                },
+                {
+                    "name": "Grey 2",
+                    "slug": "tl-grey-2",
+                    "color": "#E6ECFD"
+                },
+                {
+                    "name": "Dark Grey",
+                    "slug": "tl-dark-grey",
+                    "color": "#858D97"
                 }
-            ],
-            "defaultPalette": false
+            ]
         },
         "custom": {
         },
@@ -57,37 +92,46 @@
             "fontFamilies": [
 				{
 					"fontFace": [
-						{
-							"fontFamily": "Poppins",
+                        {
+							"fontFamily": "PTSans",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "800",
+							"src": [
+								"file:./assets/fonts/PTSans-Bold.ttf"
+							]
+						},
+                        {
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
 							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/Poppins-Regular.ttf"
+								"file:./assets/fonts/PTSans-BoldItalic.ttf"
 							]
 						},
                         {
-							"fontFamily": "Poppins",
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
-							"fontWeight": "500",
+							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/Poppins-Medium.ttf"
+								"file:./assets/fonts/PTSans-Italic.ttf"
 							]
 						},
                         {
-							"fontFamily": "Poppins",
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
-							"fontWeight": "600",
+							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/Poppins-SemiBold.ttf"
+								"file:./assets/fonts/PTSans-Regular.ttf"
 							]
 						}
 					],
-					"fontFamily": "\"Poppins\", sans-serif",
-					"name": "Poppins",
-					"slug": "poppins"
+					"fontFamily": "\"PTSans\", sans-serif",
+					"name": "PTSans",
+					"slug": "ptsans"
 				},
 				{
 					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
@@ -138,7 +182,7 @@
 			"blockGap": "30px"
 		},
         "typography": {
-            "fontFamily": "var(--wp--preset--font-family--poppins)",
+            "fontFamily": "var(--wp--preset--font-family--ptsans)",
 			"fontSize": "var(--wp--preset--font-size--small )",
 			"lineHeight": "1.5"
         }
