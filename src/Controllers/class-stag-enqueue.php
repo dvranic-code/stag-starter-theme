@@ -65,7 +65,7 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 		 * @since 1.0.0
 		 */
 		public function admin_enqueue_styles() {
-			wp_enqueue_style( 'stag-admin-styles', get_stylesheet_directory_uri() . '/assets/admin/dist/css/theme-admin.min.css', array(), $css_version_child );
+			wp_enqueue_style( 'stag-admin-styles', get_stylesheet_directory_uri() . '/assets/admin/dist/css/theme-admin.min.css', array(), _S_VERSION );
 		}
 	}
 

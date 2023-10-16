@@ -9,29 +9,33 @@
  *          This is either the post ID currently being displayed inside a query loop,
  *          or the post ID of the post hosting this block.
  * @param   array $context The context provided to the block by the post or it's parent block.
+ *
+ * @package Stag_Starter_Theme
+ * @since 1.0.0
  */
-
-// Load values and assign defaults.
-// $variable = get_field('field_name') ?: false;
 
 // Support custom "anchor" values.
 $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
-    $anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
+	$anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $class_name = '';
 if ( ! empty( $block['className'] ) ) {
-    $class_name .= ' ' . $block['className'];
+	$class_name .= ' ' . $block['className'];
 }
 if ( ! empty( $block['align'] ) ) {
-    $class_name .= ' align' . $block['align'];
+	$class_name .= ' align' . $block['align'];
 }
 
 ?>
-<section <?php echo $anchor; ?>class="<?php echo esc_attr( $class_name ); ?>">
-
-    
-
+<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2>Block Template</h2>
+			</div>
+		</div>
+	</div>
 </section>
