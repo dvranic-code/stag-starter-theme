@@ -11,8 +11,12 @@ $bold: 700;
 $extrabold: 800;
 $display: swap;
 
+@function wpColor($name) {
+  	@return var(--wp--preset--color--#{$name});
+}
+
 @function stripUnit ($value) {
-  @return math.div($value, ($value * 0 + 1));
+  	@return math.div($value, ($value * 0 + 1));
 }
 
 @function toRem($value) {

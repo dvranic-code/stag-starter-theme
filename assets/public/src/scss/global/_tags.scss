@@ -204,10 +204,14 @@ table {
   width: 100%;
 }
 
+a {
+  color: wpColor(tl-blue-4);
+  text-decoration: none;
+}
+
 a:hover,
 a:focus,
 a:active {
-  color: wpColor(tl-blue-4);
   text-decoration: underline;
 }
 

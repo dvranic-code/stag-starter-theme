@@ -688,7 +688,7 @@ input,
 select,
 optgroup,
 textarea {
-  color: wpColor(tl-blue-4);
+  color: var(--wp--preset--color--tl-blue-4);
 }
 
 h1,
@@ -910,10 +910,14 @@ table {
   width: 100%;
 }
 
+a {
+  color: var(--wp--preset--color--tl-blue-4);
+  text-decoration: none;
+}
+
 a:hover,
 a:focus,
 a:active {
-  color: wpColor(tl-blue-4);
   text-decoration: underline;
 }
 
@@ -965,10 +969,10 @@ textarea {
   padding: 0.875rem 0.625rem 0.875rem 0.75rem;
   -ms-flex-align: center;
       align-items: center;
-  background: wpColor(tl-white);
+  background: var(--wp--preset--color--tl-white);
   border-radius: 0.625rem;
-  border: 1px solid wpColor(tl-blue-4);
-  color: wpColor(tl-dark-grey);
+  border: 1px solid var(--wp--preset--color--tl-blue-4);
+  color: var(--wp--preset--color--tl-dark-grey);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: normal;
@@ -989,7 +993,7 @@ input[type=datetime].placeholder,
 input[type=datetime-local].placeholder,
 input[type=color].placeholder,
 textarea.placeholder {
-  color: wpColor(tl-dark-grey);
+  color: var(--wp--preset--color--tl-dark-grey);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: normal;
@@ -1010,7 +1014,7 @@ input[type=datetime]:-moz-placeholder,
 input[type=datetime-local]:-moz-placeholder,
 input[type=color]:-moz-placeholder,
 textarea:-moz-placeholder {
-  color: wpColor(tl-dark-grey);
+  color: var(--wp--preset--color--tl-dark-grey);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: normal;
@@ -1031,7 +1035,7 @@ input[type=datetime]::-moz-placeholder,
 input[type=datetime-local]::-moz-placeholder,
 input[type=color]::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: wpColor(tl-dark-grey);
+  color: var(--wp--preset--color--tl-dark-grey);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: normal;
@@ -1052,7 +1056,7 @@ input[type=datetime]:-ms-input-placeholder,
 input[type=datetime-local]:-ms-input-placeholder,
 input[type=color]:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: wpColor(tl-dark-grey);
+  color: var(--wp--preset--color--tl-dark-grey);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: normal;
@@ -1073,7 +1077,7 @@ input[type=datetime]::-webkit-input-placeholder,
 input[type=datetime-local]::-webkit-input-placeholder,
 input[type=color]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: wpColor(tl-dark-grey);
+  color: var(--wp--preset--color--tl-dark-grey);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: normal;
@@ -1115,7 +1119,7 @@ input[type=datetime]:focus,
 input[type=datetime-local]:focus,
 input[type=color]:focus,
 textarea:focus {
-  border-color: wpColor(tl-dark-grey);
+  border-color: var(--wp--preset--color--tl-dark-grey);
 }
 
 .input-hidden {
@@ -2477,6 +2481,62 @@ textarea:focus {
 /*------------------------------------------------------------*\
  * Misc. components
 \*------------------------------------------------------------*/
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-BoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-Italic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-BoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PTSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../../../../assets/fonts/PTSans-Italic.ttf) format("truetype");
+}
 /*------------------------------------------------------------*\
  * Theme blocks
 \*------------------------------------------------------------*/
