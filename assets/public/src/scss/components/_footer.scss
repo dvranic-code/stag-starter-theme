@@ -2,5 +2,52 @@
 @import "../global/fonts";
 
 .site-footer {
+  position: relative;
 
+  &__top {
+    padding-bottom: toRem(35);
+    border-bottom: 1px solid wpColor(tl-grey-3);
+    img {
+      margin-bottom: toRem(20);
+    }
+
+    .menu {
+      li {
+        margin-bottom: toRem(15);
+        a {
+          color: wpColor(tl-blue-1);
+          text-align: right;
+          font-family: PTSans;
+          font-size: toRem(18);
+          font-style: normal;
+          font-weight: 700;
+          line-height: toRem(18);
+        }
+      }
+    }
+  }
+  &__bottom {
+    padding-top: toRem(35);
+    padding-bottom: toRem(33);
+    background: url('/wp-content/themes/stag-starter-theme/assets/images/footer_bg_wave.png') no-repeat bottom center;
+
+    p {
+      color: wpColor(tl-blue-1);
+      font-size: toRem(20);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    a {
+      color: wpColor(tl-blue-1);
+    }
+
+    &--socials {
+      display: flex;
+      gap: toRem(19);
+      list-style-type: none;
+      padding: 0;
+    }
+  }
 }
