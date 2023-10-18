@@ -1,5 +1,5 @@
-@use 'sass:math';
-@use './abstract' as *;
+@use "sass:math";
+@use "./abstract" as *;
 
 .container,
 .container-fluid,
@@ -13,38 +13,38 @@
   margin-right: auto;
   padding-left: var(--gutterSize, toRem(20));
   padding-right: var(--gutterSize, toRem(20));
-  
+
   @include breakpoint (md, min) {
     padding-left: var(--gutterSize, toRem(56));
     padding-right: var(--gutterSize, toRem(56));
   }
-  
-  @include breakpoint (lg, min) {
-    padding-left: var(--gutterSize, toRem(44));
-    padding-right: var(--gutterSize, toRem(44));
-  }
-  
+
+  // @include breakpoint (lg, min) {
+  //   padding-left: var(--gutterSize, toRem(44));
+  //   padding-right: var(--gutterSize, toRem(44));
+  // }
+
   &--right-free {
+    margin-right: 0;
+
+    @include breakpoint(md, min) {
       margin-right: 0;
-      
-      @include breakpoint (md, min) {
-          margin-right: 0;
-      }
-      
-      @include breakpoint (lg, min) {
-          margin-right: auto;
-      }
+    }
+
+    @include breakpoint(lg, min) {
+      margin-right: auto;
+    }
   }
-  
+
   &--no-mobile-padding {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   &--fluid {
     max-width: 100%;
   }
-  
+
   &--half-padding {
     padding-left: 0;
     padding-right: 0;
@@ -57,22 +57,22 @@
   flex-wrap: wrap;
   margin-left: calc(-0.5 * var(--gutterSize));
   margin-right: calc(-0.5 * var(--gutterSize));
-  
-  @include breakpoint (md, min) {
+
+  @include breakpoint(md, min) {
     margin-left: toRem(-30);
     margin-right: toRem(-30);
     margin-left: calc(-1 * var(--gutterSize));
     margin-right: calc(-1 * var(--gutterSize));
   }
-  
-  @include breakpoint (lg, min) {
+
+  @include breakpoint(lg, min) {
     margin-left: toRem(-35);
     margin-right: toRem(-35);
     margin-left: calc(-0.5 * var(--gutterSize));
     margin-right: calc(-0.5 * var(--gutterSize));
   }
-  
-  &>* {
+
+  & > * {
     box-sizing: border-box;
     flex-shrink: 0;
     width: 100%;
@@ -111,12 +111,12 @@
 }
 
 $displayTypes: (
-'ib': 'inline-block',
-'i': 'inline',
-'b': 'block',
-'if': 'inline-flex',
-'f': 'flex',
-'g': 'grid'
+  "ib": "inline-block",
+  "i": "inline",
+  "b": "block",
+  "if": "inline-flex",
+  "f": "flex",
+  "g": "grid",
 );
 
 @each $name, $value in $displayTypes {
@@ -130,9 +130,14 @@ $maxColumns: 12;
 $container-max-widths: (
   // 'sm': breakpointContainerWidth(stripUnit(map-get($grid-breakpoints, 'sm')), 0, 20) + 0px,
   // 'md': breakpointContainerWidth(stripUnit(map-get($grid-breakpoints, 'md')), 30, 20) + 0px,
-  'sm': 100%,
-  'md': 100%,
-  'lg': breakpointContainerWidth(stripUnit(map-get($grid-breakpoints, 'lg')), 30, 20) + 0px,
+  "sm": 100%,
+  "md": 100%,
+  "lg":
+    breakpointContainerWidth(
+      stripUnit(map-get($container-widths, "lg")),
+      30,
+      20
+    ) + 0px
 );
 
 @for $i from 1 through $maxColumns {
@@ -151,35 +156,34 @@ $container-max-widths: (
       }
     }
   }
-  
+
   @media screen and (min-width: $value) {
     .hide--#{$name} {
       display: none !important;
     }
-    
+
     .show--#{$name} {
       display: block !important;
     }
-    
+
     .show--flex-#{$name} {
       display: flex !important;
     }
-
 
     @each $dtype, $dvalue in $displayTypes {
       .d-#{$dtype}--#{$name} {
         display: #{$dvalue};
       }
     }
-    
+
     .col-#{$name} {
       flex: 1 0 0%;
     }
-    
+
     .container {
       max-width: map-get($container-max-widths, $name);
     }
-    
+
     .pl-#{$name}-0 {
       padding-left: 0;
     }
@@ -191,42 +195,38 @@ $container-max-widths: (
       padding-right: 0;
     }
   }
-  
-  
-  @media screen and (max-width: $value - 1) {
+
+  $width: $value - 1;
+  @media screen and (max-width: $width) {
     .container-#{$name} {
       width: 100%;
     }
   }
 }
 
-$flexTypes: (
-'content',
-'items',
-'self'
-);
+$flexTypes: ("content", "items", "self");
 
 $flexValues: (
-'auto',
-'baseline',
-'center',
-'end',
-'flex-end',
-'flex-start',
-'inherit',
-'initial',
-'normal',
-'revert',
-'self-end',
-'self-start',
-'start',
-'stretch',
-'unset',
-'left',
-'right',
-'space-between',
-'space-evenly',
-'space-around',
+  "auto",
+  "baseline",
+  "center",
+  "end",
+  "flex-end",
+  "flex-start",
+  "inherit",
+  "initial",
+  "normal",
+  "revert",
+  "self-end",
+  "self-start",
+  "start",
+  "stretch",
+  "unset",
+  "left",
+  "right",
+  "space-between",
+  "space-evenly",
+  "space-around"
 );
 
 @each $type in $flexTypes {
@@ -245,21 +245,21 @@ $flexValues: (
 }
 
 $textAlignValues: (
-'center',
-'end',
-'inherit',
-'initial',
-'justify',
-'left',
-'revert',
-'right',
-'start',
-'unset',
-'-webkit-auto',
-'-webkit-center',
-'-webkit-left',
-'-webkit-match-parent',
-'-webkit-right',
+  "center",
+  "end",
+  "inherit",
+  "initial",
+  "justify",
+  "left",
+  "revert",
+  "right",
+  "start",
+  "unset",
+  "-webkit-auto",
+  "-webkit-center",
+  "-webkit-left",
+  "-webkit-match-parent",
+  "-webkit-right"
 );
 
 @each $value in $textAlignValues {
@@ -283,15 +283,15 @@ $textAlignValues: (
   width: 100vw;
   height: 100vh;
   z-index: $zindex;
-  
+
   & * {
     height: 100%;
     top: 0;
   }
-  
+
   &::before,
   &::after {
-    content: '';
+    content: "";
     display: block;
     width: toRem(20);
     height: 100%;
@@ -299,25 +299,25 @@ $textAlignValues: (
     background: green;
     top: 0;
     z-index: $zindex;
-    
-    @include breakpoint (md, min) {
+
+    @include breakpoint(md, min) {
       width: toRem(30);
     }
-    
-    @include breakpoint (lg, min) {
+
+    @include breakpoint(lg, min) {
       width: toRem(180);
     }
   }
-  
+
   &::before {
     left: 0;
   }
-  
+
   &::after {
     right: 0;
   }
-  
-  .row div[class*="col-"]>* {
+
+  .row div[class*="col-"] > * {
     background: red;
     z-index: $zindex - 1;
     mix-blend-mode: multiply;

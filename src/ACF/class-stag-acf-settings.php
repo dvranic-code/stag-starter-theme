@@ -49,6 +49,22 @@ if ( ! class_exists( 'STAG_ACF_Settings' ) ) {
 						'icon_url'   => 'dashicons-art',
 					)
 				);
+
+				acf_add_options_sub_page(
+					array(
+						'page_title'  => __( 'General' ),
+						'menu_title'  => __( 'General' ),
+						'parent_slug' => 'theme-settings',
+					)
+				);
+
+				acf_add_options_sub_page(
+					array(
+						'page_title'  => __( 'Footer Settings' ),
+						'menu_title'  => __( 'Footer Settings' ),
+						'parent_slug' => 'theme-settings',
+					)
+				);
 			}
 		}
 	}

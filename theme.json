@@ -61,6 +61,11 @@
                     "slug": "tl-grey-2",
                     "color": "#E6ECFD"
                 },
+                {   
+                    "name": "Grey 3",
+                    "slug": "tl-grey-3",
+                    "color": "#A1AAB1"
+                },
                 {
                     "name": "Dark Grey",
                     "slug": "tl-dark-grey",
