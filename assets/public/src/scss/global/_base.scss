@@ -38,7 +38,21 @@ html {
 }
 
 a.btn {
+  text-decoration: none;
 }
 
 .btn {
+  display: flex;
+  padding: toRem(16) toRem(24);
+  justify-content: center;
+  align-items: center;
+  border-radius: toRem(29);
+  border: toRem(2) solid wpColor("tl-blue-4");
+  font-size: toRem(18);
+  font-style: normal;
+  font-weight: 800;
+  line-height: toRem(18);
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
 }

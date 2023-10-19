@@ -636,6 +636,29 @@ html {
   padding: 0;
 }
 
+a.btn {
+  text-decoration: none;
+}
+
+.btn {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 1.5rem;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  border-radius: 1.8125rem;
+  border: 0.125rem solid var(--wp--preset--color--tl-blue-4);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.125rem;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+}
+
 @font-face {
   font-family: "PTSans";
   font-style: normal;

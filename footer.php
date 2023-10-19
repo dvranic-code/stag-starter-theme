@@ -9,6 +9,8 @@
  * @package _s
  */
 
+use stag_theme\ThemeSettings\STAG_Extra_Functions;
+
 $footer_copy = get_field(
 	'footer_copy',
 	'option'
@@ -54,10 +56,13 @@ $footer_info = get_field(
 							<?php
 							while ( have_rows( 'footer_social', 'option' ) ) :
 								the_row();
+								$social_network = get_sub_field( 'social_network' );
 								?>
-							<li>
-								<a href="<?php the_sub_field( 'social_url' ); ?>" title="<?php the_sub_field( 'social_title' ); ?>"><img src="<?php the_sub_field( 'social_icon' ); ?>" alt="<?php the_sub_field( 'social_title' ); echo '-icon'; // phpcs:ignore ?>"></a>
-							</li>
+								<li>
+									<a href="<?php the_sub_field( 'social_url' ); ?>" target="_blank">
+										<?php STAG_Extra_Functions::fetch_icon( $social_network ); ?>
+									</a>
+								</li>
 							<?php endwhile; ?>
 						</ul>
 						<?php endif; ?>
