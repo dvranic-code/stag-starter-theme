@@ -641,22 +641,144 @@ a.btn {
 }
 
 .btn {
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem 1.5rem;
+  --transitionSpeed: 0.3s;
+  --borderColor: var(--wp--preset--color--tl-blue-4);
+  --borderColorDisabled: var(--wp--preset--color--light-blue);
+  --backgroundColor: var(--wp--preset--color--tl-white);
+  --foregroundColor: var(--wp--preset--color--tl-blue-4);
+  --backgroundSVGColor: var(--wp--preset--color--tl-white);
+  --foregroundSVGColor: var(--wp--preset--color--tl-black);
+  --animBGColor: var(--borderColor);
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 1.125rem 3.25rem;
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
   border-radius: 1.8125rem;
-  border: 0.125rem solid var(--wp--preset--color--tl-blue-4);
+  border: 0.125rem solid var(--borderColor);
   font-size: 1.125rem;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.125rem;
+  text-align: center;
   cursor: pointer;
   position: relative;
   isolation: isolate;
+  background: var(--backgroundColor);
+  color: var(--foregroundColor);
+  overflow: hidden;
+  transition: border-color var(--transitionSpeed) cubic-bezier(0.72, 0, 0.48, 1), color var(--transitionSpeed) cubic-bezier(0.72, 0, 0.48, 1);
+}
+@media (min-width: tablet) {
+  .btn {
+    font-size: 0.8125rem;
+    line-height: 1.15385;
+  }
+}
+@media (min-width: desktop) {
+  .btn {
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
+.btn span,
+.btn svg {
+  position: relative;
+  z-index: 1;
+}
+.btn svg {
+  color: var(--foregroundSVGColor);
+  transition: color var(--transitionSpeed) cubic-bezier(0.72, 0, 0.48, 1);
+}
+.btn rect:not(.icon_x) {
+  fill: var(--foregroundSVGColor);
+}
+.btn rect {
+  transition: fill var(--transitionSpeed) cubic-bezier(0.72, 0, 0.48, 1);
+}
+.btn rect[rx] {
+  fill: var(--backgroundSVGColor);
+}
+.btn[disabled], .btn:disabled {
+  border-color: var(--borderColorDisabled);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.btn[disabled]::before, .btn:disabled::before {
+  display: none;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--animBGColor);
+  transition: width var(--transitionSpeed) cubic-bezier(0.72, 0, 0.48, 1);
+  z-index: -1;
+}
+.btn:hover {
+  border-color: var(--borderColor);
+  color: var(--backgroundColor);
+  text-decoration: none;
+}
+.btn:hover svg {
+  color: var(--foregroundSVGColor);
+}
+.btn:hover rect:not(.icon_x) {
+  fill: var(--foregroundSVGColor);
+}
+.btn:hover rect {
+  fill: var(--backgroundSVGColor);
+}
+.btn:hover::before {
+  width: 100%;
+}
+.btn:focus {
+  outline: none;
+  text-decoration: none;
+  border-color: var(--wp--preset--color--tl-blue-2);
+}
+.btn.btn--sm {
+  width: 31.25rem;
+  max-width: 100%;
+}
+.btn.btn--cta {
+  width: 17.0625rem;
+  max-width: 100%;
+}
+
+.btn--tag {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  border-radius: 1.8125rem;
+  background: var(--wp--preset--color--tl-grey-2);
+  color: var(--wp--preset--color--tl-black);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.125rem;
+  transition: background 0.3s cubic-bezier(0.72, 0, 0.48, 1), color 0.3s cubic-bezier(0.72, 0, 0.48, 1);
+}
+.btn--tag:hover {
+  background: var(--wp--preset--color--tl-blue-4);
+  color: var(--wp--preset--color--tl-white);
+  text-decoration: none;
+}
+.btn--tag:focus {
+  outline: none;
+  text-decoration: none;
+  background: var(--wp--preset--color--tl-blue-4);
+  color: var(--wp--preset--color--tl-white);
 }
 
 @font-face {
