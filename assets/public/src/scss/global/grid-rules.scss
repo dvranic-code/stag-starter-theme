@@ -19,10 +19,10 @@
     padding-right: var(--gutterSize, toRem(56));
   }
 
-  // @include breakpoint (lg, min) {
-  //   padding-left: var(--gutterSize, toRem(44));
-  //   padding-right: var(--gutterSize, toRem(44));
-  // }
+  @include breakpoint (lg, min) {
+    padding-left: var(--gutterSize, toRem(0));
+    padding-right: var(--gutterSize, toRem(0));
+  }
 
   &--right-free {
     margin-right: 0;

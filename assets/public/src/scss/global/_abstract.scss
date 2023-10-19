@@ -35,7 +35,7 @@ $grid-breakpoints: (
 $container-widths: (
   sm: 360px,
   md: 768px,
-  lg: 1140px,
+  lg: 1180px,
 );
 
 @mixin breakpoint($breakpoint, $direction) {
