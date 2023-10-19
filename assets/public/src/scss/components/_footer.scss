@@ -3,17 +3,35 @@
 
 .site-footer {
   position: relative;
+  background: linear-gradient(180deg, #fff 0%, #fafafc 28.27%);
 
   &__top {
+    .row {
+      @include breakpoint(lg, min) {
+        align-items: center;
+      }
+    }
+
     padding-bottom: toRem(35);
     border-bottom: 1px solid wpColor(tl-grey-3);
+
+    @include breakpoint(lg, min) {
+      padding-bottom: toRem(31);
+    }
+
     img {
       margin-bottom: toRem(20);
+      @include breakpoint(lg, min) {
+        margin-bottom: 0;
+      }
     }
 
     .menu {
       li {
         margin-bottom: toRem(15);
+        @include breakpoint(lg, min) {
+          margin-bottom: 0;
+        }
         a {
           color: wpColor(tl-blue-1);
           text-align: right;
@@ -24,12 +42,18 @@
           line-height: toRem(18);
         }
       }
+
+      @include breakpoint(lg, min) {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
   &__bottom {
     padding-top: toRem(35);
     padding-bottom: toRem(33);
-    background: url('/wp-content/themes/stag-starter-theme/assets/images/footer_bg_wave.png') no-repeat bottom center;
+    background: url("/wp-content/themes/stag-starter-theme/assets/images/footer_bg_wave.png")
+      no-repeat bottom center;
 
     p {
       color: wpColor(tl-blue-1);
@@ -48,6 +72,23 @@
       gap: toRem(19);
       list-style-type: none;
       padding: 0;
+
+      @include breakpoint(lg, min) {
+        margin-top: toRem(31);
+        justify-content: flex-end;
+        gap: toRem(26);
+      }
+
+      li {
+        a {
+          img {
+            transition: transform 0.2s;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
     }
   }
 }
