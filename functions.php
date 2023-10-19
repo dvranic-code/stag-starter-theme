@@ -21,6 +21,7 @@ define( 'THEME_URL', get_template_directory_uri() );
 require_once THEME_DIR . '/src/ThemeSettings/class-stag-theme-setup.php';
 require_once THEME_DIR . '/src/ThemeSettings/class-stag-template-tags.php';
 require_once THEME_DIR . '/src/ThemeSettings/class-stag-customizer.php';
+require_once THEME_DIR . '/src/ThemeSettings/class-stag-extra-functions.php';
 
 // Include ACF Classes.
 require_once THEME_DIR . '/src/ACF/class-stag-acf-register-blocks.php';
