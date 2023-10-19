@@ -42,17 +42,156 @@ a.btn {
 }
 
 .btn {
-  display: flex;
-  padding: toRem(16) toRem(24);
+  --transitionSpeed: 0.3s;
+  --borderColor: #{wpColor(tl-blue-4)};
+  --borderColorDisabled: #{wpColor(light-blue)};
+
+  --backgroundColor: #{wpColor(tl-white)};
+  --foregroundColor: #{wpColor(tl-blue-4)};
+  --backgroundSVGColor: #{wpColor(tl-white)};
+  --foregroundSVGColor: #{wpColor(tl-black)};
+
+  --animBGColor: var(--borderColor);
+  display: inline-flex;
+  padding: toRem(18) toRem(52);
   justify-content: center;
   align-items: center;
   border-radius: toRem(29);
-  border: toRem(2) solid wpColor("tl-blue-4");
+  border: toRem(2) solid var(--borderColor);
   font-size: toRem(18);
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   line-height: toRem(18);
+  text-align: center;
   cursor: pointer;
   position: relative;
   isolation: isolate;
+  background: var(--backgroundColor);
+  color: var(--foregroundColor);
+  overflow: hidden;
+  transition: border-color var(--transitionSpeed) $torlak-ease,
+    color var(--transitionSpeed) $torlak-ease;
+
+  @include breakpoint(tablet, min) {
+    font-size: toRem(13px);
+    line-height: 1.15385;
+  }
+
+  @include breakpoint(desktop, min) {
+    font-size: toRem(16px);
+    line-height: 1;
+  }
+
+  span,
+  svg {
+    position: relative;
+    z-index: 1;
+  }
+
+  svg {
+    color: var(--foregroundSVGColor);
+    transition: color var(--transitionSpeed) $torlak-ease;
+  }
+
+  rect:not(.icon_x) {
+    fill: var(--foregroundSVGColor);
+  }
+
+  rect {
+    transition: fill var(--transitionSpeed) $torlak-ease;
+
+    &[rx] {
+      fill: var(--backgroundSVGColor);
+    }
+  }
+
+  &[disabled],
+  &:disabled {
+    &::before {
+      display: none;
+    }
+
+    border-color: var(--borderColorDisabled);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--animBGColor);
+    transition: width var(--transitionSpeed) $torlak-ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    border-color: var(--borderColor);
+    color: var(--backgroundColor);
+    text-decoration: none;
+
+    svg {
+      color: var(--foregroundSVGColor);
+    }
+
+    rect:not(.icon_x) {
+      fill: var(--foregroundSVGColor);
+    }
+
+    rect {
+      fill: var(--backgroundSVGColor);
+    }
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: wpColor(tl-blue-2);
+  }
+
+  &.btn--sm {
+    width: toRem(500);
+    max-width: 100%;
+  }
+
+  &.btn--cta {
+    width: toRem(273);
+    max-width: 100%;
+  }
+}
+
+.btn--tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: toRem(29);
+  background: wpColor(tl-grey-2);
+  color: wpColor(tl-black);
+  padding: toRem(8) toRem(16);
+  text-align: center;
+  font-size: toRem(16);
+  font-style: normal;
+  font-weight: 700;
+  line-height: toRem(18);
+  transition: background 0.3s $torlak-ease, color 0.3s $torlak-ease;
+
+  &:hover {
+    background: wpColor(tl-blue-4);
+    color: wpColor(tl-white);
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    background: wpColor(tl-blue-4);
+    color: wpColor(tl-white);
+  }
 }
