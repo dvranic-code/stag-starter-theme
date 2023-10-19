@@ -11,12 +11,12 @@
 
 use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
-$footer_copy = get_field(
-	'footer_copy',
-	'option'
-);
 $footer_info = get_field(
 	'footer_info',
+	'option'
+);
+$footer_copy = get_field(
+	'footer_copy',
 	'option'
 );
 ?>
@@ -25,14 +25,14 @@ $footer_info = get_field(
 		<div class="container">
 			<div class="site-footer__top">
 				<div class="row">
-					<div class="col-lg-6 col-md-6">
+					<div class="col-lg-4">
 					<?php
 					if ( has_custom_logo() ) {
 						the_custom_logo();
 					}
 					?>
 					</div>
-					<div class="col-lg-6 col-md-6">
+					<div class="col-lg-8">
 					<?php
 					wp_nav_menu(
 						array(
@@ -47,8 +47,8 @@ $footer_info = get_field(
 			<div class="site-footer__bottom">
 				<div class="row">
 					<div class="col-lg-8">
-						<p>©<?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( $footer_copy ); ?></p>
 						<p><?php echo $footer_info; // phpcs:ignore ?></p>
+						<p>©<?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( $footer_copy ); ?></p>
 					</div>
 					<div class="col-lg-4">
 						<?php if ( have_rows( 'footer_social', 'option' ) ) : ?>

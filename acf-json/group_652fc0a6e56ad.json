@@ -3,26 +3,6 @@
     "title": "Footer Settings",
     "fields": [
         {
-            "key": "field_652fc0a7860e2",
-            "label": "Copyright Text",
-            "name": "footer_copy",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_652fc25d70848",
             "label": "Footer Info Text",
             "name": "footer_info",
@@ -41,6 +21,26 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_652fc0a7860e2",
+            "label": "Copyright Text",
+            "name": "footer_copy",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_652fc2d72407b",
@@ -133,5 +133,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697709511
+    "modified": 1697715602
 }
