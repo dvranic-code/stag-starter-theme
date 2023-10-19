@@ -55,12 +55,22 @@
     background: url("/wp-content/themes/stag-starter-theme/assets/images/footer_bg_wave.png")
       no-repeat bottom center;
 
+    @include breakpoint(lg, min) {
+      padding-top: toRem(65);
+      padding-bottom: toRem(65);
+    }
+
     p {
       color: wpColor(tl-blue-1);
       font-size: toRem(20);
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+
+      @include breakpoint(lg, min) {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
     }
 
     a {
@@ -74,15 +84,19 @@
       padding: 0;
 
       @include breakpoint(lg, min) {
-        margin-top: toRem(31);
         justify-content: flex-end;
         gap: toRem(26);
       }
 
       li {
         a {
-          img {
-            transition: transform 0.2s;
+          svg {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -ms-transform: translateZ(0); /* IE 9 */
+            -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+            transform: translateZ(0);
+            transition: transform 0.3s;
             &:hover {
               transform: scale(1.1);
             }

@@ -2560,12 +2560,24 @@ textarea:focus {
   padding-bottom: 2.0625rem;
   background: url("/wp-content/themes/stag-starter-theme/assets/images/footer_bg_wave.png") no-repeat bottom center;
 }
+@media (min-width: 1366px) {
+  .site-footer__bottom {
+    padding-top: 4.0625rem;
+    padding-bottom: 4.0625rem;
+  }
+}
 .site-footer__bottom p {
   color: var(--wp--preset--color--tl-blue-1);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+@media (min-width: 1366px) {
+  .site-footer__bottom p {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
 }
 .site-footer__bottom a {
   color: var(--wp--preset--color--tl-blue-1);
@@ -2579,16 +2591,18 @@ textarea:focus {
 }
 @media (min-width: 1366px) {
   .site-footer__bottom--socials {
-    margin-top: 1.9375rem;
     -ms-flex-pack: end;
         justify-content: flex-end;
     gap: 1.625rem;
   }
 }
-.site-footer__bottom--socials li a img {
-  transition: transform 0.2s;
+.site-footer__bottom--socials li a svg {
+  backface-visibility: hidden;
+  -ms-transform: translateZ(0); /* IE 9 */ /* Chrome, Safari, Opera */
+  transform: translateZ(0);
+  transition: transform 0.3s;
 }
-.site-footer__bottom--socials li a img:hover {
+.site-footer__bottom--socials li a svg:hover {
   -ms-transform: scale(1.1);
       transform: scale(1.1);
 }
