@@ -11,17 +11,17 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--gutterSize, toRem(20));
-  padding-right: var(--gutterSize, toRem(20));
+  padding-left: var(--gutterSize, toRem(23));
+  padding-right: var(--gutterSize, toRem(23));
 
   @include breakpoint (md, min) {
-    padding-left: var(--gutterSize, toRem(56));
-    padding-right: var(--gutterSize, toRem(56));
+    padding-left: var(--gutterSize, toRem(70));
+    padding-right: var(--gutterSize, toRem(70));
   }
 
   @include breakpoint (lg, min) {
-    padding-left: var(--gutterSize, toRem(0));
-    padding-right: var(--gutterSize, toRem(0));
+    padding-left: var(--gutterSize, toRem(15));
+    padding-right: var(--gutterSize, toRem(15));
   }
 
   &--right-free {
@@ -52,22 +52,26 @@
 }
 
 .row {
-  --gutterSize: #{toRem(20)};
+  --gutterSize: #{toRem(46)};
   display: flex;
   flex-wrap: wrap;
+  margin-left: toRem(-15);
+  margin-right: toRem(-15);
   margin-left: calc(-0.5 * var(--gutterSize));
   margin-right: calc(-0.5 * var(--gutterSize));
 
   @include breakpoint(md, min) {
-    margin-left: toRem(-30);
-    margin-right: toRem(-30);
-    margin-left: calc(-1 * var(--gutterSize));
-    margin-right: calc(-1 * var(--gutterSize));
+    --gutterSize: #{toRem(30)};
+    margin-left: toRem(-15);
+    margin-right: toRem(-15);
+    margin-left: calc(-0.5 * var(--gutterSize));
+    margin-right: calc(-0.5 * var(--gutterSize));
   }
 
   @include breakpoint(lg, min) {
-    margin-left: toRem(-35);
-    margin-right: toRem(-35);
+    --gutterSize: #{toRem(30)};
+    margin-left: toRem(-15);
+    margin-right: toRem(-15);
     margin-left: calc(-0.5 * var(--gutterSize));
     margin-right: calc(-0.5 * var(--gutterSize));
   }
@@ -135,6 +139,12 @@ $container-max-widths: (
   "lg":
     breakpointContainerWidth(
       stripUnit(map-get($container-widths, "lg")),
+      30,
+      20
+    ) + 0px,
+  "xl":
+    breakpointContainerWidth(
+      stripUnit(map-get($container-widths, "xl")),
       30,
       20
     ) + 0px

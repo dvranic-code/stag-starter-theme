@@ -4,6 +4,11 @@
 .site-footer {
   position: relative;
   background: linear-gradient(180deg, #fff 0%, #fafafc 28.27%);
+  text-align: center;
+
+  @include breakpoint(lg, min) {
+    text-align: left;
+  }
 
   &__top {
     .row {
@@ -12,7 +17,7 @@
       }
     }
 
-    padding-bottom: toRem(35);
+    padding-bottom: toRem(16);
     border-bottom: 1px solid wpColor(tl-grey-3);
 
     @include breakpoint(lg, min) {
@@ -20,7 +25,7 @@
     }
 
     img {
-      margin-bottom: toRem(20);
+      margin-bottom: toRem(30);
       @include breakpoint(lg, min) {
         margin-bottom: 0;
       }
@@ -28,9 +33,10 @@
 
     .menu {
       li {
-        margin-bottom: toRem(15);
+        margin-bottom: toRem(24);
         @include breakpoint(lg, min) {
           margin-bottom: 0;
+          margin-left: 24px;
         }
         a {
           color: wpColor(tl-blue-1);
@@ -45,15 +51,27 @@
 
       @include breakpoint(lg, min) {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
       }
     }
   }
   &__bottom {
-    padding-top: toRem(35);
-    padding-bottom: toRem(33);
+
+    .row {
+      flex-direction: column-reverse;
+      @include breakpoint(lg, min) {
+        flex-direction: row;
+      }
+    }
+    padding-top: toRem(40);
+    padding-bottom: toRem(30);
     background: url("/wp-content/themes/stag-starter-theme/assets/images/footer_bg_wave.png")
       no-repeat bottom center;
+    background-size: contain;
+
+    @include breakpoint(lg, min) {
+      background-size: initial;
+    }
 
     @include breakpoint(lg, min) {
       padding-top: toRem(65);
@@ -66,10 +84,11 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      margin-top: 0;
+      margin-bottom: toRem(40);
 
       @include breakpoint(lg, min) {
-        margin-top: 0;
-        margin-bottom: 16px;
+        margin-bottom: toRem(16);
       }
     }
 
@@ -82,6 +101,8 @@
       gap: toRem(19);
       list-style-type: none;
       padding: 0;
+      justify-content: center;
+      margin-bottom: toRem(30);
 
       @include breakpoint(lg, min) {
         justify-content: flex-end;
