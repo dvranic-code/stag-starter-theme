@@ -69,8 +69,7 @@ a.btn {
   background: var(--backgroundColor);
   color: var(--foregroundColor);
   overflow: hidden;
-  transition: border-color var(--transitionSpeed) $torlak-ease,
-    color var(--transitionSpeed) $torlak-ease;
+  transition: background 0.3s $torlak-ease, color 0.3s $torlak-ease;
 
   @include breakpoint(tablet, min) {
     font-size: toRem(13px);
@@ -105,32 +104,33 @@ a.btn {
     }
   }
 
-  &[disabled],
-  &:disabled {
-    &::before {
-      display: none;
-    }
+  // &[disabled],
+  // &:disabled {
+  //   &::before {
+  //     display: none;
+  //   }
 
-    border-color: var(--borderColorDisabled);
-    pointer-events: none;
-    cursor: not-allowed;
-  }
+  //   border-color: var(--borderColorDisabled);
+  //   pointer-events: none;
+  //   cursor: not-allowed;
+  // }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background: var(--animBGColor);
-    transition: width var(--transitionSpeed) $torlak-ease;
-    z-index: -1;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 0%;
+  //   height: 100%;
+  //   background: var(--animBGColor);
+  //   transition: width var(--transitionSpeed) $torlak-ease;
+  //   z-index: -1;
+  // }
 
   &:hover {
     border-color: var(--borderColor);
     color: var(--backgroundColor);
+    background: var(--foregroundColor);
     text-decoration: none;
 
     svg {
@@ -153,11 +153,13 @@ a.btn {
   &:focus {
     outline: none;
     text-decoration: none;
-    border-color: wpColor(tl-blue-2);
+    border-color: var(--borderColor);
+    color: var(--backgroundColor);
+    background: var(--foregroundColor);
   }
 
   &.btn--sm {
-    width: toRem(500);
+    width: toRem(420);
     max-width: 100%;
   }
 

@@ -1,0 +1,11 @@
+.inner-banner {
+
+  &__image {
+    background: no-repeat center center;
+    margin-top: 0;
+    min-height: clamp(38.75rem,45vw,84vh);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+}
