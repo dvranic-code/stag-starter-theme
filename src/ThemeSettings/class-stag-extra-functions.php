@@ -34,6 +34,21 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 		public static function fetch_icon( $icon ) {
 			get_template_part( "assets/public/src/icons/$icon", \null, array() );
 		}
+
+		/**
+		 * Retrieves a menu by its name or location.
+		 *
+		 * @param string $menu The name or location of the menu to retrieve.
+		 */
+		public static function get_menu( $menu ) {
+			if ( has_nav_menu( $menu ) ) {
+				wp_nav_menu(
+					array(
+						'theme_location' => $menu,
+					)
+				);
+			}
+		}
 	}
 
 	new STAG_Extra_Functions();

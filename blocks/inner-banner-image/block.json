@@ -1,0 +1,23 @@
+{
+    "name": "acf/inner-banner-image",
+    "title": "Inner Banne imager",
+    "description": "Block that displays an banner image on inner pages.",
+    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "style": [],
+    "category": "formatting",
+    "icon": "art",
+    "keywords": [
+        "image",
+        "media",
+        "banner",
+        "inner"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "inner-banner-image.php"
+    },
+    "align": "full",
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Template.
+ * Inner Banner Image.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -21,7 +21,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_name = '';
+$class_name = 'inner-banner';
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
 }
@@ -29,13 +29,13 @@ if ( ! empty( $block['align'] ) ) {
 	$class_name .= ' align' . $block['align'];
 }
 
+$image = get_field( 'inner_banner_image' );
+
 ?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h2>Block Template</h2>
-			</div>
-		</div>
-	</div>
+	<?php if ( $image ) { ?>
+		<figure class="inner-banner__img stag-media-background">
+			<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+		</figure>
+	<?php } ?>
 </section>

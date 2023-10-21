@@ -44,9 +44,12 @@ if ( ! class_exists( 'STAG_ACF_Register_Blocks' ) ) {
 			// Check function exists.
 			if ( function_exists( 'register_block_type' ) ) {
 				/**
-				 * Block Name
-				 * How to use: register_block_type( get_template_directory() . '/blocks/block_name' );
+				 * We register our block's with WordPress's handy
+				 * register_block_type();
+				 *
+				 * @link https://developer.wordpress.org/reference/functions/register_block_type/
 				 */
+				register_block_type( get_template_directory() . '/blocks/inner-banner-image' );
 			}
 		}
 	}

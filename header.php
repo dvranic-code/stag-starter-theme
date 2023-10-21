@@ -9,6 +9,7 @@
  * @package _s
  */
 
+use stag_theme\ThemeSettings\STAG_Extra_Functions;
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -26,33 +27,27 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			if ( has_custom_logo() ) {
-				the_custom_logo();
-			} elseif ( is_front_page() && is_home() ) {
-				?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php
-			} else {
-				?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-
-			}
-			?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav>
-		<!-- #site-navigation -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="site-header__branding">
+						<?php
+						if ( has_custom_logo() ) {
+							the_custom_logo();
+						}
+						?>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<nav id="site-navigation" class="site-header__main--navigation">
+						<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
+					</nav>
+				</div>
+				<div class="col-md-4">
+					<nav id="secondary-navigation" class="site-header__main--navigation site-header__main--navigation--right">
+						<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
+					</nav>
+				</div>
+			</div>
+		</div>
 	</header><!-- #masthead -->

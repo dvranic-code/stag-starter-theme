@@ -208,6 +208,7 @@ table {
 a {
   color: wpColor(tl-blue-4);
   text-decoration: none;
+  transition: color 0.1s $torlak-ease;
 }
 
 a:hover,

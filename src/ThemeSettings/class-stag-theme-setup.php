@@ -44,8 +44,9 @@ if ( ! class_exists( 'Stag_Theme_Setup' ) ) {
 
 			register_nav_menus(
 				array(
-					'menu-1' => esc_html__( 'Primary Menu', 'stag' ),
-					'footer' => esc_html__( 'Footer Menu', 'stag' ),
+					'primary-menu' => esc_html__( 'Primary Menu', 'stag' ),
+					'header-right' => esc_html__( 'Header Right Menu', 'stag' ),
+					'footer'       => esc_html__( 'Footer Menu', 'stag' ),
 				)
 			);
 

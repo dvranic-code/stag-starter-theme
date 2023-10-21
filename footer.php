@@ -33,14 +33,7 @@ $footer_copy = get_field(
 					?>
 					</div>
 					<div class="col-lg-8">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer',
-							'menu_id'        => 'footer-nav',
-						)
-					);
-					?>
+					<?php STAG_Extra_Functions::get_menu( 'footer' ); ?>
 					</div>
 				</div>
 			</div>
