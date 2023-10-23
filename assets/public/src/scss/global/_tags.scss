@@ -51,6 +51,9 @@ h2 {
   @include breakpoint(ld, min) {
     font-size: toRem(52);
     line-height: normal;
+
+    margin-top: toRem(20);
+    margin-bottom: toRem(40);
   }
 }
 
@@ -68,6 +71,7 @@ h3 {
   @include breakpoint(lg, min) {
     font-size: toRem(32);
     line-height: normal;
+    margin-bottom: toRem(40);
   }
 }
 
@@ -123,7 +127,13 @@ h6 {
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-top: 0;
+  margin-bottom: toRem(40);
+  font-size: toRem(20);
+  color: wpColr(tl-black);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 dfn,
@@ -197,7 +207,12 @@ object {
 }
 
 figure {
-  margin: 1em 0;
+  margin-top: 0;
+  margin-bottom: toRem(20);
+}
+
+figure.wp-block-image {
+  margin-bottom: toRem(60);
 }
 
 table {

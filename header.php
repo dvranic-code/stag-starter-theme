@@ -46,6 +46,31 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 				<div class="col-md-4">
 					<nav id="secondary-navigation" class="site-header__main--navigation site-header__main--navigation--right">
 						<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
+						<div class="site-header__main--navigation--right--links">
+							<ul>
+								<li>
+									<a href="#">
+										<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
+									</a>
+								</li>
+								<li>
+									<a href="#">Login</a>
+								</li>
+								<li>
+									<a href="#">
+										<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
+									</a>
+									<ul class="lang-sub-menu">
+										<li>
+											<a href="#">Latinica</a>
+										</li>
+										<li>
+											<a href="#">English</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
 					</nav>
 				</div>
 			</div>
