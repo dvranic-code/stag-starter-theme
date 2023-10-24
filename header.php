@@ -49,7 +49,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						<div class="site-header__main--navigation--right--links">
 							<ul>
 								<li>
-									<a href="#">
+									<a class="search-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
 									</a>
 								</li>
@@ -57,7 +57,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 									<a href="#">Login</a>
 								</li>
 								<li>
-									<a href="#">
+									<a class="language-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
 									</a>
 									<ul class="lang-sub-menu"

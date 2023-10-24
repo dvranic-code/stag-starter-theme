@@ -28,22 +28,25 @@
             font-style: normal;
             font-weight: 700;
             line-height: normal;
+            border-bottom: 2px solid transparent;
+            transition: all 0.15s ease-in-out;
+            text-decoration: none;
 
             &:hover {
-              color: wpColor(tl-blue-1);
+              color: wpColor(tl-blue-4);
+              border-color: wpColor(tl-blue-4);
             }
           }
         }
 
         li.current_page_item {
           a {
-            color: wpColor(tl-blue-1);
-            text-decoration: underline;
+            color: wpColor(tl-blue-4);
+            border-color: wpColor(tl-blue-4);
           }
         }
 
         li.menu-item-has-children {
-
           .sub-menu {
             display: none;
           }
@@ -62,12 +65,12 @@
         li {
           a {
             font-size: toRem(13);
+            text-decoration: none;
           }
         }
         li.current_page_item {
           a {
-            color: wpColor(tl-blue-1);
-            text-decoration: underline;
+            color: wpColor(tl-blue-4);
           }
         }
       }
@@ -87,12 +90,29 @@
               font-style: normal;
               font-weight: 700;
               line-height: normal;
+              border-bottom: 2px solid transparent;
+              transition: all 0.15s ease-in-out;
+              text-decoration: none;
 
               svg {
                 position: relative;
                 top: toRem(5);
               }
+
+              &:hover {
+                color: wpColor(tl-blue-4);
+                border-color: wpColor(tl-blue-4);
+              }
             }
+
+            a.search-icon,
+            a.language-icon {
+
+              &:hover {
+                border-color: transparent;
+              }
+            }
+
             ul.lang-sub-menu {
               display: none;
             }

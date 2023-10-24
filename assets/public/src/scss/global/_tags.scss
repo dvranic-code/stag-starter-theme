@@ -64,6 +64,8 @@ h3 {
   font-weight: $regular;
   font-size: toRem(24);
   line-height: normal;
+  margin-top: toRem(40);
+  margin-bottom: toRem(20);
 
   @include breakpoint(md, min) {
     font-size: toRem(24);
@@ -73,8 +75,6 @@ h3 {
   @include breakpoint(lg, min) {
     font-size: toRem(24);
     line-height: normal;
-    margin-top: toRem(60);
-    margin-bottom: toRem(40);
   }
 }
 
@@ -133,7 +133,7 @@ p {
   margin-top: 0;
   margin-bottom: toRem(40);
   font-size: toRem(20);
-  color: wpColr(tl-black);
+  color: wpColor(tl-black);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -219,6 +219,21 @@ table {
   width: 100%;
 }
 
+.wp-block-table {
+
+  th,
+  td {
+    min-width: toRem(130);
+  }
+
+  @include breakpoint(md, min) {
+    th,
+    td {
+      min-width: auto;
+    }
+  }
+}
+
 a {
   color: wpColor(tl-blue-4);
   text-decoration: none;
@@ -229,6 +244,7 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: underline;
+  color: wpColor(tl-blue-4);
 }
 
 a:focus {
