@@ -51,6 +51,10 @@
       h1.entry-title {
         margin-bottom: 0;
         font-size: toRem(32);
+
+        @include breakpoint(md, min) {
+          font-size: toRem(48);
+        }
       }
 
       .entry-meta {
@@ -103,5 +107,9 @@
         }
       }
     }
+  }
+
+  .block-design .content-wrap {
+    padding-top: toRem(0);
   }
 }
