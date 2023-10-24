@@ -180,6 +180,16 @@ big {
 ul,
 ol {
   margin: 0;
+  margin-bottom: toRem(40);
+  font-size: toRem(20);
+  color: wpColor(tl-black);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  li {
+    margin-bottom: toRem(9);
+  }
 }
 
 ul {
@@ -192,7 +202,11 @@ ol {
 
 li > ul,
 li > ol {
-  margin-bottom: 0;
+  font-size: toRem(20);
+  color: wpColor(tl-black);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 dt {

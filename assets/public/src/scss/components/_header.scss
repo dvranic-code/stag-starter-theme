@@ -15,6 +15,13 @@
   }
 
   &__main--navigation {
+    ul {
+      margin-bottom: 0;
+
+      li {
+        margin-bottom: 0;
+      }
+    }
     @include breakpoint(lg, min) {
       .menu {
         display: flex;

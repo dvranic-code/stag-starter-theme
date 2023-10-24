@@ -998,6 +998,16 @@ big {
 ul,
 ol {
   margin: 0;
+  margin-bottom: 2.5rem;
+  font-size: 1.25rem;
+  color: var(--wp--preset--color--tl-black);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+ul li,
+ol li {
+  margin-bottom: 0.5625rem;
 }
 
 ul {
@@ -1010,7 +1020,11 @@ ol {
 
 li > ul,
 li > ol {
-  margin-bottom: 0;
+  font-size: 1.25rem;
+  color: var(--wp--preset--color--tl-black);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 dt {
@@ -2802,6 +2816,12 @@ textarea:focus {
   -ms-flex-align: center;
       align-items: center;
 }
+.site-header__main--navigation ul {
+  margin-bottom: 0;
+}
+.site-header__main--navigation ul li {
+  margin-bottom: 0;
+}
 @media (min-width: 1024px) {
   .site-header__main--navigation .menu {
     display: -ms-flexbox;
@@ -3136,7 +3156,7 @@ textarea:focus {
   margin-bottom: 2.5rem;
   margin-top: 0;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 .single .content-wrap .single-widget figure,
 .page .content-wrap .single-widget figure {
