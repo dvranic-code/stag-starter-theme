@@ -39,7 +39,7 @@ h1 {
 
 .h2,
 h2 {
-  font-weight: $regular;
+  font-weight: $bold;
   font-size: toRem(28);
   line-height: normal;
   margin-top: toRem(60);
@@ -61,7 +61,7 @@ h2 {
 
 .h3,
 h3 {
-  font-weight: $regular;
+  font-weight: $bold;
   font-size: toRem(24);
   line-height: normal;
   margin-top: toRem(40);
@@ -219,11 +219,21 @@ table {
   width: 100%;
 }
 
+table,
 .wp-block-table {
 
   th,
   td {
     min-width: toRem(130);
+
+    ul,
+    li {
+      font-size: toRem(20);
+      color: wpColor(tl-black);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
   }
 
   @include breakpoint(md, min) {

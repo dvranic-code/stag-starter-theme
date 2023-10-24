@@ -838,7 +838,7 @@ h1 {
 
 .h2,
 h2 {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1.75rem;
   line-height: normal;
   margin-top: 3.75rem;
@@ -863,7 +863,7 @@ h2 {
 
 .h3,
 h3 {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: normal;
   margin-top: 2.5rem;
@@ -1037,11 +1037,29 @@ table {
   width: 100%;
 }
 
+table th,
+table td,
 .wp-block-table th,
 .wp-block-table td {
   min-width: 8.125rem;
 }
+table th ul,
+table th li,
+table td ul,
+table td li,
+.wp-block-table th ul,
+.wp-block-table th li,
+.wp-block-table td ul,
+.wp-block-table td li {
+  font-size: 1.25rem;
+  color: var(--wp--preset--color--tl-black);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 @media (min-width: 768px) {
+  table th,
+  table td,
   .wp-block-table th,
   .wp-block-table td {
     min-width: auto;
@@ -3118,6 +3136,7 @@ textarea:focus {
   margin-bottom: 2.5rem;
   margin-top: 0;
   font-size: 2rem;
+  font-weight: 700;
 }
 .single .content-wrap .single-widget figure,
 .page .content-wrap .single-widget figure {
