@@ -181,7 +181,7 @@ ul,
 ol {
   margin: 0;
   margin-bottom: toRem(40);
-  font-size: toRem(20);
+  font-size: toRem(18);
   color: wpColor(tl-black);
   font-style: normal;
   font-weight: 400;
@@ -236,9 +236,18 @@ table {
 table,
 .wp-block-table {
 
+  &.is-style-stripes {
+    tbody {
+      tr:nth-child(odd) {
+        background-color: wpColor(tl-grey-2);
+      }
+    }
+  }
+
   th,
   td {
     min-width: toRem(130);
+    font-size: toRem(18);
 
     ul,
     li {
