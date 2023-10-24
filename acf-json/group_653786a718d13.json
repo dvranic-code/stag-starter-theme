@@ -27,7 +27,7 @@
                 {
                     "key": "field_653786a71d5ca",
                     "label": "Widget Title",
-                    "name": "widget_title_eng",
+                    "name": "widget_title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -48,7 +48,7 @@
                 {
                     "key": "field_653786a71d5ce",
                     "label": "Widget Image",
-                    "name": "widget_image_eng",
+                    "name": "widget_image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -74,7 +74,7 @@
                 {
                     "key": "field_653786a71d5d2",
                     "label": "Widget Text",
-                    "name": "widget_text_eng",
+                    "name": "widget_text",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -95,7 +95,7 @@
                 {
                     "key": "field_653786a71d5d5",
                     "label": "Widget Buttton Text",
-                    "name": "widget_buttton_text_eng",
+                    "name": "widget_buttton_text",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -116,7 +116,7 @@
                 {
                     "key": "field_653786a71d5d8",
                     "label": "Widget Buttton URL",
-                    "name": "widget_buttton_url_eng",
+                    "name": "widget_buttton_url",
                     "aria-label": "",
                     "type": "page_link",
                     "instructions": "",
@@ -159,5 +159,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698139406
+    "modified": 1698141804
 }

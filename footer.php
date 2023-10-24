@@ -13,25 +13,23 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
 $current_language = pll_current_language();
 if ( 'sr' === $current_language ) {
-	$footer_info   = get_field(
+	$footer_info = get_field(
 		'footer_info',
 		'option'
 	);
-	$footer_copy   = get_field(
+	$footer_copy = get_field(
 		'footer_copy',
 		'option'
 	);
-	$footer_social = 'footer_social';
 } elseif ( 'en' === $current_language ) {
-	$footer_info   = get_field(
+	$footer_info = get_field(
 		'footer_info_eng',
 		'option'
 	);
-	$footer_copy   = get_field(
+	$footer_copy = get_field(
 		'footer_copy_eng',
 		'option'
 	);
-	$footer_social = 'footer_social_eng';
 }
 ?>
 
@@ -62,10 +60,10 @@ if ( 'sr' === $current_language ) {
 						<?php endif; ?>
 					</div>
 					<div class="col-lg-4">
-						<?php if ( have_rows( $footer_social, 'option' ) ) : ?>
+						<?php if ( have_rows( 'footer_social', 'option' ) ) : ?>
 						<ul class="site-footer__bottom--socials">
 							<?php
-							while ( have_rows( $footer_social, 'option' ) ) :
+							while ( have_rows( 'footer_social', 'option' ) ) :
 								the_row();
 								$social_network = get_sub_field( 'social_network' );
 								?>

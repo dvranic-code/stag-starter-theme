@@ -8,7 +8,12 @@
  */
 
 use stag_theme\ThemeSettings\STAG_Template_Tags;
-$single_page_widgets = get_field( 'single_page_widgets', 'option' );
+$current_language = pll_current_language();
+if ( 'sr' === $current_language ) {
+	$single_page_widgets = get_field( 'single_page_widgets', 'option' );
+} elseif ( 'en' === $current_language ) {
+	$single_page_widgets = get_field( 'single_page_widgets_eng', 'option' );
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'test' ); ?>>
