@@ -42,6 +42,8 @@ h2 {
   font-weight: $regular;
   font-size: toRem(28);
   line-height: normal;
+  margin-top: toRem(60);
+  margin-bottom: toRem(40);
 
   @include breakpoint(md, min) {
     font-size: toRem(28);
@@ -209,7 +211,7 @@ object {
 
 figure {
   margin-top: 0;
-  margin-bottom: toRem(20);
+  margin-bottom: toRem(60);
 }
 
 table {
