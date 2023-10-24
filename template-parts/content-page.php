@@ -20,7 +20,7 @@ if ( 'sr' === $current_language ) {
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'test' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
 	<div class="content-wrap">
 		<div class="container">
