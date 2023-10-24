@@ -39,7 +39,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 					</div>
 				</div>
 				<div class="col-md-5">
-					<nav id="site-navigation" class="site-header__main--navigation">
+					<nav id="main-navigation" class="site-header__main--navigation">
 						<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
 					</nav>
 				</div>
