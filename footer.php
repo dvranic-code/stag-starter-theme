@@ -11,14 +11,28 @@
 
 use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
-$footer_info = get_field(
-	'footer_info',
-	'option'
-);
-$footer_copy = get_field(
-	'footer_copy',
-	'option'
-);
+$current_language = pll_current_language();
+if ( 'sr' === $current_language ) {
+	$footer_info   = get_field(
+		'footer_info',
+		'option'
+	);
+	$footer_copy   = get_field(
+		'footer_copy',
+		'option'
+	);
+	$footer_social = 'footer_social';
+} elseif ( 'en' === $current_language ) {
+	$footer_info   = get_field(
+		'footer_info_eng',
+		'option'
+	);
+	$footer_copy   = get_field(
+		'footer_copy_eng',
+		'option'
+	);
+	$footer_social = 'footer_social_eng';
+}
 ?>
 
 	<footer id="colophon" class="site-footer">
@@ -40,14 +54,18 @@ $footer_copy = get_field(
 			<div class="site-footer__bottom">
 				<div class="row">
 					<div class="col-lg-8">
+						<?php if ( $footer_info ) : ?>
 						<p><?php echo $footer_info; // phpcs:ignore ?></p>
+						<?php endif; ?>
+						<?php if ( $footer_copy ) : ?>
 						<p>©<?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( $footer_copy ); ?></p>
+						<?php endif; ?>
 					</div>
 					<div class="col-lg-4">
-						<?php if ( have_rows( 'footer_social', 'option' ) ) : ?>
+						<?php if ( have_rows( $footer_social, 'option' ) ) : ?>
 						<ul class="site-footer__bottom--socials">
 							<?php
-							while ( have_rows( 'footer_social', 'option' ) ) :
+							while ( have_rows( $footer_social, 'option' ) ) :
 								the_row();
 								$social_network = get_sub_field( 'social_network' );
 								?>
