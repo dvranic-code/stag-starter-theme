@@ -12,9 +12,11 @@ $current_language = pll_current_language();
 if ( 'sr' === $current_language ) {
 	$single_page_widgets    = get_field( 'single_page_widgets', 'option' );
 	$single_page_widgets_lg = 'single_page_widgets';
+	$lg                     = '';
 } elseif ( 'en' === $current_language ) {
 	$single_page_widgets    = get_field( 'single_page_widgets_eng', 'option' );
 	$single_page_widgets_lg = 'single_page_widgets_eng';
+	$lg                     = '_eng';
 }
 ?>
 
@@ -76,11 +78,11 @@ if ( 'sr' === $current_language ) {
 					<?php
 					while ( have_rows( $single_page_widgets_lg, 'option' ) ) :
 								the_row();
-								$widget_title        = get_sub_field( 'widget_title' );
-								$widget_image        = get_sub_field( 'widget_image' );
-								$widget_text         = get_sub_field( 'widget_text' );
-								$widget_buttton_text = get_sub_field( 'widget_buttton_text' );
-								$widget_buttton_url  = get_sub_field( 'widget_buttton_url' );
+								$widget_title        = get_sub_field( 'widget_title' . $lg );
+								$widget_image        = get_sub_field( 'widget_image' . $lg );
+								$widget_text         = get_sub_field( 'widget_text' . $lg );
+								$widget_buttton_text = get_sub_field( 'widget_buttton_text' . $lg );
+								$widget_buttton_url  = get_sub_field( 'widget_buttton_url' . $lg );
 						?>
 						<div class="single-widget">
 						<?php if ( $widget_title ) : ?>

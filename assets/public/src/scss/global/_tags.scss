@@ -40,19 +40,19 @@ h1 {
 .h2,
 h2 {
   font-weight: $regular;
-  font-size: toRem(30);
+  font-size: toRem(28);
   line-height: normal;
 
   @include breakpoint(md, min) {
-    font-size: toRem(32);
+    font-size: toRem(28);
     line-height: normal;
   }
 
   @include breakpoint(ld, min) {
-    font-size: toRem(52);
+    font-size: toRem(28);
     line-height: normal;
 
-    margin-top: toRem(20);
+    margin-top: toRem(60);
     margin-bottom: toRem(40);
   }
 }
@@ -60,17 +60,18 @@ h2 {
 .h3,
 h3 {
   font-weight: $regular;
-  font-size: toRem(13);
+  font-size: toRem(24);
   line-height: normal;
 
   @include breakpoint(md, min) {
-    font-size: toRem(23);
+    font-size: toRem(24);
     line-height: normal;
   }
 
   @include breakpoint(lg, min) {
-    font-size: toRem(32);
+    font-size: toRem(24);
     line-height: normal;
+    margin-top: toRem(60);
     margin-bottom: toRem(40);
   }
 }
@@ -209,10 +210,6 @@ object {
 figure {
   margin-top: 0;
   margin-bottom: toRem(20);
-}
-
-figure.wp-block-image {
-  margin-bottom: toRem(60);
 }
 
 table {
