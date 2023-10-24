@@ -8,6 +8,7 @@
 html {
   scroll-padding-top: var(--headerHeight);
   font-family: $defaultFontFamily;
+  scroll-behavior: smooth;
 }
 
 .html--prevent-scroll {
