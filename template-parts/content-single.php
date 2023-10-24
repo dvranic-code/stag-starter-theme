@@ -10,9 +10,11 @@
 use stag_theme\ThemeSettings\STAG_Template_Tags;
 $current_language = pll_current_language();
 if ( 'sr' === $current_language ) {
-	$single_page_widgets = get_field( 'single_page_widgets', 'option' );
+	$single_page_widgets    = get_field( 'single_page_widgets', 'option' );
+	$single_page_widgets_lg = 'single_page_widgets';
 } elseif ( 'en' === $current_language ) {
-	$single_page_widgets = get_field( 'single_page_widgets_eng', 'option' );
+	$single_page_widgets    = get_field( 'single_page_widgets_eng', 'option' );
+	$single_page_widgets_lg = 'single_page_widgets_eng';
 }
 ?>
 
@@ -69,10 +71,10 @@ if ( 'sr' === $current_language ) {
 						<?php STAG_Template_Tags::stag_entry_footer(); ?>
 					</footer><!-- .entry-footer -->
 				</div>
-				<?php if ( have_rows( 'single_page_widgets', 'option' ) ) : ?>
+				<?php if ( have_rows( $single_page_widgets_lg, 'option' ) ) : ?>
 				<div class="col-lg-4">
 					<?php
-					while ( have_rows( 'single_page_widgets', 'option' ) ) :
+					while ( have_rows( $single_page_widgets_lg, 'option' ) ) :
 								the_row();
 								$widget_title        = get_sub_field( 'widget_title' );
 								$widget_image        = get_sub_field( 'widget_image' );

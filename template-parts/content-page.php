@@ -8,7 +8,14 @@
  */
 
 use stag_theme\ThemeSettings\STAG_Template_Tags;
-$single_page_widgets = get_field( 'single_page_widgets', 'option' );
+$current_language = pll_current_language();
+if ( 'sr' === $current_language ) {
+	$single_page_widgets    = get_field( 'single_page_widgets', 'option' );
+	$single_page_widgets_lg = 'single_page_widgets';
+} elseif ( 'en' === $current_language ) {
+	$single_page_widgets    = get_field( 'single_page_widgets_eng', 'option' );
+	$single_page_widgets_lg = 'single_page_widgets_eng';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'test' ); ?>>
@@ -57,10 +64,10 @@ $single_page_widgets = get_field( 'single_page_widgets', 'option' );
 					</footer><!-- .entry-footer -->
 					<?php endif; ?>
 				</div>
-				<?php if ( have_rows( 'single_page_widgets', 'option' ) ) : ?>
+				<?php if ( have_rows( $single_page_widgets_lg, 'option' ) ) : ?>
 				<div class="col-lg-4">
 					<?php
-					while ( have_rows( 'single_page_widgets', 'option' ) ) :
+					while ( have_rows( $single_page_widgets_lg, 'option' ) ) :
 								the_row();
 								$widget_title        = get_sub_field( 'widget_title' );
 								$widget_image        = get_sub_field( 'widget_image' );
