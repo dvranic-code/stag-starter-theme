@@ -60,14 +60,15 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 									<a href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
 									</a>
-									<ul class="lang-sub-menu">
-										<li>
-											<a href="#">Latinica</a>
-										</li>
-										<li>
-											<a href="#">English</a>
-										</li>
-									</ul>
+									<select class="lang-sub-menu"
+										<?php pll_the_languages( array( 'dropdown' => 1 ) ); ?>
+										<option>
+											<a href="/?pismo=lat">Latinica</a>
+										</option>
+										<option>
+											<a href="/?pismo=cir">Cirilica</a>
+										</option>
+									</select>
 								</li>
 							</ul>
 						</div>
