@@ -14,6 +14,35 @@
     align-items: center;
   }
 
+  @include breakpoint(lg, min) {
+    .custom-md-3 {
+      width: 21%;
+    }
+
+    .custom-md-5 {
+      width: 45.6666666667%;
+    }
+  }
+
+  #main-navigation {
+    position: relative;
+    margin-left: toRem(32);
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100vw;
+      height: 0;
+      -webkit-transition: height 0.5s ease;
+      transition: height 0.5s ease;
+      right: 0;
+      top: 5.625rem;
+      z-index: 25;
+      background-color: wpColor(tl-white);
+    }
+  }
+
   &__main--navigation {
     ul {
       margin-bottom: 0;
@@ -114,7 +143,6 @@
 
             a.search-icon,
             a.language-icon {
-
               &:hover {
                 border-color: transparent;
               }
