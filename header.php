@@ -29,7 +29,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3 custom-md-3 pr-0">
 					<div class="site-header__branding">
 						<?php
 						if ( has_custom_logo() ) {
@@ -38,7 +38,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						?>
 					</div>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-5 custom-md-5 pl-0">
 					<nav id="main-navigation" class="site-header__main--navigation">
 						<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
 					</nav>

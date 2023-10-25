@@ -42,7 +42,9 @@ a.btn {
   text-decoration: none;
 }
 
-.btn {
+.btn,
+.wp-block-button .wp-block-button__link.is-style-outline, 
+.wp-block-button.is-style-outline>.wp-block-button__link {
   --transitionSpeed: 0.3s;
   --borderColor: #{wpColor(tl-blue-4)};
   --borderColorDisabled: #{wpColor(light-blue)};
@@ -130,7 +132,7 @@ a.btn {
 
   &:hover {
     border-color: var(--borderColor);
-    color: var(--backgroundColor);
+    color: var(--backgroundColor)!important;
     background: var(--foregroundColor);
     text-decoration: none;
 
