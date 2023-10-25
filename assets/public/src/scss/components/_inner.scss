@@ -7,6 +7,7 @@
     width: 100%;
     overflow: hidden;
     min-height: toRem(460);
+    z-index: -1;
 
     .post-thumbnail,
     .post-thumbnail img {
@@ -22,6 +23,7 @@
   .content-wrap {
     padding-top: toRem(90);
     padding-bottom: toRem(50);
+    position: relative;
 
     .entry-tags {
       display: inline-block;

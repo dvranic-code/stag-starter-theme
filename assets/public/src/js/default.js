@@ -1,7 +1,3 @@
-/*global Swiper */
-
-window.addEventListener('DOMContentLoaded', event => {
-
-  // code here..
-
-});
+(() => {
+  require("./components/header.js");
+})();

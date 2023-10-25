@@ -12,6 +12,8 @@
 
 namespace stag_theme\ThemeSettings;
 
+use stag_theme\Controllers\Custom_Walker_Nav_Menu;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -45,6 +47,7 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 				wp_nav_menu(
 					array(
 						'theme_location' => $menu,
+						'walker'         => new Custom_Walker_Nav_Menu(),
 					)
 				);
 			}
