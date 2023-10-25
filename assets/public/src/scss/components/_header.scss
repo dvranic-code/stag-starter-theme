@@ -2,6 +2,9 @@
 @import "../global/fonts";
 
 .site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: toRem(19) 0;
   background: #fff;
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.16);
@@ -24,6 +27,10 @@
     }
   }
 
+  &__nav-wrap {
+    position: relative;
+  }
+
   #main-navigation {
     position: relative;
     margin-left: toRem(32);
@@ -37,10 +44,35 @@
       -webkit-transition: height 0.5s ease;
       transition: height 0.5s ease;
       right: 0;
-      top: 5.625rem;
-      z-index: 25;
-      background-color: wpColor(tl-white);
+      top: toRem(61);
+      z-index: 999;
+      background-color: #fff;
     }
+  }
+
+  #main-navigation.menu-active {
+    &::before {
+      height: 100vh;
+    }
+  }
+
+  &__nav-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: toRem(-39);
+    left: var(--mainNavWidth);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    background: rgba(0, 63, 226, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  .overlay-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 24;
   }
 
   &__main--navigation {
@@ -73,6 +105,31 @@
               border-color: wpColor(tl-blue-4);
             }
           }
+
+          .sub-menu {
+            position: absolute;
+            left: 0;
+            z-index: 99999;
+            padding-top: toRem(58);
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+              margin-bottom: toRem(16);
+
+              a {
+                font-size: toRem(24);
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+
+                &:hover {
+                  border-color: transparent;
+                }
+              }
+            }
+          }
         }
 
         li.current_page_item {
@@ -83,8 +140,14 @@
         }
 
         li.menu-item-has-children {
-          .sub-menu {
+          .sub-menu,
+          .sub-menu-level-two {
             display: none;
+          }
+        }
+        li.active {
+          .sub-menu {
+            display: block;
           }
         }
       }

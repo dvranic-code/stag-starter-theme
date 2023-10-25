@@ -39,9 +39,12 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 					</div>
 				</div>
 				<div class="col-md-5 custom-md-5 pl-0">
-					<nav id="main-navigation" class="site-header__main--navigation">
-						<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
-					</nav>
+					<div id="mainNavWidth" class="site-header__nav-wrap">
+						<nav id="main-navigation" class="site-header__main--navigation">
+							<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
+						</nav>
+						<div class="site-header__nav-overlay"></div>
+					</div>
 				</div>
 				<div class="col-md-4">
 					<nav id="secondary-navigation" class="site-header__main--navigation site-header__main--navigation--right">
