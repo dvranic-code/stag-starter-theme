@@ -56,5 +56,7 @@ function getMainNavWidth() {
 
 onReady(() => {
   showMenu();
-  getMainNavWidth();
+  setTimeout(() => {
+    getMainNavWidth();
+  }, 1000);
 });
