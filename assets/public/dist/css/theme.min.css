@@ -2878,7 +2878,7 @@ textarea:focus {
 .site-header #main-navigation {
   position: relative;
   margin-left: 2rem;
-  padding-right: 0.9375rem;
+  padding-right: 3.9375rem;
 }
 .site-header #main-navigation::before {
   content: "";
@@ -3110,12 +3110,19 @@ textarea:focus {
   color: var(--wp--preset--color--tl-blue-4);
   border-color: var(--wp--preset--color--tl-blue-4);
 }
+.site-header__main--navigation--right--links ul li a.search-icon,
+.site-header__main--navigation--right--links ul li a.language-icon {
+  display: block;
+}
 .site-header__main--navigation--right--links ul li a.search-icon:hover,
 .site-header__main--navigation--right--links ul li a.language-icon:hover {
   border-color: transparent;
 }
 .site-header__main--navigation--right--links ul li ul.lang-sub-menu {
   display: none;
+}
+.site-header__main--navigation--right--links ul li ul.lang-sub-menu.active {
+  display: block;
 }
 
 @font-face {
