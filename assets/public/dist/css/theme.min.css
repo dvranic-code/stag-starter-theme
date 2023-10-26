@@ -2864,8 +2864,11 @@ textarea:focus {
   .site-header .custom-md-3 {
     width: 21%;
   }
+  .site-header .custom-md-4 {
+    width: 26.3333333333%;
+  }
   .site-header .custom-md-5 {
-    width: 45.6666666667%;
+    width: 52.6666666667%;
   }
 }
 .site-header__nav-wrap {
