@@ -2,7 +2,6 @@
 
 :root {
   --headerHeight: 100px;
-  --mainNavWidth: 0;
 }
 
 html {
@@ -72,8 +71,6 @@ a.btn {
   line-height: toRem(18);
   text-align: center;
   cursor: pointer;
-  position: relative;
-  isolation: isolate;
   background: var(--backgroundColor);
   color: var(--foregroundColor);
   overflow: hidden;

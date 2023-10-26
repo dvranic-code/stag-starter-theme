@@ -34,7 +34,9 @@ if ( ! class_exists( 'Custom_Walker_Nav_Menu' ) ) {
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = null ) {
 			// Add a custom class for the third level sub-menu.
-			if ( 1 === $depth ) {
+			if ( 0 === $depth ) {
+				$output .= '<ul class="sub-menu sub-menu-level-one">';
+			} elseif ( 1 === $depth ) {
 				$output .= '<ul class="sub-menu-level-two">';
 			} else {
 				parent::start_lvl( $output, $depth, $args );
@@ -52,6 +54,12 @@ if ( ! class_exists( 'Custom_Walker_Nav_Menu' ) ) {
 		 */
 		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 			// Add or modify classes as needed.
+			if ( 0 === $depth ) {
+				$item->classes[] = 'children-zero-level';
+			}
+			if ( 1 === $depth ) {
+				$item->classes[] = 'children-first-level';
+			}
 			if ( 2 === $depth ) {
 				$item->classes[] = 'sub-menu-level-two-items';
 			}
