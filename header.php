@@ -69,7 +69,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 											<a href="/?pismo=lat">Latinica</a>
 										</li>
 										<li>
-											<a href="/?pismo=cir">Cirilica</a>
+											<a href="/?pismo=cir">Ћирилица</a>
 										</li>
 									</ul>
 								</li>
