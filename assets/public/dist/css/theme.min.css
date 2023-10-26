@@ -2873,10 +2873,12 @@ textarea:focus {
 }
 .site-header__nav-wrap {
   position: relative;
+  display: inline-block;
 }
 .site-header #main-navigation {
   position: relative;
   margin-left: 2rem;
+  padding-right: 0.9375rem;
 }
 .site-header #main-navigation::before {
   content: "";
