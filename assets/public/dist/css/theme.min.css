@@ -613,7 +613,6 @@ select {
 \*------------------------------------------------------------*/
 :root {
   --headerHeight: 100px;
-  --mainNavWidth: 0;
 }
 
 html {
@@ -672,8 +671,6 @@ a.btn {
   line-height: 1.125rem;
   text-align: center;
   cursor: pointer;
-  position: relative;
-  isolation: isolate;
   background: var(--backgroundColor);
   color: var(--foregroundColor);
   overflow: hidden;
@@ -2851,14 +2848,13 @@ textarea:focus {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.1875rem 0;
   background: #fff;
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.16);
+  z-index: 9;
 }
-@media (min-width: 1024px) {
-  .site-header {
-    padding: 1.375rem 0;
-  }
+.site-header__branding {
+  position: relative;
+  z-index: 99999;
 }
 .site-header .row {
   -ms-flex-align: center;
@@ -2887,9 +2883,13 @@ textarea:focus {
   height: 0;
   transition: height 0.5s ease;
   right: 0;
-  top: 3.8125rem;
+  top: 0;
   z-index: 999;
   background-color: #fff;
+}
+.site-header #main-navigation a {
+  position: relative;
+  z-index: 999999;
 }
 .site-header #main-navigation.menu-active::before {
   height: 100vh;
@@ -2898,7 +2898,7 @@ textarea:focus {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  top: -2.4375rem;
+  top: 0;
   left: var(--mainNavWidth);
   transition: opacity 0.5s ease, visibility 0.5s ease;
   background: rgba(0, 63, 226, 0.3);
@@ -2921,13 +2921,17 @@ textarea:focus {
   .site-header__main--navigation .menu {
     display: -ms-flexbox;
     display: flex;
-    gap: 1.25rem;
     -ms-flex-align: center;
         align-items: center;
+    height: var(--headerHeight);
   }
   .site-header__main--navigation .menu li {
     -ms-flex: 0 0 auto;
         flex: 0 0 auto;
+    padding-right: 1.25rem;
+  }
+  .site-header__main--navigation .menu li:last-child {
+    padding-right: 0;
   }
   .site-header__main--navigation .menu li a {
     color: var(--wp--preset--color--tl-black);
@@ -2945,15 +2949,19 @@ textarea:focus {
   }
   .site-header__main--navigation .menu li .sub-menu {
     position: absolute;
+    top: 0;
     left: 0;
     z-index: 99999;
-    padding-top: 3.625rem;
+    padding-top: 9.9375rem;
     padding-left: 0;
     margin: 0;
     list-style: none;
+    width: 100%;
+    height: 100vh;
   }
   .site-header__main--navigation .menu li .sub-menu li {
-    margin-bottom: 1rem;
+    padding-right: 4.125rem;
+    padding-bottom: 1rem;
   }
   .site-header__main--navigation .menu li .sub-menu li a {
     font-size: 1.5rem;
@@ -2964,16 +2972,71 @@ textarea:focus {
   .site-header__main--navigation .menu li .sub-menu li a:hover {
     border-color: transparent;
   }
-  .site-header__main--navigation .menu li.current_page_item a {
+  .site-header__main--navigation .menu li .sub-menu li .sub-menu-level-two {
+    position: absolute;
+    top: 0;
+    left: calc(var(--mainNavWidth) - 2rem);
+    width: 20.625rem;
+    background: var(--wp--preset--color--tl-grey-2);
+    height: 100vh;
+    padding: 9.9375rem 2rem 0;
+    margin: 0;
+    list-style: none;
+  }
+  .site-header__main--navigation .menu li .sub-menu li .sub-menu-level-two li {
+    padding-right: 0;
+  }
+  .site-header__main--navigation .menu li .sub-menu li .sub-menu-level-two li a {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .site-header__main--navigation .menu li .sub-menu li .sub-menu-level-two li a::before {
+    display: none;
+  }
+  .site-header__main--navigation .menu li .sub-menu li.menu-item-has-children a {
+    display: inline-block;
+  }
+  .site-header__main--navigation .menu li .sub-menu li.menu-item-has-children a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 1.1875rem;
+    height: 1.1875rem;
+    right: 0.6875rem;
+    border-right: 2px solid var(--wp--preset--color--tl-dark-grey);
+    border-top: 2px solid var(--wp--preset--color--tl-dark-grey);
+    -ms-transform: rotate(45deg) translateY(-50%);
+        transform: rotate(45deg) translateY(-50%);
+  }
+  .site-header__main--navigation .menu li.current_page_item > a:first-child {
     color: var(--wp--preset--color--tl-blue-4);
     border-color: var(--wp--preset--color--tl-blue-4);
   }
+  .site-header__main--navigation .menu li.children-zero-level.active > a:first-child {
+    color: var(--wp--preset--color--tl-blue-4);
+    border-color: var(--wp--preset--color--tl-blue-4);
+  }
+  .site-header__main--navigation .menu li.current_page_item.children-first-level > a:first-child {
+    color: var(--wp--preset--color--tl-blue-4);
+    border: none;
+  }
   .site-header__main--navigation .menu li.menu-item-has-children .sub-menu,
   .site-header__main--navigation .menu li.menu-item-has-children .sub-menu-level-two {
-    display: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
   }
   .site-header__main--navigation .menu li.active .sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  .site-header__main--navigation .menu li.active .sub-menu li.active .sub-menu-level-two {
     display: block;
+    opacity: 1;
+    visibility: visible;
   }
 }
 .site-header__main--navigation--right {
@@ -2988,6 +3051,9 @@ textarea:focus {
   gap: 1rem;
   -ms-flex-pack: end;
       justify-content: flex-end;
+}
+.site-header__main--navigation--right .menu li {
+  padding-right: 0;
 }
 .site-header__main--navigation--right .menu li a {
   font-size: 0.8125rem;
@@ -3040,7 +3106,6 @@ textarea:focus {
   src: url(../../../../assets/fonts/PTSans-Regular.ttf) format("truetype");
 }
 .site-footer {
-  position: relative;
   background: linear-gradient(180deg, #fff 0%, #fafafc 28.27%);
   text-align: center;
 }
@@ -3193,7 +3258,6 @@ textarea:focus {
 .page .content-wrap {
   padding-top: 5.625rem;
   padding-bottom: 3.125rem;
-  position: relative;
 }
 .single .content-wrap .entry-tags,
 .page .content-wrap .entry-tags {
@@ -3224,7 +3288,6 @@ textarea:focus {
 }
 .single .content-wrap .entry-header,
 .page .content-wrap .entry-header {
-  position: relative;
   margin-bottom: 3.75rem;
 }
 .single .content-wrap .entry-header h1.entry-title,

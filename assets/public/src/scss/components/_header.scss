@@ -5,12 +5,13 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: toRem(19) 0;
   background: #fff;
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.16);
+  z-index: 9;
 
-  @include breakpoint(lg, min) {
-    padding: toRem(22) 0;
+  &__branding {
+    position: relative;
+    z-index: 99999;
   }
 
   .row {
@@ -44,9 +45,14 @@
       -webkit-transition: height 0.5s ease;
       transition: height 0.5s ease;
       right: 0;
-      top: toRem(61);
+      top: 0;
       z-index: 999;
       background-color: #fff;
+    }
+
+    a {
+      position: relative;
+      z-index: 999999;
     }
   }
 
@@ -60,7 +66,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    top: toRem(-39);
+    top: 0;
     left: var(--mainNavWidth);
     transition: opacity 0.5s ease, visibility 0.5s ease;
     background: rgba(0, 63, 226, 0.3);
@@ -86,10 +92,15 @@
     @include breakpoint(lg, min) {
       .menu {
         display: flex;
-        gap: toRem(20);
         align-items: center;
+        height: var(--headerHeight);
         li {
           flex: 0 0 auto;
+          padding-right: toRem(20);
+
+          &:last-child {
+            padding-right: 0;
+          }
           a {
             color: wpColor(tl-black);
             font-size: toRem(18);
@@ -108,15 +119,19 @@
 
           .sub-menu {
             position: absolute;
+            top: 0;
             left: 0;
             z-index: 99999;
-            padding-top: toRem(58);
+            padding-top: toRem(159);
             padding-left: 0;
             margin: 0;
             list-style: none;
+            width: 100%;
+            height: 100vh;
 
             li {
-              margin-bottom: toRem(16);
+              padding-right: toRem(66);
+              padding-bottom: toRem(16);
 
               a {
                 font-size: toRem(24);
@@ -128,26 +143,93 @@
                   border-color: transparent;
                 }
               }
+
+              .sub-menu-level-two {
+                position: absolute;
+                top: 0;
+                left: calc(var(--mainNavWidth) - toRem(32));
+                width: toRem(330);
+                background: wpColor(tl-grey-2);
+                height: 100vh;
+                padding: toRem(159) toRem(32) 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+                  padding-right: 0;
+
+                  a {
+                    font-size: toRem(20);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+
+                    &::before {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+
+            li.menu-item-has-children {
+              a {
+                display: inline-block;
+                &::before {
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  top: 50%;
+                  width: toRem(19);
+                  height: toRem(19);
+                  right: toRem(11);
+                  border-right: 2px solid wpColor(tl-dark-grey);
+                  border-top: 2px solid wpColor(tl-dark-grey);
+                  -webkit-transform: rotate(45deg) translateY(-50%);
+                  transform: rotate(45deg) translateY(-50%);
+                }
+              }
             }
           }
         }
 
-        li.current_page_item {
-          a {
-            color: wpColor(tl-blue-4);
-            border-color: wpColor(tl-blue-4);
-          }
+        li.current_page_item > a:first-child {
+          color: wpColor(tl-blue-4);
+          border-color: wpColor(tl-blue-4);
+        }
+
+        li.children-zero-level.active > a:first-child {
+          color: wpColor(tl-blue-4);
+          border-color: wpColor(tl-blue-4);
+        }
+
+        li.current_page_item.children-first-level > a:first-child {
+          color: wpColor(tl-blue-4);
+          border: none;
         }
 
         li.menu-item-has-children {
           .sub-menu,
           .sub-menu-level-two {
-            display: none;
+            //display: none;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            visibility: hidden;
           }
         }
         li.active {
           .sub-menu {
-            display: block;
+            //display: block;
+            opacity: 1;
+            visibility: visible;
+
+            li.active {
+              .sub-menu-level-two {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+              }
+            }
           }
         }
       }
@@ -162,6 +244,7 @@
         gap: toRem(16);
         justify-content: flex-end;
         li {
+          padding-right: 0;
           a {
             font-size: toRem(13);
             text-decoration: none;

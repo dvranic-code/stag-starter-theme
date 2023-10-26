@@ -23,7 +23,7 @@
   .content-wrap {
     padding-top: toRem(90);
     padding-bottom: toRem(50);
-    position: relative;
+    // position: relative;
 
     .entry-tags {
       display: inline-block;
@@ -47,7 +47,7 @@
     }
 
     .entry-header {
-      position: relative;
+      // position: relative;
       margin-bottom: toRem(60);
 
       h1.entry-title {
