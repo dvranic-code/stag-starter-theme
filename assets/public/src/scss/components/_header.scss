@@ -40,7 +40,7 @@
   #main-navigation {
     position: relative;
     margin-left: toRem(32);
-    padding-right: toRem(15);
+    padding-right: toRem(63);
 
     &::before {
       content: "";
@@ -317,6 +317,7 @@
 
             a.search-icon,
             a.language-icon {
+              display: block;
               &:hover {
                 border-color: transparent;
               }
@@ -324,6 +325,10 @@
 
             ul.lang-sub-menu {
               display: none;
+            }
+
+            ul.lang-sub-menu.active {
+              display: block;
             }
           }
         }

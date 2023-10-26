@@ -60,10 +60,10 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 									<a href="#">Login</a>
 								</li>
 								<li>
-									<a class="language-icon" href="#">
+									<a id="languageIcon" class="language-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
 									</a>
-									<ul class="lang-sub-menu"
+									<ul class="lang-sub-menu">
 										<?php pll_the_languages(); ?>
 										<li>
 											<a href="/?pismo=lat">Latinica</a>

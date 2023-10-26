@@ -54,9 +54,26 @@ function getMainNavWidth() {
   document.documentElement.style.setProperty("--mainNavWidth", getWidth + "px");
 }
 
+function languageSwitcher() {
+  const languageIcon = document.getElementById("languageIcon");
+  const lang_sub_menu = document.getElementsByClassName("lang-sub-menu")[0];
+
+  if (languageIcon === null) {
+    return;
+  }
+
+  languageIcon.addEventListener("click", function(e) {
+    e.preventDefault();
+    lang_sub_menu.classList.toggle("active");
+    //this.classList.toggle("active");
+  });
+
+}
+
 onReady(() => {
   showMenu();
+  languageSwitcher();
   setTimeout(() => {
     getMainNavWidth();
-  }, 1000);
+  }, 2000);
 });
