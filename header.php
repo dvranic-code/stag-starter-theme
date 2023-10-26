@@ -65,10 +65,11 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 									</a>
 									<ul class="lang-sub-menu">
 										<?php pll_the_languages(); ?>
-										<li>
+										<li class="divider"></li>
+										<li class="pismo">
 											<a href="/?pismo=lat">Latinica</a>
 										</li>
-										<li>
+										<li class="pismo">
 											<a href="/?pismo=cir">Ћирилица</a>
 										</li>
 									</ul>
