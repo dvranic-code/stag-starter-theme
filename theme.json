@@ -57,6 +57,11 @@
                     "color": "#FAFAFC"
                 },
                 {
+                    "name": "Default White",
+                    "slug": "white",
+                    "color": "#FFFFFF"
+                },
+                {
                     "name": "Grey 2",
                     "slug": "tl-grey-2",
                     "color": "#E6ECFD"

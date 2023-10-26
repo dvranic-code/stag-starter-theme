@@ -55,24 +55,29 @@ function getMainNavWidth() {
 }
 
 function languageSwitcher() {
+  const body = document.getElementsByTagName('body')[0];
   const languageIcon = document.getElementById("languageIcon");
   const lang_sub_menu = document.getElementsByClassName("lang-sub-menu")[0];
 
-  if (languageIcon === null) {
-    return;
-  }
+  if (!languageIcon) return;
 
-  languageIcon.addEventListener("click", function(e) {
-    e.preventDefault();
-    lang_sub_menu.classList.toggle("active");
-    //this.classList.toggle("active");
+  languageIcon.addEventListener('click', e => {
+    e.stopPropagation();
+    lang_sub_menu.classList.toggle('active');
   });
 
+  body.addEventListener('click', e => {
+    if (languageIcon) {
+      if (!e.target.classList.contains('lang-sub-menu')) lang_sub_menu.classList.remove('active');
+    }
+  });
 }
 
 onReady(() => {
   showMenu();
   languageSwitcher();
+
+  // TODO: Remove this after fixing the font loading issue.
   setTimeout(() => {
     getMainNavWidth();
   }, 2000);

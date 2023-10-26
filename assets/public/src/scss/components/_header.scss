@@ -36,7 +36,7 @@
     position: relative;
     display: inline-block;
   }
-  
+
   #main-navigation {
     position: relative;
     margin-left: toRem(32);
@@ -194,7 +194,6 @@
                 }
 
                 &:hover {
-                  
                   &::before {
                     border-color: wpColor(tl-blue-4);
                   }
@@ -202,7 +201,6 @@
               }
             }
             li.current_page_ancestor.children-first-level > a:first-child {
-
               &::before {
                 border-color: wpColor(tl-blue-4);
               }
@@ -286,6 +284,7 @@
       }
 
       &--links {
+        position: relative;
         ul {
           list-style: none;
           display: flex;
@@ -324,11 +323,83 @@
             }
 
             ul.lang-sub-menu {
-              display: none;
+              opacity: 0;
+              visibility: hidden;
+              position: absolute;
+              transition: opacity 0.5s ease, visibility 0.5s ease;
+              background: wpColor(white);
+              min-width: toRem(145);
+              display: block;
+              bottom: toRem(-165);
+              right: 0;
+              padding: toRem(9) toRem(15) toRem(13) toRem(15);
+              border: 1px solid wpColor(tl-grey-1);
+              text-align: left;
+
+              li {
+                a {
+                  font-weight: 400;
+                  &:hover {
+                    border-color: transparent;
+                  }
+                }
+              }
+
+              li.divider {
+                border-bottom: 1px solid wpColor(tl-grey-1);
+                padding-bottom: toRem(9);
+                margin-bottom: toRem(6);
+              }
+
+              li.current-lang {
+
+                a {
+                  color: wpColor(tl-blue-4);
+                }
+              }
+
+              li.pismo {
+
+                a {
+                  color: wpColor(tl-dark-grey);
+
+                  &:hover {
+                    color: wpColor(tl-blue-4);
+                  }
+                }
+              }
+
+              &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -0.75rem;
+                right: 5px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0.53125rem 0.75rem 0.53125rem;
+                border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) wpColor(tl-grey-1)
+                  rgba(0, 0, 0, 0);
+              }
+
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -0.6875rem;
+                right: 6px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0.46875rem 0.6875rem 0.46875rem;
+                border-color: rgba(0,0,0,0) rgba(0,0,0,0) #fff rgba(0,0,0,0);
+              }
             }
 
             ul.lang-sub-menu.active {
-              display: block;
+              opacity: 1;
+              visibility: visible;
             }
           }
         }
