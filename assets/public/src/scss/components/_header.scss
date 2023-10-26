@@ -48,7 +48,6 @@
       position: absolute;
       width: 100vw;
       height: 0;
-      -webkit-transition: height 0.5s ease;
       transition: height 0.5s ease;
       right: 0;
       top: 0;
@@ -180,7 +179,7 @@
 
             li.menu-item-has-children {
               a {
-                display: inline-block;
+                display: block;
                 &::before {
                   content: "";
                   display: block;
@@ -188,7 +187,7 @@
                   top: 50%;
                   width: toRem(19);
                   height: toRem(19);
-                  right: toRem(11);
+                  right: toRem(-15);
                   border-right: 2px solid wpColor(tl-dark-grey);
                   border-top: 2px solid wpColor(tl-dark-grey);
                   transform: rotate(45deg) translateY(-50%);
