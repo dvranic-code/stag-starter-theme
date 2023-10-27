@@ -29,7 +29,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 custom-md-3 pr-0">
+				<div class="col-md-3 custom-md-3 pr-0 pr-sm d-f-sm">
 					<div class="site-header__branding">
 						<?php
 						if ( has_custom_logo() ) {
@@ -37,8 +37,23 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						}
 						?>
 					</div>
+					<div class="site-header__mobile-wrap hide--lg">
+						<div class="site-header__mobile-wrapr--search-mobile">
+							<a id="triggerSearchBoxMobile" class="search-icon" href="#">
+								<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
+							</a>
+						</div>
+						<button class="site-header__mobile-wrap--hamburger" aria-controls="primary-menu" aria-expanded="false">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="32" viewBox="0 0 36 32" fill="none">
+								<path d="M34.6337 14.1855H1.36634C0.653465 14.1855 0 15.0103 0 16.0825C0 17.0721 0.594059 17.9794 1.36634 17.9794H34.6337C35.3465 17.9794 36 17.1546 36 16.0825C36 15.0103 35.3465 14.1855 34.6337 14.1855Z" fill="#1C2033"/>
+								<path d="M34.6337 28.2063H1.36634C0.653465 28.2063 0 29.031 0 30.1032C0 31.1754 0.594059 32.0001 1.36634 32.0001H34.6337C35.3465 32.0001 36 31.1754 36 30.1032C36 29.031 35.3465 28.2063 34.6337 28.2063Z" fill="#1C2033"/>
+								<path d="M1.36634 3.79381H34.6337C35.3465 3.79381 36 2.96907 36 1.89691C36 0.824742 35.4059 0 34.6337 0H1.36634C0.653465 0 0 0.824742 0 1.89691C0 2.96907 0.653465 3.79381 1.36634 3.79381Z" fill="#1C2033"/>
+							</svg>
+							<span class="screen-reader-text">Open header menu</span>
+						</button>
+					</div>
 				</div>
-				<div class="col-md-5 custom-md-5 pl-0 pr-0">
+				<div class="col-md-5 custom-md-5 pl-0 pr-0 mobile-menu-container">
 					<div id="mainNavWidth" class="site-header__nav-wrap">
 						<nav id="main-navigation" class="site-header__main--navigation">
 							<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
@@ -46,12 +61,12 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						<div class="site-header__nav-overlay"></div>
 					</div>
 				</div>
-				<div class="col-md-4 custom-md-4 pl-0">
+				<div class="col-md-4 custom-md-4 pl-0 mobile-menu-container">
 					<nav id="secondary-navigation" class="site-header__main--navigation site-header__main--navigation--right">
 						<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
 						<div class="site-header__main--navigation--right--links">
 							<ul>
-								<li>
+								<li class="hide--sm show--lg">
 									<a id="triggerSearchBox" class="search-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
 									</a>

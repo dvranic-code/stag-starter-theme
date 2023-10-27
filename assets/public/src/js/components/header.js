@@ -76,15 +76,40 @@ function languageSwitcher() {
 function triggerSearchBox() {
   const body = document.getElementsByTagName('body')[0];
   const triggerSearchBox = document.getElementById("triggerSearchBox");
+  const triggerSearchBoxMobile = document.getElementById("triggerSearchBoxMobile");
   const searchPopup = document.getElementsByClassName("site-header__search-popup")[0];
 
   if (triggerSearchBox === null || searchPopup === null) {
     return;
   }
 
-  triggerSearchBox.addEventListener("click", function () {
+  function handleSearchBoxClick() {
     searchPopup.classList.toggle("active");
     body.classList.toggle("disable-scroll-search");
+  }
+
+  if (triggerSearchBox) {
+    triggerSearchBox.addEventListener("click", handleSearchBoxClick);
+  }
+
+  if (triggerSearchBoxMobile) {
+    triggerSearchBoxMobile.addEventListener("click", handleSearchBoxClick);
+  }
+}
+
+function triggerMobileMenu() {
+  const hamburger = document.getElementsByClassName("site-header__mobile-wrap--hamburger")[0];
+  const mobileMenuContainer = document.querySelectorAll(".mobile-menu-container");
+
+  if (hamburger === null) {
+    return;
+  }
+
+  hamburger.addEventListener("click", function() {
+    this.classList.toggle("hamburger--active");
+    mobileMenuContainer.forEach((menuItem) => {
+      menuItem.classList.toggle("active");
+    });
   });
 }
 
@@ -92,6 +117,7 @@ onReady(() => {
   showMenu();
   languageSwitcher();
   triggerSearchBox();
+  triggerMobileMenu();
 
   // TODO: Remove this after fixing the font loading issue.
   setTimeout(() => {
