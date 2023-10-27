@@ -73,9 +73,25 @@ function languageSwitcher() {
   });
 }
 
+function triggerSearchBox() {
+  const body = document.getElementsByTagName('body')[0];
+  const triggerSearchBox = document.getElementById("triggerSearchBox");
+  const searchPopup = document.getElementsByClassName("site-header__search-popup")[0];
+
+  if (triggerSearchBox === null || searchPopup === null) {
+    return;
+  }
+
+  triggerSearchBox.addEventListener("click", function () {
+    searchPopup.classList.toggle("active");
+    body.classList.toggle("disable-scroll-search");
+  });
+}
+
 onReady(() => {
   showMenu();
   languageSwitcher();
+  triggerSearchBox();
 
   // TODO: Remove this after fixing the font loading issue.
   setTimeout(() => {

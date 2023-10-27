@@ -52,7 +52,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						<div class="site-header__main--navigation--right--links">
 							<ul>
 								<li>
-									<a class="search-icon" href="#">
+									<a id="triggerSearchBox" class="search-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
 									</a>
 								</li>
@@ -81,3 +81,8 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 			</div>
 		</div>
 	</header><!-- #masthead -->
+	<div class="site-header__search-popup">
+		<div class="container">
+			<?php get_search_form(); ?>
+		</div>
+	</div>
