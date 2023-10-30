@@ -235,7 +235,6 @@ table {
 
 table,
 .wp-block-table {
-
   &.is-style-stripes {
     tbody {
       tr:nth-child(odd) {
@@ -356,13 +355,10 @@ textarea {
 
   @include placeholder {
     color: wpColor(tl-dark-grey);
-    font-size: toRem(13px);
-    font-weight: $regular;
+    font-size: toRem(24);
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
-  }
-
-  @include breakpoint(md, max) {
-    min-width: toRem(20px);
   }
 }
 
