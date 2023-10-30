@@ -3458,12 +3458,12 @@ body.disable-scroll-search {
       transform: rotate(45deg) translateY(-50%);
   transition: all 0.05s cubic-bezier(0.72, 0, 0.48, 1);
 }
-.mobile-menu .mobile-menu-container .mobile-menu__main--navigation ul.menu li.children-first-level.menu-item-has-children .sub-menu-level-two-toggle.active::after {
+.mobile-menu .mobile-menu-container .mobile-menu__main--navigation ul.menu li.children-first-level.menu-item-has-children .sub-menu-level-two-toggle.menu-active::after {
   -ms-transform: rotate(135deg) translateY(50%);
       transform: rotate(135deg) translateY(50%);
   right: 0;
 }
-.mobile-menu .mobile-menu-container .mobile-menu__main--navigation ul.menu li.children-first-level.menu-item-has-children.active .sub-menu-level-two {
+.mobile-menu .mobile-menu-container .mobile-menu__main--navigation ul.menu li.children-first-level.menu-item-has-children.menu-active .sub-menu-level-two {
   display: block;
 }
 .mobile-menu .mobile-menu-container .mobile-menu__main--navigation ul.menu li.children-first-level.menu-item-has-children .sub-menu-level-two {

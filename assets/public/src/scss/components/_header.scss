@@ -711,7 +711,7 @@ body.disable-scroll-search {
               transition: all 0.05s $torlak_ease;
             }
 
-            &.active {
+            &.menu-active {
 
               &::after {
                 transform: rotate(135deg) translateY(50%);
@@ -720,7 +720,7 @@ body.disable-scroll-search {
             }
           }
 
-          &.active {
+          &.menu-active {
             .sub-menu-level-two {
               display: block;
             }
