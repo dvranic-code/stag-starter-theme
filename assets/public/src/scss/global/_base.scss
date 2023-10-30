@@ -12,7 +12,11 @@ html {
 }
 
 body.logged-in .site-header {  
-  top: toRem(32);  
+  top: toRem(46);
+
+  @include breakpoint(lg, min) {
+    top: toRem(32);
+  }
 }
 
 .html--prevent-scroll {

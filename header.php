@@ -96,6 +96,50 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 			</div>
 		</div>
 	</header><!-- #masthead -->
+
+	<div class="mobile-menu hide--lg">
+		<div class="mobile-menu-container">
+			<div class="mobile-menu__nav-wrap">
+				<nav id="mobile-menu-navigation" class="mobile-menu__main--navigation">
+					<?php STAG_Extra_Functions::get_menu( 'primary-menu' ); ?>
+				</nav>
+				<div class="mobile-menu__nav-overlay"></div>
+			</div>
+		</div>
+		<div class="mobile-menu__container-bottom">
+			<nav class="mobile-menu__main--navigation mobile-menu__main--navigation--right">
+				<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
+				<div class="mobile-menu__main--navigation--right--links">
+					<ul>
+						<li class="hide--sm show--lg">
+							<a id="triggerSearchBox" class="search-icon" href="#">
+								<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
+							</a>
+						</li>
+						<li>
+							<a href="#">Login</a>
+						</li>
+						<li>
+							<a id="languageIcon" class="language-icon" href="#">
+								<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
+							</a>
+							<ul class="lang-sub-menu">
+								<?php pll_the_languages(); ?>
+								<li class="divider"></li>
+								<li class="pismo">
+									<a href="/?pismo=lat">Latinica</a>
+								</li>
+								<li class="pismo">
+									<a href="/?pismo=cir">Ћирилица</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
 	<div class="site-header__search-popup">
 		<div class="container">
 			<?php get_search_form(); ?>
