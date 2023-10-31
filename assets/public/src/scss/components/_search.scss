@@ -1,0 +1,64 @@
+@import "../global/abstract";
+
+.no-results {
+  
+  &__top {
+    padding: toRem(119) 0;
+    background: wpColor(tl-grey-2);
+
+    .search-form {
+      position: relative;
+  
+      &__search-field {
+        display: block;
+        width: 100%;
+        border-radius: toRem(10);
+        border: 1px solid wpColor(tl-blue-4);
+        background: wpColor(white);
+        font-size: toRem(24);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: toRem(18) toRem(32);
+        outline-offset: 0;
+      }
+  
+      &__button {
+        position: absolute;
+        top: 50%;
+        right: toRem(32);
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+
+  &__bottom {
+    padding: toRem(90) 0;
+
+    .page-title {
+      color: wpColor(tl-black);
+      font-size: toRem(24);
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .search-query {
+      margin-top: 0;
+      color: wpColor(tl-black);
+      font-size: toRem(48);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .page-content {
+      margin-top: toRem(90);
+    }
+  }
+}
