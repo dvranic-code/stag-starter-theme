@@ -1,0 +1,22 @@
+{
+  "name": "acf/posts-grid",
+  "title": "Posts Grid",
+  "description": "Block that displays list of posts (page, post) with option to load more posts.",
+  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "style": [],
+  "category": "formatting",
+  "icon": "format-post",
+  "keywords": [
+      "image",
+      "post",
+      "page"
+  ],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "posts-grid.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  }
+}
