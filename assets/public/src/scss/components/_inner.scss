@@ -116,3 +116,30 @@
     padding-top: toRem(0);
   }
 }
+
+.error-404 {
+  background: linear-gradient(180deg, wpColor(tl-grey-2) 50%, rgba(230, 236, 253, 0.00) 100%);
+  text-align: center;
+  min-height: toRem(714);
+  display: flex;
+  align-items: center;
+
+  .error-404-text {
+    margin-top: 0;
+    margin-bottom: toRem(60);
+    color: wpColor(tl-blue-4);
+    font-size: toRem(190);
+    font-style: normal;
+    font-weight: 700;
+    line-height: toRem(190);
+  }
+
+  .page-title {
+    color: wpColor(tl-black);
+    text-align: center;
+    font-size: toRem(40);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

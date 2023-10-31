@@ -1,6 +1,6 @@
 "use strict";
 
-import { debounce, onReady } from "../utils";
+import { onReady } from "../utils";
 
 function showMenu() {
   const navigation = document.getElementById("main-navigation");
