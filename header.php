@@ -43,7 +43,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 								<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
 							</a>
 						</div>
-						<button class="site-header__mobile-wrap--hamburger" aria-controls="primary-menu" aria-expanded="false">
+						<button class="site-header__mobile-wrap--hamburger" aria-controls="mobile-menu" aria-expanded="false">
 							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="32" viewBox="0 0 36 32" fill="none">
 								<path d="M34.6337 14.1855H1.36634C0.653465 14.1855 0 15.0103 0 16.0825C0 17.0721 0.594059 17.9794 1.36634 17.9794H34.6337C35.3465 17.9794 36 17.1546 36 16.0825C36 15.0103 35.3465 14.1855 34.6337 14.1855Z" fill="#1C2033"/>
 								<path d="M34.6337 28.2063H1.36634C0.653465 28.2063 0 29.031 0 30.1032C0 31.1754 0.594059 32.0001 1.36634 32.0001H34.6337C35.3465 32.0001 36 31.1754 36 30.1032C36 29.031 35.3465 28.2063 34.6337 28.2063Z" fill="#1C2033"/>
@@ -97,7 +97,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 		</div>
 	</header><!-- #masthead -->
 
-	<div class="mobile-menu hide--lg">
+	<div id="mobile-menu" class="mobile-menu hide--lg">
 		<div class="mobile-menu-container">
 			<div class="mobile-menu__nav-wrap">
 				<nav id="mobile-menu-navigation" class="mobile-menu__main--navigation">
@@ -111,19 +111,14 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 				<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
 				<div class="mobile-menu__main--navigation--right--links">
 					<ul>
-						<li class="hide--sm show--lg">
-							<a id="triggerSearchBox" class="search-icon" href="#">
-								<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
-							</a>
-						</li>
 						<li>
 							<a href="#">Login</a>
 						</li>
 						<li>
-							<a id="languageIcon" class="language-icon" href="#">
+							<a id="languageIconMobile" class="language-icon" href="#">
 								<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
 							</a>
-							<ul class="lang-sub-menu">
+							<ul class="lang-sub-menu-mobile">
 								<?php pll_the_languages(); ?>
 								<li class="divider"></li>
 								<li class="pismo">

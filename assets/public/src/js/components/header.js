@@ -54,23 +54,26 @@ function getMainNavWidth() {
   document.documentElement.style.setProperty("--mainNavWidth", getWidth + "px");
 }
 
-function languageSwitcher() {
+function toggleLanguageSwitcher(id, menuClass) {
   const body = document.getElementsByTagName('body')[0];
-  const languageIcon = document.getElementById("languageIcon");
-  const lang_sub_menu = document.getElementsByClassName("lang-sub-menu")[0];
+  const languageIcon = document.getElementById(id);
+  const langSubMenu = document.getElementsByClassName(menuClass)[0];
 
   if (!languageIcon) return;
 
   languageIcon.addEventListener('click', e => {
     e.stopPropagation();
-    lang_sub_menu.classList.toggle('active');
+    langSubMenu.classList.toggle('active');
   });
 
   body.addEventListener('click', e => {
-    if (languageIcon) {
-      if (!e.target.classList.contains('lang-sub-menu')) lang_sub_menu.classList.remove('active');
-    }
+    if (!e.target.classList.contains(menuClass)) langSubMenu.classList.remove('active');
   });
+}
+
+function languageSwitcher() {
+  toggleLanguageSwitcher("languageIcon", "lang-sub-menu");
+  toggleLanguageSwitcher("languageIconMobile", "lang-sub-menu-mobile");
 }
 
 function triggerSearchBox() {
@@ -120,8 +123,6 @@ function triggerMobileMenu() {
     
     zeroItem.appendChild(subMenuToggle);
   });
-  
-  
 
   childrenFirstLevel.forEach((firstLevelItem) => {
     const subMenuToggleFirstLevel = document.createElement('span');

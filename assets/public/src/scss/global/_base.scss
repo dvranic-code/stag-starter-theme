@@ -1,7 +1,11 @@
 @use "abstract" as *;
 
 :root {
-  --headerHeight: 100px;
+  --headerHeight: 80px;
+
+  @include breakpoint(lg, min) {
+    --headerHeight: 100px;
+  }
 }
 
 html {
@@ -9,14 +13,6 @@ html {
   padding-top: var(--headerHeight);
   font-family: $defaultFontFamily;
   scroll-behavior: smooth;
-}
-
-body.logged-in .site-header {  
-  top: toRem(46);
-
-  @include breakpoint(lg, min) {
-    top: toRem(32);
-  }
 }
 
 .html--prevent-scroll {
