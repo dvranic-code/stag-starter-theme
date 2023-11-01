@@ -8,58 +8,62 @@
  */
 
 use stag_theme\ThemeSettings\STAG_Template_Tags;
+use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
+$query    = $args['posts'];
+$btn_text = $args['btn-text'];
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				STAG_Template_Tags::stag_posted_on();
-				STAG_Template_Tags::stag_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', '_s' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
-				'after'  => '</div>',
-			)
-		);
+<?php
+$query = new WP_Query( $query );
+if ( $query->have_posts() ) :
+	while ( $query->have_posts() ) :
+		$query->the_post();
 		?>
-	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php STAG_Template_Tags::stag_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-grid__article' ); ?>>
+
+	<div class="posts-grid__article--wrap-1">
+		<?php
+		$categories = get_the_category();
+		if ( ! empty( $categories ) ) {
+				echo '<div class="posts-grid__article--categories">';
+				$last_category = end( $categories );
+			foreach ( $categories as $category ) {
+					echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>';
+				if ( $category !== $last_category ) {
+						echo ', ';
+				}
+			}
+				echo '</div>';
+		}
+		?>
+	</div>
+
+	<div class="posts-grid__article--wrap-2">
+		<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
+	</div>
+
+	<div class="posts-grid__article--wrap-3">
+		<header class="posts-grid__article--entry-header">
+			<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+		</header><!-- .entry-header -->
+
+		<div class="posts-grid__article--entry-content">
+			<?php STAG_Extra_Functions::stag_excerpt( 150 ); ?>
+		</div><!-- .entry-content -->
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
+
+		<?php
+		endwhile;
+
+	if ( $btn_text ) {
+		?>
+			<div class="posts-grid__btn-wrapper">
+				<a href="#" class="btn btn--sm"><?php echo esc_html( $btn_text ); ?></a>
+			</div>
+		<?php
+	}
+		endif;
+		wp_reset_postdata();

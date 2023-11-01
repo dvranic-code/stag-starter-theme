@@ -167,6 +167,10 @@ a.btn {
   &.btn--sm {
     width: toRem(420);
     max-width: 100%;
+
+    @include breakpoint(lg, min) {
+      width: auto;
+    }
   }
 
   &.btn--cta {

@@ -10,8 +10,8 @@
 ?>
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label>
-		<span class="screen-reader-text">Tražim...</span>
-		<input type="search" class="search-form__search-field" placeholder="Tražim..." value="<?php echo get_search_query(); ?>" name="s" title="Search for:" />
+		<span class="screen-reader-text">Тражим...</span>
+		<input type="search" class="search-form__search-field" placeholder="Тражим..." value="<?php echo get_search_query(); ?>" name="s" title="Search for:" />
 	</label>
 	<button type="submit" class="search-form__button">
 	<svg xmlns="http://www.w3.org/2000/svg" width="35" height="32" viewBox="0 0 35 32" fill="none">
