@@ -50,6 +50,7 @@ if ( ! class_exists( 'STAG_ACF_Register_Blocks' ) ) {
 				 * @link https://developer.wordpress.org/reference/functions/register_block_type/
 				 */
 				register_block_type( get_template_directory() . '/blocks/posts-grid' );
+				register_block_type( get_template_directory() . '/blocks/homepage-hero' );
 			}
 		}
 	}
