@@ -5,6 +5,7 @@
   position: relative;
   min-height: toRem(590);
   overflow: hidden;
+  z-index: 0;
 
   @include breakpoint(lg, min) {
     margin-bottom: toRem(90);

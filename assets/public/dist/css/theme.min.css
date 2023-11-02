@@ -4172,6 +4172,7 @@ body.logged-in .mobile-menu {
   position: relative;
   min-height: 36.875rem;
   overflow: hidden;
+  z-index: 0;
 }
 @media (min-width: 1024px) {
   .homepage-hero {

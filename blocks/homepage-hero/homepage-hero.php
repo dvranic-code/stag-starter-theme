@@ -35,25 +35,29 @@ $hero_background  = get_field( 'hero_background' );
 $video_background = get_field( 'video_background' );
 $image_background = get_field( 'image_background' );
 
-preg_match( '/src="(.+?)"/', $video_background, $matches );
-$src = $matches[1];
+if ( $video_background ) :
 
-$params = array(
-	'rel'      => 0,
-	'autoplay' => 1,
-	'loop'     => 1,
-	'mute'     => 1,
-	'controls' => 0,
-	'hd'       => 1,
-	'autohide' => 1,
-	'playlist' => 'DqEKYVet7Do',
-);
+	preg_match( '/src="(.+?)"/', $video_background, $matches );
+	$src = $matches[1];
 
-$new_src          = add_query_arg( $params, $src );
-$video_background = str_replace( $src, $new_src, $video_background );
+	$params = array(
+		'rel'      => 0,
+		'autoplay' => 1,
+		'loop'     => 1,
+		'mute'     => 1,
+		'controls' => 0,
+		'hd'       => 1,
+		'autohide' => 1,
+		'playlist' => 'DqEKYVet7Do',
+	);
 
-$attributes       = 'frameborder="0"';
-$video_background = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $video_background );
+	$new_src          = add_query_arg( $params, $src );
+	$video_background = str_replace( $src, $new_src, $video_background );
+
+	$attributes       = 'frameborder="0"';
+	$video_background = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $video_background );
+
+endif;
 
 ?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
