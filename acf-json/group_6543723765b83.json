@@ -60,7 +60,7 @@
             "return_format": "value",
             "allow_null": 1,
             "other_choice": 0,
-            "layout": "vertical",
+            "layout": "horizontal",
             "save_other_choice": 0
         },
         {
@@ -140,5 +140,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698931356
+    "modified": 1698940175
 }

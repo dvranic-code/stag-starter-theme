@@ -1,0 +1,22 @@
+{
+  "name": "acf/homepage-mega",
+  "title": "Homepage Mega Block",
+  "description": "Block that displays diffrent layouts",
+  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "style": [],
+  "category": "formatting",
+  "icon": "admin-settings",
+  "keywords": [
+      "image",
+      "button",
+      "heading"
+  ],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "homepage-mega.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  }
+}
