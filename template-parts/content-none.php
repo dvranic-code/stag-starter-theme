@@ -10,11 +10,6 @@
 ?>
 
 <section class="no-results not-found general-search">
-	<div class="general-search__top">
-		<div class="container">
-			<?php get_search_form(); ?>
-		</div>
-	</div>
 	<div class="general-search__bottom">
 		<div class="container">
 			<header class="page-header">
