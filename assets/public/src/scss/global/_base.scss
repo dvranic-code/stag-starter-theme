@@ -25,17 +25,8 @@ html {
   box-sizing: inherit;
 }
 
-.site {
-}
-
-.no-results {
-}
-
 .site-main {
   min-height: calc(100vh - toRem(435));
-}
-
-.error-404 {
 }
 
 .menu {
@@ -133,6 +124,10 @@ a.btn {
   //   z-index: -1;
   // }
 
+  &.btn--ghost {
+    background: transparent;
+  }
+
   &:hover {
     border-color: var(--borderColor);
     color: var(--backgroundColor)!important;
@@ -167,6 +162,10 @@ a.btn {
   &.btn--sm {
     width: toRem(420);
     max-width: 100%;
+
+    @include breakpoint(lg, min) {
+      width: auto;
+    }
   }
 
   &.btn--cta {

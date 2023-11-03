@@ -5,11 +5,12 @@
   "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
   "style": [],
   "category": "formatting",
-  "icon": "format-post",
+  "icon": "grid-view",
   "keywords": [
       "image",
       "post",
-      "page"
+      "page",
+      "grid"
   ],
   "acf": {
       "mode": "preview",

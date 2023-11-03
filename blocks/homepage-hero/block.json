@@ -1,0 +1,23 @@
+{
+  "name": "acf/homepage-hero",
+  "title": "Homepage Hero Block",
+  "description": "Block that displays video background or image with heading and button",
+  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "style": [],
+  "category": "formatting",
+  "icon": "video-alt3",
+  "keywords": [
+      "image",
+      "video",
+      "heading",
+      "button"
+  ],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "homepage-hero.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  }
+}

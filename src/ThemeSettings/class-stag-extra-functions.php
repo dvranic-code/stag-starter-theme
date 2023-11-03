@@ -52,6 +52,29 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 				);
 			}
 		}
+
+		/**
+		 * Sets the maximum length of an excerpt by the number of characters.
+		 *
+		 * @param int $charlength The maximum number of characters allowed in the excerpt.
+		 */
+		public static function stag_excerpt( $charlength ) {
+			$excerpt = get_the_excerpt();
+			++$charlength;
+
+			if ( mb_strlen( $excerpt ) > $charlength ) {
+				$subex   = mb_substr( $excerpt, 0, $charlength - 5 );
+				$exwords = explode( ' ', $subex );
+				$excut   = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+				if ( $excut < 0 ) {
+					echo '<p>' . mb_substr( $subex, 0, $excut ) . '</p>'; // phpcs:ignore
+				} else {
+					echo '<p>' . $subex . '</p>'; // phpcs:ignore
+				}
+			} else {
+				echo '<p>' . $excerpt . '</p>'; // phpcs:ignore
+			}
+		}
 	}
 
 	new STAG_Extra_Functions();

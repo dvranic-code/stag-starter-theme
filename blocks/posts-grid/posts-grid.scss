@@ -1,0 +1,116 @@
+@use '../../assets/public/src/scss/global/abstract' as *;
+
+.posts-grid {
+
+  h3 {
+    margin-bottom: toRem(24);
+    font-size: toRem(18);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &__article {
+    border-top: 1px solid wpColor(tl-grey-3);
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(lg, min) {
+      flex-direction: row;
+      padding: toRem(40) 0;
+    }
+
+    &--wrap-1 {
+      flex: 0 0 auto;
+      
+      @include breakpoint(lg, min) {
+        padding-right: toRem(25);
+        width: 17.55%;
+      }
+    }
+
+    &--wrap-2 {
+      flex: 0 0 auto;
+      
+      @include breakpoint(lg, min) {
+        width: 34.4%;
+        order: 3;
+      }
+    }
+
+    &--wrap-3 {
+      flex: 0 0 auto;
+      
+      @include breakpoint(lg, min) {
+        padding-right: toRem(25);
+        width: 48.05%;
+        order: 2;
+      }
+    }
+
+    &--categories {
+      padding: toRem(12) 0;
+
+      @include breakpoint(lg, min) {
+        padding: 0;
+      }
+
+      a {
+        color: wpColor(tl-black);
+        font-size: toRem(18);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .featured-image {
+      min-height: toRem(190);
+
+      @include breakpoint(md, min) {
+        min-height: toRem(220);
+      }
+
+      @include breakpoint(lg, min) {
+        margin-bottom: 0;
+      }
+
+      img {
+        border-radius: toRem(10);
+      }
+    }
+
+    &--entry-header {
+
+      h2 {
+        margin-top: toRem(32);
+        margin-bottom: toRem(16);
+        color: wpColor(tl-blue-4);
+        font-size: toRem(32);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        @include breakpoint(lg, min) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    &--entry-content {
+
+      p {
+        margin-bottom: toRem(40);
+        color: wpColor(tl-black);
+        font-size: toRem(20);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+
+  &__btn-wrapper {
+    text-align: center;
+  }
+}

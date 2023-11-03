@@ -3,6 +3,26 @@
     "title": "Posts Grid",
     "fields": [
         {
+            "key": "field_65423aa68edf1",
+            "label": "Custom Title",
+            "name": "custom_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65411df6477ee",
             "label": "Number of Posts",
             "name": "number_of_posts",
@@ -38,7 +58,6 @@
                 "id": ""
             },
             "choices": {
-                "--Select--": "--Select--",
                 "post": "Post",
                 "page": "Page"
             },
@@ -89,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698768427
+    "modified": 1698839879
 }

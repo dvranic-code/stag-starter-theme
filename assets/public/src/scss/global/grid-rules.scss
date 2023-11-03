@@ -1,6 +1,13 @@
 @use "sass:math";
 @use "./abstract" as *;
 
+.full-width-container {
+  left: calc(-50vw + 50%);
+  position: relative;
+  max-width: 100vw;
+  width: 100vw;
+}
+
 .container,
 .container-fluid,
 .container-xxl,
@@ -14,12 +21,12 @@
   padding-left: var(--gutterSize, toRem(23));
   padding-right: var(--gutterSize, toRem(23));
 
-  @include breakpoint (md, min) {
+  @include breakpoint(md, min) {
     padding-left: var(--gutterSize, toRem(70));
     padding-right: var(--gutterSize, toRem(70));
   }
 
-  @include breakpoint (lg, min) {
+  @include breakpoint(lg, min) {
     padding-left: var(--gutterSize, toRem(15));
     padding-right: var(--gutterSize, toRem(15));
   }
