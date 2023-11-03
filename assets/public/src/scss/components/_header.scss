@@ -806,8 +806,8 @@ body.disable-scroll-search {
   &__main--navigation--right {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-right: 0;
+    justify-content: flex-end;
+    padding-right: 23px;
 
     @include breakpoint(md, min) {
       justify-content: flex-end;
@@ -855,8 +855,8 @@ body.disable-scroll-search {
             background: wpColor(white);
             min-width: toRem(145);
             display: block;
-            top: toRem(-135);
-            right: toRem(30);
+            bottom:   80px;
+            right: toRem(23);
             padding: toRem(9) toRem(15) toRem(13) toRem(15);
             border: 1px solid wpColor(tl-grey-1);
             text-align: left;

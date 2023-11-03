@@ -3547,9 +3547,9 @@ body.disable-scroll-search {
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding-right: 0;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  padding-right: 23px;
 }
 @media (min-width: 768px) {
   .mobile-menu__main--navigation--right {
@@ -3598,8 +3598,8 @@ body.disable-scroll-search {
   background: var(--wp--preset--color--white);
   min-width: 9.0625rem;
   display: block;
-  top: -8.4375rem;
-  right: 1.875rem;
+  bottom: 80px;
+  right: 1.4375rem;
   padding: 0.5625rem 0.9375rem 0.8125rem 0.9375rem;
   border: 1px solid var(--wp--preset--color--tl-grey-1);
   text-align: left;
