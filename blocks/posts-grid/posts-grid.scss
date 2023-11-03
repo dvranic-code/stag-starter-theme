@@ -2,6 +2,14 @@
 
 .posts-grid {
 
+  &__wrapper {
+    margin-bottom: toRem(65);
+
+    @include breakpoint(lg, min) {
+      margin-bottom: toRem(90);
+    }
+  }
+
   h3 {
     margin-bottom: toRem(24);
     font-size: toRem(18);

@@ -80,6 +80,12 @@
       }
     }
   }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(235, 235, 242, 0.5);
+  }
 }
 
 @media (min-aspect-ratio: 16/9) {

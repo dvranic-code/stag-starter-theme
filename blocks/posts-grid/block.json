@@ -1,6 +1,6 @@
 {
   "name": "acf/posts-grid",
-  "title": "Posts Grid",
+  "title": "Torlak Posts Grid",
   "description": "Block that displays list of posts (page, post) with option to load more posts.",
   "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
   "style": [],
