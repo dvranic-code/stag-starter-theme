@@ -71,9 +71,9 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
 									</a>
 								</li>
-								<li>
+								<!-- <li>
 									<a href="#">Login</a>
-								</li>
+								</li> -->
 								<li>
 									<a id="languageIcon" class="language-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
@@ -111,9 +111,9 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 				<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
 				<div class="mobile-menu__main--navigation--right--links">
 					<ul>
-						<li>
+						<!-- <li>
 							<a href="#">Login</a>
-						</li>
+						</li> -->
 						<li>
 							<a id="languageIconMobile" class="language-icon" href="#">
 								<?php STAG_Extra_Functions::fetch_icon( 'icon-language' ); ?>
