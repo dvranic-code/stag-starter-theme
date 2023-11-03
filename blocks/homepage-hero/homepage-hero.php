@@ -29,11 +29,13 @@ if ( ! empty( $block['align'] ) ) {
 	$class_name .= ' align' . $block['align'];
 }
 
-$hero_title       = get_field( 'hero_title' );
-$hero_button      = get_field( 'hero_button' );
-$hero_background  = get_field( 'hero_background' );
-$video_background = get_field( 'video_background' );
-$image_background = get_field( 'image_background' );
+$hero_title              = get_field( 'hero_title' );
+$hero_button             = get_field( 'hero_button' );
+$hero_background         = get_field( 'hero_background' );
+$video_background        = get_field( 'video_background' );
+$video_background_mobile = get_field( 'video_background_mobile' );
+$image_background        = get_field( 'image_background' );
+$playlist_id             = get_field( 'playlist_id' );
 
 if ( $video_background ) :
 
@@ -48,7 +50,7 @@ if ( $video_background ) :
 		'controls' => 0,
 		'hd'       => 1,
 		'autohide' => 1,
-		'playlist' => 'DqEKYVet7Do',
+		'playlist' => $playlist_id,
 	);
 
 	$new_src          = add_query_arg( $params, $src );
@@ -71,8 +73,11 @@ endif;
 	</div>
 	<div class="homepage-hero__background">
 		<?php if ( $video_background ) : ?>
-		<div class="homepage-hero__background--video">
+		<div class="homepage-hero__background--video hide--sm show--lg">
 			<?php echo $video_background; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		</div>
+		<div class="homepage-hero__background--video hide--lg show--sm">
+			<?php echo $video_background_mobile; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 		<?php elseif ( $image_background ) : ?>
 		<figure class="homepage-hero__background--image">

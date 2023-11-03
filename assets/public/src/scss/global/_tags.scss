@@ -228,6 +228,10 @@ figure {
   margin-bottom: toRem(60);
 }
 
+figure.default-placeholder {
+  margin-bottom: 0;
+}
+
 table {
   margin: 0 0 1.5em;
   width: 100%;

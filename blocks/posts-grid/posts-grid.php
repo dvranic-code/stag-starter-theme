@@ -44,32 +44,18 @@ $posts_grid = array(
 
 ?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
-	<?php if ( $custom_title ) { ?>
-		<h3><?php echo esc_html( $custom_title ); ?></h3>
-	<?php } ?>
 	<?php
 	$query = new WP_Query( $posts_grid );
-	if ( $query->have_posts() ) :
-		while ( $query->have_posts() ) :
-			$query->the_post();
 
 			get_template_part(
 				'template-parts/content',
 				'posts-grid',
 				array(
-					'posts'    => $posts_grid,
-					'btn-text' => $load_more_btn_text,
+					'posts'         => $query,
+					'btn-text'      => $load_more_btn_text,
+					'section-title' => $custom_title,
 				)
 			);
 
-		endwhile;
-	endif;
-	wp_reset_postdata();
-
-	if ( $load_more_btn_text ) {
-		?>
-				<div class="posts-grid__btn-wrapper">
-					<a href="#" class="btn btn--sm"><?php echo esc_html( $load_more_btn_text ); ?></a>
-				</div>
-			<?php } ?>
+			?>
 </section>

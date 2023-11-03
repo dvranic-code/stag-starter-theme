@@ -162,9 +162,14 @@ a.btn {
   &.btn--sm {
     width: toRem(420);
     max-width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 
     @include breakpoint(lg, min) {
       width: auto;
+      left: 0%;
+      transform: translate(0, 0);
     }
   }
 
