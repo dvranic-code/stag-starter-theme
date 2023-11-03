@@ -8,6 +8,12 @@
     @include breakpoint(lg, min) {
       margin-bottom: toRem(90);
     }
+
+    a.post-thumbnail {
+      img {
+        border-radius: toRem(10);
+      }
+    }
   }
 
   h3 {
@@ -41,7 +47,8 @@
       flex: 0 0 auto;
       
       @include breakpoint(lg, min) {
-        width: 34.4%;
+        //width: 34.4%;
+        width: 28.95%;
         order: 3;
       }
     }
@@ -51,7 +58,7 @@
       
       @include breakpoint(lg, min) {
         padding-right: toRem(25);
-        width: 48.05%;
+        width: 53.5%;
         order: 2;
       }
     }

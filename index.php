@@ -12,10 +12,49 @@
  * @package _s
  */
 
+use stag_theme\ThemeSettings\STAG_Extra_Functions;
+
 get_header();
+global $wp_query;
+
+$select_featured_post = get_field( 'select_featured_post', 'options' );
+$post_thumbnail       = get_the_post_thumbnail( $select_featured_post->ID, 'full' );
 ?>
 
 	<main id="primary" class="site-main container">
+
+		<?php if ( $select_featured_post ) : ?>
+		<div class="featured-post">
+			<div class="row">
+				<div class="col-lg-6">
+				<?php if ( ! empty( $post_thumbnail ) ) : ?>
+					<figure class="featured-post__image">
+						<?php
+							echo $post_thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						?>
+					</figure>
+				<?php else : ?>
+					<figure class="default-placeholder">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
+					</figure>
+				<?php endif; ?>
+				</div>
+				<div class="col-lg-6">
+					<div class="featured-post__content">
+						<h2 class="featured-post__title">
+							<?php echo esc_html( $select_featured_post->post_title ); ?>
+						</h2>
+						<div class="featured-post__excerpt">
+							<?php STAG_Extra_Functions::stag_excerpt( 150 ); ?>
+						</div>
+						<a class="btn btn--sm" href="<?php echo esc_url( get_permalink( $select_featured_post->ID ) ); ?>">
+							<?php pll_e( 'Прочитај' ); ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
 
 		<?php
 		if ( have_posts() ) :
@@ -28,20 +67,14 @@ get_header();
 				<?php
 			endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
+			get_template_part(
+				'template-parts/content',
+				'posts-grid',
+				array(
+					'posts'    => $wp_query,
+					'btn-text' => pll__( 'Још чланака' ),
+				)
+			);
 
 		else :
 
