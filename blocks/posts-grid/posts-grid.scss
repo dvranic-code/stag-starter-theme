@@ -47,7 +47,6 @@
       flex: 0 0 auto;
       
       @include breakpoint(lg, min) {
-        //width: 34.4%;
         width: 28.95%;
         order: 3;
       }

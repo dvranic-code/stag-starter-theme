@@ -1,0 +1,50 @@
+@import "../global/abstract";
+
+.featured-post {
+  padding: toRem(70) 0;
+
+  @include breakpoint(lg, min) {
+    padding: toRem(140) 0;
+  }
+
+  &__image {
+    margin-bottom: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: toRem(10);
+    }
+  }
+
+  &__title {
+    margin-top: toRem(40);
+    margin-bottom: toRem(24);
+    font-size: toRem(32);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @include breakpoint(lg, min) {
+      margin-top: 0;
+      margin-bottom: toRem(16);
+    }
+  }
+
+  &__excerpt {
+
+    p {
+      margin-bottom: toRem(40);
+      font-size: toRem(20);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      @include breakpoint(lg, min) {
+        margin-bottom: toRem(32);
+      }
+    }
+  }
+}

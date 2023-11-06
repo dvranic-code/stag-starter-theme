@@ -34,7 +34,7 @@ $post_thumbnail       = get_the_post_thumbnail( $select_featured_post->ID, 'full
 						?>
 					</figure>
 				<?php else : ?>
-					<figure class="default-placeholder">
+					<figure class="featured-post__image default-placeholder">
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
 					</figure>
 				<?php endif; ?>

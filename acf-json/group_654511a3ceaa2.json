@@ -17,8 +17,7 @@
                 "id": ""
             },
             "post_type": [
-                "post",
-                "page"
+                "post"
             ],
             "post_status": "",
             "taxonomy": "",
@@ -48,5 +47,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699025502
+    "modified": 1699260970
 }
