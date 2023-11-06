@@ -1,0 +1,45 @@
+@use "../../assets/public/src/scss/global/abstract" as *;
+
+.cta-banner {
+  background: url("/wp-content/themes/stag-starter-theme/assets/images/bg_wave.png") no-repeat left center wpColor(tl-white);
+  background-size: contain;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.10);
+  padding: toRem(40) 0;
+
+  @include breakpoint(lg, min) {
+    padding: toRem(60) 0;
+  }
+
+  &__container {
+    display: block;
+
+    @include breakpoint(lg, min) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  &__text {
+    margin-bottom: toRem(48);
+    text-align: left;
+
+    @include breakpoint(md, min) {
+      text-align: center;
+    }
+
+    @include breakpoint(lg, min) {
+      margin-bottom: 0;
+      text-align: left;
+    }
+    
+    h2 {
+      margin: 0;
+      font-size: toRem(32);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+}

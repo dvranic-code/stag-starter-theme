@@ -52,6 +52,7 @@ if ( ! class_exists( 'STAG_ACF_Register_Blocks' ) ) {
 				register_block_type( get_template_directory() . '/blocks/posts-grid' );
 				register_block_type( get_template_directory() . '/blocks/homepage-hero' );
 				register_block_type( get_template_directory() . '/blocks/homepage-mega' );
+				register_block_type( get_template_directory() . '/blocks/cta-banner' );
 			}
 		}
 	}

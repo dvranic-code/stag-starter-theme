@@ -1,0 +1,23 @@
+{
+  "name": "acf/cta-banner",
+  "title": "CTA Banner",
+  "description": "Block that call to action banner",
+  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "style": [],
+  "category": "formatting",
+  "icon": "block-default",
+  "keywords": [
+      "cta",
+      "banner",
+      "text",
+      "button"
+  ],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "cta-banner.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  }
+}
