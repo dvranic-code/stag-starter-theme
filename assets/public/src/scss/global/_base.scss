@@ -177,6 +177,15 @@ a.btn {
     width: toRem(273);
     max-width: 100%;
   }
+
+  &.btn--sm.btn--cta {
+    width: toRem(420);
+    max-width: 100%;
+
+    @include breakpoint(lg, min) {
+      width: toRem(273);
+    }
+  }
 }
 
 .btn--tag {
