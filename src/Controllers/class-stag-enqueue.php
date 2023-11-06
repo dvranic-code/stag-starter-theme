@@ -47,13 +47,13 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 			$js_version_child  = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/assets/public/dist/js/theme.min.js' );
 
 			// Swiper style.
-			wp_enqueue_style( 'swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css', array(), $css_version_child );
+			wp_enqueue_style( 'swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), $css_version_child );
 
 			// Theme style.
 			wp_enqueue_style( 'stag-theme-styles', get_stylesheet_directory_uri() . '/assets/public/dist/css/theme.min.css', array(), $css_version_child );
 
 			// Swiper script.
-			wp_enqueue_script( 'swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js', array(), $js_version_child, true );
+			wp_enqueue_script( 'swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), $js_version_child, true );
 
 			// Theme script.
 			wp_enqueue_script( 'stag-theme-scripts', get_stylesheet_directory_uri() . '/assets/public/dist/js/theme.min.js', array(), $js_version_child, true );

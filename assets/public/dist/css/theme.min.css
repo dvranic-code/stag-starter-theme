@@ -4462,3 +4462,17 @@ body.logged-in .mobile-menu {
   font-weight: 400;
   line-height: normal;
 }
+
+/*------------------------------------------------------------*\
+ * Global
+\*------------------------------------------------------------*/
+.content-slider__swiper {
+  position: relative;
+  overflow: hidden;
+}
+.content-slider__swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
