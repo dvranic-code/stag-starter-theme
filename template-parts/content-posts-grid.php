@@ -78,7 +78,7 @@ if ( $query->have_posts() ) : ?>
 	if ( $btn_text ) {
 		?>
 		<div class="posts-grid__btn-wrapper">
-			<a href="#" class="btn btn--sm"><?php echo esc_html( $btn_text ); ?></a>
+			<a href="#" class="btn btn--sm load--more"><?php echo esc_html( $btn_text ); ?></a>
 		</div>
 	<?php } ?>
 
