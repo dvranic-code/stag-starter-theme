@@ -30,3 +30,6 @@ require_once THEME_DIR . '/src/ACF/class-stag-acf-settings.php';
 // Include Controler Classes.
 require_once THEME_DIR . '/src/Controllers/class-stag-enqueue.php';
 require_once THEME_DIR . '/src/Controllers/class-custom-walker-nav-menu.php';
+
+// Include AJAX Classes.
+require_once THEME_DIR . '/src/AJAX/class-stag-ajax.php';

@@ -21,7 +21,7 @@ $select_featured_post = get_field( 'select_featured_post', 'options' );
 $post_thumbnail       = get_the_post_thumbnail( $select_featured_post->ID, 'full' );
 ?>
 
-	<main id="primary" class="site-main container">
+	<main id="primary" class="site-main container" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>" data-max="<?php echo esc_attr( $wp_query->max_num_pages ); ?>">
 
 		<?php if ( $select_featured_post ) : ?>
 		<div class="featured-post">

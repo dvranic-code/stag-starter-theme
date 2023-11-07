@@ -57,6 +57,11 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 
 			// Theme script.
 			wp_enqueue_script( 'stag-theme-scripts', get_stylesheet_directory_uri() . '/assets/public/dist/js/theme.min.js', array(), $js_version_child, true );
+
+			$stag_vars = array(
+				'ajaxURL' => admin_url( 'admin-ajax.php' ),
+			);
+			wp_localize_script( 'stag-theme-scripts', 'WP_vars', $stag_vars );
 		}
 
 		/**
