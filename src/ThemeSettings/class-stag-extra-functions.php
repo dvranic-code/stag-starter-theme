@@ -54,12 +54,13 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 		}
 
 		/**
-		 * Sets the maximum length of an excerpt by the number of characters.
+		 * Retrieves the excerpt for a post.
 		 *
-		 * @param int $charlength The maximum number of characters allowed in the excerpt.
+		 * @param int $charlength The maximum number of characters to display.
+		 * @param int $post_object The post object to retrieve the excerpt for.
 		 */
-		public static function stag_excerpt( $charlength ) {
-			$excerpt = get_the_excerpt();
+		public static function stag_excerpt( $charlength, $post_object ) {
+			$excerpt = get_the_excerpt( $post_object );
 			++$charlength;
 
 			if ( mb_strlen( $excerpt ) > $charlength ) {

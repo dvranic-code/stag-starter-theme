@@ -56,8 +56,7 @@ if ( $video_background ) :
 	$new_src          = add_query_arg( $params, $src );
 	$video_background = str_replace( $src, $new_src, $video_background );
 
-	$attributes       = 'frameborder="0"';
-	$video_background = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $video_background );
+	$video_background = str_replace( 'frameborder="0"', '', $video_background );
 
 endif;
 

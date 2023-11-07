@@ -68,7 +68,7 @@ if ( $query->have_posts() ) : ?>
 		</header><!-- .entry-header -->
 
 		<div class="posts-grid__article--entry-content">
-			<?php STAG_Extra_Functions::stag_excerpt( 150 ); ?>
+			<?php STAG_Extra_Functions::stag_excerpt( 150, $post ); ?>
 		</div><!-- .entry-content -->
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
