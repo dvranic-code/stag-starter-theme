@@ -11,16 +11,16 @@ function initSwiper() {
     loop: true,
     breakpoints: {
       0: {
-        slidesPerView: 1.3,
-        spaceBetween: 13.9
+        slidesPerView: 1,
+        spaceBetween: 20
       },
       768: {
-        slidesPerView: 2.3,
-        spaceBetween: 19.2
+        slidesPerView: 2,
+        spaceBetween: 20
       },
       1366: {
         slidesPerView: 3,
-        spaceBetween: 27.4
+        spaceBetween: 24
       }
     },
     pagination: {
@@ -28,8 +28,8 @@ function initSwiper() {
       type: "progressbar"
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-pagination__swiper-button-prev",
+      nextEl: ".swiper-pagination__swiper-button-next"
     }
   });
 }

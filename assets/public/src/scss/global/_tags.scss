@@ -292,6 +292,29 @@ a:active {
   outline-color: transparent;
 }
 
+a.learn--more {
+  font-size: toRem(18);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: all 0.23s $torlak-ease;
+
+  svg {
+    position: relative;
+    top: toRem(4);
+    left: toRem(6);
+    transition: all 0.23s $torlak-ease;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    svg {
+      transform: translateX(toRem(5));
+    }
+  }
+}
+
 button,
 input[type="button"],
 input[type="reset"],

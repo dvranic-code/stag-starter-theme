@@ -23,7 +23,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
  * @return string The anchor for the given block.
  */
 function get_anchor( $block ) {
-	return ! empty( $block['anchor'] ) ? 'id="' . esc_attr( $block['anchor'] ) . '" ' : '';
+	return ! empty( $block['anchor'] ) ? 'id=' . esc_attr( $block['anchor'] ) . ' ' : '';
 }
 
 /**
@@ -53,12 +53,16 @@ function display_slide( $post_object ) {
 	setup_postdata( $post );
 	?>
 	<div class="swiper-slide">
-		<div class="swiper-slide__img-wrap">
-			<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
+		<div class="content-slider__swiper--img-wrap">
+			<?php if ( has_post_thumbnail( $post_object->ID ) ) : ?>
+				<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
+			<?php else : ?>
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
+			<?php endif; ?>
 		</div>
-		<h4><?php echo esc_html( $post_object->post_title ); ?></h4>
+		<h4 class="content-slider__swiper--title"><a href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php echo esc_html( $post_object->post_title ); ?></a></h4>
 		<?php STAG_Extra_Functions::stag_excerpt( 150, $post_object ); ?>
-		<a href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php pll_e( 'Сазнај више' ); ?></a>
+		<a class="learn--more" href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php pll_e( 'Сазнај више' ); ?> <?php STAG_Extra_Functions::fetch_icon( 'icon-arrow' ); ?></a>
 	</div>
 	<?php
 	wp_reset_postdata();
@@ -71,29 +75,33 @@ $select_slides = get_field( 'select_slides' );
 ?>
 
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
-	<div class="container">
-		<?php if ( $section_title ) : ?>
-			<h3 class="content-slider__title">
-				<?php echo esc_html( $section_title ); ?>
-			</h3>
-		<?php endif; ?>
-		<div class="content-slider__swiper">
-			<div class="swiper-wrapper">
-				<?php if ( have_rows( 'select_slides' ) ) : ?>
-					<?php
-					while ( have_rows( 'select_slides' ) ) :
-						the_row();
-						?>
-						<?php $post_object = get_sub_field( 'slide' ); ?>
-						<?php if ( $post_object ) : ?>
-							<?php display_slide( $post_object ); ?>
-						<?php endif; ?>
-					<?php endwhile; ?>
-				<?php endif; ?>
+	<?php if ( $section_title ) : ?>
+		<h3 class="content-slider__title">
+			<?php echo esc_html( $section_title ); ?>
+		</h3>
+	<?php endif; ?>
+	<div class="content-slider__swiper">
+		<div class="swiper-wrapper">
+			<?php if ( have_rows( 'select_slides' ) ) : ?>
+				<?php
+				while ( have_rows( 'select_slides' ) ) :
+					the_row();
+					?>
+					<?php $post_object = get_sub_field( 'slide' ); ?>
+					<?php if ( $post_object ) : ?>
+						<?php display_slide( $post_object ); ?>
+					<?php endif; ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
+		</div>
+		<div class="swiper-pagination content-slider__swiper-pagination"></div>
+		<div class="content-slider__controls">
+			<div class="swiper-button-prev-1 swiper-pagination__swiper-button-prev">
+				<?php STAG_Extra_Functions::fetch_icon( 'icon-circle-prev' ); ?>
 			</div>
-			<div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-pagination"></div>
+			<div class="swiper-button-next-1 swiper-pagination__swiper-button-next">
+				<?php STAG_Extra_Functions::fetch_icon( 'icon-circle-next' ); ?>
+			</div>
 		</div>
 	</div>
 </section>
