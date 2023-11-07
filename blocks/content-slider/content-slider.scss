@@ -1,20 +1,104 @@
 @use "../../assets/public/src/scss/global/abstract" as *;
 
 .content-slider {
+  margin-top: toRem(70);
+  margin-bottom: toRem(70);
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: toRem(40);
+    font-size: toRem(18);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 
   &__swiper {
     position: relative;
     overflow: hidden;
 
-    .swiper-slide {
-      
+    .swiper-wrapper {
+      padding-bottom: toRem(71);
     }
 
-    .swiper-slide img {
-      display: block;
+    &--img-wrap {
+      height: toRem(205);
+
+      @include breakpoint(md, min) {
+        height: toRem(311);
+      }
+
+      @include breakpoint(lg, min) {
+        height: toRem(205);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: toRem(10);
+      }
+    }
+
+    &--title {
+      margin-top: toRem(16);
+      margin-bottom: toRem(16);
+      font-size: toRem(24);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    p {
+      margin-bottom: toRem(24);
+      font-size: toRem(20);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__swiper-pagination {
+    position: relative;
+    top: inherit !important;
+    bottom: 0;
+    height: toRem(3) !important;
+    background: transparent;
+
+    .swiper-pagination-progressbar-fill {
+      top: toRem(-1);
+      background-color: wpColor(tl-dark-grey);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: toRem(1);
+      background-color: rgba(161, 170, 177, 0.67);
+    }
+  }
+
+  &__controls {
+    margin-top: toRem(40);
+    display: flex;
+    gap: toRem(24);
+
+    svg {
+      transition: all 0.3s $torlak_ease;
+
+      &:hover,
+      &:focus,
+      &:active {
+        cursor: pointer;
+
+        path {
+          fill: wpColor(tl-black);
+        }
+      }
     }
   }
 }
