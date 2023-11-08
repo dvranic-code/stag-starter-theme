@@ -81,6 +81,7 @@ $post_thumbnail       = get_the_post_thumbnail( $select_featured_post->ID, 'full
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
+
 		?>
 
 	</main><!-- #main -->

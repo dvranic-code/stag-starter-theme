@@ -60,6 +60,7 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 
 			$stag_vars = array(
 				'ajaxURL' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'ajax_nonce' ),
 			);
 			wp_localize_script( 'stag-theme-scripts', 'WP_vars', $stag_vars );
 		}

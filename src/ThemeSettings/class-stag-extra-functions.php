@@ -76,6 +76,26 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 				echo '<p>' . $excerpt . '</p>'; // phpcs:ignore
 			}
 		}
+
+		/**
+		 * Stores the output of a template part in a variable.
+		 *
+		 * @param string $slug The slug name for the generic template.
+		 * @param string $name The name of the specialized template.
+		 * @param array  $args Optional. Additional arguments passed to the template.
+		 *
+		 * @return string The output of the template part.
+		 */
+		public static function store_template( $slug, $name = '', $args = null ) {
+			ob_start();
+
+			get_template_part( $slug, $name, $args );
+			$content = ob_get_contents();
+
+			ob_end_clean();
+
+			return $content;
+		}
 	}
 
 	new STAG_Extra_Functions();
