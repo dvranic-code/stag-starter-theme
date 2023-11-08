@@ -43,7 +43,7 @@ $posts_grid = array(
 );
 
 ?>
-<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
+<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>">
 	<?php
 	$query = new WP_Query( $posts_grid );
 
