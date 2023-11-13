@@ -16,6 +16,7 @@ function fetch_posts() {
     let maxPages = document.querySelector(".site-main").dataset.max;
 
     const postsGridWrapper = document.getElementsByClassName("posts-grid__wrapper")[0];
+    const postsGridBtnWrapper = document.getElementsByClassName("posts-grid__btn-wrapper")[0];
 
     const moreData = new FormData();
 
@@ -38,8 +39,7 @@ function fetch_posts() {
         if (data && data.data) {
           const htmlString = data.data; // Extract the HTML content from the response
 
-          // TODO: Need to fix this it is inserting HTML inside wrong div
-          postsGridWrapper.insertAdjacentHTML("beforeend", htmlString);
+          postsGridBtnWrapper.insertAdjacentHTML("beforebegin", htmlString);
 
           // TODO: add some data atribute to not load this if it is home page
           let getUrl = window.location;

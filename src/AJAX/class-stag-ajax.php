@@ -64,14 +64,11 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 			$data = '';
 
 			if ( $wp_query->post_count > 0 ) {
-				$data .= STAG_Extra_Functions::store_template(
-					'template-parts/content',
-					'posts-grid',
-					array(
-						'posts'    => $wp_query,
-						'btn-text' => pll__( 'Још чланака' ),
-					)
-				);
+				$posts = $wp_query->get_posts();
+
+				foreach ( $posts as $post ) {
+					$data .= STAG_Extra_Functions::store_template( 'template-parts/content', 'posts-article', array( 'id' => $post->ID ) );
+				}
 			} else {
 				$data = '<h3>No posts ...</h3>';
 			}
