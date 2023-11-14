@@ -14,22 +14,29 @@
  * @since 1.0.0
  */
 
-// Support custom "anchor" values.
-$anchor = '';
-if ( ! empty( $block['anchor'] ) ) {
-	$anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
-}
+/* rendering in inserter preview  */
+if ( isset( $block['data']['preview_image_help'] ) ) :
 
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = '';
-if ( ! empty( $block['className'] ) ) {
-	$class_name .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$class_name .= ' align' . $block['align'];
-}
+	echo '<img src="' . esc_url( get_template_directory_uri() ) . '/blocks/block-template/' . esc_attr( $block['data']['preview_image_help'] ) . '" style="width:100%; height:auto;">';
 
-?>
+else :
+
+	// Support custom "anchor" values.
+	$anchor = '';
+	if ( ! empty( $block['anchor'] ) ) {
+		$anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
+	}
+
+	// Create class attribute allowing for custom "className" and "align" values.
+	$class_name = '';
+	if ( ! empty( $block['className'] ) ) {
+		$class_name .= ' ' . $block['className'];
+	}
+	if ( ! empty( $block['align'] ) ) {
+		$class_name .= ' align' . $block['align'];
+	}
+
+	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<div class="container">
 		<div class="row">
@@ -39,3 +46,4 @@ if ( ! empty( $block['align'] ) ) {
 		</div>
 	</div>
 </section>
+<?php endif; ?>
