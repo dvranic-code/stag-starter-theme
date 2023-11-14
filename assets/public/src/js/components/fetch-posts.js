@@ -18,14 +18,15 @@ function fetch_posts() {
 
     let currentPage = '';
 
-    let postsGrid = document.querySelector(".posts-grid");
-
+    
     if ( postsGrid ) {
       currentPage = document.querySelector(".posts-grid").dataset.page;
     } else {
       currentPage = document.querySelector(".site-main").dataset.page;
     }
-
+    
+    let postsGrid = document.querySelector(".posts-grid");
+    
     let maxPages = document.querySelector(".site-main").dataset.max;
     let isSearch = document.querySelector(".site-main").dataset.search === "is-search";
 
@@ -64,7 +65,7 @@ function fetch_posts() {
         if (data && data.data) {
           const htmlString = data.data[0]; // Extract the HTML content from the response
 
-          const maxPages = data.data[1];
+          const maxPages = data.data[1]; // Extract the max pages from the response for search
 
           postsGridBtnWrapper.insertAdjacentHTML("beforebegin", htmlString);
 
