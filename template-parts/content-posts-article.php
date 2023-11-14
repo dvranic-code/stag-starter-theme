@@ -10,12 +10,6 @@
 use stag_theme\ThemeSettings\STAG_Template_Tags;
 use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
-global $post;
-
-if ( $args['id'] ) {
-	$id = $args['id']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-}
-setup_postdata( $post = get_post( $id ) ); // phpcs:ignore
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-grid__article' ); ?>>

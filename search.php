@@ -8,12 +8,9 @@
  */
 
 get_header();
-
-global $wp_query;
-
 ?>
 
-<main id="primary" class="site-main" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>" data-max="<?php echo esc_attr( $wp_query->max_num_pages ); ?>">
+<main id="primary" class="site-main" data-search="is-search" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>" data-max="<?php echo esc_attr( $wp_query->max_num_pages ); ?>">
 	<div class="general-search__top">
 		<div class="container">
 			<?php get_search_form(); ?>

@@ -43,37 +43,39 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 			$get_current_page = isset( $_POST['currentPage'] ) ? intval( wp_unslash( $_POST['currentPage'] ) ) : 1;
 			$next_page        = $get_current_page + 1;
 
+			$search_query = isset( $_POST['searchQuery'] ) ? sanitize_text_field( wp_unslash( $_POST['searchQuery'] ) ) : '';
+
 			// TODO: dynamic posts per page.
-			$wp_query = new \WP_Query(
-				array(
-					'paged' => $next_page,
-				)
+			$args = array(
+				'paged'          => $next_page,
+				'posts_per_page' => 1,
 			);
 
-			// TODO: dynamic button text and also button position.
+			if ( ! empty( $search_query ) ) {
+				$args['s'] = $search_query;
+			}
 
-			// TODO: Check why it is not working.
-			// if ( is_home() ) {
-			// $btn_text = pll__( 'Још чланака' );
-			// } elseif ( is_search() ) {
-			// $btn_text = pll__( 'Још резултата' );
-			// } else {
-			// $btn_text = pll__( 'Све објаве' );
-			// }.
+			$query = new \WP_Query( $args );
 
 			$data = '';
 
-			if ( $wp_query->post_count > 0 ) {
-				$posts = $wp_query->get_posts();
-
-				foreach ( $posts as $post ) {
-					$data .= STAG_Extra_Functions::store_template( 'template-parts/content', 'posts-article', array( 'id' => $post->ID ) );
+			if ( $query->have_posts() ) {
+				while ( $query->have_posts() ) {
+					$query->the_post();
+					$data .= STAG_Extra_Functions::store_template( 'template-parts/content', 'posts-article' );
 				}
+				wp_reset_postdata();
 			} else {
 				$data = '<h3>No posts ...</h3>';
 			}
 
-			wp_send_json_success( $data );
+			// This seems to fix the issue with the max_num_pages not being correct on search page.
+			$max_pages_search = $query->max_num_pages;
+			if ( $query->is_search ) {
+				$max_pages_search = ceil( $query->found_posts / $query->get( 'posts_per_page' ) );
+			}
+
+			wp_send_json_success( array( $data, $max_pages_search ) );
 
 			die();
 		}
