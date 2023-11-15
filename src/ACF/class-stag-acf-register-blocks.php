@@ -54,6 +54,7 @@ if ( ! class_exists( 'STAG_ACF_Register_Blocks' ) ) {
 				register_block_type( get_template_directory() . '/blocks/homepage-mega' );
 				register_block_type( get_template_directory() . '/blocks/cta-banner' );
 				register_block_type( get_template_directory() . '/blocks/content-slider' );
+				register_block_type( get_template_directory() . '/blocks/title-block' );
 			}
 		}
 	}
