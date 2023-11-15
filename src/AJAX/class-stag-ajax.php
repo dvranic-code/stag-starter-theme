@@ -46,9 +46,10 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 			$search_query = isset( $_POST['searchQuery'] ) ? sanitize_text_field( wp_unslash( $_POST['searchQuery'] ) ) : '';
 
 			// TODO: dynamic posts per page.
+			// TODO: dynamic post type for block on homepage.
 			$args = array(
 				'paged'          => $next_page,
-				'posts_per_page' => 1,
+				'posts_per_page' => 3,
 			);
 
 			if ( ! empty( $search_query ) ) {

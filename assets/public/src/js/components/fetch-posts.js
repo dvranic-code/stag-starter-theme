@@ -9,8 +9,16 @@ function fetch_posts() {
     return;
   }
 
-  if (document.querySelector(".site-main").dataset.page == document.querySelector(".site-main").dataset.max) {
-    loadMoreBtn.style.display = "none";
+  let postsGrid = document.querySelector(".posts-grid");
+
+  if ( postsGrid ) {
+    if (document.querySelector(".posts-grid").dataset.page == document.querySelector(".posts-grid").dataset.max) {
+      loadMoreBtn.style.display = "none";
+    }
+  } else {
+    if (document.querySelector(".site-main").dataset.page == document.querySelector(".site-main").dataset.max) {
+      loadMoreBtn.style.display = "none";
+    }
   }
 
   loadMoreBtn.addEventListener("click", async (e) => {
@@ -18,14 +26,13 @@ function fetch_posts() {
 
     let currentPage = '';
 
-    
+    let postsGrid = document.querySelector(".posts-grid");
+
     if ( postsGrid ) {
       currentPage = document.querySelector(".posts-grid").dataset.page;
     } else {
       currentPage = document.querySelector(".site-main").dataset.page;
     }
-    
-    let postsGrid = document.querySelector(".posts-grid");
     
     let maxPages = document.querySelector(".site-main").dataset.max;
     let isSearch = document.querySelector(".site-main").dataset.search === "is-search";
@@ -66,6 +73,7 @@ function fetch_posts() {
           const htmlString = data.data[0]; // Extract the HTML content from the response
 
           const maxPages = data.data[1]; // Extract the max pages from the response for search
+          console.log(maxPages);
 
           postsGridBtnWrapper.insertAdjacentHTML("beforebegin", htmlString);
 
@@ -76,9 +84,18 @@ function fetch_posts() {
           }
 
           document.querySelector(".site-main").dataset.page++;
+
           
           if (document.querySelector(".site-main").dataset.page == document.querySelector(".site-main").dataset.max) {
             loadMoreBtn.style.display = "none";
+          }
+          
+          if ( isBlock ) {
+            document.querySelector(".posts-grid").dataset.page++;
+
+            if (document.querySelector(".posts-grid").dataset.page == document.querySelector(".posts-grid").dataset.max) {
+              loadMoreBtn.style.display = "none";
+            }
           }
 
           if ( isSearch ) {
