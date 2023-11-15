@@ -1,22 +1,30 @@
 {
-  "name": "acf/content-slider",
-  "title": "Content Slider",
-  "description": "Block that displays slider based on selected posts",
-  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
-  "style": [],
-  "category": "formatting",
-  "icon": "slides",
-  "keywords": [
-      "slider",
-      "posts",
-      "content"
-  ],
-  "acf": {
-      "mode": "preview",
-      "renderTemplate": "content-slider.php"
-  },
-  "align": "full",
-  "supports": {
-      "anchor": true
-  }
+    "name": "acf/content-slider",
+    "title": "Content Slider",
+    "description": "Block that displays slider based on selected posts",
+    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "style": [],
+    "category": "formatting",
+    "icon": "slides",
+    "keywords": [
+        "slider",
+        "posts",
+        "content"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "content-slider.php"
+    },
+    "align": "full",
+    "supports": {
+        "anchor": true
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_help": "content-slider-preview.png"
+            }
+        }
+    }
 }

@@ -14,53 +14,59 @@
  * @since 1.0.0
  */
 
-// Support custom "anchor" values.
-$anchor = '';
-if ( ! empty( $block['anchor'] ) ) {
-	$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
-}
+if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'homepage-hero full-width-container';
-if ( ! empty( $block['className'] ) ) {
-	$class_name .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$class_name .= ' align' . $block['align'];
-}
+	echo '<img src="' . get_template_directory_uri() . '/blocks/homepage-hero/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
-$hero_title              = get_field( 'hero_title' );
-$hero_button             = get_field( 'hero_button' );
-$hero_background         = get_field( 'hero_background' );
-$video_background        = get_field( 'video_background' );
-$video_background_mobile = get_field( 'video_background_mobile' );
-$image_background        = get_field( 'image_background' );
-$playlist_id             = get_field( 'playlist_id' );
+else :
 
-if ( $video_background ) :
+	// Support custom "anchor" values.
+	$anchor = '';
+	if ( ! empty( $block['anchor'] ) ) {
+		$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
+	}
 
-	preg_match( '/src="(.+?)"/', $video_background, $matches );
-	$src = $matches[1];
+	// Create class attribute allowing for custom "className" and "align" values.
+	$class_name = 'homepage-hero full-width-container';
+	if ( ! empty( $block['className'] ) ) {
+		$class_name .= ' ' . $block['className'];
+	}
+	if ( ! empty( $block['align'] ) ) {
+		$class_name .= ' align' . $block['align'];
+	}
 
-	$params = array(
-		'rel'      => 0,
-		'autoplay' => 1,
-		'loop'     => 1,
-		'mute'     => 1,
-		'controls' => 0,
-		'hd'       => 1,
-		'autohide' => 1,
-		'playlist' => $playlist_id,
-	);
+	$hero_title              = get_field( 'hero_title' );
+	$hero_button             = get_field( 'hero_button' );
+	$hero_background         = get_field( 'hero_background' );
+	$video_background        = get_field( 'video_background' );
+	$video_background_mobile = get_field( 'video_background_mobile' );
+	$image_background        = get_field( 'image_background' );
+	$playlist_id             = get_field( 'playlist_id' );
 
-	$new_src          = add_query_arg( $params, $src );
-	$video_background = str_replace( $src, $new_src, $video_background );
+	if ( $video_background ) :
 
-	$video_background = str_replace( 'frameborder="0"', '', $video_background );
+		preg_match( '/src="(.+?)"/', $video_background, $matches );
+		$src = $matches[1];
+
+		$params = array(
+			'rel'      => 0,
+			'autoplay' => 1,
+			'loop'     => 1,
+			'mute'     => 1,
+			'controls' => 0,
+			'hd'       => 1,
+			'autohide' => 1,
+			'playlist' => $playlist_id,
+		);
+
+		$new_src          = add_query_arg( $params, $src );
+		$video_background = str_replace( $src, $new_src, $video_background );
+
+		$video_background = str_replace( 'frameborder="0"', '', $video_background );
 
 endif;
 
-?>
+	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<div class="homepage-hero__caption">
 		<div class="grid-col">
@@ -86,3 +92,4 @@ endif;
 	</div>
 	<div class="homepage-hero__overlay"></div>
 </section>
+<?php endif; ?>
