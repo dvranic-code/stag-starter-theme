@@ -68,12 +68,12 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 				$exwords = explode( ' ', $subex );
 				$excut   = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
 				if ( $excut < 0 ) {
-					echo '<p>' . mb_substr( $subex, 0, $excut ) . '</p>'; // phpcs:ignore
+					echo '<p>' . mb_substr( $subex, 0, $excut ) . '...</p>'; // phpcs:ignore
 				} else {
-					echo '<p>' . $subex . '</p>'; // phpcs:ignore
+					echo '<p>' . $subex . '...</p>'; // phpcs:ignore
 				}
 			} else {
-				echo '<p>' . $excerpt . '</p>'; // phpcs:ignore
+				echo '<p>' . $excerpt . '...</p>'; // phpcs:ignore
 			}
 		}
 
