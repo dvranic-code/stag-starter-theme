@@ -18,7 +18,6 @@ if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in insert
 
 	echo '<img src="' . esc_url( get_template_directory_uri() ) . '/blocks/title-block/' . esc_attr( $block['data']['preview_image_help'] ) . '" style="width:100%; height:auto;">';
 
-
 else :
 
 	// Support custom "anchor" values.
