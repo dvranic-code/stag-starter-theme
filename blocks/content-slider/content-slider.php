@@ -16,56 +16,62 @@
 
 use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
-/**
- * Returns the anchor for the given block.
- *
- * @param array $block The block to get the anchor for.
- * @return string The anchor for the given block.
- */
-function get_anchor( $block ) {
-	return ! empty( $block['anchor'] ) ? 'id=' . esc_attr( $block['anchor'] ) . ' ' : '';
+if ( ! function_exists( 'get_anchor' ) ) {
+	/**
+	 * Returns the anchor for the given block.
+	 *
+	 * @param array $block The block to get the anchor for.
+	 * @return string The anchor for the given block.
+	 */
+	function get_anchor( $block ) {
+		return ! empty( $block['anchor'] ) ? 'id=' . esc_attr( $block['anchor'] ) . ' ' : '';
+	}
 }
 
-/**
- * Returns the class name for the given block.
- *
- * @param array $block The block to get the class name for.
- * @return string The class name for the given block.
- */
-function get_class_name( $block ) {
-	$class_name = 'content-slider';
-	if ( ! empty( $block['className'] ) ) {
-		$class_name .= ' ' . $block['className'];
+if ( ! function_exists( 'get_class_name' ) ) {
+	/**
+	 * Returns the class name for the given block.
+	 *
+	 * @param array $block The block to get the class name for.
+	 * @return string The class name for the given block.
+	 */
+	function get_class_name( $block ) {
+		$class_name = 'content-slider';
+		if ( ! empty( $block['className'] ) ) {
+			$class_name .= ' ' . $block['className'];
+		}
+		if ( ! empty( $block['align'] ) ) {
+			$class_name .= ' align' . $block['align'];
+		}
+		return $class_name;
 	}
-	if ( ! empty( $block['align'] ) ) {
-		$class_name .= ' align' . $block['align'];
-	}
-	return $class_name;
 }
 
-/**
- * Displays the slide.
- *
- * @param WP_Post $post_object The post object to display.
- */
-function display_slide( $post_object ) {
-	$post = $post_object;
-	setup_postdata( $post );
-	?>
-	<div class="swiper-slide">
-		<div class="content-slider__swiper--img-wrap">
-			<?php if ( has_post_thumbnail( $post_object->ID ) ) : ?>
-				<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
-			<?php else : ?>
-				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
-			<?php endif; ?>
+if ( ! function_exists( 'display_slide' ) ) {
+	/**
+	 * Displays the slide.
+	 *
+	 * @param WP_Post $post_object The post object to display.
+	 */
+	function display_slide( $post_object ) {
+		$post = $post_object;
+		setup_postdata( $post );
+		?>
+		<div class="swiper-slide">
+			<div class="content-slider__swiper--img-wrap">
+				<?php if ( has_post_thumbnail( $post_object->ID ) ) : ?>
+					<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
+				<?php else : ?>
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
+				<?php endif; ?>
+			</div>
+			<h4 class="content-slider__swiper--title"><a href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php echo esc_html( $post_object->post_title ); ?></a></h4>
+			<?php STAG_Extra_Functions::stag_excerpt( 150, $post_object ); ?>
+			<a class="learn--more" href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php pll_e( 'Сазнај више' ); ?> <?php STAG_Extra_Functions::fetch_icon( 'icon-arrow' ); ?></a>
 		</div>
-		<h4 class="content-slider__swiper--title"><a href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php echo esc_html( $post_object->post_title ); ?></a></h4>
-		<?php STAG_Extra_Functions::stag_excerpt( 150, $post_object ); ?>
-		<a class="learn--more" href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php pll_e( 'Сазнај више' ); ?> <?php STAG_Extra_Functions::fetch_icon( 'icon-arrow' ); ?></a>
-	</div>
-	<?php
-	wp_reset_postdata();
+		<?php
+		wp_reset_postdata();
+	}
 }
 
 $anchor        = get_anchor( $block );
