@@ -14,25 +14,31 @@
  * @since 1.0.0
  */
 
-// Support custom "anchor" values.
-$anchor = '';
-if ( ! empty( $block['anchor'] ) ) {
-	$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
-}
+if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'cta-banner full-width-container';
-if ( ! empty( $block['className'] ) ) {
-	$class_name .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$class_name .= ' align' . $block['align'];
-}
+	echo '<img src="' . get_template_directory_uri() . '/blocks/cta-banner/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
-$banner_text = get_field( 'banner_text' );
-$banner_link = get_field( 'banner_link' );
+else :
 
-?>
+	// Support custom "anchor" values.
+	$anchor = '';
+	if ( ! empty( $block['anchor'] ) ) {
+		$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
+	}
+
+	// Create class attribute allowing for custom "className" and "align" values.
+	$class_name = 'cta-banner full-width-container';
+	if ( ! empty( $block['className'] ) ) {
+		$class_name .= ' ' . $block['className'];
+	}
+	if ( ! empty( $block['align'] ) ) {
+		$class_name .= ' align' . $block['align'];
+	}
+
+	$banner_text = get_field( 'banner_text' );
+	$banner_link = get_field( 'banner_link' );
+
+	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<div class="cta-banner__container container">
 		<div class="cta-banner__text">
@@ -47,3 +53,4 @@ $banner_link = get_field( 'banner_link' );
 		</div>
 	</div>
 </section>
+<?php endif; ?>

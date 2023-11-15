@@ -16,47 +16,53 @@
 
 use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
-if ( ! function_exists( 'get_anchor' ) ) {
-	/**
-	 * Returns the anchor for the given block.
-	 *
-	 * @param array $block The block to get the anchor for.
-	 * @return string The anchor for the given block.
-	 */
-	function get_anchor( $block ) {
-		return ! empty( $block['anchor'] ) ? 'id=' . esc_attr( $block['anchor'] ) . ' ' : '';
-	}
-}
+if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-if ( ! function_exists( 'get_class_name' ) ) {
-	/**
-	 * Returns the class name for the given block.
-	 *
-	 * @param array $block The block to get the class name for.
-	 * @return string The class name for the given block.
-	 */
-	function get_class_name( $block ) {
-		$class_name = 'content-slider';
-		if ( ! empty( $block['className'] ) ) {
-			$class_name .= ' ' . $block['className'];
-		}
-		if ( ! empty( $block['align'] ) ) {
-			$class_name .= ' align' . $block['align'];
-		}
-		return $class_name;
-	}
-}
+	echo '<img src="' . get_template_directory_uri() . '/blocks/content-slider/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
-if ( ! function_exists( 'display_slide' ) ) {
-	/**
-	 * Displays the slide.
-	 *
-	 * @param WP_Post $post_object The post object to display.
-	 */
-	function display_slide( $post_object ) {
-		$post = $post_object;
-		setup_postdata( $post );
-		?>
+else :
+
+	if ( ! function_exists( 'get_anchor' ) ) {
+		/**
+		 * Returns the anchor for the given block.
+		 *
+		 * @param array $block The block to get the anchor for.
+		 * @return string The anchor for the given block.
+		 */
+		function get_anchor( $block ) {
+			return ! empty( $block['anchor'] ) ? 'id=' . esc_attr( $block['anchor'] ) . ' ' : '';
+		}
+	}
+
+	if ( ! function_exists( 'get_class_name' ) ) {
+		/**
+		 * Returns the class name for the given block.
+		 *
+		 * @param array $block The block to get the class name for.
+		 * @return string The class name for the given block.
+		 */
+		function get_class_name( $block ) {
+			$class_name = 'content-slider';
+			if ( ! empty( $block['className'] ) ) {
+				$class_name .= ' ' . $block['className'];
+			}
+			if ( ! empty( $block['align'] ) ) {
+				$class_name .= ' align' . $block['align'];
+			}
+			return $class_name;
+		}
+	}
+
+	if ( ! function_exists( 'display_slide' ) ) {
+		/**
+		 * Displays the slide.
+		 *
+		 * @param WP_Post $post_object The post object to display.
+		 */
+		function display_slide( $post_object ) {
+			$post = $post_object;
+			setup_postdata( $post );
+			?>
 		<div class="swiper-slide">
 			<div class="content-slider__swiper--img-wrap">
 				<?php if ( has_post_thumbnail( $post_object->ID ) ) : ?>
@@ -69,16 +75,16 @@ if ( ! function_exists( 'display_slide' ) ) {
 			<?php STAG_Extra_Functions::stag_excerpt( 150, $post_object ); ?>
 			<a class="learn--more" href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php pll_e( 'Сазнај више' ); ?> <?php STAG_Extra_Functions::fetch_icon( 'icon-arrow' ); ?></a>
 		</div>
-		<?php
-		wp_reset_postdata();
+			<?php
+			wp_reset_postdata();
+		}
 	}
-}
 
-$anchor        = get_anchor( $block );
-$class_name    = get_class_name( $block );
-$section_title = get_field( 'section_title' );
-$select_slides = get_field( 'select_slides' );
-?>
+	$anchor        = get_anchor( $block );
+	$class_name    = get_class_name( $block );
+	$section_title = get_field( 'section_title' );
+	$select_slides = get_field( 'select_slides' );
+	?>
 
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<?php if ( $section_title ) : ?>
@@ -111,3 +117,4 @@ $select_slides = get_field( 'select_slides' );
 		</div>
 	</div>
 </section>
+<?php endif; ?>

@@ -1,23 +1,31 @@
 {
-  "name": "acf/posts-grid",
-  "title": "Torlak Posts Grid",
-  "description": "Block that displays list of posts (page, post) with option to load more posts.",
-  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
-  "style": [],
-  "category": "formatting",
-  "icon": "grid-view",
-  "keywords": [
-      "image",
-      "post",
-      "page",
-      "grid"
-  ],
-  "acf": {
-      "mode": "preview",
-      "renderTemplate": "posts-grid.php"
-  },
-  "align": "full",
-  "supports": {
-      "anchor": true
-  }
+    "name": "acf/posts-grid",
+    "title": "Torlak Posts Grid",
+    "description": "Block that displays list of posts (page, post) with option to load more posts.",
+    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "style": [],
+    "category": "formatting",
+    "icon": "grid-view",
+    "keywords": [
+        "image",
+        "post",
+        "page",
+        "grid"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "posts-grid.php"
+    },
+    "align": "full",
+    "supports": {
+        "anchor": true
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_help": "posts-grid-preview.png"
+            }
+        }
+    }
 }

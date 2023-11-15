@@ -14,31 +14,37 @@
  * @since 1.0.0
  */
 
-// Support custom "anchor" values.
-$anchor = '';
-if ( ! empty( $block['anchor'] ) ) {
-	$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
-}
+if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'homepage-mega';
-if ( ! empty( $block['className'] ) ) {
-	$class_name .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$class_name .= ' align' . $block['align'];
-}
+	echo '<img src="' . get_template_directory_uri() . '/blocks/homepage-mega/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
-$section_title        = get_field( 'section_title' );
-$section_title_text   = get_field( 'section_title_text' );
-$block_image          = get_field( 'block_image' );
-$add_block_image      = get_field( 'add_block_image' );
-$block_image_aligment = get_field( 'block_image_aligment' );
-$block_title          = get_field( 'block_title' );
-$block_description    = get_field( 'block_description' );
-$block_button         = get_field( 'block_button' );
+else :
 
-?>
+	// Support custom "anchor" values.
+	$anchor = '';
+	if ( ! empty( $block['anchor'] ) ) {
+		$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
+	}
+
+	// Create class attribute allowing for custom "className" and "align" values.
+	$class_name = 'homepage-mega';
+	if ( ! empty( $block['className'] ) ) {
+		$class_name .= ' ' . $block['className'];
+	}
+	if ( ! empty( $block['align'] ) ) {
+		$class_name .= ' align' . $block['align'];
+	}
+
+	$section_title        = get_field( 'section_title' );
+	$section_title_text   = get_field( 'section_title_text' );
+	$block_image          = get_field( 'block_image' );
+	$add_block_image      = get_field( 'add_block_image' );
+	$block_image_aligment = get_field( 'block_image_aligment' );
+	$block_title          = get_field( 'block_title' );
+	$block_description    = get_field( 'block_description' );
+	$block_button         = get_field( 'block_button' );
+
+	?>
 
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<?php if ( $section_title ) : ?>
@@ -67,3 +73,4 @@ $block_button         = get_field( 'block_button' );
 	</div>
 	</div>
 </section>
+<?php endif; ?>

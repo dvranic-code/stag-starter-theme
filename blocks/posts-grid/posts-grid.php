@@ -14,37 +14,43 @@
  * @since 1.0.0
  */
 
-// Support custom "anchor" values.
-$anchor = '';
-if ( ! empty( $block['anchor'] ) ) {
-	$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
-}
+if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'posts-grid';
-if ( ! empty( $block['className'] ) ) {
-	$class_name .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$class_name .= ' align' . $block['align'];
-}
+	echo '<img src="' . get_template_directory_uri() . '/blocks/posts-grid/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
-$number_of_posts    = get_field( 'number_of_posts' );
-$posts_type         = get_field( 'post_type' );
-$load_more_btn_text = get_field( 'load_more_btn_text' );
-$custom_title       = get_field( 'custom_title' );
+else :
 
-$posts_grid = array(
-	'posts_per_page' => $number_of_posts,
-	'post_type'      => $posts_type,
-	'post_status'    => 'publish',
-	'orderby'        => 'date',
-	'order'          => 'DESC',
-);
+	// Support custom "anchor" values.
+	$anchor = '';
+	if ( ! empty( $block['anchor'] ) ) {
+		$anchor = 'id=' . esc_attr( $block['anchor'] ) . ' ';
+	}
 
-$query = new WP_Query( $posts_grid );
+	// Create class attribute allowing for custom "className" and "align" values.
+	$class_name = 'posts-grid';
+	if ( ! empty( $block['className'] ) ) {
+		$class_name .= ' ' . $block['className'];
+	}
+	if ( ! empty( $block['align'] ) ) {
+		$class_name .= ' align' . $block['align'];
+	}
 
-?>
+	$number_of_posts    = get_field( 'number_of_posts' );
+	$posts_type         = get_field( 'post_type' );
+	$load_more_btn_text = get_field( 'load_more_btn_text' );
+	$custom_title       = get_field( 'custom_title' );
+
+	$posts_grid = array(
+		'posts_per_page' => $number_of_posts,
+		'post_type'      => $posts_type,
+		'post_status'    => 'publish',
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
+
+	$query = new WP_Query( $posts_grid );
+
+	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
 		<?php
 		get_template_part(
@@ -58,3 +64,4 @@ $query = new WP_Query( $posts_grid );
 		);
 		?>
 </section>
+<?php endif; ?>
