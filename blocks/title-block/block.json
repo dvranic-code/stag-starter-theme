@@ -1,0 +1,30 @@
+{
+  "name": "acf/title-block",
+  "title": "Title Block",
+  "description": "Block that displays a title and image for inner banner",
+  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "style": [],
+  "category": "formatting",
+  "icon": "cover-image",
+  "keywords": [
+      "title",
+      "block",
+      "banner"
+  ],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "title-block.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  },
+  "example": {
+      "attributes": {
+          "mode": "preview",
+          "data": {
+              "preview_image_help": "title-block-preview.png"
+          }
+      }
+  }
+}

@@ -4588,3 +4588,54 @@ body.logged-in .mobile-menu {
 .content-slider__controls svg:hover path, .content-slider__controls svg:focus path, .content-slider__controls svg:active path {
   fill: var(--wp--preset--color--tl-black);
 }
+
+/*------------------------------------------------------------*\
+ * Global
+\*------------------------------------------------------------*/
+.title-block {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5.625rem;
+  height: 36.875rem;
+}
+@media (min-width: 1024px) {
+  .title-block {
+    height: 28.75rem;
+  }
+}
+.title-block__image,
+.title-block img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title-block__container {
+  position: absolute;
+  right: 0;
+  bottom: 3rem;
+  left: 0;
+  z-index: 1;
+}
+.title-block__container h1 {
+  color: var(--wp--preset--color--white);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1024px) {
+  .title-block__container h1 {
+    font-size: 3rem;
+  }
+}
+.title-block__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(10, 55, 130, 0) 0%, #0A3782 100%);
+}
