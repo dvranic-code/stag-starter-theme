@@ -72,7 +72,7 @@ else :
 				<?php endif; ?>
 			</div>
 			<h4 class="content-slider__swiper--title"><a href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php echo esc_html( $post_object->post_title ); ?></a></h4>
-			<?php STAG_Extra_Functions::stag_excerpt( 150, $post_object ); ?>
+			<?php STAG_Extra_Functions::stag_excerpt( 115, $post_object ); ?>
 			<a class="learn--more" href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php pll_e( 'Сазнај више' ); ?> <?php STAG_Extra_Functions::fetch_icon( 'icon-arrow' ); ?></a>
 		</div>
 			<?php
