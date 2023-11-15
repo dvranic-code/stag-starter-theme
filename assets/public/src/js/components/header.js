@@ -86,7 +86,8 @@ function triggerSearchBox() {
     return;
   }
 
-  function handleSearchBoxClick() {
+  function handleSearchBoxClick(e) {
+    e.preventDefault();
     searchPopup.classList.toggle("active");
     body.classList.toggle("disable-scroll-search");
   }

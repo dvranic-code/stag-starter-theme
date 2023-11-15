@@ -502,16 +502,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
+  transform: translateY(-100%);
+  transition: all 0.5s $torlak-ease;
   background: wpColor(white);
-  transition: opacity 0.5s ease;
-  z-index: -1;
+  padding-top: 5rem;
+  z-index: 1;
 
   .search-form {
     position: relative;
@@ -552,9 +553,7 @@ input.search-form__search-field[type="search"]::-webkit-search-results-decoratio
 }
 
 .site-header__search-popup.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 8;
+  transform: translate(0);
 }
 
 body.disable-scroll,
@@ -965,7 +964,8 @@ body.logged-in .site-header {
   }
 }
 
-body.logged-in .mobile-menu {
+body.logged-in .mobile-menu,
+body.logged-in .site-header__search-popup {
   padding-top: toRem(126);
 
   @include breakpoint(md, min) {
