@@ -18,7 +18,7 @@ get_header();
 			<div class="container">
 				<header class="page-header">
 					<h2 class="error-404-text">404 <?php STAG_Extra_Functions::fetch_icon( 'icon-404' ); ?></h2>
-					<h1 class="page-title"><?php esc_html_e( 'Упс, нешто се десило... страница не постоји.', '_s' ); ?></h1>
+					<h1 class="page-title"><?php pll_e( 'Упс, нешто се десило... страница не постоји.' ); ?></h1>
 				</header><!-- .page-header -->
 			</div>
 		</section><!-- .error-404 -->

@@ -33,3 +33,6 @@ require_once THEME_DIR . '/src/Controllers/class-custom-walker-nav-menu.php';
 
 // Include AJAX Classes.
 require_once THEME_DIR . '/src/AJAX/class-stag-ajax.php';
+
+// Include Polylang translations.
+require_once THEME_DIR . '/languages/polylang-translation-strings.php';

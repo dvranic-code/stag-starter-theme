@@ -42,10 +42,13 @@ $posts_grid = array(
 	'order'          => 'DESC',
 );
 
+$query = new WP_Query( $posts_grid );
+
+error_log( var_export( $query, true ) );
+
 ?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-block="is-block" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>">
 	<?php
-	$query = new WP_Query( $posts_grid );
 
 			get_template_part(
 				'template-parts/content',
