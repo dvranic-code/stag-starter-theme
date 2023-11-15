@@ -8,17 +8,17 @@ function initSwiper() {
   const swiper = new Swiper(".content-slider__swiper", { // eslint-disable-line
     slidesPerView: 1,
     spaceBetween: 13.9,
-    loop: true,
+    loop: false,
     breakpoints: {
       0: {
         slidesPerView: 1,
         spaceBetween: 20
       },
-      768: {
+      520: {
         slidesPerView: 2,
         spaceBetween: 20
       },
-      1366: {
+      1024: {
         slidesPerView: 3,
         spaceBetween: 24
       }
