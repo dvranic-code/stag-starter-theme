@@ -42,20 +42,19 @@ $posts_grid = array(
 	'order'          => 'DESC',
 );
 
+$query = new WP_Query( $posts_grid );
+
 ?>
-<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>">
-	<?php
-	$query = new WP_Query( $posts_grid );
-
-			get_template_part(
-				'template-parts/content',
-				'posts-grid',
-				array(
-					'posts'         => $query,
-					'btn-text'      => $load_more_btn_text,
-					'section-title' => $custom_title,
-				)
-			);
-
-			?>
+<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
+		<?php
+		get_template_part(
+			'template-parts/content',
+			'posts-grid',
+			array(
+				'posts'         => $query,
+				'btn-text'      => $load_more_btn_text,
+				'section-title' => $custom_title,
+			)
+		);
+		?>
 </section>

@@ -66,7 +66,7 @@ a.btn {
   background: var(--backgroundColor);
   color: var(--foregroundColor);
   overflow: hidden;
-  transition: background 0.3s $torlak-ease, color 0.3s $torlak-ease;
+  transition: all 0.3s $torlak-ease, color 0.3s $torlak-ease;
 
   @include breakpoint(tablet, min) {
     font-size: toRem(13px);
@@ -184,6 +184,15 @@ a.btn {
 
     @include breakpoint(lg, min) {
       width: toRem(273);
+    }
+  }
+
+  &.btn--white {
+    color: wpColor(white);
+    border-color: wpColor(white);
+
+    &:hover {
+      border-color: wpColor(tl-blue-4);
     }
   }
 }

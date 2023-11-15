@@ -679,7 +679,7 @@ a.btn {
   background: var(--backgroundColor);
   color: var(--foregroundColor);
   overflow: hidden;
-  transition: background 0.3s cubic-bezier(0.72, 0, 0.48, 1), color 0.3s cubic-bezier(0.72, 0, 0.48, 1);
+  transition: all 0.3s cubic-bezier(0.72, 0, 0.48, 1), color 0.3s cubic-bezier(0.72, 0, 0.48, 1);
 }
 @media (min-width: tablet) {
   .btn,
@@ -807,6 +807,17 @@ a.btn {
   .wp-block-button.is-style-outline > .wp-block-button__link.btn--sm.btn--cta {
     width: 17.0625rem;
   }
+}
+.btn.btn--white,
+.wp-block-button .wp-block-button__link.is-style-outline.btn--white,
+.wp-block-button.is-style-outline > .wp-block-button__link.btn--white {
+  color: var(--wp--preset--color--white);
+  border-color: var(--wp--preset--color--white);
+}
+.btn.btn--white:hover,
+.wp-block-button .wp-block-button__link.is-style-outline.btn--white:hover,
+.wp-block-button.is-style-outline > .wp-block-button__link.btn--white:hover {
+  border-color: var(--wp--preset--color--tl-blue-4);
 }
 
 .btn--tag {
@@ -4321,6 +4332,7 @@ body.logged-in .mobile-menu {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: var(--wp--preset--color--white);
 }
 @media (min-width: 1024px) {
   .homepage-hero__caption--title {
@@ -4354,7 +4366,7 @@ body.logged-in .mobile-menu {
 .homepage-hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(235, 235, 242, 0.5);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 @media (min-aspect-ratio: 16/9) {

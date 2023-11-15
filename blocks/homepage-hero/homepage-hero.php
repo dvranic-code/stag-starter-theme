@@ -66,16 +66,16 @@ endif;
 		<div class="grid-col">
 			<h1 class="homepage-hero__caption--title"><?php echo esc_html( $hero_title ); ?></h1>
 			<?php if ( $hero_button ) : ?>
-				<a class="btn btn--ghost" href="<?php echo esc_url( $hero_button['url'] ); ?>"><?php echo esc_html( $hero_button['title'] ); ?></a>
+				<a class="btn btn--ghost btn--white" href="<?php echo esc_url( $hero_button['url'] ); ?>"><?php echo esc_html( $hero_button['title'] ); ?></a>
 			<?php endif; ?>
 		</div>
 	</div>
 	<div class="homepage-hero__background">
 		<?php if ( $video_background ) : ?>
-		<div class="homepage-hero__background--video hide--sm show--lg">
+		<div class="homepage-hero__background--video">
 			<?php echo $video_background; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
-		<div class="homepage-hero__background--video hide--lg show--sm">
+		<div class="homepage-hero__background--video hide--lg hide--sm">
 			<?php echo $video_background_mobile; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 		<?php elseif ( $image_background ) : ?>

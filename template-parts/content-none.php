@@ -13,7 +13,7 @@
 	<div class="general-search__bottom">
 		<div class="container">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Резултати претраге за: ', '_s' ); ?></h1>
+				<h1 class="page-title"><?php pll_e( 'Резултати претраге за: ' ); ?></h1>
 				<h3 class="search-query"><?php echo esc_html( get_search_query() ); ?></h3>
 			</header><!-- .page-header -->
 
@@ -25,7 +25,7 @@
 					printf(
 						'<p>' . wp_kses(
 							/* translators: 1: link to WP admin new post page. */
-							__( 'Спремни сте за објаву вашег првог чланка? <a href="%1$s">Почните овде</a>.', '_s' ),
+							pll_e( 'Спремни сте за објаву вашег првог чланка? <a href="%1$s">Почните овде</a>.' ),
 							array(
 								'a' => array(
 									'href' => array(),
@@ -38,13 +38,13 @@
 				elseif ( is_search() ) :
 					?>
 
-					<p><?php esc_html_e( 'Нема резултата претраге.', '_s' ); ?></p>
+					<p><?php pll_e( 'Нема резултата претраге.' ); ?></p>
 					<?php
 
 				else :
 					?>
 
-					<p><?php esc_html_e( 'Изгледа да не можемо пронаћи оно шта тражите. Можда претрага може помоћи.', '_s' ); ?></p>
+					<p><?php pll_e( 'Изгледа да не можемо пронаћи оно шта тражите. Можда претрага може помоћи.' ); ?></p>
 					<?php
 				endif;
 				?>
