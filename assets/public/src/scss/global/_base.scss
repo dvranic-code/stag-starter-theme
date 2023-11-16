@@ -52,15 +52,15 @@ a.btn {
 
   --animBGColor: var(--borderColor);
   display: inline-flex;
-  padding: toRem(18) toRem(52);
+  padding: toRem(16) toRem(48);
   justify-content: center;
   align-items: center;
   border-radius: toRem(29);
   border: toRem(2) solid var(--borderColor);
-  font-size: toRem(18);
+  font-size: toRem(16);
   font-style: normal;
   font-weight: 700;
-  line-height: toRem(18);
+  line-height: toRem(16);
   text-align: center;
   cursor: pointer;
   background: transparent;
