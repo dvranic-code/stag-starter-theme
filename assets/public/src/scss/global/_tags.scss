@@ -271,7 +271,7 @@ table,
 }
 
 a {
-  color: wpColor(tl-blue-4);
+  color: wpColor(tl-blue-link);
   text-decoration: none;
   transition: color 0.1s $torlak-ease;
 }
@@ -280,7 +280,7 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: underline;
-  color: wpColor(tl-blue-4);
+  color: wpColor(tl-blue-link);
 }
 
 a:focus {

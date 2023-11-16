@@ -39,6 +39,11 @@
                 {
                     "slug": "tl-blue-4",
                     "name": "Blue 4",
+                    "color": "#0A3782"
+                },
+                {
+                    "slug": "tl-blue-Link",
+                    "name": "Blue Link",
                     "color": "#003FE2"
                 },
                 {
