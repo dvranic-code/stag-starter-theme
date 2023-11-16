@@ -29,13 +29,14 @@
 
     h1 {
       color: wpColor(white);
-      font-size: toRem(32);
+      font-size: toRem(36);
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      filter: drop-shadow(0px 2px 8px black);
 
       @include breakpoint(lg, min) {
-        font-size: toRem(48);
+        font-size: toRem(62);
       }
     }
   }
@@ -46,6 +47,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(180deg, rgba(10, 55, 130, 0.00) 0%, #0A3782 100%);
+    background: linear-gradient(180deg, rgba(10, 55, 130, 0.00) 0%, #072150 98%);
   }
 }

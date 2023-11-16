@@ -64,6 +64,8 @@ a.btn {
   text-align: center;
   cursor: pointer;
   background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: var(--foregroundColor);
   overflow: hidden;
   transition: all 0.3s $torlak-ease, color 0.3s $torlak-ease;
