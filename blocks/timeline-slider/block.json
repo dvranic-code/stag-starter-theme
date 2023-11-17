@@ -1,0 +1,30 @@
+{
+  "name": "acf/timeline-slider",
+  "title": "Timeline Slider Block",
+  "description": "Block that displays timeline slider.",
+  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "style": [],
+  "category": "formatting",
+  "icon": "images-alt",
+  "keywords": [
+      "slider",
+      "timeline",
+      "block"
+  ],
+  "acf": {
+      "mode": "edit",
+      "renderTemplate": "timeline-slider.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  },
+  "example": {
+      "attributes": {
+          "mode": "preview",
+          "data": {
+              "preview_image_help": "timeline-slider-preview.png"
+          }
+      }
+  }
+}
