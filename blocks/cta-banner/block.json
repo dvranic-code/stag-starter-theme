@@ -13,7 +13,7 @@
         "button"
     ],
     "acf": {
-        "mode": "preview",
+        "mode": "edit",
         "renderTemplate": "cta-banner.php"
     },
     "align": "full",

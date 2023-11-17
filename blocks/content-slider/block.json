@@ -12,7 +12,7 @@
         "content"
     ],
     "acf": {
-        "mode": "preview",
+        "mode": "edit",
         "renderTemplate": "content-slider.php"
     },
     "align": "full",

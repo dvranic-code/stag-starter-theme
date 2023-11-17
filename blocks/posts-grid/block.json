@@ -13,7 +13,7 @@
         "grid"
     ],
     "acf": {
-        "mode": "preview",
+        "mode": "edit",
         "renderTemplate": "posts-grid.php"
     },
     "align": "full",

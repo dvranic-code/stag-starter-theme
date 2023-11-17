@@ -12,7 +12,7 @@
       "banner"
   ],
   "acf": {
-      "mode": "preview",
+      "mode": "edit",
       "renderTemplate": "title-block.php"
   },
   "align": "full",

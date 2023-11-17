@@ -12,7 +12,7 @@
         "heading"
     ],
     "acf": {
-        "mode": "preview",
+        "mode": "edit",
         "renderTemplate": "homepage-mega.php"
     },
     "align": "full",
