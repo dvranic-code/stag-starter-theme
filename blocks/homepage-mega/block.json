@@ -2,7 +2,7 @@
     "name": "acf/homepage-mega",
     "title": "Torlak Mega Block",
     "description": "Block that displays diffrent layouts",
-    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "editorStyle": "",
     "style": [],
     "category": "formatting",
     "icon": "admin-settings",

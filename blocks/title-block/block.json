@@ -2,7 +2,7 @@
   "name": "acf/title-block",
   "title": "Title Block",
   "description": "Block that displays a title and image for inner banner",
-  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "editorStyle": "",
   "style": [],
   "category": "formatting",
   "icon": "cover-image",
