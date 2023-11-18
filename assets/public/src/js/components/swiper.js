@@ -58,7 +58,33 @@ function initTimelineSwiper() {
   });
 }
 
+function calcTimelineSwiperHeight() {
+  const slides = document.querySelectorAll('.timeline-slider__slide');
+
+  if (!slides.length) return;
+
+  let maxHeight = 0;
+
+  slides.forEach(function( slide ) {
+    const timestamp = slide.querySelector('.timeline-slider__timestamp');
+    const content = slide.querySelector('.timeline-slider__content');
+
+    let timestampHeight = timestamp.offsetHeight;
+    let contentHeight = content.offsetHeight;
+
+    maxHeight = Math.max(maxHeight, timestampHeight, contentHeight);
+  });
+
+  slides.forEach(function( slide ) {
+    const timestamp = slide.querySelector('.timeline-slider__timestamp');
+    const content = slide.querySelector('.timeline-slider__content');
+    timestamp.style.height = maxHeight + 'px';
+    content.style.height = maxHeight + 'px';
+  });
+}
+
 onReady(() => {
   initContentSwiper();
   initTimelineSwiper();
+  calcTimelineSwiperHeight();
 });

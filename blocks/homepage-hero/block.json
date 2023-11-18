@@ -2,7 +2,7 @@
     "name": "acf/homepage-hero",
     "title": "Homepage Hero Block",
     "description": "Block that displays video background or image with heading and button",
-    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "editorStyle": "",
     "style": [],
     "category": "formatting",
     "icon": "video-alt3",

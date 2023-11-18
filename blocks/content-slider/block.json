@@ -2,7 +2,7 @@
     "name": "acf/content-slider",
     "title": "Content Slider",
     "description": "Block that displays slider based on selected posts",
-    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "editorStyle": "",
     "style": [],
     "category": "formatting",
     "icon": "slides",

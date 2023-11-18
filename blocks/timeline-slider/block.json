@@ -2,7 +2,7 @@
   "name": "acf/timeline-slider",
   "title": "Timeline Slider Block",
   "description": "Block that displays timeline slider.",
-  "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+  "editorStyle": "",
   "style": [],
   "category": "formatting",
   "icon": "images-alt",

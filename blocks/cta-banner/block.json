@@ -2,7 +2,7 @@
     "name": "acf/cta-banner",
     "title": "CTA Banner",
     "description": "Block call to action banner",
-    "editorStyle": "file:../../assets/public/dist/css/theme.min.css",
+    "editorStyle": "",
     "style": [],
     "category": "formatting",
     "icon": "block-default",

@@ -41,8 +41,9 @@ else :
 	<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 		<div class="timeline-slider__swiper">
 			<div class="swiper-wrapper">
-				<?php if ( have_rows( 'timeline' ) ) : ?>
-					<?php
+				<?php
+				if ( have_rows( 'timeline' ) ) :
+					$counter = 0;
 					while ( have_rows( 'timeline' ) ) :
 						the_row();
 						$timeline_year  = get_sub_field( 'timeline_year' );
@@ -50,26 +51,42 @@ else :
 						$timeline_image = get_sub_field( 'timeline_image' );
 						$timeline_text  = get_sub_field( 'timeline_text' );
 						?>
-						<div class="swiper-slide">
+						<div class="swiper-slide timeline-slider__slide
+						<?php
+						if ( 0 === $counter % 2 ) {
+							echo ' swiper-slide__initial';}
+						?>
+						">
 							<?php if ( $timeline_year && $timeline_title ) : ?>
 							<div class="timeline-slider__timestamp">
-								<span class="timeline-slider__timestamp--year"><?php echo esc_html( $timeline_year ); ?></span>
-								<h5 class="timeline-slider__timestamp--title"><?php echo esc_html( $timeline_title ); ?></h5>
+								<div class="timeline-slider__timestamp--wrap">
+									<span class="timeline-slider__timestamp--year"><?php echo esc_html( $timeline_year ); ?></span>
+									<h5 class="timeline-slider__timestamp--title"><?php echo esc_html( $timeline_title ); ?></h5>
+								</div>
 							</div>
 							<?php endif; ?>
-							<?php if ( $timeline_image && $timeline_text ) : ?>
+							<?php if ( $timeline_image || $timeline_text ) : ?>
 							<div class="timeline-slider__content">
 								<div class="timeline-slider__content--image">
-									<?php echo wp_get_attachment_image( $timeline_image, 'full' ); ?>
+									<?php if ( $timeline_image ) : ?>
+										<?php echo wp_get_attachment_image( $timeline_image, 'full' ); ?>
+									<?php else : ?>
+										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
+									<?php endif; ?>
 								</div>
 								<div class="timeline-slider__content--text">
 									<?php echo wp_kses_post( $timeline_text ); ?>
 								</div>
 							</div>
+							<?php else : ?>
+							<div class="timeline-slider__content timeline-slider__content--empty"></div>
 							<?php endif; ?>
 						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
+						<?php
+							++$counter;
+						endwhile;
+					endif;
+				?>
 			</div>
 			<div class="timeline-slider__controls">
 				<div class="swiper-button-prev-1 swiper-pagination__swiper-button-prev">
