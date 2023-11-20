@@ -2,10 +2,17 @@
 @use "./abstract" as *;
 
 .full-width-container {
-  left: calc(-50vw + 50%);
-  position: relative;
-  max-width: 100vw;
+  // left: calc(-50vw + 50%);
+  // position: relative;
+  // max-width: 100vw;
+  // width: 100vw;
+
   width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .container,
