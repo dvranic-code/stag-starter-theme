@@ -67,13 +67,11 @@ else :
 							<?php endif; ?>
 							<?php if ( $timeline_image || $timeline_text ) : ?>
 							<div class="timeline-slider__content">
+								<?php if ( $timeline_image ) : ?>
 								<div class="timeline-slider__content--image">
-									<?php if ( $timeline_image ) : ?>
-										<?php echo wp_get_attachment_image( $timeline_image, 'full' ); ?>
-									<?php else : ?>
-										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
-									<?php endif; ?>
+									<?php echo wp_get_attachment_image( $timeline_image, 'full' ); ?>
 								</div>
+								<?php endif; ?>
 								<div class="timeline-slider__content--text">
 									<?php echo wp_kses_post( $timeline_text ); ?>
 								</div>
