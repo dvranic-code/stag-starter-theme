@@ -4768,8 +4768,15 @@ body.logged-in .site-header__search-popup {
 .timeline-slider__content {
   padding: 0 1.125rem;
   border-bottom: 2px solid #003FE2;
+  text-align: center;
+}
+@media (min-width: 501px) {
+  .timeline-slider__content {
+    text-align: left;
+  }
 }
 .timeline-slider__content--text {
+  margin-top: 1.5625rem;
   margin-bottom: 1.5625rem;
   font-size: 1rem;
   font-style: normal;
@@ -4779,8 +4786,19 @@ body.logged-in .site-header__search-popup {
 .timeline-slider__content--image {
   margin-top: 0;
   margin-bottom: 1.25rem;
-  width: 100%;
-  height: auto;
+  width: 17.125rem;
+  height: 9.5625rem;
+  position: relative;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 501px) {
+  .timeline-slider__content--image {
+    width: 11.875rem;
+    height: 6.5625rem;
+  }
 }
 @media (min-width: 768px) {
   .timeline-slider__content--image {
