@@ -897,6 +897,10 @@ textarea {
   font-family: "PTSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -1413,10 +1417,12 @@ textarea:focus {
  * Global
 \*------------------------------------------------------------*/
 .full-width-container {
-  left: calc(-50vw + 50%);
-  position: relative;
-  max-width: 100vw;
   width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .container,
