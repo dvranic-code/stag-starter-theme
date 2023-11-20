@@ -57,7 +57,7 @@ else :
 							echo ' swiper-slide__initial';}
 						?>
 						">
-							<?php if ( $timeline_year && $timeline_title ) : ?>
+							<?php if ( $timeline_year || $timeline_title ) : ?>
 							<div class="timeline-slider__timestamp">
 								<div class="timeline-slider__timestamp--wrap">
 									<span class="timeline-slider__timestamp--year"><?php echo esc_html( $timeline_year ); ?></span>

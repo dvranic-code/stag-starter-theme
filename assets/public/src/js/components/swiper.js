@@ -69,6 +69,7 @@ function calcTimelineSwiperHeight() {
     const timestamp = slide.querySelector('.timeline-slider__timestamp');
     const content = slide.querySelector('.timeline-slider__content');
 
+    if (!timestamp || !content) return;
     let timestampHeight = timestamp.offsetHeight;
     let contentHeight = content.offsetHeight;
 
@@ -78,6 +79,8 @@ function calcTimelineSwiperHeight() {
   slides.forEach(function( slide ) {
     const timestamp = slide.querySelector('.timeline-slider__timestamp');
     const content = slide.querySelector('.timeline-slider__content');
+
+    if (!timestamp || !content) return;
     timestamp.style.height = maxHeight + 'px';
     content.style.height = maxHeight + 'px';
   });
