@@ -93,6 +93,8 @@ function timlineSwiperMobile () {
 
   let slides = document.querySelectorAll('.swiper-slide');
 
+  if (!slides.length) return;
+
   if (window.matchMedia("(max-width: 501px)").matches) {
 
     slides.forEach(function(slide) {

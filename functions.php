@@ -36,3 +36,7 @@ require_once THEME_DIR . '/src/AJAX/class-stag-ajax.php';
 
 // Include Polylang translations.
 require_once THEME_DIR . '/languages/polylang-translation-strings.php';
+
+// Include Custom Post Types.
+require_once THEME_DIR . '/src/CustomPostTypes/class-stag-cpt-oglasi.php';
+require_once THEME_DIR . '/src/CustomPostTypes/class-stag-cpt-projekti.php';
