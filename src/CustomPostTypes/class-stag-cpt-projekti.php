@@ -57,7 +57,6 @@ if ( ! class_exists( 'Stag_CPT_Projekti' ) ) {
 				'description'         => __( 'Projekat Description', 'generatepress-child' ),
 				'labels'              => $labels,
 				'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
-				'taxonomies'          => array( 'topics', 'course-tag' ),
 				'hierarchical'        => false,
 				'public'              => true,
 				'show_ui'             => true,
