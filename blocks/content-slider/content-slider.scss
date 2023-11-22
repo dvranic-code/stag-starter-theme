@@ -65,6 +65,7 @@
     bottom: 0;
     height: toRem(3) !important;
     background: transparent;
+    z-index: 0;
 
     .swiper-pagination-progressbar-fill {
       top: toRem(-1);

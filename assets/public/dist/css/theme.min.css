@@ -614,7 +614,7 @@ select {
 :root {
   --headerHeight: 80px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
   :root {
     --headerHeight: 100px;
   }
@@ -4579,6 +4579,7 @@ body.logged-in .site-header__search-popup {
   bottom: 0;
   height: 0.1875rem !important;
   background: transparent;
+  z-index: 0;
 }
 .content-slider__swiper-pagination .swiper-pagination-progressbar-fill {
   top: -0.0625rem;

@@ -3,7 +3,7 @@
 :root {
   --headerHeight: 80px;
 
-  @include breakpoint(lg, min) {
+  @include breakpoint(xl, min) {
     --headerHeight: 100px;
   }
 }
