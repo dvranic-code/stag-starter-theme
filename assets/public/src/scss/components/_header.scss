@@ -11,7 +11,7 @@
   padding-top: toRem(15);
   padding-bottom: toRem(15);
 
-  @include breakpoint(lg, min) {
+  @include breakpoint(xl, min) {
     padding-top: toRem(0);
     padding-bottom: toRem(0);
   }
@@ -24,7 +24,7 @@
     display: block;
   }
 
-  @include breakpoint(lg, min) {
+  @include breakpoint(xl, min) {
     .mobile-menu-container {
       display: block;
     }
@@ -53,12 +53,12 @@
     display: flex;
     justify-content: space-between;
 
-    @include breakpoint(lg, min) {
+    @include breakpoint(xl, min) {
       display: initial;
     }
   }
 
-  @include breakpoint(lg, max) {
+  @include breakpoint(xl, max) {
     .pr-sm {
       padding-right: calc(var(--gutterSize) * 0.5);
     }
@@ -110,7 +110,7 @@
     }
   }
 
-  @include breakpoint(lg, min) {
+  @include breakpoint(xl, min) {
     .custom-md-3 {
       width: 21%;
     }
@@ -186,7 +186,7 @@
         margin-bottom: 0;
       }
     }
-    @include breakpoint(lg, min) {
+    @include breakpoint(xl, min) {
       .menu {
         display: flex;
         align-items: center;
@@ -959,7 +959,7 @@ body.logged-in .site-header {
     top: toRem(32);
   }
 
-  @include breakpoint(lg, min) {
+  @include breakpoint(xl, min) {
     top: toRem(32);
   }
 }
