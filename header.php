@@ -37,7 +37,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						}
 						?>
 					</div>
-					<div class="site-header__mobile-wrap hide--lg">
+					<div class="site-header__mobile-wrap hide--xl">
 						<div class="site-header__mobile-wrapr--search-mobile">
 							<a id="triggerSearchBoxMobile" class="search-icon" href="#">
 								<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
@@ -66,7 +66,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 						<?php STAG_Extra_Functions::get_menu( 'header-right' ); ?>
 						<div class="site-header__main--navigation--right--links">
 							<ul>
-								<li class="hide--sm show--lg">
+								<li class="hide--sm show--xl">
 									<a id="triggerSearchBox" class="search-icon" href="#">
 										<?php STAG_Extra_Functions::fetch_icon( 'icon-search' ); ?>
 									</a>
@@ -97,7 +97,7 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 		</div>
 	</header><!-- #masthead -->
 
-	<div id="mobile-menu" class="mobile-menu hide--lg">
+	<div id="mobile-menu" class="mobile-menu hide--xl">
 		<div class="mobile-menu-container">
 			<div class="mobile-menu__nav-wrap">
 				<nav id="mobile-menu-navigation" class="mobile-menu__main--navigation">
