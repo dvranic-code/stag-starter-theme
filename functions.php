@@ -41,3 +41,4 @@ require_once THEME_DIR . '/languages/polylang-translation-strings.php';
 require_once THEME_DIR . '/src/CustomPostTypes/class-stag-cpt-oglasi.php';
 require_once THEME_DIR . '/src/CustomPostTypes/class-stag-cpt-projekti.php';
 require_once THEME_DIR . '/src/CustomPostTypes/class-stag-cpt-zaposleni.php';
+require_once THEME_DIR . '/src/CustomPostTypes/class-stag-cpt-usluge.php';

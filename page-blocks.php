@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Blocks Design
- * Template Post Type: post, page, oglas, zaposleni, projekat
+ * Template Post Type: post, page, oglas, zaposleni, projekat, usluge
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
