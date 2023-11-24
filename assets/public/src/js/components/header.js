@@ -62,6 +62,7 @@ function toggleLanguageSwitcher(id, menuClass) {
   if (!languageIcon) return;
 
   languageIcon.addEventListener('click', e => {
+    e.preventDefault();
     e.stopPropagation();
     langSubMenu.classList.toggle('active');
   });
