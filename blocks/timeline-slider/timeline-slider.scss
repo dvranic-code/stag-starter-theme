@@ -38,7 +38,7 @@
           text-align: left;
           
           @include breakpoint(501px, max) {
-            height: toRem(55) !important;
+            min-height: toRem(135) !important;
           }
   
           &::after {
