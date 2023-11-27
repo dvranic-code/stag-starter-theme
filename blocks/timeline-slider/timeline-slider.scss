@@ -36,6 +36,10 @@
 
         .timeline-slider__timestamp {
           text-align: left;
+          
+          @include breakpoint(501px, max) {
+            height: toRem(55) !important;
+          }
   
           &::after {
             display: none;
@@ -62,7 +66,7 @@
             right: 0;
             text-align: center;
 
-            @include breakpoint(md, min) {
+            @include breakpoint(lg, min) {
               bottom: toRem(149);
               transform: rotate(270deg);
               text-align: left;
@@ -102,7 +106,7 @@
       right: 0;
       text-align: center;
 
-      @include breakpoint(md, min) {
+      @include breakpoint(lg, min) {
         top: toRem(149);
         transform: rotate(270deg);
         text-align: right;

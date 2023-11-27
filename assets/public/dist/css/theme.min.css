@@ -4816,6 +4816,11 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
 .timeline-slider__swiper .swiper-wrapper .swiper-slide__initial .timeline-slider__timestamp {
   text-align: left;
 }
+@media (max-width: 501px) {
+  .timeline-slider__swiper .swiper-wrapper .swiper-slide__initial .timeline-slider__timestamp {
+    height: 3.4375rem !important;
+  }
+}
 .timeline-slider__swiper .swiper-wrapper .swiper-slide__initial .timeline-slider__timestamp::after {
   display: none;
 }
@@ -4840,7 +4845,7 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
   right: 0;
   text-align: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .timeline-slider__swiper .swiper-wrapper .swiper-slide__initial .timeline-slider__timestamp--wrap {
     bottom: 9.3125rem;
     -ms-transform: rotate(270deg);
@@ -4875,7 +4880,7 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
   right: 0;
   text-align: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .timeline-slider__timestamp--wrap {
     top: 9.3125rem;
     -ms-transform: rotate(270deg);

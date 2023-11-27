@@ -47,10 +47,10 @@ function initTimelineSwiper() {
       501: {
         slidesPerView: 2
       },
-      768: {
+      992: {
         slidesPerView: 3
       },
-      1024: {
+      1100: {
         slidesPerView: 4
       }
     },
@@ -116,7 +116,9 @@ function timlineSwiperMobile () {
 onReady(() => {
   initContentSwiper();
   initTimelineSwiper();
-  calcTimelineSwiperHeight();
+  if(window.innerWidth > 501) {
+    calcTimelineSwiperHeight();
+  }
   timlineSwiperMobile();
 
   window.addEventListener('resize', debounce(timlineSwiperMobile, 200));
