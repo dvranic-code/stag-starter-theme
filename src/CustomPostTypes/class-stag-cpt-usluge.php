@@ -67,6 +67,7 @@ if ( ! class_exists( 'Stag_CPT_Usluge' ) ) {
 				'show_in_admin_bar'   => true,
 				'show_in_nav_menus'   => true,
 				'can_export'          => true,
+				'rewrite'             => false, // 'slug' => 'usluge
 				'has_archive'         => false,
 				'exclude_from_search' => true,
 				'publicly_queryable'  => false,
