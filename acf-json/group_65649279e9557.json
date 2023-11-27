@@ -125,10 +125,10 @@
             "sub_fields": [
                 {
                     "key": "field_656493a2cca6a",
-                    "label": "Icona",
-                    "name": "icona",
+                    "label": "Mreza",
+                    "name": "mreza",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -137,22 +137,26 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "preview_size": "medium",
+                    "choices": {
+                        "icon-twitter": "Twitter \/ X",
+                        "icon-facebook": "Facebook",
+                        "icon-instagram": "Instagram",
+                        "icon-linkedin": "Linkedin",
+                        "icon-youtube": "YouTube"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "placeholder": "",
                     "parent_repeater": "field_6564938ccca69"
                 },
                 {
                     "key": "field_656493becca6b",
-                    "label": "Url",
-                    "name": "url",
+                    "label": "Link",
+                    "name": "link",
                     "aria-label": "",
                     "type": "url",
                     "instructions": "",
@@ -188,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701090836
+    "modified": 1701101162
 }
