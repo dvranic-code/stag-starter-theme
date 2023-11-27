@@ -9,41 +9,18 @@
 
 use stag_theme\ThemeSettings\STAG_Template_Tags;
 
-$current_language = pll_current_language();
-if ( 'sr' === $current_language ) {
-	$single_page_widgets    = get_field( 'single_page_widgets', 'option' );
-	$single_page_widgets_lg = 'single_page_widgets';
-	$lg                     = '';
-} elseif ( 'en' === $current_language ) {
-	$single_page_widgets    = get_field( 'single_page_widgets_eng', 'option' );
-	$single_page_widgets_lg = 'single_page_widgets_eng';
-	$lg                     = '_eng';
-}
+$zvanje   = get_field( 'zvanje' );
+$pozicija = get_field( 'pozicija' );
+$odsek    = get_field( 'odsek' );
+$email    = get_field( 'email' );
+$telefon  = get_field( 'telefon' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php STAG_Template_Tags::stag_post_thumbnail(); ?>
 	<div class="content-wrap">
 		<div class="container">
-			<div class="row">
-				<div class="<?php echo $single_page_widgets ? 'col-lg-8' : 'col-lg-12'; ?>">
-					<?php STAG_Template_Tags::stag_entry_tags(); ?>
-					<header class="entry-header">
-						<?php
-						if ( is_singular() ) :
-							the_title( '<h1 class="entry-title">', '</h1>' );
-						else :
-							the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-						endif;
-
-						if ( 'post' === get_post_type() ) :
-							?>
-							<div class="entry-meta">
-								<?php STAG_Template_Tags::stag_posted_on(); ?>
-							</div><!-- .entry-meta -->
-						<?php endif; ?>
-					</header><!-- .entry-header -->
-
+			<div class="row row-inverse-mob">
+				<div class="col-lg-8">
 					<div class="entry-content">
 						<?php
 						the_content(
@@ -74,42 +51,32 @@ if ( 'sr' === $current_language ) {
 						<?php STAG_Template_Tags::stag_entry_footer(); ?>
 					</footer><!-- .entry-footer -->
 				</div>
-				<?php if ( have_rows( $single_page_widgets_lg, 'option' ) ) : ?>
+				
 				<div class="col-lg-4">
-					<?php
-					while ( have_rows( $single_page_widgets_lg, 'option' ) ) :
-								the_row();
-								$widget_title        = get_sub_field( 'widget_title' . $lg );
-								$widget_image        = get_sub_field( 'widget_image' . $lg );
-								$widget_text         = get_sub_field( 'widget_text' . $lg );
-								$widget_buttton_text = get_sub_field( 'widget_buttton_text' . $lg );
-								$widget_buttton_url  = get_sub_field( 'widget_buttton_url' . $lg );
-						?>
-						<div class="single-widget">
-						<?php if ( $widget_title ) : ?>
-							<h3 class="single-widget__title">
-								<?php echo esc_html( $widget_title ); ?>
-							</h3>
-							<?php endif; ?>
-						<?php if ( $widget_image ) : ?>
-							<figure class="single-widget__image">
-								<?php echo wp_get_attachment_image( $widget_image, 'full' ); ?>
-							</figure>
-							<?php endif; ?>
-						<?php if ( $widget_text ) : ?>
-							<p class="single-widget__text">
-								<?php echo esc_html( $widget_text ); ?>
-							</p>
-							<?php endif; ?>
-						<?php if ( $widget_buttton_text && $widget_buttton_url ) : ?>
-							<a href="<?php echo esc_url( $widget_buttton_url ); ?>" class="btn btn--sm">
-								<?php echo esc_html( $widget_buttton_text ); ?>
-							</a>
-						<?php endif; ?>
+
+					<div class="single-widget">
+						<div class="single-widget__employee">
+							<div class="single-widget__employee__image">
+								<?php if ( has_post_thumbnail() ) : ?>
+									<img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?php the_title(); ?>">
+								<?php endif; ?>
+							</div>
+							<div class="single-widget__employee__info">
+							<h1><?php the_title(); ?></h1>
+							<?php
+							$employee_filds = array( $zvanje, $pozicija, $odsek, $email, $telefon );
+							foreach ( $employee_filds as $field ) {
+								if ( $field ) {
+									echo '<p>' . esc_html( $field ) . '</p>';
+								}
+							}
+							?>
+							</div>
 						</div>
-					<?php endwhile; ?>
+					</div>
+
 				</div>
-				<?php endif; ?>
+
 			</div>
 		</div>
 	</div>
