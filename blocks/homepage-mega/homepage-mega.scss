@@ -27,6 +27,12 @@
   &__block-image {
     margin-bottom: 0;
 
+    @include breakpoint(lg, max) {
+      &.mb--sm40 {
+        margin-bottom: toRem(40);
+      }
+    }
+
     img {
       display: block;
       width: 100%;

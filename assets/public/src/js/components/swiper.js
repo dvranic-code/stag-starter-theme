@@ -48,10 +48,10 @@ function initTimelineSwiper() {
         slidesPerView: 2
       },
       768: {
-        slidesPerView: 5
+        slidesPerView: 3
       },
       1024: {
-        slidesPerView: 5
+        slidesPerView: 4
       }
     },
     navigation: {
