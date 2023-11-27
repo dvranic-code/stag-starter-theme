@@ -84,7 +84,7 @@
       margin-bottom: toRem(60);
       padding: toRem(40) toRem(20);
       border-radius: toRem(10);
-      background: #fff;
+      background: wpColor(white);
       box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.16);
       @include breakpoint(md, min) {
         margin-top: 0;

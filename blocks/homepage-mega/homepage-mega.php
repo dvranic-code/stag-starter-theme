@@ -53,7 +53,7 @@ else :
 	<div class="row <?php echo 'right' === $block_image_aligment ? 'row-reverse' : ''; ?>">
 	<?php if ( $block_image ) : ?>
 	<div class="col-lg-6">
-		<figure class="homepage-mega__block-image">
+		<figure class="homepage-mega__block-image<?php echo ! $block_title ? ' mb--sm40' : ''; ?>">
 		<?php echo wp_get_attachment_image( $add_block_image, 'full' ); ?>
 		</figure>
 	</div>
