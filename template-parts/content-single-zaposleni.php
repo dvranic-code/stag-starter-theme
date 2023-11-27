@@ -8,6 +8,7 @@
  */
 
 use stag_theme\ThemeSettings\STAG_Template_Tags;
+use stag_theme\ThemeSettings\STAG_Extra_Functions;
 
 $zvanje   = get_field( 'zvanje' );
 $pozicija = get_field( 'pozicija' );
@@ -56,27 +57,47 @@ $telefon  = get_field( 'telefon' );
 
 					<div class="single-widget">
 						<div class="single-widget__employee">
-							<div class="single-widget__employee__image">
+							<div class="single-widget__employee--image">
 								<?php if ( has_post_thumbnail() ) : ?>
 									<img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?php the_title(); ?>">
 								<?php endif; ?>
 							</div>
-							<div class="single-widget__employee__info">
-							<h1><?php the_title(); ?></h1>
-							<?php
-							$employee_filds = array( $zvanje, $pozicija, $odsek, $email, $telefon );
-							foreach ( $employee_filds as $field ) {
-								if ( $field ) {
-									echo '<p>' . esc_html( $field ) . '</p>';
-								}
-							}
-							?>
+							<div class="single-widget__employee--info">
+								<?php the_title( '<h1>', '</h1>' ); ?>
+								<?php if ( $zvanje ) : ?>
+								<span><?php echo esc_html( $zvanje ); ?></span>
+								<?php endif; ?>
+								<?php if ( $pozicija || $odsek ) : ?>
+								<p>
+									<span><?php echo esc_html( $pozicija ); ?></span>
+									<span><?php echo esc_html( $odsek ); ?></span>
+								</p>
+								<?php endif; ?>
+								<?php if ( $email || $telefon ) : ?>
+								<p>
+									<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
+									<a href="tel:<?php echo esc_attr( $telefon ); ?>"><?php echo esc_html( $telefon ); ?></a>
+								</p>
+								<?php endif; ?>
+								<?php if ( have_rows( 'mreze_i_linkovi' ) ) : ?>
+								<ul class="single-widget__employee--info--socials">
+									<?php
+									while ( have_rows( 'mreze_i_linkovi' ) ) :
+										the_row();
+										$mreza = get_sub_field( 'mreza' );
+										?>
+										<li>
+											<a href="<?php the_sub_field( 'link' ); ?>" target="_blank">
+												<?php STAG_Extra_Functions::fetch_icon( $mreza ); ?>
+											</a>
+										</li>
+									<?php endwhile; ?>
+								</ul>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>
