@@ -8,6 +8,7 @@
  */
 
 use stag_theme\ThemeSettings\STAG_Template_Tags;
+
 $current_language = pll_current_language();
 if ( 'sr' === $current_language ) {
 	$single_page_widgets    = get_field( 'single_page_widgets', 'option' );
