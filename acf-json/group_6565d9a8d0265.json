@@ -32,9 +32,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "post"
+                "value": "acf\/block-profiles"
             }
         ]
     ],
@@ -47,5 +47,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701173743
+    "modified": 1701179168
 }

@@ -1,0 +1,30 @@
+{
+  "name": "acf/block-profiles",
+  "title": "Block Profiles",
+  "description": "Block that displays profiles of employees",
+  "editorStyle": "",
+  "style": [],
+  "category": "formatting",
+  "icon": "slides",
+  "keywords": [
+      "slider",
+      "block",
+      "profiles"
+  ],
+  "acf": {
+      "mode": "edit",
+      "renderTemplate": "block-profiles.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  },
+  "example": {
+      "attributes": {
+          "mode": "preview",
+          "data": {
+              "preview_image_help": "block-profiles-preview.png"
+          }
+      }
+  }
+}
