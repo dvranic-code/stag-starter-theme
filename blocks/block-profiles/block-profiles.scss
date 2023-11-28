@@ -1,5 +1,35 @@
 @use "../../assets/public/src/scss/global/abstract" as *;
 
 .block-profiles {
-  background-color: red;
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: toRem(24);
+    grid-row-gap: toRem(48);
+  }
+
+  &__swiper {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+    &--wrapper {
+      display: flex;
+
+      @include breakpoint(lg, min) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: toRem(24);
+        grid-row-gap: toRem(48);
+      }
+    }
+
+    &--controls {
+
+      @include breakpoint(lg, min) {
+        display: none;
+      }
+    }
+  }
 }

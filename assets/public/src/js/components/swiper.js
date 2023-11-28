@@ -91,7 +91,7 @@ function calcTimelineSwiperHeight() {
 
 function timlineSwiperMobile () {
 
-  let slides = document.querySelectorAll('.swiper-slide');
+  let slides = document.querySelectorAll('.timeline-slider__slide');
 
   if (!slides.length) return;
 
@@ -113,6 +113,41 @@ function timlineSwiperMobile () {
   }
 }
 
+let profiles_swiper; // Declare the variable outside the functions
+
+function initMobileProfiles() {
+  if (!document.querySelectorAll(".block-profiles__swiper").length) return;
+
+  profiles_swiper = new Swiper(".block-profiles__swiper", { // eslint-disable-line
+    slidesPerView: 1,
+    loop: false,
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      }
+    },
+    navigation: {
+      prevEl: ".swiper-pagination__swiper-button-prev",
+      nextEl: ".swiper-pagination__swiper-button-next"
+    }
+  });
+}
+
+function destroyMobileProfiles() {
+  if (profiles_swiper !== undefined && profiles_swiper !== null) {
+    profiles_swiper.destroy(true, true);
+    profiles_swiper = null; // Reset the variable
+  }
+}
+
 onReady(() => {
   initContentSwiper();
   initTimelineSwiper();
@@ -130,4 +165,17 @@ onReady(() => {
       calcTimelineSwiperHeight();
     }
   }, 200));
+
+  window.addEventListener('resize', debounce(function() {
+    if(window.innerWidth < 1024) {
+      initMobileProfiles();
+    } else {
+      destroyMobileProfiles();
+    }
+  }, 200));
+
+  if(window.innerWidth < 1024) {
+    initMobileProfiles();
+  }
+
 });
