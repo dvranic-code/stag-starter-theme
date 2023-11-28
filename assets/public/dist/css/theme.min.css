@@ -4086,6 +4086,133 @@ body.logged-in .site-header__search-popup {
 .page .block-design .content-wrap {
   padding-top: 0rem;
 }
+@media (max-width: 1023px) {
+  .single .zaposleni .row-inverse-mob,
+  .page .zaposleni .row-inverse-mob {
+    -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+  }
+}
+.single .zaposleni .entry-content h2:first-of-type,
+.page .zaposleni .entry-content h2:first-of-type {
+  margin-top: 0;
+}
+.single .zaposleni h2,
+.page .zaposleni h2 {
+  margin-top: 5.625rem;
+  margin-bottom: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--wp--preset--color--tl-grey-3);
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--wp--preset--color--tl-black);
+}
+.single .zaposleni p,
+.page .zaposleni p {
+  margin-bottom: 2.5rem;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+@media (max-width: 1023px) {
+  .single .zaposleni .single-widget,
+  .page .zaposleni .single-widget {
+    margin-top: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+}
+.single .zaposleni .single-widget__employee--image,
+.page .zaposleni .single-widget__employee--image {
+  width: 100%;
+  height: 26.25rem;
+  margin-bottom: 1.5625rem;
+}
+.single .zaposleni .single-widget__employee--image img,
+.page .zaposleni .single-widget__employee--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0.625rem;
+}
+.single .zaposleni .single-widget__employee--info h1,
+.page .zaposleni .single-widget__employee--info h1 {
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.single .zaposleni .single-widget__employee--info span,
+.page .zaposleni .single-widget__employee--info span {
+  display: block;
+}
+.single .zaposleni .single-widget__employee--info span,
+.single .zaposleni .single-widget__employee--info p,
+.page .zaposleni .single-widget__employee--info span,
+.page .zaposleni .single-widget__employee--info p {
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.single .zaposleni .single-widget__employee--info p,
+.page .zaposleni .single-widget__employee--info p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.single .zaposleni .single-widget__employee--info p a,
+.page .zaposleni .single-widget__employee--info p a {
+  display: block;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+.single .zaposleni .single-widget__employee--info p.d-f,
+.page .zaposleni .single-widget__employee--info p.d-f {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  gap: 0.75rem;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.single .zaposleni .single-widget__employee--info a[href^="mailto:"],
+.page .zaposleni .single-widget__employee--info a[href^="mailto:"] {
+  color: #003FE2;
+}
+.single .zaposleni .single-widget__employee--info a[href^="mailto:"]:hover,
+.page .zaposleni .single-widget__employee--info a[href^="mailto:"]:hover {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+.single .zaposleni .single-widget__employee--info a[href^="tel:"],
+.page .zaposleni .single-widget__employee--info a[href^="tel:"] {
+  color: var(--wp--preset--color--black);
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+.single .zaposleni .single-widget__employee--info--socials,
+.page .zaposleni .single-widget__employee--info--socials {
+  margin-top: 3rem;
+  margin-bottom: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.6875rem;
+  list-style: none;
+}
+.single .zaposleni .single-widget__employee--info--socials li,
+.page .zaposleni .single-widget__employee--info--socials li {
+  margin-bottom: 0;
+}
 
 .error-404 {
   background: linear-gradient(180deg, var(--wp--preset--color--tl-grey-2) 50%, rgba(230, 236, 253, 0) 100%);
