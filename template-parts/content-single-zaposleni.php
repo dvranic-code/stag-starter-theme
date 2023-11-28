@@ -75,10 +75,12 @@ $telefon  = get_field( 'telefon' );
 									<span><?php echo esc_html( $odsek ); ?></span>
 								</p>
 								<?php endif; ?>
-								<?php if ( $email || $telefon ) : ?>
+								<?php if ( $email ) : ?>
 								<p class="d-f">
 									<?php STAG_Extra_Functions::fetch_icon( 'icon-envelope' ); ?> <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
 								</p>
+								<?php endif; ?>
+								<?php if ( $telefon ) : ?>
 								<p class="d-f">
 									<?php STAG_Extra_Functions::fetch_icon( 'icon-phone' ); ?> <a href="tel:<?php echo esc_attr( $telefon ); ?>"><?php echo esc_html( $telefon ); ?></a>
 								</p>
