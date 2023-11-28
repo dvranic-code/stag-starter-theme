@@ -60,6 +60,8 @@ $telefon  = get_field( 'telefon' );
 							<div class="single-widget__employee--image">
 								<?php if ( has_post_thumbnail() ) : ?>
 									<img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?php the_title(); ?>">
+								<?php else : ?>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title(); ?>" />
 								<?php endif; ?>
 							</div>
 							<div class="single-widget__employee--info">
@@ -74,9 +76,11 @@ $telefon  = get_field( 'telefon' );
 								</p>
 								<?php endif; ?>
 								<?php if ( $email || $telefon ) : ?>
-								<p>
-									<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
-									<a href="tel:<?php echo esc_attr( $telefon ); ?>"><?php echo esc_html( $telefon ); ?></a>
+								<p class="d-f">
+									<?php STAG_Extra_Functions::fetch_icon( 'icon-envelope' ); ?> <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
+								</p>
+								<p class="d-f">
+									<?php STAG_Extra_Functions::fetch_icon( 'icon-phone' ); ?> <a href="tel:<?php echo esc_attr( $telefon ); ?>"><?php echo esc_html( $telefon ); ?></a>
 								</p>
 								<?php endif; ?>
 								<?php if ( have_rows( 'mreze_i_linkovi' ) ) : ?>
@@ -88,7 +92,7 @@ $telefon  = get_field( 'telefon' );
 										?>
 										<li>
 											<a href="<?php the_sub_field( 'link' ); ?>" target="_blank">
-												<?php STAG_Extra_Functions::fetch_icon( $mreza ); ?>
+												<?php echo wp_get_attachment_image( $mreza, 'full' ); ?>
 											</a>
 										</li>
 									<?php endwhile; ?>

@@ -128,7 +128,7 @@
                     "label": "Mreza",
                     "name": "mreza",
                     "aria-label": "",
-                    "type": "select",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -137,20 +137,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "icon-twitter": "Twitter \/ X",
-                        "icon-facebook": "Facebook",
-                        "icon-instagram": "Instagram",
-                        "icon-linkedin": "Linkedin",
-                        "icon-youtube": "YouTube"
-                    },
-                    "default_value": false,
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 1,
-                    "ajax": 1,
-                    "placeholder": "",
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
                     "parent_repeater": "field_6564938ccca69"
                 },
                 {
@@ -192,5 +188,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701101162
+    "modified": 1701168838
 }
