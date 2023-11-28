@@ -33,9 +33,10 @@ if ( $query->have_posts() ) : ?>
 
 	<div class="posts-grid__article--wrap-1">
 		<?php
-		if ( 'page' === get_post_type() ) :
+		$get_post_type = get_post_type();
+		if ( 'page' === $get_post_type ) {
 			echo '<span>Page</span>';
-		else :
+		} elseif ( 'post' === $get_post_type ) {
 			$categories = get_the_category();
 			if ( ! empty( $categories ) ) {
 				echo '<div class="posts-grid__article--categories">';
@@ -48,7 +49,9 @@ if ( $query->have_posts() ) : ?>
 				}
 				echo '</div>';
 			}
-		endif;
+		} else {
+			echo '<span>' . esc_html( ucfirst( $get_post_type ) ) . '</span>';
+		}
 		?>
 	</div>
 
