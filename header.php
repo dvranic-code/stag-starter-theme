@@ -82,10 +82,10 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 										<?php pll_the_languages(); ?>
 										<li class="divider"></li>
 										<li class="pismo">
-											<a href="/?pismo=lat">Latinica</a>
+											<a href="?pismo=lat">Latinica</a>
 										</li>
 										<li class="pismo">
-											<a href="/?pismo=cir">Ћирилица</a>
+											<a href="?pismo=cir">Ћирилица</a>
 										</li>
 									</ul>
 								</li>
@@ -122,10 +122,10 @@ use stag_theme\ThemeSettings\STAG_Extra_Functions;
 								<?php pll_the_languages(); ?>
 								<li class="divider"></li>
 								<li class="pismo">
-									<a href="/?pismo=lat">Latinica</a>
+									<a href="?pismo=lat">Latinica</a>
 								</li>
 								<li class="pismo">
-									<a href="/?pismo=cir">Ћирилица</a>
+									<a href="?pismo=cir">Ћирилица</a>
 								</li>
 							</ul>
 						</li>
