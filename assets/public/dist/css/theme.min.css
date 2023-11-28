@@ -4117,7 +4117,7 @@ body.logged-in .site-header__search-popup {
   font-weight: 400;
   line-height: normal;
 }
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .single .zaposleni .single-widget,
   .page .zaposleni .single-widget {
     margin-top: 0;
@@ -4127,11 +4127,41 @@ body.logged-in .site-header__search-popup {
     background: transparent;
   }
 }
+@media (min-width: 768px) {
+  .single .zaposleni .single-widget__employee,
+  .page .zaposleni .single-widget__employee {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+  }
+}
+@media (min-width: 1024px) {
+  .single .zaposleni .single-widget__employee,
+  .page .zaposleni .single-widget__employee {
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+}
 .single .zaposleni .single-widget__employee--image,
 .page .zaposleni .single-widget__employee--image {
   width: 100%;
   height: 26.25rem;
   margin-bottom: 1.5625rem;
+}
+@media (min-width: 768px) {
+  .single .zaposleni .single-widget__employee--image,
+  .page .zaposleni .single-widget__employee--image {
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .single .zaposleni .single-widget__employee--image,
+  .page .zaposleni .single-widget__employee--image {
+    width: 100%;
+  }
 }
 .single .zaposleni .single-widget__employee--image img,
 .page .zaposleni .single-widget__employee--image img {
@@ -4140,6 +4170,22 @@ body.logged-in .site-header__search-popup {
   object-fit: cover;
   object-position: center top;
   border-radius: 0.625rem;
+}
+@media (min-width: 768px) {
+  .single .zaposleni .single-widget__employee--info,
+  .page .zaposleni .single-widget__employee--info {
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    width: 50%;
+    padding-right: 1.9375rem;
+  }
+}
+@media (min-width: 1024px) {
+  .single .zaposleni .single-widget__employee--info,
+  .page .zaposleni .single-widget__employee--info {
+    padding-right: 0;
+    width: 100%;
+  }
 }
 .single .zaposleni .single-widget__employee--info h1,
 .page .zaposleni .single-widget__employee--info h1 {
@@ -4212,6 +4258,24 @@ body.logged-in .site-header__search-popup {
 .single .zaposleni .single-widget__employee--info--socials li,
 .page .zaposleni .single-widget__employee--info--socials li {
   margin-bottom: 0;
+}
+.single .zaposleni .single-widget__employee--info--socials li a,
+.page .zaposleni .single-widget__employee--info--socials li a {
+  display: block;
+  max-width: 2.25rem;
+  max-height: 2.25rem;
+}
+.single .zaposleni .single-widget__employee--info--socials li a svg,
+.page .zaposleni .single-widget__employee--info--socials li a svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.single .zaposleni .single-widget__employee--info--socials li a img,
+.page .zaposleni .single-widget__employee--info--socials li a img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .error-404 {
