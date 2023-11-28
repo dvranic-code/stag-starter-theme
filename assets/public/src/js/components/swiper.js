@@ -176,6 +176,8 @@ onReady(() => {
 
   if(window.innerWidth < 1024) {
     initMobileProfiles();
+  } else {
+    destroyMobileProfiles();
   }
 
 });
