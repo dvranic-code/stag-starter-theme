@@ -14,6 +14,8 @@
  * @since 1.0.0
  */
 
+use stag_theme\ThemeSettings\STAG_Extra_Functions;
+
 if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
 	echo '<img src="' . get_template_directory_uri() . '/blocks/block-profiles/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
@@ -56,6 +58,42 @@ else :
 	?>
 
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
-	test
+	<div class="block-profiles__swiper">
+		<div class="swiper-wrapper block-profiles__swiper--wrapper">
+			<?php
+				$zaposleni = get_field( 'zaposleni' );
+			if ( $zaposleni ) :
+				?>
+				<?php foreach ( $zaposleni as $zaposlen ) : ?>
+					<?php
+					$zvanje   = get_field( 'zvanje', $zaposlen->ID );
+					$pozicija = get_field( 'pozicija', $zaposlen->ID );
+					$odsek    = get_field( 'odsek', $zaposlen->ID );
+					?>
+			<div class="swiper-slide">
+				<div class="block-profiles__swiper--wrapper--image">
+					<?php echo get_the_post_thumbnail( $zaposlen->ID, 'full' ); ?>
+				</div>
+				<div class="block-profiles__swiper--wrapper--content">
+					<h3><?php echo esc_html( get_the_title( $zaposlen->ID ) ); ?></h3>
+					<span><?php echo esc_html( $zvanje ); ?></span>
+					<p>
+						<span><?php echo esc_html( $pozicija ); ?></span>
+						<span><?php echo esc_html( $odsek ); ?></span>
+					</p>
+				</div>
+			</div>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</div>
+		<div class="block-profiles__swiper--controls">
+			<div class="swiper-button-prev-1 swiper-pagination__swiper-button-prev">
+				<?php STAG_Extra_Functions::fetch_icon( 'icon-circle-prev' ); ?>
+			</div>
+			<div class="swiper-button-next-1 swiper-pagination__swiper-button-next">
+				<?php STAG_Extra_Functions::fetch_icon( 'icon-circle-next' ); ?>
+			</div>
+		</div>
+	</div>
 </section>
 <?php endif; ?>
