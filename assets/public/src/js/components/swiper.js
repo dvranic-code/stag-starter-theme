@@ -113,7 +113,7 @@ function timlineSwiperMobile () {
   }
 }
 
-let profiles_swiper; // Declare the variable outside the functions
+let profiles_swiper; // Declare the variable outside the functions so we can access it inside all functions
 
 function initMobileProfiles() {
   if (!document.querySelectorAll(".block-profiles__swiper").length) return;

@@ -5163,11 +5163,8 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
 /*------------------------------------------------------------*\
  * Global
 \*------------------------------------------------------------*/
-.block-profiles__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 3rem;
+.block-profiles {
+  margin-bottom: 5.625rem;
 }
 .block-profiles__swiper {
   position: relative;
@@ -5177,6 +5174,9 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
 .block-profiles__swiper--wrapper {
   display: -ms-flexbox;
   display: flex;
+}
+.block-profiles__swiper--wrapper .swiper-slide {
+  overflow: hidden;
 }
 @media (min-width: 1024px) {
   .block-profiles__swiper--wrapper {
@@ -5188,6 +5188,86 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
   .block-profiles__swiper--wrapper .swiper-slide {
     width: 100% !important;
   }
+}
+.block-profiles__swiper--wrapper .swiper-slide-hover {
+  display: block;
+}
+.block-profiles__swiper--wrapper .swiper-slide-hover:hover .img-overlay {
+  height: 100%;
+}
+.block-profiles__swiper--wrapper .swiper-slide-hover:hover .block-profiles__swiper--wrapper--content {
+  bottom: 2rem;
+}
+.block-profiles__swiper--wrapper .swiper-slide-hover:hover p {
+  margin-top: 1.375rem;
+}
+.block-profiles__swiper--wrapper--image {
+  width: 100%;
+  height: 30.3125rem;
+}
+.block-profiles__swiper--wrapper--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem;
+  object-position: center top;
+}
+.block-profiles__swiper--wrapper--image .img-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 12.3125rem;
+  border-bottom-right-radius: 0.625rem;
+  border-bottom-left-radius: 0.625rem;
+  background: linear-gradient(0deg, #0A3782 0%, rgba(10, 55, 130, 0) 100%);
+  transition: height 0.3s cubic-bezier(0.72, 0, 0.48, 1);
+}
+.block-profiles__swiper--wrapper--content {
+  position: absolute;
+  right: 1.1875rem;
+  bottom: -3.5rem;
+  left: 1.3125rem;
+  transition: bottom 0.3s cubic-bezier(0.72, 0, 0.48, 1);
+}
+.block-profiles__swiper--wrapper--content h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--wp--preset--color--white);
+}
+.block-profiles__swiper--wrapper--content span {
+  display: inline-block;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--wp--preset--color--white);
+}
+.block-profiles__swiper--wrapper--content p {
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+  transition: margin-top 0.3s cubic-bezier(0.72, 0, 0.48, 1);
+}
+.block-profiles__swiper--wrapper--content p span {
+  display: block;
+}
+.block-profiles__swiper--controls {
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5625rem;
+  margin-top: 2.0625rem;
+}
+.block-profiles__swiper--controls svg {
+  transition: all 0.3s cubic-bezier(0.72, 0, 0.48, 1);
+}
+.block-profiles__swiper--controls svg:hover, .block-profiles__swiper--controls svg:focus, .block-profiles__swiper--controls svg:active {
+  cursor: pointer;
+}
+.block-profiles__swiper--controls svg:hover path, .block-profiles__swiper--controls svg:focus path, .block-profiles__swiper--controls svg:active path {
+  fill: var(--wp--preset--color--tl-black);
 }
 @media (min-width: 1024px) {
   .block-profiles__swiper--controls {
