@@ -13,7 +13,7 @@
 	<div class="general-search__bottom">
 		<div class="container">
 			<header class="page-header">
-				<h1 class="page-title"><?php pll_e( 'Резултати претраге за: ' ); ?></h1>
+				<h1 class="page-title"><?php pll_e( 'Резултати претраге за:' ); ?></h1>
 				<h3 class="search-query"><?php echo esc_html( get_search_query() ); ?></h3>
 			</header><!-- .page-header -->
 
