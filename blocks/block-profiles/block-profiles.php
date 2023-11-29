@@ -71,17 +71,24 @@ else :
 					$odsek    = get_field( 'odsek', $zaposlen->ID );
 					?>
 			<div class="swiper-slide">
-				<div class="block-profiles__swiper--wrapper--image">
-					<?php echo get_the_post_thumbnail( $zaposlen->ID, 'full' ); ?>
-				</div>
-				<div class="block-profiles__swiper--wrapper--content">
-					<h3><?php echo esc_html( get_the_title( $zaposlen->ID ) ); ?></h3>
-					<span><?php echo esc_html( $zvanje ); ?></span>
-					<p>
-						<span><?php echo esc_html( $pozicija ); ?></span>
-						<span><?php echo esc_html( $odsek ); ?></span>
-					</p>
-				</div>
+				<a class="swiper-slide-hover" href="<?php echo esc_url( get_permalink( $zaposlen->ID ) ); ?>">
+					<div class="block-profiles__swiper--wrapper--image">
+						<?php if ( has_post_thumbnail( $zaposlen->ID ) ) : ?>
+							<?php echo get_the_post_thumbnail( $zaposlen->ID, 'full' ); ?>
+						<?php else : ?>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php echo esc_html( get_the_title( $zaposlen->ID ) ); ?>" />
+						<?php endif; ?>
+						<div class="img-overlay"></div>
+					</div>
+					<div class="block-profiles__swiper--wrapper--content">
+						<h3><?php echo esc_html( get_the_title( $zaposlen->ID ) ); ?></h3>
+						<span><?php echo esc_html( $zvanje ); ?></span>
+						<p>
+							<span><?php echo esc_html( $pozicija ); ?></span>
+							<span><?php echo esc_html( $odsek ); ?></span>
+						</p>
+					</div>
+				</a>
 			</div>
 				<?php endforeach; ?>
 			<?php endif; ?>
