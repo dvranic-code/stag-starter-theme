@@ -5226,7 +5226,6 @@ body .gform_wrapper .ginput_container textarea::-webkit-input-placeholder {
 .block-profiles__swiper--wrapper--content {
   position: absolute;
   right: 1.1875rem;
-  bottom: -3.5rem;
   left: 1.3125rem;
   transition: bottom 0.3s cubic-bezier(0.72, 0, 0.48, 1);
 }
