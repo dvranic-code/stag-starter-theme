@@ -148,7 +148,6 @@ function destroyMobileProfiles() {
   }
 }
 
-
 function calcOffsetElementHeight () {
   const offsetElements = document.querySelectorAll('.offset-element');
   const offsetElementContents = document.querySelectorAll('.block-profiles__swiper--wrapper--content');
