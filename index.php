@@ -45,7 +45,7 @@ $post_thumbnail       = get_the_post_thumbnail( $select_featured_post->ID, 'full
 							<?php echo esc_html( $select_featured_post->post_title ); ?>
 						</h2>
 						<div class="featured-post__excerpt">
-							<?php STAG_Extra_Functions::stag_excerpt( 150, $post ); ?>
+							<?php STAG_Extra_Functions::stag_excerpt( 150, $select_featured_post ); ?>
 						</div>
 						<a class="btn btn--sm" href="<?php echo esc_url( get_permalink( $select_featured_post->ID ) ); ?>">
 							<?php pll_e( 'Прочитај' ); ?>
