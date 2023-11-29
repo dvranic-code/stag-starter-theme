@@ -18,6 +18,7 @@ pll_register_string( 'search', 'Још резултата', 'search' );
 
 // Group: Index.
 pll_register_string( 'index', 'Још чланака', 'index' );
+pll_register_string( 'index', 'Прочитај', 'index' );
 
 // Group: 404.
 pll_register_string( '404', 'Упс, нешто се десило... страница не постоји.', '404' );

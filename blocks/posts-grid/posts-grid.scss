@@ -36,6 +36,15 @@
 
     &--wrap-1 {
       flex: 0 0 auto;
+
+      span {
+        padding: toRem(12) 0;
+        display: inline-block;
+
+        @include breakpoint(lg, min) {
+          padding: 0;
+        }
+      }
       
       @include breakpoint(lg, min) {
         padding-right: toRem(25);
