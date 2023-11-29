@@ -77,7 +77,8 @@ body .gform-theme--foundation .gform_page_footer {
 }
 
 @include breakpoint(md, min) {
-  .block-design {
+  .block-design,
+  .no-sidebar {
 
     .gform_wrapper {
       position: relative;

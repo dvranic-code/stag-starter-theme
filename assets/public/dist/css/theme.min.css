@@ -4504,7 +4504,8 @@ body .gform-theme--foundation .gform_page_footer {
 }
 
 @media (min-width: 768px) {
-  .block-design .gform_wrapper {
+  .block-design .gform_wrapper,
+  .no-sidebar .gform_wrapper {
     position: relative;
     margin-right: auto;
     margin-left: auto;
