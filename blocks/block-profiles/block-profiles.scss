@@ -35,7 +35,7 @@
           }
 
           .block-profiles__swiper--wrapper--content {
-            bottom: toRem(32);
+            bottom: toRem(32) !important;
           }
 
           p {

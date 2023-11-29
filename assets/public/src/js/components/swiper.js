@@ -148,6 +148,25 @@ function destroyMobileProfiles() {
   }
 }
 
+
+function calcOffsetElementHeight () {
+  const offsetElements = document.querySelectorAll('.offset-element');
+  const offsetElementContents = document.querySelectorAll('.block-profiles__swiper--wrapper--content');
+
+  if (!offsetElements.length || !offsetElementContents.length) return;
+
+  offsetElements.forEach(function( offsetElement, index ) {
+    const offsetElementHeight = offsetElement.offsetHeight;
+
+    // Use the index of the current offsetElement to access the corresponding offsetElementContent
+    const offsetElementContent = offsetElementContents[index];
+
+    if (!offsetElementContent) return;
+
+    offsetElementContent.style.bottom = - offsetElementHeight + 'px';
+  });
+}
+
 onReady(() => {
   initContentSwiper();
   initTimelineSwiper();
@@ -179,5 +198,7 @@ onReady(() => {
   } else {
     destroyMobileProfiles();
   }
+
+  calcOffsetElementHeight();
 
 });

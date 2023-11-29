@@ -83,7 +83,7 @@ else :
 					<div class="block-profiles__swiper--wrapper--content">
 						<h3><?php echo esc_html( get_the_title( $zaposlen->ID ) ); ?></h3>
 						<span><?php echo esc_html( $zvanje ); ?></span>
-						<p>
+						<p class="offset-element">
 							<span><?php echo esc_html( $pozicija ); ?></span>
 							<span><?php echo esc_html( $odsek ); ?></span>
 						</p>
