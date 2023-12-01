@@ -7,7 +7,9 @@
   height: toRem(590px);
   
   @include breakpoint(lg, min) {
-    height: toRem(460px);
+    height: 36dvw;
+    min-height: 600px;
+    max-height: 750px;
   }
 
   &__image,
