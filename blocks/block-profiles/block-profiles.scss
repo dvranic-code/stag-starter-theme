@@ -1,0 +1,141 @@
+@use "../../assets/public/src/scss/global/abstract" as *;
+
+.block-profiles {
+  margin-bottom: toRem(90);
+
+  &__swiper {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+    &--wrapper {
+      display: flex;
+
+      .swiper-slide {
+        overflow: hidden;
+      }
+
+      @include breakpoint(lg, min) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: toRem(24);
+        grid-row-gap: toRem(48);
+
+        .swiper-slide {
+          width: 100% !important;
+        }
+      }
+
+      .swiper-slide-hover {
+        display: block;
+
+        &:hover {
+          .img-overlay {
+            height: 100%;
+          }
+
+          .block-profiles__swiper--wrapper--content {
+            bottom: toRem(32) !important;
+          }
+
+          p {
+            margin-top: toRem(22);
+          }
+        }
+      }
+
+      &--image {
+        width: 100%;
+        height: toRem(485);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: toRem(10);
+          object-position: center top;
+        }
+
+        .img-overlay {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          height: toRem(197);
+          border-bottom-right-radius: toRem(10);
+          border-bottom-left-radius: toRem(10);
+          background: linear-gradient(0deg, #0A3782 0%, rgba(10, 55, 130, 0.00) 100%);
+          transition: height 0.3s $torlak-ease;
+
+          @include breakpoint(lg, max) {
+            height: toRem(262);
+            background: linear-gradient(0deg, #0A3782 35.99%, rgba(10, 55, 130, 0.00) 100%);
+          }
+        }
+      }
+
+      &--content {
+        position: absolute;
+        right: toRem(19);
+        left: toRem(21);
+        transition: bottom 0.3s $torlak-ease;
+
+        @include breakpoint(lg, max) {
+          bottom: toRem(32) !important;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: toRem(28);
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          color: wpColor(white);
+        }
+
+        span {
+          display: inline-block;
+          font-size: toRem(22);
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: wpColor(white);
+        }
+
+        p {
+          margin-top: toRem(32);
+          margin-bottom: toRem(0);
+          transition: margin-top 0.3s $torlak-ease;
+
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &--controls {
+      display: flex;
+      gap: toRem(25);
+      margin-top: toRem(33);
+
+      svg {
+        transition: all 0.3s $torlak_ease;
+  
+        &:hover,
+        &:focus,
+        &:active {
+          cursor: pointer;
+  
+          path {
+            fill: wpColor(tl-black);
+          }
+        }
+      }
+
+      @include breakpoint(lg, min) {
+        display: none;
+      }
+    }
+  }
+}

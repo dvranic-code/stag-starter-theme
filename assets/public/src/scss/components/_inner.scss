@@ -119,6 +119,191 @@
   .block-design .content-wrap {
     padding-top: toRem(0);
   }
+
+  // Zaposleni CPT Style
+  .zaposleni {
+
+    .row-inverse-mob {
+
+      @include breakpoint(lg, max) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .entry-content {
+
+      h2:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    h2 {
+      margin-top: toRem(90);
+      margin-bottom: toRem(40);
+      padding-top: toRem(20);
+      border-top: 1px solid wpColor(tl-grey-3);
+      font-size: toRem(28);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      color: wpColor(tl-black);
+    }
+
+    p {
+      margin-bottom: toRem(40);
+      font-size: toRem(20);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .single-widget {
+
+      @include breakpoint(md, max) {
+        margin-top: 0;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+
+      &__employee {
+
+        @include breakpoint(md, min) {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+
+        @include breakpoint(lg, min) {
+          flex-direction: column;
+        }
+
+        &--image {
+          width: 100%;
+          height: toRem(420px);
+          margin-bottom: toRem(25);
+
+          @include breakpoint(md, min) {
+            flex: 0 0 auto;
+            width: 50%;
+          }
+
+          @include breakpoint(lg, min) {
+            width: 100%;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: toRem(10);
+          }
+        }
+
+        &--info {
+
+          @include breakpoint(md, min) {
+            flex: 0 0 auto;
+            width: 50%;
+            padding-right: toRem(31);
+          }
+
+          @include breakpoint(lg, min) {
+            padding-right: 0;
+            width: 100%;
+          }
+
+          h1 {
+            font-size: toRem(28);
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+          }
+
+          span {
+            display: block;
+          }
+
+          span,
+          p {
+            font-size: toRem(22);
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          p {
+            margin-top: toRem(24);
+            margin-bottom: toRem(24);
+
+            a {
+              display: block;
+              font-size: toRem(22);
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-decoration-line: underline;
+            }
+          }
+
+          p.d-f {
+            margin-top: 0;
+            margin-bottom: toRem(12);
+            gap: toRem(12);
+            align-items: center;
+
+          }
+
+          a[href^="mailto:"] {
+            color: #003FE2;
+
+            &:hover {
+              text-decoration-line: none;
+            }
+          }
+
+          a[href^="tel:"] {
+            color: wpColor(black);
+            text-decoration-line: none;
+          }
+
+          &--socials {
+            margin-top: toRem(48);
+            margin-bottom: 0;
+            padding: 0;
+            display: flex;
+            gap: toRem(11);
+            list-style: none;
+
+            li {
+              margin-bottom: 0;
+
+              a {
+                display: block;
+                max-width: toRem(36);
+                max-height: toRem(36);
+
+                svg {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
 }
 
 .error-404 {

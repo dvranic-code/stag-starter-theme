@@ -1,11 +1,11 @@
 {
-    "key": "group_654511a3ceaa2",
-    "title": "Blog Featured Post",
+    "key": "group_6565d9a8d0265",
+    "title": "Profiles",
     "fields": [
         {
-            "key": "field_654511a4dbfc4",
-            "label": "Select Featured Post",
-            "name": "select_featured_post",
+            "key": "field_6565d9a891cc7",
+            "label": "Zaposleni",
+            "name": "zaposleni",
             "aria-label": "",
             "type": "post_object",
             "instructions": "",
@@ -17,12 +17,12 @@
                 "id": ""
             },
             "post_type": [
-                "post"
+                "zaposleni"
             ],
             "post_status": "",
             "taxonomy": "",
             "return_format": "object",
-            "multiple": 0,
+            "multiple": 1,
             "allow_null": 0,
             "bidirectional": 0,
             "ui": 1,
@@ -32,9 +32,9 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "block",
                 "operator": "==",
-                "value": "acf-options-general"
+                "value": "acf\/block-profiles"
             }
         ]
     ],
@@ -47,5 +47,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701267955
+    "modified": 1701179168
 }

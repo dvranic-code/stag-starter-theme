@@ -47,10 +47,10 @@ function initTimelineSwiper() {
       501: {
         slidesPerView: 2
       },
-      768: {
+      992: {
         slidesPerView: 3
       },
-      1024: {
+      1100: {
         slidesPerView: 4
       }
     },
@@ -91,7 +91,7 @@ function calcTimelineSwiperHeight() {
 
 function timlineSwiperMobile () {
 
-  let slides = document.querySelectorAll('.swiper-slide');
+  let slides = document.querySelectorAll('.timeline-slider__slide');
 
   if (!slides.length) return;
 
@@ -113,10 +113,65 @@ function timlineSwiperMobile () {
   }
 }
 
+let profiles_swiper; // Declare the variable outside the functions so we can access it inside all functions
+
+function initMobileProfiles() {
+  if (!document.querySelectorAll(".block-profiles__swiper").length) return;
+
+  profiles_swiper = new Swiper(".block-profiles__swiper", { // eslint-disable-line
+    slidesPerView: 1,
+    loop: false,
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      }
+    },
+    navigation: {
+      prevEl: ".swiper-pagination__swiper-button-prev",
+      nextEl: ".swiper-pagination__swiper-button-next"
+    }
+  });
+}
+
+function destroyMobileProfiles() {
+  if (profiles_swiper !== undefined && profiles_swiper !== null) {
+    profiles_swiper.destroy(true, true);
+    profiles_swiper = null; // Reset the variable
+  }
+}
+
+function calcOffsetElementHeight () {
+  const offsetElements = document.querySelectorAll('.offset-element');
+  const offsetElementContents = document.querySelectorAll('.block-profiles__swiper--wrapper--content');
+
+  if (!offsetElements.length || !offsetElementContents.length) return;
+
+  offsetElements.forEach(function( offsetElement, index ) {
+    const offsetElementHeight = offsetElement.offsetHeight;
+
+    // Use the index of the current offsetElement to access the corresponding offsetElementContent
+    const offsetElementContent = offsetElementContents[index];
+
+    if (!offsetElementContent) return;
+
+    offsetElementContent.style.bottom = - offsetElementHeight + 'px';
+  });
+}
+
 onReady(() => {
   initContentSwiper();
   initTimelineSwiper();
-  calcTimelineSwiperHeight();
+  if(window.innerWidth > 501) {
+    calcTimelineSwiperHeight();
+  }
   timlineSwiperMobile();
 
   window.addEventListener('resize', debounce(timlineSwiperMobile, 200));
@@ -128,4 +183,21 @@ onReady(() => {
       calcTimelineSwiperHeight();
     }
   }, 200));
+
+  window.addEventListener('resize', debounce(function() {
+    if(window.innerWidth < 1024) {
+      initMobileProfiles();
+    } else {
+      destroyMobileProfiles();
+    }
+  }, 200));
+
+  if(window.innerWidth < 1024) {
+    initMobileProfiles();
+  } else {
+    destroyMobileProfiles();
+  }
+
+  calcOffsetElementHeight();
+
 });

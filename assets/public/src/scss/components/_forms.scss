@@ -31,17 +31,59 @@ body .gform_wrapper {
       border: 1px solid wpColor(tl-blue-4);
       border-radius: toRem(5);
       padding: toRem(23) toRem(15);
-      font-size: toRem(16);
+      font-size: toRem(22);
       font-weight: 400;
       font-style: normal;
       line-height: normal;
 
       @include placeholder {
-        font-size: toRem(16);
+        font-size: toRem(22);
         font-weight: 400;
         font-style: normal;
         line-height: normal;
       }
+    }
+  }
+}
+
+body .gform-theme--framework .gform-field-label--type-inline {
+  font-size: toRem(22);
+}
+
+body .gform-theme--framework .gfield--type-choice .gchoice, 
+body .gform-theme--framework .gfield--type-choice .ginput_container_consent {
+  align-items: center;
+}
+
+body .gform-theme--framework .gfield_validation_message {
+  font-size: toRem(18);
+}
+
+body .gform-theme--framework .gform_validation_errors {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+body .gform_confirmation_message {
+  text-align: center;
+  font-size: toRem(28);
+  font-weight: bold;
+}
+
+body .gform-theme--foundation .gform_footer, 
+body .gform-theme--foundation .gform_page_footer {
+  justify-content: flex-end;
+}
+
+@include breakpoint(md, min) {
+  .block-design,
+  .no-sidebar {
+
+    .gform_wrapper {
+      position: relative;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 }
