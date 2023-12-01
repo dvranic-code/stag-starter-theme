@@ -6,8 +6,14 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    min-height: toRem(460);
+    height: toRem(590px);
     z-index: -1;
+
+    @include breakpoint(lg, min) {
+      height: 36dvw;
+      min-height: 600px;
+      max-height: 750px;
+    }
 
     .post-thumbnail,
     .post-thumbnail img {
