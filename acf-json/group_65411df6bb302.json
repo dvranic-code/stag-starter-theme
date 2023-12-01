@@ -59,7 +59,9 @@
             },
             "choices": {
                 "post": "Post",
-                "page": "Page"
+                "page": "Page",
+                "oglas": "Oglasi",
+                "zaposleni": "Zaposleni"
             },
             "default_value": false,
             "return_format": "value",
@@ -108,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698839879
+    "modified": 1701425072
 }
