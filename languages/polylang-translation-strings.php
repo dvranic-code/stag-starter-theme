@@ -15,6 +15,8 @@
 pll_register_string( 'search', 'Тражим...', 'search' );
 pll_register_string( 'search', 'Резултати претраге за:', 'search' );
 pll_register_string( 'search', 'Још резултата', 'search' );
+pll_register_string( 'search', 'Страна', 'search' );
+pll_register_string( 'search', 'Нема више резултата ...', 'search' );
 
 // Group: Index.
 pll_register_string( 'index', 'Још чланака', 'index' );

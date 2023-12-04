@@ -35,7 +35,7 @@ if ( $query->have_posts() ) : ?>
 		<?php
 		$get_post_type = get_post_type();
 		if ( 'page' === $get_post_type ) {
-			echo '<span>Page</span>';
+			echo '<span>' . esc_html( pll_e( 'Страна' ) ) . '</span>';
 		} elseif ( 'post' === $get_post_type ) {
 			$categories = get_the_category();
 			if ( ! empty( $categories ) ) {

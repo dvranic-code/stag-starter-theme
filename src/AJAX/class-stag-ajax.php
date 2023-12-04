@@ -67,7 +67,7 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 				}
 				wp_reset_postdata();
 			} else {
-				$data = '<h3>No posts ...</h3>';
+				$data = '<h3>' . pll__( 'Нема више резултата ...' ) . '</h3>';
 			}
 
 			// This seems to fix the issue with the max_num_pages not being correct on search page.
