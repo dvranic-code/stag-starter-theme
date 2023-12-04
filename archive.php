@@ -14,7 +14,7 @@ get_header();
 global $wp_query;
 ?>
 
-	<main id="primary" class="site-main container">
+	<main id="primary" class="site-main container" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>" data-max="<?php echo esc_attr( $wp_query->max_num_pages ); ?>">
 
 		<?php if ( have_posts() ) : ?>
 
