@@ -151,7 +151,6 @@ onReady(() => {
   triggerSearchBox();
   triggerMobileMenu();
 
-  // TODO: Remove this after fixing the font loading issue.
   setTimeout(() => {
     getMainNavWidth();
   }, 2000);

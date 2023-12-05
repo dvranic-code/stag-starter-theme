@@ -45,11 +45,16 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 
 			$search_query = isset( $_POST['searchQuery'] ) ? sanitize_text_field( wp_unslash( $_POST['searchQuery'] ) ) : '';
 
-			// TODO: dynamic posts per page.
-			// TODO: dynamic post type for block on homepage.
+			$post_type = isset( $_POST['postType'] ) ? sanitize_text_field( wp_unslash( $_POST['postType'] ) ) : '';
+
+			$per_page        = get_option( 'posts_per_page' );
+			$number_of_posts = isset( $_POST['numberOfPosts'] ) && intval( wp_unslash( $_POST['numberOfPosts'] ) ) > 0 ? intval( wp_unslash( $_POST['numberOfPosts'] ) ) : $per_page;
+
 			$args = array(
 				'paged'          => $next_page,
-				'posts_per_page' => 3,
+				'posts_per_page' => $number_of_posts,
+				'post_type'      => $post_type,
+				'post_status'    => 'publish',
 			);
 
 			if ( ! empty( $search_query ) ) {
@@ -57,6 +62,13 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 			}
 
 			$query = new \WP_Query( $args );
+
+			if ( ! empty( $search_query ) ) {
+				$query->is_search = true;
+			}
+
+			// error_log( var_export( $args, true ) );
+			// error_log( 'QUERY____' . var_export( $query->found_posts, true ) );
 
 			$data = '';
 
@@ -71,12 +83,12 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 			}
 
 			// This seems to fix the issue with the max_num_pages not being correct on search page.
-			$max_pages_search = $query->max_num_pages;
-			if ( $query->is_search ) {
-				$max_pages_search = ceil( $query->found_posts / $query->get( 'posts_per_page' ) );
-			}
+			// $max_pages_search = $query->max_num_pages;
+			// if ( $query->is_search ) {
+			// $max_pages_search = ceil( $query->found_posts / $query->get( 'posts_per_page' ) );
+			// }
 
-			wp_send_json_success( array( $data, $max_pages_search ) );
+			wp_send_json_success( array( $data ) );
 
 			die();
 		}
