@@ -33,6 +33,14 @@ function fetch_posts() {
     } else {
       currentPage = document.querySelector(".site-main").dataset.page;
     }
+
+    let postType = '';
+    let numberOfPosts = '';
+
+    if ( postsGrid ) {
+      postType = document.querySelector(".posts-grid").dataset.post;
+      numberOfPosts = document.querySelector(".posts-grid").dataset.number;
+    }
     
     let maxPages = document.querySelector(".site-main").dataset.max;
     let isSearch = document.querySelector(".site-main").dataset.search === "is-search";
@@ -55,6 +63,8 @@ function fetch_posts() {
     moreData.append("action", "load_more_posts");
     moreData.append("currentPage", currentPage);
     moreData.append("searchQuery", searchQuery);
+    moreData.append("postType", postType);
+    moreData.append("numberOfPosts", numberOfPosts);
     moreData.append('_nonce', WP_vars.nonce); // eslint-disable-line
 
     const dataCall = await fetch(WP_vars.ajaxURL, { // eslint-disable-line
@@ -72,8 +82,7 @@ function fetch_posts() {
         if (data && data.data) {
           const htmlString = data.data[0]; // Extract the HTML content from the response
 
-          const maxPages = data.data[1]; // Extract the max pages from the response for search
-          console.log(maxPages);
+          // const maxPages = data.data[1]; // Extract the max pages from the response for search
 
           postsGridBtnWrapper.insertAdjacentHTML("beforebegin", htmlString);
 
@@ -98,11 +107,11 @@ function fetch_posts() {
             }
           }
 
-          if ( isSearch ) {
-            if ( document.querySelector(".site-main").dataset.page == maxPages ) {
-              loadMoreBtn.style.display = "none";
-            }
-          }
+          // if ( isSearch ) {
+          //   if ( document.querySelector(".site-main").dataset.page == maxPages ) {
+          //     loadMoreBtn.style.display = "none";
+          //   }
+          // }
         } else {
           console.warn('Invalid data received from the server');
         }

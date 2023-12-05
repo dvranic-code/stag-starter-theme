@@ -51,7 +51,7 @@ else :
 	$query = new WP_Query( $posts_grid );
 
 	?>
-<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
+<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-number="<?php echo esc_attr( $number_of_posts ); ?>" data-post="<?php echo esc_attr( $posts_type ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
 		<?php
 		get_template_part(
 			'template-parts/content',
