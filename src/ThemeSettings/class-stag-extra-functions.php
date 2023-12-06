@@ -29,6 +29,13 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 	class STAG_Extra_Functions {
 
 		/**
+		 * STAG_Extra_Functions constructor.
+		 */
+		public function __construct() {
+			add_action( 'save_post', array( $this, 'delete_transient_on_post_save' ), 10, 3 );
+		}
+
+		/**
 		 * Fetches the icon with the specified name and theme.
 		 *
 		 * @param string $icon The name of the icon to fetch.
@@ -95,6 +102,22 @@ if ( ! class_exists( 'STAG_Extra_Functions' ) ) {
 			ob_end_clean();
 
 			return $content;
+		}
+
+		/**
+		 * Deletes the transient on post save.
+		 *
+		 * @param int     $post_id The post ID.
+		 * @param WP_Post $post    The post object.
+		 * @param bool    $update  Whether this is an update or not.
+		 */
+		public function delete_transient_on_post_save( $post_id, $post, $update ) { // phpcs:ignore
+			// If this is just a revision, don't delete the transient.
+			if ( wp_is_post_revision( $post_id ) ) {
+					return;
+			}
+			// Delete the transient.
+			delete_transient( 'select_partners_transient' );
 		}
 	}
 

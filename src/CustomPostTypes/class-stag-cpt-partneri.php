@@ -46,8 +46,8 @@ if ( ! class_exists( 'Stag_CPT_Partneri' ) ) {
 				'search_items'          => __( 'Search Partner', 'stag' ),
 				'not_found'             => __( 'Not found', 'stag' ),
 				'not_found_in_trash'    => __( 'Not found in Trash', 'stag' ),
-				'featured_image'        => __( 'Featured Image', 'stag' ),
-				'set_featured_image'    => __( 'Set featured image', 'stag' ),
+				'featured_image'        => __( 'Partner Logo', 'stag' ),
+				'set_featured_image'    => __( 'Podesi logo', 'stag' ),
 				'remove_featured_image' => __( 'Remove featured image', 'stag' ),
 				'use_featured_image'    => __( 'Use as featured image', 'stag' ),
 			);

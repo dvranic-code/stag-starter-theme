@@ -1,0 +1,91 @@
+@use "../../assets/public/src/scss/global/abstract" as *;
+
+.block-partner {
+  margin-bottom: toRem(120);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: toRem(24);
+    grid-row-gap: toRem(48);
+
+    @include breakpoint(md, min) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg, min) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: toRem(491);
+      padding-right: toRem(24);
+      padding-left: toRem(24);
+      border-radius: toRem(12);
+      background: linear-gradient(180deg, #FFF 0%, #E6ECFD 100%);
+      overflow: hidden;
+      transition: all 0.3s $torlak-ease;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      @include breakpoint(lg, min) {
+        flex-direction: row;
+        min-height: toRem(364);
+
+        &:hover .block-partner__grid--card--overlay {
+          transform: translateY(0);
+        }
+      }
+
+      &--overlay {
+        padding-right: toRem(24);
+        padding-left: toRem(24);
+        border-radius: toRem(12);
+        text-align: center;
+        overflow: hidden;
+        
+        @include breakpoint(lg, min) {
+          width: 100%;
+          height: toRem(364);
+          background: wpColor(tl-grey-2);
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateY(100%);
+          transition: all 0.3s $torlak-ease;
+        }
+
+        h3 {
+          margin-top: toRem(48);
+          margin-bottom: toRem(42);
+          color: wpColor(tl-blue-1);
+          font-size: toRem(28);
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+          @include breakpoint(lg, min) {
+            margin-top: toRem(65);
+          }
+        }
+
+        p {
+          margin-bottom: 0;
+          color: wpColor(tl-blue-1);
+          font-size: toRem(20);
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
