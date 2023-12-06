@@ -1,0 +1,31 @@
+@use "../../assets/public/src/scss/global/abstract" as *;
+
+.partner-slider {
+  margin-bottom: toRem(120);
+  overflow: hidden;
+
+  &__marquee {
+    display: flex;
+    animation: scrolling 15s linear infinite;
+
+    &--link {
+      flex: 0 0 16vw;
+      margin: 0 1vw;
+
+      img {
+        // display: block;
+        // width: auto;
+        // height: toRem(50);
+      }
+    }
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translatex(-144vw); }
+}

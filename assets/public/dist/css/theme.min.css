@@ -5443,3 +5443,33 @@ body .gform-theme--foundation .gform_page_footer {
   font-weight: 400;
   line-height: normal;
 }
+
+/*------------------------------------------------------------*\
+ * Global
+\*------------------------------------------------------------*/
+.partner-slider {
+  margin-bottom: 7.5rem;
+  overflow: hidden;
+}
+.partner-slider__marquee {
+  display: -ms-flexbox;
+  display: flex;
+  animation: scrolling 15s linear infinite;
+}
+.partner-slider__marquee--link {
+  -ms-flex: 0 0 16vw;
+      flex: 0 0 16vw;
+  margin: 0 1vw;
+}
+.partner-slider__marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translatex(-144vw);
+  }
+}
