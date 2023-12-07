@@ -5443,3 +5443,45 @@ body .gform-theme--foundation .gform_page_footer {
   font-weight: 400;
   line-height: normal;
 }
+
+/*------------------------------------------------------------*\
+ * Global
+\*------------------------------------------------------------*/
+.partner-slider {
+  margin-bottom: 7.5rem;
+  overflow: hidden;
+}
+.partner-slider__marquee {
+  overflow: hidden;
+}
+.partner-slider__marquee .item-wrap {
+  width: 400%;
+  position: relative;
+  white-space: nowrap;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .partner-slider__marquee .item-wrap {
+    width: 200%;
+  }
+}
+.partner-slider__marquee .item-wrap .item {
+  text-align: center;
+  -ms-flex: 1;
+      flex: 1;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.partner-slider__marquee--link img {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.15s cubic-bezier(0.72, 0, 0.48, 1);
+}
+.partner-slider__marquee--link img:hover {
+  filter: grayscale(0%);
+}

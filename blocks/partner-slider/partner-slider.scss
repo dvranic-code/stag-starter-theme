@@ -1,0 +1,43 @@
+@use "../../assets/public/src/scss/global/abstract" as *;
+
+.partner-slider {
+  margin-bottom: toRem(120);
+  overflow: hidden;
+
+  &__marquee {
+    overflow: hidden;
+
+    .item-wrap {
+      width: 400%;
+      position: relative;
+      white-space: nowrap;
+      display: flex;
+
+      @include breakpoint(768px, min) {
+        width: 200%;
+      }
+
+      .item {
+        text-align: center;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &--link {
+
+      img {
+        width: auto;
+        height: 50px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.15s $torlak-ease;
+
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+    }
+  }
+}

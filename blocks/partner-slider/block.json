@@ -1,0 +1,30 @@
+{
+  "name": "acf/partner-slider",
+  "title": "Block Partner Slider",
+  "description": "Block that displays slider of partners",
+  "editorStyle": "",
+  "style": [],
+  "category": "formatting",
+  "icon": "slides",
+  "keywords": [
+      "block",
+      "partner",
+      "slider"
+  ],
+  "acf": {
+      "mode": "edit",
+      "renderTemplate": "partner-slider.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  },
+  "example": {
+      "attributes": {
+          "mode": "preview",
+          "data": {
+              "preview_image_help": "partner-slider-preview.png"
+          }
+      }
+  }
+}

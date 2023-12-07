@@ -200,4 +200,17 @@ onReady(() => {
 
   calcOffsetElementHeight();
 
+  // Sorry for this, but I needed to use external libraries to make this work
+  const marqueeSlider = document.getElementById('marqueeSlider');
+  if (!marqueeSlider) return;
+  jQuery('#marqueeSlider').grouploop({
+    velocity: 1,
+    forward: false,
+    pauseOnHover: true,
+    childNode: ".item",
+    childWrapper: ".item-wrap",
+    complete: function () { console.log("Initialized a grouploop with id: " + jQuery(this).attr('id')); },
+    stickFirstItem: false
+  });
+
 });

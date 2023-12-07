@@ -1,6 +1,6 @@
 <?php
 /**
- * Default Partner Block.
+ * Default Partner Slider Block.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -16,7 +16,7 @@
 
 if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-  echo '<img src="' . get_template_directory_uri() . '/blocks/block-partner/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
+  echo '<img src="' . get_template_directory_uri() . '/blocks/partner-slider/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
 else :
 
@@ -27,7 +27,7 @@ else :
 	}
 
 	// Create class attribute allowing for custom "className" and "align" values.
-	$class_name = 'block-partner';
+	$class_name = 'partner-slider full-width-container';
 	if ( ! empty( $block['className'] ) ) {
 		$class_name .= ' ' . $block['className'];
 	}
@@ -36,7 +36,7 @@ else :
 	}
 
 	$transient_key = 'select_partners_transient';
-	// $expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time to 1 day.
+	// $expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time for 1 day.
 
 	$select_partners = get_transient( $transient_key );
 
@@ -45,35 +45,31 @@ else :
 		$select_partners = get_field( 'select_partners' );
 		set_transient( $transient_key, $select_partners, 0 );
 	}
-
 	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
-	<div class="block-partner__grid">
-	<?php
-	if ( $select_partners ) :
-		foreach ( $select_partners as $partner ) :
-			$partner_title = get_the_title( $partner->ID );
-			$partner_opis  = get_field( 'opis', $partner->ID );
-			$partner_link  = get_field( 'link', $partner->ID );
-			if ( empty( $partner_link ) ) {
-				$partner_link = '#';
-			}
-			?>
-			<a class="block-partner__grid--card" href="<?php echo esc_url( $partner_link ); ?>" target="_blank">
-				<?php if ( has_post_thumbnail( $partner->ID ) ) : ?>
-					<?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
-				<?php else : ?>
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php echo esc_html( get_the_title( $partner->ID ) ); ?>" />
-				<?php endif; ?>
-				<div class="block-partner__grid--card--overlay">
-					<h3><?php echo esc_html( $partner_title ); ?></h3>
-					<p><?php echo esc_html( $partner_opis ); ?></p>
-				</div>
-			</a>
+	<div class="partner-slider__marquee" id="marqueeSlider">
+		<div class="item-wrap">
 			<?php
-		endforeach;
-	endif;
-	?>
+			if ( $select_partners ) :
+				foreach ( $select_partners as $partner ) :
+					$partner_link  = get_field( 'link', $partner->ID );
+					$partner_title = get_the_title( $partner->ID );
+					if ( empty( $partner_link ) ) {
+						$partner_link = '#';
+					}
+					?>
+					<a class="partner-slider__marquee--link item" href="<?php echo esc_url( $partner_link ); ?>" target="_blank" title="<?php echo esc_html( $partner_title ); ?>">
+					<?php if ( has_post_thumbnail( $partner->ID ) ) : ?>
+							<?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
+					<?php else : ?>
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php echo esc_html( get_the_title( $partner->ID ) ); ?>" />
+					<?php endif; ?>
+					</a>
+					<?php
+				endforeach;
+			endif;
+			?>
+		</div>
 	</div>
 </section>
 <?php endif; ?>
