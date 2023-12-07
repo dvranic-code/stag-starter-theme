@@ -8,13 +8,15 @@
     overflow: hidden;
 
     .item-wrap {
-      width: 400%;
+      width: 600%;
       position: relative;
       white-space: nowrap;
       display: flex;
-
+      gap: toRem(15);
+      
       @include breakpoint(768px, min) {
         width: 200%;
+        gap: toRem(42);
       }
 
       .item {
