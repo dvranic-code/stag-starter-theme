@@ -19,26 +19,35 @@
 
     &--card {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: block;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      text-align: center;
       width: 100%;
       min-height: toRem(491);
+      padding-top: toRem(72);
       padding-right: toRem(24);
+      padding-bottom: toRem(72);
       padding-left: toRem(24);
       border-radius: toRem(12);
       background: linear-gradient(180deg, #FFF 0%, #E6ECFD 100%);
       overflow: hidden;
-      transition: all 0.3s $torlak-ease;
+      transition: all 0.65s $torlak-ease;
 
       &:hover {
         text-decoration: none;
       }
 
       @include breakpoint(lg, min) {
+        display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         min-height: toRem(364);
+        padding-top: 0;
+        padding-bottom: 0;
 
         &:hover .block-partner__grid--card--overlay {
           transform: translateY(0);
@@ -60,7 +69,7 @@
           top: 0;
           left: 0;
           transform: translateY(100%);
-          transition: all 0.3s $torlak-ease;
+          transition: all 0.55s ease-in-out;
         }
 
         h3 {
