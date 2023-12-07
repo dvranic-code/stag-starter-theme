@@ -204,7 +204,7 @@ onReady(() => {
   const marqueeSlider = document.getElementById('marqueeSlider');
   if (!marqueeSlider) return;
   jQuery('#marqueeSlider').grouploop({
-    velocity: 1,
+    velocity: 0.75,
     forward: false,
     pauseOnHover: true,
     childNode: ".item",
