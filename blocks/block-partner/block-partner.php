@@ -36,14 +36,14 @@ else :
 	}
 
 	$transient_key = 'select_partners_transient';
-	$expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time.
+	// $expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time to 1 day.
 
 	$select_partners = get_transient( $transient_key );
 
 	if ( false === $select_partners ) {
 		// If the transient does not exist, regenerate the data and save it as a transient.
 		$select_partners = get_field( 'select_partners' );
-		set_transient( $transient_key, $select_partners, $expiration );
+		set_transient( $transient_key, $select_partners, 0 );
 	}
 
 	?>

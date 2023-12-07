@@ -36,39 +36,40 @@ else :
 	}
 
 	$transient_key = 'select_partners_transient';
-	$expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time.
+	// $expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time for 1 day.
 
 	$select_partners = get_transient( $transient_key );
 
 	if ( false === $select_partners ) {
 		// If the transient does not exist, regenerate the data and save it as a transient.
 		$select_partners = get_field( 'select_partners' );
-		set_transient( $transient_key, $select_partners, $expiration );
+		set_transient( $transient_key, $select_partners, 0 );
 	}
-
 	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
-	<div class="partner-slider__marquee">
-	<?php
-	if ( $select_partners ) :
-		foreach ( $select_partners as $partner ) :
-			$partner_link  = get_field( 'link', $partner->ID );
-			$partner_title = get_the_title( $partner->ID );
-			if ( empty( $partner_link ) ) {
-				$partner_link = '#';
-			}
-			?>
-		<a class="partner-slider__marquee--link" href="<?php echo esc_url( $partner_link ); ?>" target="_blank" title="<?php echo esc_html( $partner_title ); ?>">
-			<?php if ( has_post_thumbnail( $partner->ID ) ) : ?>
-				<?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
-		<?php else : ?>
-		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php echo esc_html( get_the_title( $partner->ID ) ); ?>" />
-		<?php endif; ?>
-		</a>
+	<div class="partner-slider__marquee" id="marqueeSlider">
+		<div class="item-wrap">
 			<?php
-		endforeach;
-	endif;
-	?>
+			if ( $select_partners ) :
+				foreach ( $select_partners as $partner ) :
+					$partner_link  = get_field( 'link', $partner->ID );
+					$partner_title = get_the_title( $partner->ID );
+					if ( empty( $partner_link ) ) {
+						$partner_link = '#';
+					}
+					?>
+					<a class="partner-slider__marquee--link item" href="<?php echo esc_url( $partner_link ); ?>" target="_blank" title="<?php echo esc_html( $partner_title ); ?>">
+					<?php if ( has_post_thumbnail( $partner->ID ) ) : ?>
+							<?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
+					<?php else : ?>
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php echo esc_html( get_the_title( $partner->ID ) ); ?>" />
+					<?php endif; ?>
+					</a>
+					<?php
+				endforeach;
+			endif;
+			?>
+		</div>
 	</div>
 </section>
 <?php endif; ?>
