@@ -1,0 +1,29 @@
+{
+  "name": "acf/certificate-block",
+  "title": "Block: Certificate",
+  "description": "Block that displays certificates",
+  "editorStyle": "",
+  "style": [],
+  "category": "formatting",
+  "icon": "slides",
+  "keywords": [
+      "block",
+      "certificate"
+  ],
+  "acf": {
+      "mode": "edit",
+      "renderTemplate": "certificate-block.php"
+  },
+  "align": "full",
+  "supports": {
+      "anchor": true
+  },
+  "example": {
+      "attributes": {
+          "mode": "preview",
+          "data": {
+              "preview_image_help": "certificate-block-preview.png"
+          }
+      }
+  }
+}
