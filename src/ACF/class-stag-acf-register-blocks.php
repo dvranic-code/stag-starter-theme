@@ -59,6 +59,7 @@ if ( ! class_exists( 'STAG_ACF_Register_Blocks' ) ) {
 				register_block_type( get_template_directory() . '/blocks/block-profiles' );
 				register_block_type( get_template_directory() . '/blocks/block-partner' );
 				register_block_type( get_template_directory() . '/blocks/partner-slider' );
+				register_block_type( get_template_directory() . '/blocks/certificate-block' );
 			}
 		}
 	}
