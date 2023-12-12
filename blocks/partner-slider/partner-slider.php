@@ -35,16 +35,18 @@ else :
 		$class_name .= ' align' . $block['align'];
 	}
 
-	$transient_key = 'select_partners_transient';
+	// $transient_key = 'select_partners_transient';
 	// $expiration    = 12 * HOUR_IN_SECONDS; // Set the expiration time for 1 day.
 
-	$select_partners = get_transient( $transient_key );
+	// $select_partners = get_transient( $transient_key );
 
-	if ( false === $select_partners ) {
-		// If the transient does not exist, regenerate the data and save it as a transient.
-		$select_partners = get_field( 'select_partners' );
-		set_transient( $transient_key, $select_partners, 0 );
-	}
+	// if ( false === $select_partners ) {
+	// 	// If the transient does not exist, regenerate the data and save it as a transient.
+	// 	$select_partners = get_field( 'select_partners' );
+	// 	set_transient( $transient_key, $select_partners, 0 );
+	// }
+
+	$select_partners = get_field( 'select_partners' );
 	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<div class="partner-slider__marquee" id="marqueeSlider">
