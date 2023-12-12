@@ -59,7 +59,7 @@ if ( ! class_exists( 'Stag_CPT_Usluge' ) ) {
 				'labels'              => $labels,
 				'supports'            => array( 'title', 'custom-fields' ),
 				'hierarchical'        => false,
-				'public'              => false,
+				'public'              => true,
 				'show_ui'             => true,
 				'show_in_menu'        => true,
 				'menu_position'       => 5,
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Stag_CPT_Usluge' ) ) {
 			$args = array(
 				'labels'            => $labels,
 				'hierarchical'      => true,
-				'public'            => false,
+				'public'            => true,
 				'show_ui'           => true,
 				'show_admin_column' => true,
 				'show_in_nav_menus' => true,
