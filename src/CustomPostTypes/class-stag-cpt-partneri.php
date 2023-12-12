@@ -58,7 +58,7 @@ if ( ! class_exists( 'Stag_CPT_Partneri' ) ) {
 				'labels'              => $labels,
 				'supports'            => array( 'title', 'custom-fields', 'thumbnail' ),
 				'hierarchical'        => false,
-				'public'              => true,
+				'public'              => false,
 				'show_ui'             => true,
 				'show_in_menu'        => true,
 				'menu_position'       => 5,
