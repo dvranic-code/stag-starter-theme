@@ -56,6 +56,8 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 			wp_enqueue_script( 'swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), $js_version_child, true );
 
 			if ( has_block( 'acf/partner-slider', get_the_ID() ) ) {
+				// Also load jQuery script.
+				wp_enqueue_script( 'jquery' );
 				// Grouploop script.
 				wp_enqueue_script( 'grouploop-script', get_stylesheet_directory_uri() . '/assets/public/dist/js/external/grouploop-1.0.3.min.js', array(), $js_version_child, true );
 			}
