@@ -5611,3 +5611,20 @@ body .gform-theme--foundation .gform_page_footer {
   font-weight: 400;
   line-height: normal;
 }
+
+.img-popup {
+  height: auto;
+  backdrop-filter: blur(4px);
+}
+@media (min-width: 768px) {
+  .img-popup img {
+    height: 65vh;
+    max-height: 28.125rem;
+  }
+}
+@media (min-width: 1024px) {
+  .img-popup img {
+    height: 90vh;
+    max-height: 50rem;
+  }
+}

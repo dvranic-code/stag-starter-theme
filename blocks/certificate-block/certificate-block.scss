@@ -114,3 +114,21 @@
 
   }
 }
+
+.img-popup {
+  height: auto;
+  backdrop-filter: blur(4px);
+
+  img {
+
+    @include breakpoint(md, min) {
+      height: 65vh;
+      max-height: toRem(450);
+    }
+
+    @include breakpoint(lg, min) {
+      height: 90vh;
+      max-height: toRem(800);
+    }
+  }
+}
