@@ -13,16 +13,16 @@ function imgPopup() {
       popup.style.left = "0";
       popup.style.width = "100%";
       popup.style.height = "100%";
-      popup.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+      popup.style.backgroundColor = "rgba(0, 0, 0, 0.25)";
       popup.style.display = "flex";
       popup.style.justifyContent = "center";
       popup.style.alignItems = "center";
       popup.style.zIndex = "1000";
+      popup.classList.add("img-popup");
 
       let img = document.createElement("img");
       img.src = this.getAttribute("data-img-url"); // get the image URL from the data attribute
       img.style.maxWidth = "90%";
-      img.style.maxHeight = "90%";
 
       popup.appendChild(img);
       document.body.appendChild(popup);
