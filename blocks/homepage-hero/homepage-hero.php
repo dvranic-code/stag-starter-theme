@@ -42,29 +42,50 @@ else :
 	$video_background_mobile = get_field( 'video_background_mobile' );
 	$image_background        = get_field( 'image_background' );
 	$playlist_id             = get_field( 'playlist_id' );
+	$mobile_playlist_id      = get_field( 'mobile_playlist_id' );
 
-	if ( $video_background ) :
+	/**
+	 * Process the video background.
+	 *
+	 * @param string $video_background The video background.
+	 * @param int    $playlist_id The playlist ID.
+	 * @param array  $params Additional parameters.
+	 * @return string The processed video background.
+	 */
+	function process_video_background( $video_background, $playlist_id, $params ) {
+		if ( $video_background ) {
+			preg_match( '/src="(.+?)"/', $video_background, $matches );
+			$src = $matches[1];
 
-		preg_match( '/src="(.+?)"/', $video_background, $matches );
-		$src = $matches[1];
+			$new_src          = add_query_arg( $params, $src );
+			$video_background = str_replace( $src, $new_src, $video_background );
+			$video_background = str_replace( 'frameborder="0"', '', $video_background );
+		}
 
-		$params = array(
-			'rel'      => 0,
-			'autoplay' => 1,
-			'loop'     => 1,
-			'mute'     => 1,
-			'controls' => 0,
-			'hd'       => 1,
-			'autohide' => 1,
-			'playlist' => $playlist_id,
-		);
+		return $video_background;
+	}
 
-		$new_src          = add_query_arg( $params, $src );
-		$video_background = str_replace( $src, $new_src, $video_background );
+	$desktop_params = array(
+		'rel'      => 0,
+		'autoplay' => 1,
+		'loop'     => 1,
+		'mute'     => 1,
+		'controls' => 0,
+		'hd'       => 1,
+		'autohide' => 1,
+		'playlist' => $playlist_id,
+	);
 
-		$video_background = str_replace( 'frameborder="0"', '', $video_background );
-
-endif;
+	$mobile_params = array(
+		'rel'      => 0,
+		'autoplay' => 1,
+		'loop'     => 1,
+		'mute'     => 1,
+		'controls' => 0,
+		'hd'       => 1,
+		'autohide' => 1,
+		'playlist' => $mobile_playlist_id,
+	);
 
 	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
@@ -78,11 +99,11 @@ endif;
 	</div>
 	<div class="homepage-hero__background">
 		<?php if ( $video_background ) : ?>
-		<div class="homepage-hero__background--video">
-			<?php echo $video_background; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<div class="homepage-hero__background--video hide--sm show--lg">
+			<?php echo $video_background = process_video_background( $video_background, $playlist_id, $desktop_params ); // phpcs:ignore ?>
 		</div>
-		<div class="homepage-hero__background--video hide--lg hide--sm">
-			<?php echo $video_background_mobile; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<div class="homepage-hero__background--video hide--lg show--sm">
+			<?php echo $video_background_mobile = process_video_background( $video_background_mobile, $playlist_id, $mobile_params ); // phpcs:ignore ?>
 		</div>
 		<?php elseif ( $image_background ) : ?>
 		<figure class="homepage-hero__background--image">
