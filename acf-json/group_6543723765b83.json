@@ -92,6 +92,34 @@
             "append": ""
         },
         {
+            "key": "field_657ad4727a476",
+            "label": "Mobile Playlist ID",
+            "name": "mobile_playlist_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This field is important because of the autoplay. This is the last string of the YouTube URL https:\/\/www.youtube.com\/watch?v=DqEKYVet7Do",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_654372a9cf96a",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "DqEKYVet7Do",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_654372f1cf96b",
             "label": "Video Background Desktop",
             "name": "video_background",
@@ -193,5 +221,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699022102
+    "modified": 1702548620
 }

@@ -67,9 +67,6 @@ if ( ! class_exists( 'STAG_Ajax' ) ) {
 				$query->is_search = true;
 			}
 
-			// error_log( var_export( $args, true ) );
-			// error_log( 'QUERY____' . var_export( $query->found_posts, true ) );
-
 			$data = '';
 
 			if ( $query->have_posts() ) {

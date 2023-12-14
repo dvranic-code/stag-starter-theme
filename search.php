@@ -8,6 +8,8 @@
  */
 
 get_header();
+
+error_log( var_export( $wp_query->found_posts, true ) );
 ?>
 
 <main id="primary" class="site-main" data-search="is-search" data-page="<?php echo esc_attr( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ); ?>" data-max="<?php echo esc_attr( $wp_query->max_num_pages ); ?>">
