@@ -1,0 +1,23 @@
+.block-services {
+    .wp-block-table {
+        td,th {
+            min-width: unset;
+    
+            &:nth-of-type(3) {
+                display: none;
+            }
+        }
+
+    } 
+
+    @media(min-width: 768px) {
+        .wp-block-table {
+            td,th {
+                &:nth-of-type(3) {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+        
+}

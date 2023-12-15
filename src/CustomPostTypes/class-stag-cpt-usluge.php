@@ -71,7 +71,7 @@ if ( ! class_exists( 'Stag_CPT_Usluge' ) ) {
 				'slug'                => 'dijagnosticke-usluge',
 				'has_archive'         => false,
 				'exclude_from_search' => true,
-				'publicly_queryable'  => false,
+				'publicly_queryable'  => true,
 				'capability_type'     => 'post',
 				'show_in_rest'        => true,
 			);
@@ -114,6 +114,7 @@ if ( ! class_exists( 'Stag_CPT_Usluge' ) ) {
 				'show_admin_column' => true,
 				'show_in_nav_menus' => true,
 				'show_in_rest'      => true,
+				'publicly_queryable'=> true
 			);
 
 			register_taxonomy( 'tip_dijagnostike', array( 'usluge' ), $args );

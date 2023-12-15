@@ -1,0 +1,29 @@
+{
+    "name": "acf/block-services",
+    "title": "Services",
+    "description": "Block that displays table of all services",
+    "editorStyle": "",
+    "style": [],
+    "category": "formatting",
+    "icon": "table",
+    "keywords": [
+        "block",
+        "services"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "block-services.php"
+    },
+    "align": "full",
+    "supports": {
+        "anchor": true
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_help": "block-partner-preview.png"
+            }
+        }
+    }
+  }
