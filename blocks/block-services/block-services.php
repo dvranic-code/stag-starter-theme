@@ -43,6 +43,13 @@ else :
 		)
 	);
 
+	$lang = pll_current_language();
+	if ( 'en' === $lang ) {
+		$curency = 'EUR';
+	} else {
+		$curency = 'РСД';
+	}
+
 	?>
 	<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 		<?php
@@ -71,9 +78,9 @@ else :
 						<thead>
 							<tr>
 								<th class="has-text-align-left" data-align="left"></th>
-								<th class="has-text-align-left" data-align="left">Назив услуге</th>
-								<th class="has-text-align-center" data-align="center">Обртно време издавања резултата</th>
-								<th class="has-text-align-right" data-align="right">Цена за комерцијално пружање услуге</th>
+								<th class="has-text-align-left" data-align="left"><?php pll_e( 'Назив услуге' ); ?></th>
+								<th class="has-text-align-center" data-align="center" style="width: 160px"><?php pll_e( 'Време издавања резултата (радни дани)' ); ?></th>
+								<th class="has-text-align-right" data-align="right" style="width: 150px"><?php pll_e( 'Цена услуге' ); ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -89,7 +96,7 @@ else :
 								<td class="has-text-align-left" data-align="left"><input type="checkbox"></td>
 								<td class="has-text-align-left" data-align="left"><?php echo esc_html( $service_name ); ?></td>
 								<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_time ); ?></td>
-								<td class="has-text-align-right" data-align="right"><?php echo esc_html( $service_price ) . ' RSD'; ?></td>
+								<td class="has-text-align-right" data-align="right"><?php echo esc_html( $service_price . ' ' . $curency ); ?></td>
 							</tr>
 							
 						<?php endwhile; ?>
