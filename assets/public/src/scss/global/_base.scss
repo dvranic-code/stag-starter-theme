@@ -270,3 +270,18 @@ body .gform_button {
     color: wpColor(tl-blue-4) !important;
   }
 }
+
+body .map-popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: toRem(250);
+  height: toRem(250);
+
+  img {
+    display: inline;
+    width: auto;
+    height: toRem(150);
+  }
+}
