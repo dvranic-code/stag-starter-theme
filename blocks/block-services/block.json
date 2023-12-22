@@ -5,7 +5,7 @@
     "editorStyle": "",
     "style": [],
     "category": "formatting",
-    "icon": "table",
+    "icon": "editor-table",
     "keywords": [
         "block",
         "services"
@@ -22,7 +22,7 @@
         "attributes": {
             "mode": "preview",
             "data": {
-                "preview_image_help": "block-partner-preview.png"
+                "preview_image_help": "block-services-preview.jpg"
             }
         }
     }

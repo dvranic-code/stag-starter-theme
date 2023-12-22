@@ -38,7 +38,7 @@ else :
 	$section_title        = get_field( 'section_title' );
 	$section_title_text   = get_field( 'section_title_text' );
 	$block_image          = get_field( 'block_image' );
-	$add_block_image      = get_field( 'add_block_image' );
+	$block_images         = get_field( 'block_images' );
 	$block_image_aligment = get_field( 'block_image_aligment' );
 	$block_title          = get_field( 'block_title' );
 	$block_description    = get_field( 'block_description' );
@@ -53,9 +53,15 @@ else :
 	<div class="row <?php echo 'right' === $block_image_aligment ? 'row-reverse' : ''; ?>">
 	<?php if ( $block_image ) : ?>
 	<div class="col-lg-6">
-		<figure class="homepage-mega__block-image<?php echo ! $block_title ? ' mb--sm40' : ''; ?>">
-		<?php echo wp_get_attachment_image( $add_block_image, 'full' ); ?>
-		</figure>
+		<?php if ( $block_images ) : ?>
+			<div class="homepage-mega__images-container">
+				<?php foreach ( $block_images as $item ) : ?>
+					<figure class="homepage-mega__block-image">
+						<?php echo wp_get_attachment_image( $item['image'], 'large' ); ?>
+					</figure>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
 	</div>
 	<?php endif; ?>
 	<div class="<?php echo $block_image ? 'col-lg-6' : 'col-lg-12'; ?>">

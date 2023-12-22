@@ -62,11 +62,17 @@ else :
 		function display_slide( $post_object ) {
 			$post = $post_object;
 			setup_postdata( $post );
+			$additional_images = get_field( 'additional_images', $post_object->ID );
 			?>
 		<div class="swiper-slide">
 			<div class="content-slider__swiper--img-wrap">
 				<?php if ( has_post_thumbnail( $post_object->ID ) ) : ?>
 					<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
+					<?php if ( $additional_images ) : ?>
+						<?php foreach ( $additional_images as $item ) : ?>
+							<?php echo wp_get_attachment_image( $item['image'], 'large' ); ?>
+						<?php endforeach; ?>
+					<?php endif; ?>
 				<?php else : ?>
 					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
 				<?php endif; ?>
