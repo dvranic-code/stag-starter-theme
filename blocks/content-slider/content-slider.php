@@ -78,7 +78,9 @@ else :
 						<?php endforeach; ?>
 					<?php endif; ?>
 				<?php else : ?>
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
+					<div class="tor-fade__item">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-image.jpg" alt="<?php the_title_attribute(); ?>" />
+					</div>
 				<?php endif; ?>
 			</div>
 			<h4 class="content-slider__swiper--title"><a href="<?php echo esc_url( get_permalink( $post_object ) ); ?>"><?php echo esc_html( $post_object->post_title ); ?></a></h4>
