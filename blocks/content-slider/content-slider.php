@@ -65,12 +65,16 @@ else :
 			$additional_images = get_field( 'additional_images', $post_object->ID );
 			?>
 		<div class="swiper-slide">
-			<div class="content-slider__swiper--img-wrap">
+			<div class="content-slider__swiper--img-wrap tor-fade">
 				<?php if ( has_post_thumbnail( $post_object->ID ) ) : ?>
-					<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
+					<div class="tor-fade__item">
+						<?php echo get_the_post_thumbnail( $post_object->ID, 'full' ); ?>
+					</div>
 					<?php if ( $additional_images ) : ?>
 						<?php foreach ( $additional_images as $item ) : ?>
-							<?php echo wp_get_attachment_image( $item['image'], 'large' ); ?>
+							<div class="tor-fade__item">
+								<?php echo wp_get_attachment_image( $item['image'], 'large' ); ?>
+							</div>
 						<?php endforeach; ?>
 					<?php endif; ?>
 				<?php else : ?>
