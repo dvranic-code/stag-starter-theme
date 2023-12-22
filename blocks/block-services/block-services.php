@@ -16,7 +16,7 @@
 
 if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in inserter preview  */
 
-  echo '<img src="' . get_template_directory_uri() . '/blocks/block-partner/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
+  echo '<img src="' . get_template_directory_uri() . '/blocks/block-services/' . $block['data']['preview_image_help'] . '" style="width:100%; height:auto;">'; //phpcs:ignore
 
 else :
 

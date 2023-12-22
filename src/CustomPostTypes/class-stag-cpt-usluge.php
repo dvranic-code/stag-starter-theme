@@ -107,14 +107,14 @@ if ( ! class_exists( 'Stag_CPT_Usluge' ) ) {
 			);
 
 			$args = array(
-				'labels'            => $labels,
-				'hierarchical'      => true,
-				'public'            => false,
-				'show_ui'           => true,
-				'show_admin_column' => true,
-				'show_in_nav_menus' => true,
-				'show_in_rest'      => true,
-				'publicly_queryable'=> true
+				'labels'             => $labels,
+				'hierarchical'       => true,
+				'public'             => false,
+				'show_ui'            => true,
+				'show_admin_column'  => true,
+				'show_in_nav_menus'  => true,
+				'show_in_rest'       => true,
+				'publicly_queryable' => true,
 			);
 
 			register_taxonomy( 'tip_dijagnostike', array( 'usluge' ), $args );
