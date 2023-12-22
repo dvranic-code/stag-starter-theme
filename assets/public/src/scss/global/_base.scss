@@ -277,14 +277,15 @@ body .map-popup {
   justify-content: center;
   align-items: center;
   width: toRem(250);
-  height: toRem(300);
+  height: toRem(315);
   box-sizing: content-box;
   white-space: pre-line;
 
   img {
     display: inline;
-    width: auto;
-    height: toRem(125);
+    width: toRem(150);
+    height: auto;
+
   }
 
   h3 {
