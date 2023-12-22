@@ -277,11 +277,19 @@ body .map-popup {
   justify-content: center;
   align-items: center;
   width: toRem(250);
-  height: toRem(250);
+  height: toRem(300);
+  box-sizing: content-box;
+  white-space: pre-line;
 
   img {
     display: inline;
     width: auto;
-    height: toRem(150);
+    height: toRem(125);
+  }
+
+  h3 {
+    margin-top: toRem(9);
+    color: red;
+    text-align: center;
   }
 }
