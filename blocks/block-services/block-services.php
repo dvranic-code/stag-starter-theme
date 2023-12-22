@@ -80,7 +80,7 @@ else :
 								<th class="has-text-align-left" data-align="left"></th>
 								<th class="has-text-align-left" data-align="left"><?php pll_e( 'Назив услуге' ); ?></th>
 								<th class="has-text-align-center" data-align="center" style="width: 160px"><?php pll_e( 'Време издавања резултата (радни дани)' ); ?></th>
-								<th class="has-text-align-right" data-align="right" style="width: 150px"><?php pll_e( 'Цена услуге' ); ?></th>
+								<th class="has-text-align-right" data-align="right" style="width: 130px"><?php pll_e( 'Цена услуге' ); ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -93,10 +93,10 @@ else :
 							?>
 							
 							<tr>
-								<td class="has-text-align-left" data-align="left"><input type="checkbox"></td>
-								<td class="has-text-align-left" data-align="left"><?php echo esc_html( $service_name ); ?></td>
+								<td class="has-text-align-left tor-service-checkbox" data-align="left"><input type="checkbox"></td>
+								<td class="has-text-align-left tor-service-name" data-align="left"><?php echo esc_html( $service_name ); ?></td>
 								<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_time ); ?></td>
-								<td class="has-text-align-right" data-align="right"><?php echo esc_html( $service_price . ' ' . $curency ); ?></td>
+								<td class="has-text-align-right tor-service-price" data-align="right" data-tor-curency="<?php echo esc_html( $curency ); ?>"><?php echo esc_html( $service_price . ' ' . $curency ); ?></td>
 							</tr>
 							
 						<?php endwhile; ?>
@@ -108,5 +108,28 @@ else :
 			wp_reset_postdata();
 		endforeach;
 		?>
+
+		<!-- Table to show choosen services -->
+		<figure class="wp-block-table is-style-stripes tor-service-choosen">
+			<h3><?php pll_e( 'Изабрали сте следеће услуге:' ); ?></h3>
+			<table>
+				<thead>
+					<tr>
+						<th class="has-text-align-left" data-align="left" style="width: 36px"><?php pll_e( 'Бр.' ); ?></th>
+						<th class="has-text-align-left" data-align="left"><?php pll_e( 'Назив услуге' ); ?></th>
+						<th class="has-text-align-right" data-align="right" style="width: 130px"><?php pll_e( 'Цена' ); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="has-text-align-left" data-align="left"></td>
+						<td class="has-text-align-right" data-align="right"><strong><?php pll_e( 'Укупно:' ); ?></strong></td>
+						<td class="has-text-align-right tor-service-total" data-align="right"></td>
+					</tr>
+				</tfoot>
+			</table>
+		</figure>
 	</section>
 <?php endif; ?>
