@@ -32,3 +32,5 @@ pll_register_string( 'general', 'Изгледа да не можемо прон�
 pll_register_string( 'service_name', 'Назив услуге', 'general' );
 pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
 pll_register_string( 'service_price', 'Цена услуге', 'general' );
+pll_register_string( 'service_no', 'Бр.', 'general' );
+pll_register_string( 'service_price_short', 'Цена', 'general' );
