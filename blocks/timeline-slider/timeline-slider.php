@@ -69,7 +69,7 @@ else :
 							<div class="timeline-slider__content">
 								<?php if ( $timeline_image ) : ?>
 								<div class="timeline-slider__content--image">
-									<?php echo wp_get_attachment_image( $timeline_image, 'full' ); ?>
+									<?php echo wp_get_attachment_image( $timeline_image, 'full', false, array( 'loading' => 'lazy' ) ); ?>
 								</div>
 								<?php endif; ?>
 								<div class="timeline-slider__content--text">

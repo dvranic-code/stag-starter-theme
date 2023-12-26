@@ -42,7 +42,7 @@ else :
 	<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
 	<?php if ( $block_image ) : ?>
 	<figure class="title-block__image">
-		<?php echo wp_get_attachment_image( $block_image, 'full' ); ?>
+		<?php echo wp_get_attachment_image( $block_image, 'full', false, array( 'loading' => 'lazy' ) ); ?>
 	</figure>
 	<?php endif; ?>
 	<div class="title-block__container container">

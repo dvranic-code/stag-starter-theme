@@ -73,7 +73,7 @@ else :
 					<?php if ( $additional_images ) : ?>
 						<?php foreach ( $additional_images as $item ) : ?>
 							<div class="tor-fade__item">
-								<?php echo wp_get_attachment_image( $item['image'], 'large' ); ?>
+								<?php echo wp_get_attachment_image( $item['image'], 'large', false, array( 'loading' => 'lazy' ) ); ?>
 							</div>
 						<?php endforeach; ?>
 					<?php endif; ?>

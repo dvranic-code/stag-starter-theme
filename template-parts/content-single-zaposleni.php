@@ -94,7 +94,7 @@ $telefon  = get_field( 'telefon' );
 										?>
 										<li>
 											<a href="<?php the_sub_field( 'link' ); ?>" target="_blank">
-												<?php echo wp_get_attachment_image( $mreza, 'full' ); ?>
+												<?php echo wp_get_attachment_image( $mreza, 'full', false, array( 'loading' => 'lazy' ) ); ?>
 											</a>
 										</li>
 									<?php endwhile; ?>

@@ -107,7 +107,7 @@ else :
 		</div>
 		<?php elseif ( $image_background ) : ?>
 		<figure class="homepage-hero__background--image">
-			<?php echo wp_get_attachment_image( $image_background, 'full' ); ?>
+			<?php echo wp_get_attachment_image( $image_background, 'full', false, array( 'loading' => 'lazy' ) ); ?>
 		</figure>
 		<?php endif; ?>
 	</div>

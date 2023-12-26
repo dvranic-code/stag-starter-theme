@@ -92,7 +92,7 @@ if ( 'sr' === $current_language ) {
 							<?php endif; ?>
 						<?php if ( $widget_image ) : ?>
 							<figure class="single-widget__image">
-								<?php echo wp_get_attachment_image( $widget_image, 'full' ); ?>
+								<?php echo wp_get_attachment_image( $widget_image, 'full', false, array( 'loading' => 'lazy' ) ); ?>
 							</figure>
 							<?php endif; ?>
 						<?php if ( $widget_text ) : ?>

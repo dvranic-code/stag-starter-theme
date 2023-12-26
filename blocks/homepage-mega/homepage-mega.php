@@ -57,7 +57,7 @@ else :
 			<div class="homepage-mega__images-container tor-fade">
 				<?php foreach ( $block_images as $item ) : ?>
 					<figure class="homepage-mega__block-image tor-fade__item">
-						<?php echo wp_get_attachment_image( $item['image'], 'large' ); ?>
+						<?php echo wp_get_attachment_image( $item['image'], 'large', false, array( 'loading' => 'lazy' ) ); ?>
 					</figure>
 				<?php endforeach; ?>
 			</div>
