@@ -1,4 +1,6 @@
 .block-services {
+    position: relative;
+
     .wp-block-table {
         td,th {
             min-width: unset;
@@ -51,7 +53,26 @@
             right: 0;
         }
     }
-        
+       
+    &__search {
+        position: sticky;
+        top: 110px;
+        z-index: 99;
+        background-color: #fff;
+        padding: 24px 0;
+
+        label {
+            margin-top: 12px;
+            display: block;
+        }
+
+        .search-form__search-field {
+            width: 100%;
+            font-size: 16px;
+            padding: 16px;
+        }
+
+    }
 }
 
 @media(min-width: 768px) {
@@ -75,6 +96,37 @@
             &.is-active {
                 right: 30px;
             }
+        }
+
+        &__search {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+
+            h3 {
+                margin: 0;
+            }
+
+            label {
+                flex: 1;
+                margin-top: 0;
+                margin-left: 16px;
+            }
+    
+            .btn {
+                width: unset;
+            }
+    
+        }
+    }
+}
+
+@media(min-width: 1140px) {
+    .block-services {
+
+        &__search {
+            top: 130px;
+    
         }
     }
 }

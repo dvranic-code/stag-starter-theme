@@ -58,6 +58,32 @@ const chooseService = () => {
     });
 
     isActive();
+
+    // Filtering table
+    const filterInput = document.querySelector(".block-services__search .search-form__search-field");
+
+    if (filterInput) {
+      filterInput.addEventListener("keyup", () => {
+        const filter = filterInput.value.toUpperCase();
+        const tables = document.querySelectorAll(".block-services .tor-service-table table");
+
+        tables.forEach((table) => {
+          const tr = table.querySelectorAll("tbody tr");
+          for (let i = 0; i < tr.length; i++) {
+            const td = tr[i].querySelectorAll("td")[1];
+            if (td) {
+              const txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        });
+    
+      });
+    }
   }
 };
 

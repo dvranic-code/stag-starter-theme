@@ -52,6 +52,13 @@ else :
 
 	?>
 	<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
+		<div class="block-services__search">
+			<h3><?php pll_e( 'Филтер' ); ?></h3>
+			<label>
+				<span class="screen-reader-text"><?php pll_e( 'Тражим...' ); ?></span>
+				<input type="search" class="search-form__search-field" placeholder="<?php pll_e( 'Тражим...' ); ?>" value="" name="s" />
+			</label>
+		</div>
 		<?php
 		foreach ( $terms as $service_term ) :
 			$service_title = $service_term->name;
@@ -73,7 +80,7 @@ else :
 			if ( $service_query->have_posts() ) :
 				?>
 				<h2><?php echo esc_html( $service_title ); ?></h2>
-				<figure class="wp-block-table is-style-stripes">
+				<figure class="wp-block-table is-style-stripes tor-service-table">
 					<table>
 						<thead>
 							<tr>
