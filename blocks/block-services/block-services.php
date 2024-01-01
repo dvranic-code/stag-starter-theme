@@ -45,9 +45,11 @@ else :
 
 	$lang = pll_current_language();
 	if ( 'en' === $lang ) {
-		$curency = 'EUR';
+		$curency     = 'EUR';
+		$booking_url = get_field( 'booking_page_en', 'option' );
 	} else {
-		$curency = 'РСД';
+		$curency     = 'РСД';
+		$booking_url = get_field( 'booking_page_rs', 'option' );
 	}
 
 	?>
@@ -94,6 +96,7 @@ else :
 						<?php
 						while ( $service_query->have_posts() ) :
 							$service_query->the_post();
+							$service_id    = get_the_ID();
 							$service_name  = get_the_title();
 							$service_time  = get_field( 'obrtno_vreme_izdavanja_rezultata', get_the_ID() );
 							$service_price = get_field( 'cena', get_the_ID() );
@@ -101,7 +104,7 @@ else :
 							
 							<tr>
 								<td class="has-text-align-left tor-service-checkbox" data-align="left"><input type="checkbox"></td>
-								<td class="has-text-align-left tor-service-name" data-align="left"><?php echo esc_html( $service_name ); ?></td>
+								<td class="has-text-align-left tor-service-name" data-align="left" data-service-id="<?php echo esc_html( $service_id ); ?>"><?php echo esc_html( $service_name ); ?></td>
 								<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_time ); ?></td>
 								<td class="has-text-align-right tor-service-price" data-align="right" data-tor-curency="<?php echo esc_html( $curency ); ?>"><?php echo esc_html( $service_price . ' ' . $curency ); ?></td>
 							</tr>
@@ -137,6 +140,9 @@ else :
 					</tr>
 				</tfoot>
 			</table>
+			<div style="text-align:right; margin-top:21px;">
+				<a href="<?php echo esc_url( $booking_url ); ?>" class="btn btn-sm btn-booking"><?php pll_e( 'Закажи' ); ?></a>
+			</div>
 		</figure>
 	</section>
 <?php endif; ?>

@@ -1,13 +1,13 @@
 {
-    "key": "group_654511a3ceaa2",
-    "title": "Blog Featured Post",
+    "key": "group_65929d5ccea13",
+    "title": "GENERAL: Booking URLs",
     "fields": [
         {
-            "key": "field_654511a4dbfc4",
-            "label": "Select Featured Post (RS)",
-            "name": "select_featured_post",
+            "key": "field_65929d5df4399",
+            "label": "Booking Page (RS)",
+            "name": "booking_page_rs",
             "aria-label": "",
-            "type": "post_object",
+            "type": "page_link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,23 +17,20 @@
                 "id": ""
             },
             "post_type": [
-                "post"
+                "page"
             ],
             "post_status": "",
             "taxonomy": "",
-            "return_format": "object",
+            "allow_archives": 1,
             "multiple": 0,
-            "allow_null": 0,
-            "bidirectional": 0,
-            "ui": 1,
-            "bidirectional_target": []
+            "allow_null": 0
         },
         {
-            "key": "field_65929d300564d",
-            "label": "Select Featured Post (EN)",
-            "name": "select_featured_post_en",
+            "key": "field_65929d9fde78f",
+            "label": "Booking Page (EN)",
+            "name": "booking_page_en",
             "aria-label": "",
-            "type": "post_object",
+            "type": "page_link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -43,16 +40,13 @@
                 "id": ""
             },
             "post_type": [
-                "post"
+                "page"
             ],
             "post_status": "",
             "taxonomy": "",
-            "return_format": "object",
+            "allow_archives": 1,
             "multiple": 0,
-            "allow_null": 0,
-            "bidirectional": 0,
-            "ui": 1,
-            "bidirectional_target": []
+            "allow_null": 0
         }
     ],
     "location": [
@@ -73,5 +67,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704107338
+    "modified": 1704107487
 }

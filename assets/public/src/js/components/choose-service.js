@@ -5,6 +5,10 @@ const chooseService = () => {
   const pickedService = document.querySelector(".tor-service-choosen");
 
   if (pickedService) {
+    const bookingBtn = pickedService.querySelector(".btn-booking");
+    const bookingHref = bookingBtn.getAttribute("href");
+    const bookingQueryParm = '?service_list=';
+    
     const isActive = () => {
       const row = pickedService.querySelectorAll("tbody tr");
       if (0 !== row.length) {
@@ -21,6 +25,8 @@ const chooseService = () => {
         pickedService.querySelector("tbody").innerHTML = "";
         // reset total
         let total = 0;
+        // reset booking list
+        let bookingList = "";
 
         // get total cell
         const totalCell = pickedService.querySelector(".tor-service-total");
@@ -52,8 +58,18 @@ const chooseService = () => {
           pickedService.querySelector("tbody").appendChild(clonedRow);
           // update Total in footer
           totalCell.innerHTML = (total += parseInt(price.innerHTML)) + " " + currency;
+          // update booking list
+          if(index === 0) {
+            bookingList += clonedName.dataset.serviceId;
+          } else {
+            bookingList += "," + clonedName.dataset.serviceId;
+          }
+
         });
         isActive();
+
+        // update booking button
+        bookingBtn.setAttribute("href", bookingHref + bookingQueryParm + encodeURIComponent(bookingList));
       });
     });
 
