@@ -40,6 +40,7 @@ else :
 		array(
 			'taxonomy'   => 'tip_dijagnostike',
 			'hide_empty' => true,
+			'order'      => 'DESC',
 		)
 	);
 
@@ -61,64 +62,80 @@ else :
 				<input type="search" class="search-form__search-field" placeholder="<?php pll_e( 'Тражим...' ); ?>" value="" name="s" />
 			</label>
 		</div>
-		<?php
-		foreach ( $terms as $service_term ) :
-			$service_title = $service_term->name;
-			$service_slug  = $service_term->slug;
+		<figure class="wp-block-table is-style-stripes tor-service-table">
+			<table>
+				<thead>
+					<tr>
+						<th class="has-text-align-left" data-align="left"></th>
+						<th class="has-text-align-left" data-align="left"><?php pll_e( 'Категорија' ); ?></th>
+						<th class="has-text-align-left" data-align="left"><?php pll_e( 'Назив услуге' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php pll_e( 'Могуће на упут лекара (РФЗО)' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php pll_e( 'Могуће на лични захтев (плаћање)' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php pll_e( 'Узорак' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php pll_e( 'Метода' ); ?></th>
+						<th class="has-text-align-center" data-align="center"><?php pll_e( 'Време издавања резултата (радни дани)' ); ?></th>
+						<th class="has-text-align-right" data-align="right"><?php pll_e( 'Цена услуге' ); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php
+				foreach ( $terms as $service_term ) :
+					$service_title = $service_term->name;
+					$service_slug  = $service_term->slug;
 
-			$service_query = new WP_Query(
-				array(
-					'post_type'      => 'usluge',
-					'posts_per_page' => -1,
-					'tax_query'      => array(
+					$service_query = new WP_Query(
 						array(
-							'taxonomy' => 'tip_dijagnostike',
-							'field'    => 'slug',
-							'terms'    => $service_slug,
-						),
-					),
-				)
-			);
-			if ( $service_query->have_posts() ) :
-				?>
-				<h2><?php echo esc_html( $service_title ); ?></h2>
-				<figure class="wp-block-table is-style-stripes tor-service-table">
-					<table>
-						<thead>
-							<tr>
-								<th class="has-text-align-left" data-align="left"></th>
-								<th class="has-text-align-left" data-align="left"><?php pll_e( 'Назив услуге' ); ?></th>
-								<th class="has-text-align-center" data-align="center" style="width: 160px"><?php pll_e( 'Време издавања резултата (радни дани)' ); ?></th>
-								<th class="has-text-align-right" data-align="right" style="width: 130px"><?php pll_e( 'Цена услуге' ); ?></th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php
+							'post_type'      => 'usluge',
+							'posts_per_page' => -1,
+							'tax_query'      => array( // phpcs:ignore
+								array(
+									'taxonomy' => 'tip_dijagnostike',
+									'field'    => 'slug',
+									'terms'    => $service_slug,
+								),
+							),
+
+						)
+					);
+					if ( $service_query->have_posts() ) :
+
 						while ( $service_query->have_posts() ) :
 							$service_query->the_post();
-							$service_id    = get_the_ID();
-							$service_name  = get_the_title();
-							$service_time  = get_field( 'obrtno_vreme_izdavanja_rezultata', get_the_ID() );
-							$service_price = get_field( 'cena', get_the_ID() );
-							?>
-							
-							<tr>
-								<td class="has-text-align-left tor-service-checkbox" data-align="left"><input type="checkbox"></td>
-								<td class="has-text-align-left tor-service-name" data-align="left" data-service-id="<?php echo esc_html( $service_id ); ?>"><?php echo esc_html( $service_name ); ?></td>
-								<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_time ); ?></td>
-								<td class="has-text-align-right tor-service-price" data-align="right" data-tor-curency="<?php echo esc_html( $curency ); ?>"><?php echo esc_html( $service_price . ' ' . $curency ); ?></td>
-							</tr>
-							
-						<?php endwhile; ?>
-						</tbody>
-					</table>
-				</figure>
-				<?php
-		endif;
-			wp_reset_postdata();
-		endforeach;
-		?>
+							$service_id     = get_the_ID();
+							$service_name   = get_the_title();
+							$service_rfzo   = get_field( 'moguce_na_uput_lekara', get_the_ID() );
+							$service_buy    = get_field( 'moguce_na_licni_zahtev', get_the_ID() );
+							$service_sample = get_field( 'preporucen_uzorak', get_the_ID() );
+							$service_method = get_field( 'metoda', get_the_ID() );
+							$service_time   = get_field( 'obrtno_vreme_izdavanja_rezultata', get_the_ID() );
+							$service_price  = get_field( 'cena', get_the_ID() );
+							$is_available   = get_field( 'is_available', get_the_ID() );
 
+							if ( $is_available ) :
+								?>
+							
+								<tr>
+									<td class="has-text-align-left tor-service-checkbox" data-align="left"><input type="checkbox"></td>
+									<td class="has-text-align-left" data-align="left"><?php echo esc_html( $service_title ); ?></td>
+									<td class="has-text-align-left tor-service-name" data-align="left" data-service-id="<?php echo esc_html( $service_id ); ?>"><?php echo esc_html( $service_name ); ?></td>
+									<td class="has-text-align-center" data-align="center"><?php ( $service_rfzo ) ? pll_e( 'ДА' ) : pll_e( 'НЕ' ); ?></td>
+									<td class="has-text-align-center" data-align="center"><?php ( $service_buy ) ? pll_e( 'ДА' ) : pll_e( 'НЕ' ); ?></td>
+									<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_sample ); ?></td>
+									<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_method ); ?></td>
+									<td class="has-text-align-center" data-align="center"><?php echo esc_html( $service_time ); ?></td>
+									<td class="has-text-align-right tor-service-price" data-align="right" data-tor-curency="<?php echo esc_html( $curency ); ?>"><?php echo esc_html( $service_price . ' ' . $curency ); ?></td>
+								</tr>
+
+								<?php
+							endif;
+						endwhile;
+					endif;
+					wp_reset_postdata();
+				endforeach;
+				?>
+				</tbody>
+			</table>
+		</figure>
 		<!-- Table to show choosen services -->
 		<figure class="wp-block-table is-style-stripes tor-service-choosen">
 			<h3><?php pll_e( 'Изабрали сте следеће услуге:' ); ?></h3>

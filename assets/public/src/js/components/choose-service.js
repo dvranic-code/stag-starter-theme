@@ -86,7 +86,7 @@ const chooseService = () => {
         tables.forEach((table) => {
           const tr = table.querySelectorAll("tbody tr");
           for (let i = 0; i < tr.length; i++) {
-            const td = tr[i].querySelectorAll("td")[1];
+            const td = tr[i].querySelectorAll("td")[2]; // 3rd column
             if (td) {
               const txtValue = td.textContent || td.innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {

@@ -44,6 +44,24 @@ body .gform_wrapper {
       }
     }
   }
+
+  .gform-zakazivanje {
+    .gform_body {
+      .gfield_radio {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px 12px;
+
+        .gchoice {
+          flex: 0 0 calc(50% - 6px);
+
+          @include breakpoint(md, min) {
+            flex: 0 0 calc(25% - 9px);
+          }
+        }
+      }
+    }
+  }
 }
 
 body .gform-theme--framework .gform-field-label--type-inline {
