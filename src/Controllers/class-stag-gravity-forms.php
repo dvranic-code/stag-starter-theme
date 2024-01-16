@@ -84,7 +84,7 @@ if ( ! class_exists( 'STAG_Gravity_Forms' ) ) {
 
 						$value .= ( $i + 1 ) . '. ' . $service->post_title . "\n";
 						$value .= '    ' . pll__( 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:' ) . "\n";
-						$value .= '    ' . $patient_preparation . "\n";
+						$value .= '    ' . esc_html( $patient_preparation ) . "\n";
 					}
 				}
 			}
