@@ -26,11 +26,12 @@ pll_register_string( 'index', 'Прочитај', 'index' );
 pll_register_string( '404', 'Упс, нешто се десило... страница не постоји.', '404' );
 
 // Group: General.
-pll_register_string( 'general', 'Спремни сте за објаву вашег првог чланка? <a href="%1$s">Почните овде</a>.', 'general' );
+pll_register_string( 'general', 'Спремни сте за објаву вашег првог чланка? <a href="%1$s">Почните овде</a>.', 'general', true );
 pll_register_string( 'general', 'Нема резултата претраге.', 'general' );
-pll_register_string( 'general', 'Изгледа да не можемо пронаћи оно шта тражите. Можда претрага може помоћи.', 'general' );
+pll_register_string( 'general', 'Изгледа да не можемо пронаћи оно шта тражите. Можда претрага може помоћи.', 'general', true );
 pll_register_string( 'service_name', 'Назив услуге', 'general' );
 pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
 pll_register_string( 'service_price', 'Цена услуге', 'general' );
 pll_register_string( 'service_no', 'Бр.', 'general' );
 pll_register_string( 'service_price_short', 'Цена', 'general' );
+pll_register_string( 'schedule_form_patient_preparation', 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:', 'general' );

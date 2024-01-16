@@ -82,7 +82,7 @@ if ( ! class_exists( 'STAG_Gravity_Forms' ) ) {
 						$service = get_post( $id );
 
 						$value .= ( $i + 1 ) . '. ' . $service->post_title . "\n";
-						$value .= '    ' . pll__( 'Припрема' ) . ":\n";
+						$value .= '    ' . pll__( 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:' ) . "\n";
 						$value .= '    ' . get_field( 'opis_pripreme_pacijenta', $id ) . "\n";
 					}
 				}
