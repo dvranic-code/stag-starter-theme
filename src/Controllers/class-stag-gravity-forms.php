@@ -92,6 +92,7 @@ if ( ! class_exists( 'STAG_Gravity_Forms' ) ) {
 						$value .= pll__( 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:' ) . "\n";
 						$value .= $patient_preparation . "\n";
 						$value .= "--------------------------- \n";
+						$value .= "\n";
 					}
 				}
 			}
