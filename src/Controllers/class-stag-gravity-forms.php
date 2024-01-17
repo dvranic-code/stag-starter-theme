@@ -80,11 +80,18 @@ if ( ! class_exists( 'STAG_Gravity_Forms' ) ) {
 					foreach ( $service_ids as $i => $id ) {
 						// get the service object.
 						$service = get_post( $id );
-						$patient_preparation = get_field( 'opis_pripreme_pacijenta', $id ) ?? '/';
+						if ( '' === get_field( 'opis_pripreme_pacijenta', $id ) ) {
+							$patient_preparation = pll__( 'Није потребна посебна припрема.' );
+						} else {
+							$patient_preparation = wp_strip_all_tags( get_field( 'opis_pripreme_pacijenta', $id ) );
+						}
+						error_log( 'STAMPA:' . var_export( $patient_preparation, true ) );
 
 						$value .= ( $i + 1 ) . '. ' . $service->post_title . "\n";
-						$value .= '    ' . pll__( 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:' ) . "\n";
-						$value .= '    ' . esc_html( $patient_preparation ) . "\n";
+						$value .= "--------------------------- \n";
+						$value .= pll__( 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:' ) . "\n";
+						$value .= $patient_preparation . "\n";
+						$value .= "--------------------------- \n";
 					}
 				}
 			}
