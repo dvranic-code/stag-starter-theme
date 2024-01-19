@@ -2,6 +2,10 @@
 
 .posts-grid {
 
+  figure {
+    margin: 0;
+  }
+
   &__wrapper {
     margin-bottom: toRem(65);
 
