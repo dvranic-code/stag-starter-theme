@@ -1,7 +1,8 @@
 @use "../../assets/public/src/scss/global/abstract" as *;
 
 .block-partner {
-  margin-bottom: toRem(120);
+  margin-bottom: toRem(60);
+  margin-top: toRem(40);
 
   &__grid {
     display: grid;

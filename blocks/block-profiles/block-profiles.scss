@@ -1,7 +1,8 @@
 @use "../../assets/public/src/scss/global/abstract" as *;
 
 .block-profiles {
-  margin-bottom: toRem(90);
+  margin-bottom: toRem(60);
+  margin-top: toRem(40);
 
   &__swiper {
     position: relative;
