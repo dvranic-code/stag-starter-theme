@@ -199,6 +199,19 @@ a.btn {
   }
 }
 
+.to-form-floating-btn {
+  background-color: wpColor(tl-blue-4);
+  color: wpColor(tl-white);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  &:hover {
+    background-color: wpColor(tl-white);
+    color: wpColor(tl-blue-4) !important;
+  }
+}
+
 .btn--tag {
   display: inline-flex;
   align-items: center;

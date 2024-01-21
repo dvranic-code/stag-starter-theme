@@ -65,8 +65,9 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 			wp_enqueue_script( 'stag-theme-scripts', get_stylesheet_directory_uri() . '/assets/public/dist/js/theme.min.js', array(), $js_version_child, true );
 
 			$stag_vars = array(
-				'ajaxURL' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'ajax_nonce' ),
+				'ajaxURL'       => admin_url( 'admin-ajax.php' ),
+				'nonce'         => wp_create_nonce( 'ajax_nonce' ),
+				'toContactForm' => pll__( 'Контакт форма' ),
 			);
 			wp_localize_script( 'stag-theme-scripts', 'WP_vars', $stag_vars );
 		}

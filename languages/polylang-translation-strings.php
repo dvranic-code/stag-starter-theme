@@ -30,6 +30,7 @@ pll_register_string( 'general', 'Спремни сте за објаву ваш�
 pll_register_string( 'general', 'Нема резултата претраге.', 'general' );
 pll_register_string( 'general', 'Изгледа да не можемо пронаћи оно шта тражите. Можда претрага може помоћи.', 'general', true );
 pll_register_string( 'service_name', 'Назив услуге', 'general' );
+pll_register_string( 'contact_form', 'Контакт форма', 'general' );
 pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
 pll_register_string( 'service_price', 'Цена услуге', 'general' );
 pll_register_string( 'service_no', 'Бр.', 'general' );

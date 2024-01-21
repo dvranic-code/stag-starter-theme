@@ -5,6 +5,7 @@
   require("./components/img-popup.js");
   require("./components/choose-service.js");
   require("./components/tor-fade.js");
+  require("./components/to-form-floating-btn.js");
 })();
 
 (($) => {
