@@ -122,11 +122,9 @@ body {
   }
 
   .gform-theme--framework {
-    .gpoll_wrapper {
-      .blue {
-        .gpoll_bar_juice {
-          background-color: wpColor(tl-blue-1);
-        }
+    .blue {
+      .gpoll_bar_juice {
+        background-color: wpColor(tl-blue-1) !important;
       }
     }
 
