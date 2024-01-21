@@ -105,3 +105,37 @@ body .gform-theme--foundation .gform_page_footer {
     }
   }
 }
+
+// Polls
+body {
+  .gravity-theme {
+    .blue {
+      .gpoll_ratio_box {
+        background-color: wpColor(tl-blue-1);
+      }
+  
+      .gpoll_bar_juice {
+        background-color: wpColor(tl-blue-1);
+        background-image: linear-gradient(#000065,wpColor(tl-blue-1));
+      }
+    }
+  }
+
+  .gform-theme--framework {
+    .gpoll_wrapper {
+      .blue {
+        .gpoll_bar_juice {
+          background-color: wpColor(tl-blue-1);
+        }
+      }
+    }
+
+    .gpoll_bar_juice {
+      left: 0;
+    }
+
+    .gpoll_bar_count {
+      display: none;
+    }
+  }
+}
