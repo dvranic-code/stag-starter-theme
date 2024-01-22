@@ -1,3 +1,6 @@
+@import "./abstract";
+@import "./fonts";
+
 .wp-block-video {
     video {
         border-radius: 12px;
@@ -42,6 +45,14 @@
                 border-width: 2px;
                 transition: all 0.3s ease-in-out;
                 max-width: 200px;
+
+                @include breakpoint(md, min) {
+                    max-width: 320px;
+                }
+
+                @include breakpoint(lg, min) {
+                    max-width: 400px;
+                }
 
                 &:hover {
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
