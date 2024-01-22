@@ -10,8 +10,12 @@
         font-size: 22px;
 
         &::marker {
-            color: wpColor(tl-blue-4);
+            color: var(--foregroundColor);
             margin-right: 10px;
         }
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: 20px;
     }
 }
