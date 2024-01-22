@@ -45,4 +45,5 @@ pll_register_string( 'service_price', 'Цена услуге', 'general' );
 pll_register_string( 'service_no', 'Бр.', 'general' );
 pll_register_string( 'service_price_short', 'Цена', 'general' );
 pll_register_string( 'no_preparation', 'Није потребна посебна припрема.', 'general' );
-pll_register_string( 'schedule_form_patient_preparation', 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:', 'general' );
+pll_register_string( 'schedule_form_patient_preparation', 'У наставку Вам достављамо упутство за припрему пацијената за одабрану анализу:', 'general', true );
+pll_register_string( 'selected_services', 'Изабрали сте следеће услуге:', 'general', true );
