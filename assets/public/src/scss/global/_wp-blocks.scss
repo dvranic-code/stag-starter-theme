@@ -30,7 +30,8 @@
 }
 
 .wpdevart_org_chart {
-    .wpdevart_org_chart_container {
+    .wpdevart_org_chart_container,
+    .wpda_mobile.wpdevart_org_chart_container {
         .wpda_tree_item_container {
             & > div {
                 background: #e6ecfd;
