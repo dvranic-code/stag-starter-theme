@@ -35,6 +35,8 @@ pll_register_string( 'from_doctor', 'Могуће на упут лекара (Р
 pll_register_string( 'from_personal', 'Могуће на лични захтев (плаћање)', 'general' );
 pll_register_string( 'sample', 'Узорак', 'general' );
 pll_register_string( 'method', 'Метода', 'general' );
+pll_register_string( 'total', 'Укупно:', 'general' );
+pll_register_string( 'book', 'Закажи', 'general' );
 pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
 pll_register_string( 'service_name', 'Назив услуге', 'general' );
 pll_register_string( 'contact_form', 'Контакт форма', 'general' );
