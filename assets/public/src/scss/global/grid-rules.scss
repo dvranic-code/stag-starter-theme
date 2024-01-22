@@ -15,6 +15,17 @@
   margin-right: -50vw;
 }
 
+.page-template-default {
+  .full-width-container {
+    @include breakpoint(lg, min) {
+      margin-left: calc(-50vw + (328px / 2) );
+    }
+    @include breakpoint(xl, min) {
+      margin-left: calc(-50vw + (390px / 2) );
+    }
+  }
+}
+
 .container,
 .container-fluid,
 .container-xxl,
