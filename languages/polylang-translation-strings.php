@@ -37,6 +37,8 @@ pll_register_string( 'sample', 'Узорак', 'general' );
 pll_register_string( 'method', 'Метода', 'general' );
 pll_register_string( 'total', 'Укупно:', 'general' );
 pll_register_string( 'book', 'Закажи', 'general' );
+pll_register_string( 'yes', 'ДА', 'general' );
+pll_register_string( 'no', 'НЕ', 'general' );
 pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
 pll_register_string( 'service_name', 'Назив услуге', 'general' );
 pll_register_string( 'contact_form', 'Контакт форма', 'general' );
