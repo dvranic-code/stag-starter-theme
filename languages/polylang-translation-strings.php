@@ -29,6 +29,13 @@ pll_register_string( '404', 'Упс, нешто се десило... стран�
 pll_register_string( 'general', 'Спремни сте за објаву вашег првог чланка? <a href="%1$s">Почните овде</a>.', 'general', true );
 pll_register_string( 'general', 'Нема резултата претраге.', 'general' );
 pll_register_string( 'general', 'Изгледа да не можемо пронаћи оно шта тражите. Можда претрага може помоћи.', 'general', true );
+pll_register_string( 'filter', 'Филтер', 'general' );
+pll_register_string( 'category', 'Категорија', 'general' );
+pll_register_string( 'from_doctor', 'Могуће на упут лекара (РФЗО)', 'general' );
+pll_register_string( 'from_personal', 'Могуће на лични захтев (плаћање)', 'general' );
+pll_register_string( 'sample', 'Узорак', 'general' );
+pll_register_string( 'method', 'Метода', 'general' );
+pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
 pll_register_string( 'service_name', 'Назив услуге', 'general' );
 pll_register_string( 'contact_form', 'Контакт форма', 'general' );
 pll_register_string( 'result_time', 'Време издавања резултата (радни дани)', 'general' );
