@@ -4,3 +4,14 @@
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.16);
     }
 }
+
+.wp-block-details {
+    summary {
+        font-size: 22px;
+
+        &::marker {
+            color: wpColor(tl-blue-4);
+            margin-right: 10px;
+        }
+    }
+}
