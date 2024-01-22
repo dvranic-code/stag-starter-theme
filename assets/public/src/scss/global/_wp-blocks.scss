@@ -34,7 +34,7 @@
     .wpda_mobile.wpdevart_org_chart_container {
         .wpda_tree_item_container {
             & > div {
-                background: #e6ecfd;
+                background: #e6ecfd !important;
                 min-height: unset;
                 padding: 16px;
                 border-radius: 12px;
@@ -45,7 +45,7 @@
 
                 &:hover {
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
-                    background: #0A3782;
+                    background: #0A3782 !important;
                     
                     .wpda_tree_item_title {
                         color: white;
