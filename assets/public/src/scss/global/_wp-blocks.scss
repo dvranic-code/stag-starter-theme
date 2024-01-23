@@ -84,12 +84,13 @@
 
 #wpdaOrgChartPopupWindow {
     border-color: #0A3782 !important;
-    border-width: 2px !important;
 
     #wpdaOrgChartCloseSection {
         background: #e6ecfd !important;
         border-bottom-color: #0A3782 !important;
+    }
 
+    .wpda_popup_innerhtml {
         h2 {
             color: #0A3782;
         }
