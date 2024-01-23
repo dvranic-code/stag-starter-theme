@@ -46,7 +46,8 @@ else :
 
 	$lang = pll_current_language();
 	if ( 'en' === $lang ) {
-		$curency     = 'EUR';
+		// $curency     = 'EUR'; // In case they ever need to change the curency.
+		$curency     = 'РСД';
 		$booking_url = get_field( 'booking_page_en', 'option' );
 	} else {
 		$curency     = 'РСД';
