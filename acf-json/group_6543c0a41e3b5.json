@@ -3,6 +3,26 @@
     "title": "Torlak Mega Block",
     "fields": [
         {
+            "key": "field_65ba06623fad8",
+            "label": "Is Gallery",
+            "name": "is_gallery",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_6543c0a48461c",
             "label": "Section Title",
             "name": "section_title",
@@ -34,7 +54,7 @@
                 [
                     {
                         "field": "field_6543c0a48461c",
-                        "operator": "==",
+                        "operator": "!=",
                         "value": "1"
                     }
                 ]
@@ -58,7 +78,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65ba06623fad8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -148,7 +176,7 @@
                 [
                     {
                         "field": "field_6543c329ef238",
-                        "operator": "==",
+                        "operator": "!=",
                         "value": "1"
                     }
                 ]
@@ -177,7 +205,15 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65ba06623fad8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -197,7 +233,15 @@
             "type": "textarea",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65ba06623fad8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -217,7 +261,15 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65ba06623fad8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -244,5 +296,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1703267452
+    "modified": 1706690605
 }

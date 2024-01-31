@@ -35,6 +35,7 @@ else :
 		$class_name .= ' align' . $block['align'];
 	}
 
+	$is_gallery           = get_field( 'is_gallery' );
 	$section_title        = get_field( 'section_title' );
 	$section_title_text   = get_field( 'section_title_text' );
 	$block_image          = get_field( 'block_image' );
@@ -47,36 +48,58 @@ else :
 	?>
 
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>">
+
 	<?php if ( $section_title ) : ?>
 		<h5 class="homepage-mega__section-title"><?php echo esc_html( $section_title_text ); ?></h5>
 	<?php endif; ?>
+
 	<div class="row <?php echo 'right' === $block_image_aligment ? 'row-reverse' : ''; ?>">
-	<?php if ( $block_image ) : ?>
-	<div class="col-lg-6">
-		<?php if ( $block_images ) : ?>
-			<div class="homepage-mega__images-container tor-fade">
-				<?php foreach ( $block_images as $item ) : ?>
-					<figure class="homepage-mega__block-image tor-fade__item">
-						<?php echo wp_get_attachment_image( $item['image'], 'large', false, array( 'loading' => 'lazy' ) ); ?>
-					</figure>
-				<?php endforeach; ?>
+
+		<?php if ( $is_gallery ) : ?>
+			<div class="col-lg-12">
+				<?php if ( $block_images ) : ?>
+					<div class="homepage-mega__images-container tor-fade">
+						<?php foreach ( $block_images as $item ) : ?>
+							<figure class="homepage-mega__block-image tor-fade__item">
+								<?php echo wp_get_attachment_image( $item['image'], 'large', false, array( 'loading' => 'lazy' ) ); ?>
+							</figure>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 			</div>
+
+		<?php else : ?>
+
+			<?php if ( $block_image ) : ?>
+				<div class="col-lg-6">
+					<?php if ( $block_images ) : ?>
+						<div class="homepage-mega__images-container tor-fade">
+							<?php foreach ( $block_images as $item ) : ?>
+								<figure class="homepage-mega__block-image tor-fade__item">
+									<?php echo wp_get_attachment_image( $item['image'], 'large', false, array( 'loading' => 'lazy' ) ); ?>
+								</figure>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
+	
+			<div class="<?php echo $block_image ? 'col-lg-6' : 'col-lg-12'; ?>">
+				<div class="homepage-mega__content">
+					<?php if ( $block_title ) : ?>
+						<h2 class="homepage-mega__content--title"><?php echo esc_html( $block_title ); ?></h2>
+					<?php endif; ?>
+					<?php if ( $block_description ) : ?>
+						<p class="homepage-mega__content--description"><?php echo esc_html( $block_description ); ?></p>
+					<?php endif; ?>
+					<?php if ( $block_button ) : ?>
+						<a href="<?php echo esc_url( $block_button['url'] ); ?>" class="btn btn--sm"><?php echo esc_html( $block_button['title'] ); ?></a>
+					<?php endif; ?>
+				</div>
+			</div>
+
 		<?php endif; ?>
-	</div>
-	<?php endif; ?>
-	<div class="<?php echo $block_image ? 'col-lg-6' : 'col-lg-12'; ?>">
-		<div class="homepage-mega__content">
-		<?php if ( $block_title ) : ?>
-		<h2 class="homepage-mega__content--title"><?php echo esc_html( $block_title ); ?></h2>
-		<?php endif; ?>
-		<?php if ( $block_description ) : ?>
-		<p class="homepage-mega__content--description"><?php echo esc_html( $block_description ); ?></p>
-		<?php endif; ?>
-		<?php if ( $block_button ) : ?>
-		<a href="<?php echo esc_url( $block_button['url'] ); ?>" class="btn btn--sm"><?php echo esc_html( $block_button['title'] ); ?></a>
-	<?php endif; ?>
-		</div>
-	</div>
+
 	</div>
 </section>
 <?php endif; ?>
