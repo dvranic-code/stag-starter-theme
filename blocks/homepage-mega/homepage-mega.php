@@ -20,6 +20,16 @@ if ( isset( $block['data']['preview_image_help'] ) ) :    /* rendering in insert
 
 else :
 
+	$is_gallery           = get_field( 'is_gallery' );
+	$section_title        = get_field( 'section_title' );
+	$section_title_text   = get_field( 'section_title_text' );
+	$block_image          = get_field( 'block_image' );
+	$block_images         = get_field( 'block_images' );
+	$block_image_aligment = get_field( 'block_image_aligment' );
+	$block_title          = get_field( 'block_title' );
+	$block_description    = get_field( 'block_description' );
+	$block_button         = get_field( 'block_button' );
+
 	// Support custom "anchor" values.
 	$anchor = '';
 	if ( ! empty( $block['anchor'] ) ) {
@@ -31,19 +41,12 @@ else :
 	if ( ! empty( $block['className'] ) ) {
 		$class_name .= ' ' . $block['className'];
 	}
+	if ( $is_gallery ) {
+		$class_name .= ' homepage-mega--gallery';
+	}
 	if ( ! empty( $block['align'] ) ) {
 		$class_name .= ' align' . $block['align'];
 	}
-
-	$is_gallery           = get_field( 'is_gallery' );
-	$section_title        = get_field( 'section_title' );
-	$section_title_text   = get_field( 'section_title_text' );
-	$block_image          = get_field( 'block_image' );
-	$block_images         = get_field( 'block_images' );
-	$block_image_aligment = get_field( 'block_image_aligment' );
-	$block_title          = get_field( 'block_title' );
-	$block_description    = get_field( 'block_description' );
-	$block_button         = get_field( 'block_button' );
 
 	?>
 

@@ -54,7 +54,7 @@
                 [
                     {
                         "field": "field_6543c0a48461c",
-                        "operator": "!=",
+                        "operator": "==",
                         "value": "1"
                     }
                 ]
@@ -168,7 +168,7 @@
                 [
                     {
                         "field": "field_6543c329ef238",
-                        "operator": "!=",
+                        "operator": "==",
                         "value": "1"
                     }
                 ]
@@ -288,5 +288,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706690681
+    "modified": 1708194859
 }
