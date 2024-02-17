@@ -40,16 +40,6 @@ else :
 	$load_more_btn_text = get_field( 'load_more_btn_text' );
 	$custom_title       = get_field( 'custom_title' );
 
-	$posts_grid = array(
-		'posts_per_page' => $number_of_posts,
-		'post_type'      => $posts_type,
-		'post_status'    => 'publish',
-		'orderby'        => 'date',
-		'order'          => 'DESC',
-	);
-
-	$query = new WP_Query( $posts_grid );
-
 	$is_events       = get_field( 'is_events' );
 	$events_category = get_field( 'select_category' );
 	$events_args     = array(
@@ -60,6 +50,29 @@ else :
 		'orderby'        => 'date',
 		'order'          => 'DESC',
 	);
+
+	if ( $is_events ) {
+		$posts_grid = array(
+			'posts_per_page'   => $number_of_posts,
+			'post_type'        => $posts_type,
+			'post_status'      => 'publish',
+			'orderby'          => 'date',
+			'order'            => 'DESC',
+			'category__not_in' => array( $events_category->term_id ),
+		);
+	} else {
+		$posts_grid = array(
+			'posts_per_page' => $number_of_posts,
+			'post_type'      => $posts_type,
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		);
+	}
+
+
+
+	$query = new WP_Query( $posts_grid );
 
 	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-number="<?php echo esc_attr( $number_of_posts ); ?>" data-post="<?php echo esc_attr( $posts_type ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
