@@ -14,8 +14,13 @@
     }
 
     a.post-thumbnail {
+      display: block;
+      height: 100%;
       img {
         border-radius: toRem(10);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -131,7 +136,7 @@
     &--entry-content {
 
       p {
-        margin-bottom: toRem(40);
+        margin-bottom: toRem(20);
         color: wpColor(tl-black);
         font-size: toRem(20);
         font-style: normal;
@@ -147,6 +152,36 @@
     .btn {
       left: 0;
       transform: translate(0, 0);
+    }
+  }
+
+  &__events {
+    margin-top: toRem(-65);
+    margin-bottom: toRem(65);
+
+    @include breakpoint(lg, min) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &--wrapper {
+      border-top: 1px solid wpColor(tl-grey-3);
+      padding-top: toRem(12);
+
+      @include breakpoint(lg, min) {
+        padding-top: toRem(40);
+      }
+
+      h4 {
+        font-size: 20px;
+        margin-bottom: toRem(6);
+      }
+
+      p {
+        font-size: 16px;
+        color: wpColor(tl-grey-3);
+        margin-bottom: 2rem;
+      }
     }
   }
 }

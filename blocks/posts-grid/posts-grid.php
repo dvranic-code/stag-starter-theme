@@ -50,18 +50,57 @@ else :
 
 	$query = new WP_Query( $posts_grid );
 
+	$is_events       = get_field( 'is_events' );
+	$events_category = get_field( 'select_category' );
+	$events_args     = array(
+		'posts_per_page' => 5,
+		'post_type'      => 'post',
+		'category_name'  => $events_category->slug,
+		'post_status'    => 'publish',
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
+
 	?>
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-number="<?php echo esc_attr( $number_of_posts ); ?>" data-post="<?php echo esc_attr( $posts_type ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
+
+	<div class="row">
+		<div class="<?php echo ( $is_events ) ? 'col-lg-9' : 'col-lg-12'; ?>">
+			<?php
+			get_template_part(
+				'template-parts/content',
+				'posts-grid',
+				array(
+					'posts'         => $query,
+					'btn-text'      => $load_more_btn_text,
+					'section-title' => $custom_title,
+				)
+			);
+			?>
+		</div>
+
 		<?php
-		get_template_part(
-			'template-parts/content',
-			'posts-grid',
-			array(
-				'posts'         => $query,
-				'btn-text'      => $load_more_btn_text,
-				'section-title' => $custom_title,
-			)
-		);
-		?>
+		if ( $is_events ) :
+			$events_query = new WP_Query( $events_args );
+			?>
+			<div class="col-lg-3 posts-grid__events">
+				<h3><?php echo esc_html( $events_category->name ); ?></h3>
+				<?php if ( $events_query->have_posts() ) : ?>
+					<div class="posts-grid__events--wrapper">
+						<?php
+						while ( $events_query->have_posts() ) :
+							$events_query->the_post();
+							?>
+							<div class="posts-grid__events--item">
+								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<p><?php echo esc_html( get_the_date() ); ?></p>
+							</div>
+							<?php endwhile; ?>
+						<?php wp_reset_postdata(); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
+	</div>
 </section>
 <?php endif; ?>
