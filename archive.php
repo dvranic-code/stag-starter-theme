@@ -19,8 +19,8 @@ global $wp_query;
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
+				<h1 class="page-title page-title--archive"><?php single_cat_title( '', true ); ?></h1>
 				<?php
-				the_archive_title( '<h3 class="page-title">', '</h3>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->

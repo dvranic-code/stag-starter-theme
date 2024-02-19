@@ -333,3 +333,16 @@
     line-height: normal;
   }
 }
+
+.page-title {
+
+  &--archive {
+    margin-top: toRem(70);
+    margin-bottom: toRem(40);
+
+    @include breakpoint(lg, min) {
+      margin-top: toRem(140);
+      margin-bottom: toRem(60);
+    }
+  }
+}
