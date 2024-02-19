@@ -7,8 +7,8 @@ const chooseService = () => {
   if (pickedService) {
     const bookingBtn = pickedService.querySelector(".btn-booking");
     const bookingHref = bookingBtn.getAttribute("href");
-    const bookingQueryParm = '?service_list=';
-    
+    const bookingQueryParm = "?service_list=";
+
     const isActive = () => {
       const row = pickedService.querySelectorAll("tbody tr");
       if (0 !== row.length) {
@@ -37,10 +37,14 @@ const chooseService = () => {
         );
         checkedItems.forEach((checkedItem, index) => {
           // get the rice from the checked item
-          const price = checkedItem.closest("tr").querySelector(".tor-service-price");
+          const price = checkedItem
+            .closest("tr")
+            .querySelector(".tor-service-price");
           const currency = price.dataset.torCurency;
           // get the name from the checked item
-          const name = checkedItem.closest("tr").querySelector(".tor-service-name");
+          const name = checkedItem
+            .closest("tr")
+            .querySelector(".tor-service-name");
           // clone cells
           const clonedPrice = price.cloneNode(true);
           const clonedName = name.cloneNode(true);
@@ -57,39 +61,51 @@ const chooseService = () => {
           // append the cloned row to the table body
           pickedService.querySelector("tbody").appendChild(clonedRow);
           // update Total in footer
-          totalCell.innerHTML = (total += parseInt(price.innerHTML)) + " " + currency;
+          totalCell.innerHTML =
+            (total += parseInt(price.innerHTML)) + " " + currency;
           // update booking list
-          if(index === 0) {
+          if (index === 0) {
             bookingList += clonedName.dataset.serviceId;
           } else {
             bookingList += "," + clonedName.dataset.serviceId;
           }
-
         });
         isActive();
 
         // update booking button
-        bookingBtn.setAttribute("href", bookingHref + bookingQueryParm + encodeURIComponent(bookingList));
+        bookingBtn.setAttribute(
+          "href",
+          bookingHref + bookingQueryParm + encodeURIComponent(bookingList)
+        );
       });
     });
 
     isActive();
 
     // Filtering table
-    const filterInput = document.querySelector(".block-services__search .search-form__search-field");
+    const filterInput = document.querySelector(
+      ".block-services__search .search-form__search-field"
+    );
 
     if (filterInput) {
       filterInput.addEventListener("keyup", () => {
         const filter = filterInput.value.toUpperCase();
-        const tables = document.querySelectorAll(".block-services .tor-service-table table");
+        const tables = document.querySelectorAll(
+          ".block-services .tor-service-table table"
+        );
 
         tables.forEach((table) => {
           const tr = table.querySelectorAll("tbody tr");
           for (let i = 0; i < tr.length; i++) {
-            const td = tr[i].querySelectorAll("td")[2]; // 3rd column
-            if (td) {
-              const txtValue = td.textContent || td.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            const td2 = tr[i].querySelectorAll("td")[1]; // 2rd column
+            const td3 = tr[i].querySelectorAll("td")[2]; // 3rd column
+            if (td3 || td2) {
+              const txtValue2 = td2.textContent || td2.innerText;
+              const txtValue3 = td3.textContent || td3.innerText;
+              if (
+                txtValue2.toUpperCase().indexOf(filter) > -1 ||
+                txtValue3.toUpperCase().indexOf(filter) > -1
+              ) {
                 tr[i].style.display = "";
               } else {
                 tr[i].style.display = "none";
@@ -97,7 +113,6 @@ const chooseService = () => {
             }
           }
         });
-    
       });
     }
   }
