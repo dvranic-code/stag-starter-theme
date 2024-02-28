@@ -41,11 +41,27 @@ else :
 	$custom_title       = get_field( 'custom_title' );
 
 	$is_events       = get_field( 'is_events' );
+	$is_decisions    = get_field( 'is_decisions' );
 	$events_category = get_field( 'select_category' );
 	$events_args     = array(
 		'posts_per_page' => 5,
 		'post_type'      => 'post',
 		'category_name'  => $events_category->slug,
+		'post_status'    => 'publish',
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
+	$ad_type         = get_field( 'select_ad_type' );
+	$decisions_args  = array(
+		'posts_per_page' => 8,
+		'post_type'      => 'oglas',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'tipovi_oglasa',
+				'field'    => 'slug',
+				'terms'    => $ad_type->slug,
+			),
+		),
 		'post_status'    => 'publish',
 		'orderby'        => 'date',
 		'order'          => 'DESC',
@@ -59,6 +75,22 @@ else :
 			'orderby'          => 'date',
 			'order'            => 'DESC',
 			'category__not_in' => array( $events_category->term_id ),
+		);
+	} elseif ( $is_decisions ) {
+		$posts_grid = array(
+			'posts_per_page' => $number_of_posts,
+			'post_type'      => $posts_type,
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'tipovi_oglasa',
+					'field'    => 'slug',
+					'terms'    => $ad_type->slug,
+					'operator' => 'NOT IN',
+				),
+			),
 		);
 	} else {
 		$posts_grid = array(
@@ -78,7 +110,7 @@ else :
 <section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" data-number="<?php echo esc_attr( $number_of_posts ); ?>" data-post="<?php echo esc_attr( $posts_type ); ?>" data-block="is-block" data-page="<?php echo esc_attr( $query->query_vars['paged'] ? $query->query_vars['paged'] : 1 ); ?>" data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
 
 	<div class="row">
-		<div class="<?php echo ( $is_events ) ? 'col-lg-9' : 'col-lg-12'; ?>">
+		<div class="<?php echo ( $is_events || $is_decisions ) ? 'col-lg-9' : 'col-lg-12'; ?>">
 			<?php
 			get_template_part(
 				'template-parts/content',
@@ -103,6 +135,29 @@ else :
 						<?php
 						while ( $events_query->have_posts() ) :
 							$events_query->the_post();
+							?>
+							<div class="posts-grid__events--item">
+								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<p><?php echo esc_html( get_the_date() ); ?></p>
+							</div>
+							<?php endwhile; ?>
+						<?php wp_reset_postdata(); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		if ( $is_decisions ) :
+			$decisions_query = new WP_Query( $decisions_args );
+			?>
+			<div class="col-lg-3 posts-grid__events">
+				<h3><?php echo esc_html( $ad_type->name ); ?></h3>
+				<?php if ( $decisions_query->have_posts() ) : ?>
+					<div class="posts-grid__events--wrapper">
+						<?php
+						while ( $decisions_query->have_posts() ) :
+							$decisions_query->the_post();
 							?>
 							<div class="posts-grid__events--item">
 								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>

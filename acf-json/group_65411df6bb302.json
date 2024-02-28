@@ -101,7 +101,27 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_65df031a62cef",
+            "label": "Is Decisions",
+            "name": "is_decisions",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -143,6 +163,39 @@
             "bidirectional": 0,
             "multiple": 0,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_65df035262cf0",
+            "label": "Select Ad Type",
+            "name": "select_ad_type",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65df031a62cef",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "tipovi_oglasa",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -163,5 +216,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1708197693
+    "modified": 1709114478
 }
