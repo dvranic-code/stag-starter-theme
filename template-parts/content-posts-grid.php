@@ -86,5 +86,19 @@ if ( $query->have_posts() ) : ?>
 	<?php } ?>
 
 	</div>
+<?php else : ?>
+	<?php $current_post_type = $query->get( 'post_type' ); ?>
+	<div class="posts-grid__wrapper">
+		<?php if ( $custom_title ) { ?>
+			<h3><?php echo esc_html( $custom_title ); ?></h3>
+		<?php } ?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-grid__article' ); ?>>
+		<?php if ( 'oglas' === $current_post_type ) : ?>
+			<p><?php pll_e( 'Тренутно нема отворених позиција', 'stag' ); ?></p>
+		<?php else : ?>
+			<p><?php pll_e( 'Ништа није пронађено.', 'stag' ); ?></p>
+		<?php endif; ?>
+		</article><!-- #post-<?php the_ID(); ?> -->
+	</div>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>

@@ -43,32 +43,20 @@ else :
 	$is_events       = get_field( 'is_events' );
 	$is_decisions    = get_field( 'is_decisions' );
 	$events_category = get_field( 'select_category' );
-	$events_args     = array(
-		'posts_per_page' => 5,
-		'post_type'      => 'post',
-		'category_name'  => $events_category->slug,
-		'post_status'    => 'publish',
-		'orderby'        => 'date',
-		'order'          => 'DESC',
-	);
-	$ad_type         = get_field( 'select_ad_type' );
-	$decisions_args  = array(
-		'posts_per_page' => 8,
-		'post_type'      => 'oglas',
-		'tax_query'      => array(
-			array(
-				'taxonomy' => 'tipovi_oglasa',
-				'field'    => 'slug',
-				'terms'    => $ad_type->slug,
-			),
-		),
-		'post_status'    => 'publish',
-		'orderby'        => 'date',
-		'order'          => 'DESC',
-	);
+
+	$ad_type = get_field( 'select_ad_type' );
+
 
 	if ( $is_events ) {
-		$posts_grid = array(
+		$events_args = array(
+			'posts_per_page' => 5,
+			'post_type'      => 'post',
+			'category_name'  => $events_category->slug,
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		);
+		$posts_grid  = array(
 			'posts_per_page'   => $number_of_posts,
 			'post_type'        => $posts_type,
 			'post_status'      => 'publish',
@@ -77,7 +65,21 @@ else :
 			'category__not_in' => array( $events_category->term_id ),
 		);
 	} elseif ( $is_decisions ) {
-		$posts_grid = array(
+		$decisions_args = array(
+			'posts_per_page' => 8,
+			'post_type'      => 'oglas',
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'tipovi_oglasa',
+					'field'    => 'slug',
+					'terms'    => $ad_type->slug,
+				),
+			),
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		);
+		$posts_grid     = array(
 			'posts_per_page' => $number_of_posts,
 			'post_type'      => $posts_type,
 			'post_status'    => 'publish',
