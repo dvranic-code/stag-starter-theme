@@ -40,7 +40,8 @@ a.btn {
 
 .btn,
 .wp-block-button .wp-block-button__link.is-style-outline, 
-.wp-block-button.is-style-outline>.wp-block-button__link {
+.wp-block-button.is-style-outline>.wp-block-button__link,
+.wp-block-file .wp-block-file__button {
   --transitionSpeed: 0.3s;
   --borderColor: #{wpColor(tl-blue-4)};
   --borderColorDisabled: #{wpColor(light-blue)};
@@ -197,6 +198,10 @@ a.btn {
       border-color: wpColor(tl-blue-4);
     }
   }
+}
+
+.wp-block-file a:not(.wp-block-file__button) {
+  display: none;
 }
 
 .to-form-floating-btn {
