@@ -51,7 +51,7 @@ else :
 			<a class="certificate-block__grid--card" href="#" title="<?php echo esc_html( $certificate_title ); ?>" data-img-url="<?php echo esc_html( $certificate_image['url'] ); ?>">
 				<?php if ( $certificate_image ) : ?>
 				<figure class="certificate-block__grid--card--image">
-					<?php echo wp_get_attachment_image( $certificate_image['id'], 'full', false, array( 'loading' => 'lazy' ) ); ?>
+					<?php echo wp_get_attachment_image( $certificate_image['id'], 'large', false, array( 'loading' => 'lazy' ) ); ?>
 				</figure>
 				<?php endif; ?>
 				<?php if ( $certificate_title || $certificate_description ) : ?>
