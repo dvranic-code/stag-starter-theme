@@ -42,10 +42,30 @@ else :
 
 	$is_events       = get_field( 'is_events' );
 	$is_decisions    = get_field( 'is_decisions' );
-	$events_category = get_field( 'select_category' );
+	$is_specific_cat = get_field( 'is_specific_cat' );
 
-	$ad_type = get_field( 'select_ad_type' );
+	$specific_category_post   = get_field( 'specific_category_post' );
+	$specific_category_oglasi = get_field( 'specific_category_oglasi' );
+	$events_category          = get_field( 'select_category' );
+	$ad_type                  = get_field( 'select_ad_type' );
 
+	// Get search taxonomy.
+	if ( $is_events || $specific_category_post ) {
+		$search_taxonomy = 'category';
+	} elseif ( $is_decisions || $specific_category_oglasi ) {
+		$search_taxonomy = 'tipovi_oglasa';
+	} else {
+		$search_taxonomy = false;
+	}
+
+	// Get search terms.
+	if ( $specific_category_post ) {
+		$search_terms = $specific_category_post;
+	} elseif ( $specific_category_oglasi ) {
+		$search_terms = $specific_category_oglasi;
+	} else {
+		$search_terms = array();
+	}
 
 	if ( $is_events ) {
 		$events_args = array(
@@ -56,14 +76,45 @@ else :
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 		);
-		$posts_grid  = array(
-			'posts_per_page'   => $number_of_posts,
-			'post_type'        => $posts_type,
-			'post_status'      => 'publish',
-			'orderby'          => 'date',
-			'order'            => 'DESC',
-			'category__not_in' => array( $events_category->term_id ),
-		);
+		if ( $is_specific_cat ) {
+			$posts_grid = array(
+				'posts_per_page' => $number_of_posts,
+				'post_type'      => $posts_type,
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'tax_query'      => array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => $search_taxonomy,
+						'field'    => 'slug',
+						'terms'    => $events_category->slug,
+						'operator' => 'NOT IN',
+					),
+					array(
+						'taxonomy' => $search_taxonomy,
+						'field'    => 'id',
+						'terms'    => $search_terms,
+					),
+				),
+			);
+		} else {
+			$posts_grid = array(
+				'posts_per_page' => $number_of_posts,
+				'post_type'      => $posts_type,
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'tax_query'      => array(
+					array(
+						'taxonomy' => $search_taxonomy,
+						'field'    => 'slug',
+						'terms'    => $events_category->slug,
+						'operator' => 'NOT IN',
+					),
+				),
+			);
+		}
 	} elseif ( $is_decisions ) {
 		$decisions_args = array(
 			'posts_per_page' => 8,
@@ -79,7 +130,47 @@ else :
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 		);
-		$posts_grid     = array(
+		if ( $is_specific_cat ) {
+			$posts_grid = array(
+				'posts_per_page' => $number_of_posts,
+				'post_type'      => $posts_type,
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'tax_query'      => array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => $search_taxonomy,
+						'field'    => 'slug',
+						'terms'    => $ad_type->slug,
+						'operator' => 'NOT IN',
+					),
+					array(
+						'taxonomy' => $search_taxonomy,
+						'field'    => 'id',
+						'terms'    => $search_terms,
+					),
+				),
+			);
+		} else {
+			$posts_grid = array(
+				'posts_per_page' => $number_of_posts,
+				'post_type'      => $posts_type,
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'tax_query'      => array(
+					array(
+						'taxonomy' => $search_taxonomy,
+						'field'    => 'slug',
+						'terms'    => $ad_type->slug,
+						'operator' => 'NOT IN',
+					),
+				),
+			);
+		}
+	} elseif ( $search_taxonomy ) {
+		$posts_grid = array(
 			'posts_per_page' => $number_of_posts,
 			'post_type'      => $posts_type,
 			'post_status'    => 'publish',
@@ -87,10 +178,9 @@ else :
 			'order'          => 'DESC',
 			'tax_query'      => array(
 				array(
-					'taxonomy' => 'tipovi_oglasa',
-					'field'    => 'slug',
-					'terms'    => $ad_type->slug,
-					'operator' => 'NOT IN',
+					'taxonomy' => $search_taxonomy,
+					'field'    => 'id',
+					'terms'    => $search_terms,
 				),
 			),
 		);
