@@ -12,7 +12,22 @@ function imgPopup(className) {
   });
 }
 
+function showNewsPopup(className) {
+  const news = document.querySelector(`.${className}`);
+  if (!news) return;
+
+  // After 3 seconds, show news popup
+  setTimeout(() => {
+    showPopup(news, 'popup');
+    // Set cookie to prevent showing popup again
+    document.cookie = "stagShowPopup=false; max-age=3600"; // 1 hour
+  }, 3000);
+} 
+
 export const showPopup = (element, type=null) => {
+  // Check if popup should be shown
+  if (type === 'popup' && document.cookie.includes("stagShowPopup=false")) return;
+
   let popup = document.createElement("div");
   popup.style.position = "fixed";
   popup.style.top = "0";
@@ -36,6 +51,10 @@ export const showPopup = (element, type=null) => {
     let img = document.createElement("img");
     img.src = element.getAttribute("data-img-url"); // get the image URL from the data attribute
     child.appendChild(img);
+  } else if (type === "popup") {
+    let container = element.cloneNode(true);
+    container.style.display = "block";
+    child.appendChild(container);
   } else {
     // put element as child of popup
     let container = element.cloneNode(true);
@@ -61,4 +80,5 @@ export const showPopup = (element, type=null) => {
 
 onReady(() => {
   imgPopup('certificate-block__grid--card');
+  showNewsPopup('popup__wrapper');
 });

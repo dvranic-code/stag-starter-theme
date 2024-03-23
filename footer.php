@@ -82,6 +82,11 @@ if ( 'sr' === $current_language ) {
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<?php
+// get popup content.
+get_template_part( 'template-parts/content', 'popup' );
+?>
+
 <?php wp_footer(); ?>
 
 </body>
