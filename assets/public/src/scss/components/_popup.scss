@@ -1,0 +1,90 @@
+@import "../global/abstract";
+@import "../global/fonts";
+
+.popup__wrapper {
+    display: none;
+    
+    .stag-popup {
+        --stag-overlay-color: rgba(255,255,255,0.6);
+        --stag-text-color: #000;
+    
+        border: 1px solid #{wpColor(tl-blue-4)};
+        padding: 30px 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        position: relative;
+        max-height: 85dvh;
+        max-width: 800px;
+        overflow: hidden;
+
+        @include breakpoint(md, min) {
+            padding: 60px 30px;
+        }
+    
+        &__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+    
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    
+        &__overlay {
+            background-color: var(--stag-overlay-color);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(3px)
+        }  
+        
+        &__wrap {
+            position: relative;
+            z-index: 10;
+            overflow: auto;
+            max-height: calc( 85dvh - 60px );
+
+            @include breakpoint(md, min) {
+                max-height: calc( 85dvh - 120px );
+            }
+
+            h2,
+            p,
+            ul,
+            ol,
+            li {
+                color: var(--stag-text-color);
+            }   
+
+            h2 {
+                margin-top: 0;
+            }
+
+            .btn {
+                background: #fff;
+
+                &:hover {
+                    background: #{wpColor(tl-blue-4)};
+                }
+            }
+        }
+
+        &__content {
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        &__cta {
+            text-align: right;
+        }
+    }
+}
