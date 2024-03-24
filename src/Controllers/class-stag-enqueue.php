@@ -31,6 +31,7 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 		public function __construct() {
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ) );
+			add_action( 'init', array( $this, 'change_popup_cookie' ) );
 		}
 
 		/**
@@ -70,6 +71,17 @@ if ( ! class_exists( 'STAG_Enqueue' ) ) {
 				'toContactForm' => pll__( 'Контакт форма' ),
 			);
 			wp_localize_script( 'stag-theme-scripts', 'WP_vars', $stag_vars );
+		}
+
+		/**
+		 * Change popup cookie.
+		 *
+		 * @since 1.0.0
+		 */
+		public function change_popup_cookie() {
+			if ( isset( $_COOKIE['stagShowPopup'] ) && 'false' === $_COOKIE['stagShowPopup'] && current_user_can( 'edit_posts' ) && get_field( 'always_show_popup_for_admin', 'options' ) ) {
+				setcookie( 'stagShowPopup', 'true', time() + ( 3600 ) );
+			}
 		}
 
 		/**
